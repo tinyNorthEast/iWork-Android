@@ -11,6 +11,8 @@ import android.view.MenuItem;
 
 import com.impetusconsulting.iwork.R;
 
+import cn.smssdk.SMSSDK;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+//        SMSSDK.initSDK(this, "69d6705af33d", "0d786a4efe92bfab3d5717b9bc30a10d");
+
     }
 
     @Override

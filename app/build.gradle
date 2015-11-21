@@ -10,6 +10,10 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        ndk {
+            moduleName "security"
+            abiFilter 'armeabi'
+        }
     }
     buildTypes {
         release {
@@ -44,7 +48,5 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.joanzapata.android:base-adapter-helper:1.1.11'
     compile 'com.qiniu:qiniu-android-sdk:7.0.+'
-    compile files('libs/gson-2.2.1.jar')
-    compile files('libs/jpush-android-2.0.5.jar')
     compile project(':sharesdk')
 }

@@ -9,423 +9,26 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b66c37b9-a5c1-4f76-82de-b569684d9496" name="Default" comment="iwork 框架">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/MobLogCollector.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/generated/source/buildConfig/androidTest/debug/cn/smssdk/test/BuildConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/generated/source/buildConfig/debug/cn/smssdk/BuildConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/generated/source/buildConfig/release/cn/smssdk/BuildConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/generated/source/r/androidTest/debug/cn/smssdk/R.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/generated/source/r/androidTest/debug/cn/smssdk/test/R.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/generated/source/r/debug/cn/smssdk/R.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/generated/source/r/release/cn/smssdk/R.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/R.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/aapt/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/classes.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/jni/arm64-v8a/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/jni/armeabi-v7a/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/jni/armeabi/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/jni/mips/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/jni/mips64/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/jni/x86/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/jni/x86_64/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/libs/MobLogCollector.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/libs/MobTools.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/libs/SMSSDK-1.3.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable-xhdpi/smssdk_back_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable-xhdpi/smssdk_back_arrow2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable-xhdpi/smssdk_cl_divider.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable-xhdpi/smssdk_clear_search.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable-xhdpi/smssdk_cp_default_avatar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable-xhdpi/smssdk_default_avatar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable-xhdpi/smssdk_dialog_back.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable-xhdpi/smssdk_dialog_bg.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable-xhdpi/smssdk_input_bg_focus.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable-xhdpi/smssdk_input_bg_normal.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable-xhdpi/smssdk_input_bg_special_focus.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable-xhdpi/smssdk_input_bg_special_normal.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable-xhdpi/smssdk_search_icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable-xhdpi/smssdk_sharesdk_icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable/smssdk_btn_disenable.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable/smssdk_btn_enable.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable/smssdk_corners_bg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable/smssdk_corners_bg_nor.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable/smssdk_corners_bg_pre.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable/smssdk_country_bg_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable/smssdk_country_group_scroll_down.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable/smssdk_country_group_scroll_up.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable/smssdk_dialog_btn_back.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/drawable/smssdk_edittext_bg_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/raw/smssdk_pydb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/values-en/values-en.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/debug/res/values/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/R.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/aapt/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/classes.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/jni/arm64-v8a/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/jni/armeabi-v7a/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/jni/armeabi/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/jni/mips/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/jni/mips64/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/jni/x86/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/jni/x86_64/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/libs/MobLogCollector.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/libs/MobTools.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/libs/SMSSDK-1.3.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable-xhdpi/smssdk_back_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable-xhdpi/smssdk_back_arrow2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable-xhdpi/smssdk_cl_divider.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable-xhdpi/smssdk_clear_search.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable-xhdpi/smssdk_cp_default_avatar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable-xhdpi/smssdk_default_avatar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable-xhdpi/smssdk_dialog_back.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable-xhdpi/smssdk_dialog_bg.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable-xhdpi/smssdk_input_bg_focus.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable-xhdpi/smssdk_input_bg_normal.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable-xhdpi/smssdk_input_bg_special_focus.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable-xhdpi/smssdk_input_bg_special_normal.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable-xhdpi/smssdk_search_icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable-xhdpi/smssdk_sharesdk_icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable/smssdk_btn_disenable.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable/smssdk_btn_enable.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable/smssdk_corners_bg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable/smssdk_corners_bg_nor.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable/smssdk_corners_bg_pre.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable/smssdk_country_bg_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable/smssdk_country_group_scroll_down.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable/smssdk_country_group_scroll_up.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable/smssdk_dialog_btn_back.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/drawable/smssdk_edittext_bg_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/raw/smssdk_pydb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/values-en/values-en.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/bundles/release/res/values/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/R$array.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/R$raw.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/CommonDialog.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactDetailPage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactDetailPage$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactDetailPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactEntry.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactItemMaker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactsAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactsListView$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactsListView$GroupAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactsListView$InnerAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactsListView.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactsPage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactsPage$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactsPage$3$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactsPage$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactsPage$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/ContactsPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/CountryAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/CountryListView.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/CountryPage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/CountryPage$2$1$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/CountryPage$2$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/CountryPage$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/CountryPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/DefaultContactViewItem$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/DefaultContactViewItem$ViewHolder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/DefaultContactViewItem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/DefaultOnSendMessageListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/GroupListView$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/GroupListView$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/GroupListView$GroupAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/GroupListView$InnerAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/GroupListView$OnItemClickListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/GroupListView.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$10.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$12.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$13.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$14.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$2$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/IdentifyNumPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/RegisterPage$1$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/RegisterPage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/RegisterPage$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/RegisterPage$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/RegisterPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/SMSReceiver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/SearchEngine$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/SearchEngine$SearchIndex.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/SearchEngine.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/SmartVerifyPage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/SmartVerifyPage$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/SmartVerifyPage$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/SmartVerifyPage$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/SmartVerifyPage$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/SmartVerifyPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/BackVerifyDialogLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/BasePageLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/ContactDetailPageLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/ContactListPageLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/ContactsListviewItemLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/CountryListPageLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/DrawableHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/IdentifyNumPageLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/LayoutFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/ListviewTitleLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/ProgressDialogLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/RegisterPageLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/Res$color.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/Res$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/Res.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/SendMsgDialogLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/SizeHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/debug/cn/smssdk/gui/layout/TitleLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/R$array.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/R$raw.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/CommonDialog.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactDetailPage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactDetailPage$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactDetailPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactEntry.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactItemMaker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactsAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactsListView$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactsListView$GroupAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactsListView$InnerAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactsListView.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactsPage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactsPage$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactsPage$3$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactsPage$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactsPage$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/ContactsPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/CountryAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/CountryListView.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/CountryPage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/CountryPage$2$1$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/CountryPage$2$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/CountryPage$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/CountryPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/DefaultContactViewItem$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/DefaultContactViewItem$ViewHolder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/DefaultContactViewItem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/DefaultOnSendMessageListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/GroupListView$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/GroupListView$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/GroupListView$GroupAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/GroupListView$InnerAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/GroupListView$OnItemClickListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/GroupListView.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$10.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$12.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$13.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$14.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$2$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/IdentifyNumPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/RegisterPage$1$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/RegisterPage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/RegisterPage$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/RegisterPage$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/RegisterPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/SMSReceiver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/SearchEngine$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/SearchEngine$SearchIndex.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/SearchEngine.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/SmartVerifyPage$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/SmartVerifyPage$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/SmartVerifyPage$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/SmartVerifyPage$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/SmartVerifyPage$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/SmartVerifyPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/BackVerifyDialogLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/BasePageLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/ContactDetailPageLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/ContactListPageLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/ContactsListviewItemLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/CountryListPageLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/DrawableHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/IdentifyNumPageLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/LayoutFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/ListviewTitleLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/ProgressDialogLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/RegisterPageLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/Res$color.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/Res$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/Res.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/SendMsgDialogLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/SizeHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/classes/release/cn/smssdk/gui/layout/TitleLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/incremental/aidl/androidTest/debug/dependency.store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/incremental/aidl/debug/dependency.store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/incremental/aidl/release/dependency.store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/incremental/mergeAssets/release/merger.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/incremental/mergeResources/androidTest/debug/merger.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/incremental/packageResources/debug/merger.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/incremental/packageResources/release/merger.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/manifests/androidTest/debug/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/manifests/tmp/manifestMerger5152081211745875008.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/manifests/tmp/manifestMerger958748767264962360.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable-xhdpi/smssdk_back_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable-xhdpi/smssdk_back_arrow2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable-xhdpi/smssdk_cl_divider.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable-xhdpi/smssdk_clear_search.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable-xhdpi/smssdk_cp_default_avatar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable-xhdpi/smssdk_default_avatar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable-xhdpi/smssdk_dialog_back.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable-xhdpi/smssdk_dialog_bg.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable-xhdpi/smssdk_input_bg_focus.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable-xhdpi/smssdk_input_bg_normal.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable-xhdpi/smssdk_input_bg_special_focus.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable-xhdpi/smssdk_input_bg_special_normal.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable-xhdpi/smssdk_search_icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable-xhdpi/smssdk_sharesdk_icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable/smssdk_btn_disenable.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable/smssdk_btn_enable.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable/smssdk_corners_bg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable/smssdk_corners_bg_nor.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable/smssdk_corners_bg_pre.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable/smssdk_country_bg_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable/smssdk_country_group_scroll_down.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable/smssdk_country_group_scroll_up.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable/smssdk_dialog_btn_back.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/drawable/smssdk_edittext_bg_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/raw/smssdk_pydb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/values-en/values-en.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/res/androidTest/debug/values/values.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/resources/resources-debug-androidTest.ap_" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/intermediates/symbols/androidTest/debug/R.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/outputs/aar/smssdk-debug.aar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/outputs/aar/smssdk-release.aar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/tmp/packageDebugJar/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/build/tmp/packageReleaseJar/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/libs/MobLogCollector.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/libs/MobTools.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/smssdk.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/CommonDialog.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/ContactDetailPage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/ContactEntry.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/ContactItemMaker.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/ContactsAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/ContactsListView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/ContactsPage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/CountryAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/CountryListView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/CountryPage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/DefaultContactViewItem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/DefaultOnSendMessageListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/GroupListView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/IdentifyNumPage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/RegisterPage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/SMSReceiver.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/SearchEngine.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/SmartVerifyPage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/BackVerifyDialogLayout.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/BasePageLayout.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/ContactDetailPageLayout.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/ContactListPageLayout.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/ContactsListviewItemLayout.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/CountryListPageLayout.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/DrawableHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/IdentifyNumPageLayout.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/LayoutFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/ListviewTitleLayout.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/ProgressDialogLayout.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/RegisterPageLayout.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/Res.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/SendMsgDialogLayout.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/SizeHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/java/cn/smssdk/gui/layout/TitleLayout.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/jniLibs/arm64-v8a/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/jniLibs/armeabi-v7a/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/jniLibs/armeabi/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/jniLibs/mips/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/jniLibs/mips64/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/jniLibs/x86/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/jniLibs/x86_64/libsmssdk.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable-xhdpi/smssdk_back_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable-xhdpi/smssdk_back_arrow2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable-xhdpi/smssdk_cl_divider.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable-xhdpi/smssdk_clear_search.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable-xhdpi/smssdk_cp_default_avatar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable-xhdpi/smssdk_default_avatar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable-xhdpi/smssdk_dialog_back.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable-xhdpi/smssdk_dialog_bg.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable-xhdpi/smssdk_input_bg_focus.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable-xhdpi/smssdk_input_bg_normal.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable-xhdpi/smssdk_input_bg_special_focus.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable-xhdpi/smssdk_input_bg_special_normal.9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable-xhdpi/smssdk_search_icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable-xhdpi/smssdk_sharesdk_icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable/smssdk_btn_disenable.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable/smssdk_btn_enable.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable/smssdk_corners_bg.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable/smssdk_corners_bg_nor.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable/smssdk_corners_bg_pre.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable/smssdk_country_bg_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable/smssdk_country_group_scroll_down.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable/smssdk_country_group_scroll_up.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable/smssdk_dialog_btn_back.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/drawable/smssdk_edittext_bg_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/raw/smssdk_pydb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/values-en/smssdk_arrays.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/values-en/smssdk_errors.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/values-en/smssdk_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/values-en/strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/values/smssdk_arrays.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/values/smssdk_colors.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/values/smssdk_errors.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/values/smssdk_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/values/smssdk_styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/smssdk/src/main/res/values/strings.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/smssdk/libs/SMSSDK-1.3.1.jar" afterPath="$PROJECT_DIR$/app/libs/SMSSDK-1.3.1.jar" />
+    <list default="true" id="b66c37b9-a5c1-4f76-82de-b569684d9496" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/SMSSDK-1.2.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/armeabi/libsmssdk.so" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/SMSSDK-1.3.1.jar" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/SMSSDK_1_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SMSSDK_1_2_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/iwork/Base/BaseApplication.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/iwork/Base/BaseApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/SMSSDK_1_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/SMSSDK_1_3_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/iwork/ui/activity/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/iwork/ui/activity/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sharesdk/build.gradle" afterPath="$PROJECT_DIR$/sharesdk/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sharesdk/sharesdk.iml" afterPath="$PROJECT_DIR$/sharesdk/sharesdk.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="iWork-Android.iws" />
@@ -458,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+              <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -467,31 +70,49 @@
       <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.7037037">
+            <state vertical-scroll-proportion="0.0">
               <caret line="1" column="33" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.42857143">
+              <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseApplication.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BaseApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/iwork/Base/BaseApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6857143">
-              <caret line="31" column="60" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="60" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/iwork/ui/activity/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="32" column="10" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/app.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -512,7 +133,7 @@
         <entry file="file://$PROJECT_DIR$/sharesdk/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -2293,549 +1914,12 @@
             </list>
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/smssdk">
-          <value>
-            <list>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the Android dependencies of the project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="androidDependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles all variants of all applications and secondary packages." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="assemble" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles all the Test applications." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="assembleAndroidTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles all Debug builds." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="assembleDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles the android (on device) tests for the Debug build." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="assembleDebugAndroidTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles the unit tests for the Debug build." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="assembleDebugUnitTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="assembleDefault" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles all Release builds." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="assembleRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles the unit tests for the Release build." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="assembleReleaseUnitTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="build" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project and all projects that depend on it." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="buildDependents" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project and all projects it depends on." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="buildNeeded" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles a bundle containing the library in Debug." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="bundleDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles a bundle containing the library in Release." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="bundleRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs all checks." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="check" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="checkDebugManifest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="checkReleaseManifest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Deletes the build directory." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="clean" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileDebugAidl" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileDebugAndroidTestAidl" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileDebugAndroidTestJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileDebugAndroidTestNdk" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileDebugAndroidTestRenderscript" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileDebugAndroidTestSources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileDebugJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileDebugNdk" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileDebugRenderscript" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileDebugSources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileDebugUnitTestJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileDebugUnitTestSources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileLint" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileReleaseAidl" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileReleaseJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileReleaseNdk" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileReleaseRenderscript" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileReleaseSources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileReleaseUnitTestJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="compileReleaseUnitTestSources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by project ':smssdk'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="components" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Installs and runs instrumentation tests for all flavors on connected devices." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="connectedAndroidTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Installs and runs the tests for Debug build on connected devices." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="connectedAndroidTestDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs all device checks on currently connected devices." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="connectedCheck" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="copyDebugLint" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="copyReleaseLint" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in project ':smssdk'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="dependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in project ':smssdk'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="dependencyInsight" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Installs and runs instrumentation tests using all Device Providers." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="deviceAndroidTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs all device checks using Device Providers and Test Servers." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="deviceCheck" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="dexDebugAndroidTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateDebugAndroidTestAssets" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateDebugAndroidTestBuildConfig" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateDebugAndroidTestResValues" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateDebugAndroidTestResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateDebugAndroidTestSources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateDebugAssets" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateDebugBuildConfig" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateDebugResValues" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateDebugResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateDebugSources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateReleaseAssets" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateReleaseBuildConfig" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateReleaseResValues" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateReleaseResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="generateReleaseSources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays a help message." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="help" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Installs the android (on device) tests for the Debug build." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="installDebugAndroidTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs lint on all variants." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="lint" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs lint on the Debug build." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="lintDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs lint on the Release build." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="lintRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="mergeDebugAndroidTestAssets" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="mergeDebugAndroidTestResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="mergeDebugAssets" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="mergeDebugProguardFiles" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="mergeReleaseAssets" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="mergeReleaseProguardFiles" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Creates a version of android.jar that's suitable for unit tests." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="mockableAndroidJar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of project ':smssdk'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="model" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="packageDebugAndroidTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="packageDebugJar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="packageDebugJniLibs" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="packageDebugLocalJar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="packageDebugRenderscript" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="packageDebugResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="packageReleaseJar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="packageReleaseJniLibs" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="packageReleaseLocalJar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="packageReleaseRenderscript" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="packageReleaseResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="preBuild" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="preCompileDebugUnitTestJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="preCompileReleaseUnitTestJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="preDebugAndroidTestBuild" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="preDebugBuild" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="preDebugUnitTestBuild" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="preDexDebugAndroidTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="preReleaseBuild" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="preReleaseUnitTestBuild" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="prepareDebugAndroidTestDependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="prepareDebugDependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="prepareDebugUnitTestDependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="prepareReleaseDependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="prepareReleaseUnitTestDependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="processDebugAndroidTestJavaRes" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="processDebugAndroidTestManifest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="processDebugAndroidTestResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="processDebugJavaRes" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="processDebugManifest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="processDebugResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="processDebugUnitTestJavaRes" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="processReleaseJavaRes" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="processReleaseManifest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="processReleaseResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="processReleaseUnitTestJavaRes" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of project ':smssdk'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="projects" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of project ':smssdk'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="properties" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the signing info for each variant." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="signingReport" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from project ':smssdk'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="tasks" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Run unit tests for all variants." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="test" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Run unit tests for the debug build." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="testDebug" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Run unit tests for the release build." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="testRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Uninstall all applications." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="uninstallAll" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Uninstalls the android (on device) tests for the Debug build." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="uninstallDebugAndroidTest" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/smssdk" />
-                <option name="name" value="validateDebugSigning" />
-              </ExternalTaskPojo>
-            </list>
-          </value>
-        </entry>
       </map>
     </option>
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$/../AppAndroid" value="7232163184000" />
-        <entry key="$PROJECT_DIR$" value="5792274676000" />
+        <entry key="$PROJECT_DIR$" value="5792285518000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -3058,7 +2142,7 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar" />
                             <option value="$MODULE_DIR$/libs/gson-2.2.1.jar" />
                             <option value="$MODULE_DIR$/libs/jpush-android-2.0.5.jar" />
-                            <option value="$MODULE_DIR$/libs/SMSSDK-1.3.1.jar" />
+                            <option value="$MODULE_DIR$/libs/SMSSDK-1.2.0.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/app" />
@@ -3413,8 +2497,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/smssdk/build.gradle" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/sharesdk/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/iwork/ui/activity/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/iwork/Base/BaseApplication.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
@@ -3467,24 +2554,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; 1.8 &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rt.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iWork-Android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="iWork-Android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -3548,36 +2617,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iWork-Android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iWork-Android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sharesdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxapi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3650,92 +2689,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iWork-Android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iWork-Android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iWork-Android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iWork-Android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iWork-Android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iWork-Android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3764,6 +2717,240 @@
               <option name="myItemId" value="jniLibs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="armeabi-v7a" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jniLibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="armeabi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jniLibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="arm64-v8a" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="okhttp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -3783,9 +2970,97 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tmp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="outputs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="outputs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iWork-Android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -3803,6 +3078,10 @@
               <option name="myItemId" value="iWork-Android" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sharesdk" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -3816,23 +3095,27 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Iwork" />
-    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Mob" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="android.sdk.path" value="$USER_HOME$/sdk" />
     <property name="recentsLimit" value="5" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="0192f75d08eb1f59" />
-    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/jniLibs/armeabi" />
       <recent name="$PROJECT_DIR$/app/libs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sharesdk/libs" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -4006,43 +3289,50 @@
       <option name="number" value="Default" />
       <updated>1448081539032</updated>
     </task>
+    <task id="LOCAL-00001" summary="iwork 重新引入smssdk">
+      <created>1448087127018</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1448087127019</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="809" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6017316" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756132" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Mirror" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756132" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.51082253" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6017316" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964234" sideWeight="0.4891775" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Mirror" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -4050,14 +3340,31 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="iwork 框架" />
-    <option name="LAST_COMMIT_MESSAGE" value="iwork 框架" />
+    <MESSAGE value="iwork 重新引入smssdk" />
+    <option name="LAST_COMMIT_MESSAGE" value="iwork 重新引入smssdk" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="33" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -4065,58 +3372,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/import-summary.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.173913">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/iwork/Base/BaseApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.789731">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09947644">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="e#556#596#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sharesdk/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/iwork/ui/activity/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="32" column="10" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sharesdk/src/main/java/com/impetusconsulting/iwork/wxapi/WXEntryActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/app.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.028571429">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -4131,10 +3406,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/app/libs/SMSSDK-1.3.1.jar!/cn/smssdk/SMSSDK.class">
+    <entry file="file://$PROJECT_DIR$/sharesdk/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27737227">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -4149,7 +3424,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7037037">
+        <state vertical-scroll-proportion="0.0">
           <caret line="1" column="33" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="33" />
           <folding />
         </state>
@@ -4158,18 +3433,185 @@
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/iwork/Base/BaseApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6857143">
-          <caret line="31" column="60" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sharesdk/src/main/java/cn/sharesdk/onekeyshare/EditPageFakeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sharesdk/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/import-summary.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.173913">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.789731">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09947644">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sharesdk/src/main/java/com/impetusconsulting/iwork/wxapi/WXEntryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.028571429">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="33" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/sdk/sources/android-23/android/app/Instrumentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33064517">
+          <caret line="1011" column="0" selection-start-line="1011" selection-start-column="0" selection-end-line="1011" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sharesdk/src/main/java/cn/sharesdk/onekeyshare/EditPageFakeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sharesdk/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sharesdk/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/iwork/ui/activity/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="10" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/libs/SMSSDK-1.2.0.jar!/cn/smssdk/SMSSDK.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17868339">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/iwork/Base/BaseApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42857143">
+          <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>

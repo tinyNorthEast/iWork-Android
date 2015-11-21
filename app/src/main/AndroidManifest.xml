@@ -7,7 +7,7 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="17" />
     <permission
-        android:name="${applicationId}.permission.JPUSH_MESSAGE"
+        android:name="com.impetusconsulting.iwork.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
 
     <!-- Required  一些系统要求的权限，如访问网络等-->
