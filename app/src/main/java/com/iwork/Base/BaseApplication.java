@@ -30,6 +30,7 @@ public class BaseApplication extends Application {
         JPushInterface.init(getApplicationContext());
         ShareSDK.initSDK(this);
         SMSSDK.initSDK(this, "<您的appkey>", "<您的appsecret>");
+//        SMSSDK.initSDK(this,"","");
     }
 
 }
