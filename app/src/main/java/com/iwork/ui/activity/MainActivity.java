@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.impetusconsulting.iwork.R;
 
+import cn.jpush.android.api.JPushInterface;
 import cn.smssdk.SMSSDK;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +31,12 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
     }
 
     @Override
