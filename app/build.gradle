@@ -22,10 +22,12 @@ android {
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "boolean", "JPUSH_DEBUG", "false"
         }
         debug {
             debuggable true
             buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "JPUSH_DEBUG", "true"
 
         }
     }
