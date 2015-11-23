@@ -28,7 +28,7 @@ public class BaseApplication extends Application {
         JPushInterface.setDebugMode(BuildConfig.JPUSH_DEBUG);
         JPushInterface.init(this);
         ShareSDK.initSDK(this);
-//        SMSSDK.initSDK(this,"","");
+        SMSSDK.initSDK(this,"","");
 
     }
 
