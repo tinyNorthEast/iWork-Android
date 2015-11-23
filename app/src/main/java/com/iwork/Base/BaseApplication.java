@@ -20,6 +20,8 @@ import cn.smssdk.SMSSDK;
  */
 public class BaseApplication extends Application {
 
+    private static BaseApplication mContext;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -31,5 +33,7 @@ public class BaseApplication extends Application {
         SMSSDK.initSDK(this,"","");
 
     }
-
+    public static BaseApplication getAppContext() {
+        return mContext;
+    }
 }

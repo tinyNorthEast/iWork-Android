@@ -16,8 +16,9 @@ import android.view.ViewGroup.MarginLayoutParams;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.didi.common.base.BaseApplication;
-import com.didi.common.helper.ResourcesHelper;
+
+import com.iwork.Base.BaseApplication;
+import com.iwork.helper.ResourcesHelper;
 
 import java.lang.reflect.Field;
 
@@ -991,7 +992,6 @@ public class WindowUtil {
     public static void computeWindowRotation() {
         WindowManager windowManager = (WindowManager) BaseApplication.getAppContext().getSystemService(Context.WINDOW_SERVICE);
         WINDOW_ROTATION = windowManager.getDefaultDisplay().getRotation();
-        LogUtil.d("computeWindowRotation rotation : " + WINDOW_ROTATION);
     }
 
     public static int getWindowRotation() {
