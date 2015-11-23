@@ -33,6 +33,7 @@ android {
         }
         debug {
             debuggable true
+            signingConfig signingConfigs.release
             buildConfigField "boolean", "LOG_DEBUG", "true"
             buildConfigField "boolean", "JPUSH_DEBUG", "true"
 
