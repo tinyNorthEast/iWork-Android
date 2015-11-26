@@ -3,6 +3,7 @@ package com.iwork.Base;
 import android.app.Application;
 
 import com.iwork.okhttp.OkHttpClientManager;
+import com.iwork.utils.Constant;
 import com.socks.library.KLog;
 
 import java.util.concurrent.TimeUnit;
@@ -30,7 +31,7 @@ public class BaseApplication extends Application {
         JPushInterface.setDebugMode(BuildConfig.JPUSH_DEBUG);
         JPushInterface.init(this);
         ShareSDK.initSDK(this);
-        SMSSDK.initSDK(this,"","");
+        SMSSDK.initSDK(this, Constant.SMSSDKKEY,Constant.SMSSDKSECRET);
 
     }
     public static BaseApplication getAppContext() {

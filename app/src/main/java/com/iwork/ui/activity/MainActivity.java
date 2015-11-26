@@ -12,10 +12,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.impetusconsulting.iwork.BuildConfig;
 import com.impetusconsulting.iwork.R;
 import com.qiniu.android.utils.StringUtils;
+import com.squareup.picasso.LruCache;
+import com.squareup.picasso.Picasso;
 
 import java.util.Iterator;
 import java.util.List;
@@ -47,24 +50,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
+//        LruCache lruCache = new LruCache(this);
+//        lruCache.clear();
+//        Picasso picasso = new Picasso.Builder(this).memoryCache(lruCache).build();
+//        picasso.load("").resize(50, 50).centerCrop().error(R.drawable.ic_richpush_actionbar_back).into(new ImageView());
 
-    private byte[] getSign(Context context) {
-        PackageManager pm = context.getPackageManager();
-        List<PackageInfo> apps = pm
-                .getInstalledPackages(PackageManager.GET_SIGNATURES);
-        Iterator<PackageInfo> iter = apps.iterator();
-
-        while (iter.hasNext()) {
-            PackageInfo info = iter.next();
-            String packageName = info.packageName;
-            //按包名 取签名
-            if (packageName.equals("com.impetusconsulting.iwork")) {
-                return info.signatures[0].toByteArray();
-
-            }
-        }
-        return null;
     }
 
     @Override

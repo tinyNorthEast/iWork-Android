@@ -926,7 +926,7 @@ public class WindowUtil {
     /**
      * dip转换px
      *
-     * @param dip
+     * @param px
      * @return
      */
     public static int px2dip(float px) {
@@ -980,7 +980,7 @@ public class WindowUtil {
     /**
      * 根据Activity获取状态栏高度
      *
-     * @param activityo
+     * @param activity
      * @return
      */
     public static int getStatusBarHeight(Activity activity) {
