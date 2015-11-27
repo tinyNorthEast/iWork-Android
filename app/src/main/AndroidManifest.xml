@@ -28,6 +28,13 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+
     <application
         android:name="com.iwork.Base.BaseApplication"
         android:allowBackup="true"
@@ -169,7 +176,10 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name="com.iwork.ui.activity.MessageActivity"></activity>
+        <activity android:name="com.iwork.ui.activity.MessageActivity" />
+        <activity
+            android:name="com.iwork.ui.activity.LoginActivity"
+            android:label="@string/title_activity_login" />
     </application>
 
 </manifest>

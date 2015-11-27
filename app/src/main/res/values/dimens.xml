@@ -3,4 +3,26 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+
+    <!--文字大小 2015.06.08 by yxm-->
+    <dimen name="font_size_xxxxx_large">42sp</dimen>
+    <dimen name="font_size_xxxx_large">35sp</dimen>
+    <dimen name="font_size_xxx_m_large">24sp</dimen>
+    <dimen name="font_size_xxx_large">17sp</dimen>
+    <dimen name="font_size_xxx_bold_large">17sp</dimen>
+    <dimen name="font_size_xx_large">16sp</dimen>
+    <dimen name="font_size_xx_bold_large">16sp</dimen>
+    <dimen name="font_size_m_large">15sp</dimen>
+    <dimen name="font_size_m_bold_large">15sp</dimen>
+    <dimen name="font_size_x_large">14sp</dimen>
+    <dimen name="font_size_x_bold_large">14sp</dimen>
+    <dimen name="font_size_medium">13sp</dimen>
+    <dimen name="font_size_bold_medium">13sp</dimen>
+    <dimen name="font_size_xxx_small_sp">8sp</dimen>
+    <dimen name="font_size_xx_small">11sp</dimen>
+    <dimen name="font_size_xx_bold_small">11sp</dimen>
+    <dimen name="font_size_x_small">9sp</dimen>
+
+
 </resources>

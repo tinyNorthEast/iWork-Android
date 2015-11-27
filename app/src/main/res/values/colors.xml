@@ -1,6 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#333333</color>
+    <color name="colorPrimaryDark">#333333</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!--文本样式 2015.06.08 by yxm -->
+    <color name="text_color_white">#ffffff</color>
+    <color name="text_color_ss_gray">#E5E5E5</color>
+    <color name="text_color_s_gray">#cccccc</color>
+    <color name="text_color_gray">#999999</color>
+    <color name="text_color_dark_gray">#333333</color>
+    <color name="text_color_light_yellow">#f0c646</color>
+    <color name="text_color_yellow">#f0b911</color>
+    <color name="text_color_red">#e84040</color>
+    <color name="bg_color_gray">#f2f2f2</color>
+    <color name="bg_color_sss_gray">#fafafa</color>
+    <color name="text_color_brown">#a88f67</color>
+    <color name="line_color_gray">#e0e0e0</color>
+
+
+    <!--手机联系人-->
+    <color name="search_input_container_bg_color">#d9d9d9</color>
+    <!--填写用车人-->
+    <color name="list_view_tile_bg">#f9f9f9</color>
+    <!-- 时间选择器 -->
+    <color name="split_line_gray">#B8B8B8</color>
+    <color name="picker_bar_bg">#F5F5F5</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="orange">#ff8a01</color>
+    <color name="deep_gray">#666666</color>
+    <color name="gray">#888888</color>
+    <color name="light_gray">#b3b3b3</color>
+    <color name="dark_orange">#c87000</color>
+    <color name="translucent_80_dark">#cc000000</color>
+    <color name="translucent_70_dark">#b4000000</color>
+    <color name="light_s_gray">#cccccc</color>
+    <color name="deep_s_gray">#454545</color>
+    <color name="deep_ss_gray">#333333</color>
+
+    <!--xlistview相关配置-->
+    <color name="x_list_item_bg_normal">#ffffff</color>
+    <color name="x_list_item_bg_pressed">#f2f2f2</color>
+
+    <!--城市选择-->
+    <color name="realtime_slide_voice_call_bg">#fafafa</color>
+    <color name="menu_item_pressed">#ebebeb</color>
+    <color name="dark_gray">#333333</color>
+    <color name="link_gray">#878787</color>
+
+    <!--航班相关-->
+    <color name="flight_pick_bg">#d9d9d9</color>
+    <color name="flight_line_gray">#d9d9d9</color>
+    <color name="arrival_header_bg">#fffcc6</color>
+
+    <!--颜色图片, 用于地址搜索页面,用户信息界面分割线-->
+    <drawable name="common_line_border">#e5e5e5</drawable>
+    <!--颜色图片, 用于发单页面分割线-->
+    <drawable name="order_creator_line_border">#e0e0e0</drawable>
+    <!--颜色图片，等待应答页面分割线-->
+    <drawable name="response_view_line_border">#e1e1e1</drawable>
+
+    <color name="more_action_divider_color">#595959</color>
+    <!--用户信息界面分割线-->
+    <color name="user_info_line_color">#e6e6e6</color>
+    <!--对话框-->
+    <color name="common_dialog_bg_color">#ffffff</color>
+    <!--为谁叫车描边-->
+    <color name="call_car_bg_color">#dbdbdb</color>
+    <!--提交按钮-->
+    <color name="common_sub_btn_normal">#f0c646</color>
+    <color name="common_sub_btn_pressed">#eab821</color>
+    <color name="common_sub_btn_enable">#ffefbf</color>
+    <!--背景描边-->
+    <color name="bg_stroke">#e0e0e0</color>
+    <color name="order_closed_bg_stroke">#cccccc</color>
+    <!--滑动删除按钮背景色-->
+    <color name="slidemenu_delete_bg">#e84040</color>
+
+
+    <color name="white">#ffffff</color>
+    <color name="window_background">#eef0f0</color>
+    <!-- 标题栏 -->
+    <color name="title_bar_bg">#323232</color>
+    <color name="title_bar_text">#ffffff</color>
+    <!--标题栏可点击的文本按下时颜色 如保存-->
+    <color name="title_bar_clickable_text_yellow_pressed">#eab821</color>
+    <color name="title_bar_clickable_text_gray_pressed">#666666</color>
+    <!--背景颜色-->
+    <color name="layout_bg">#f2f2f2</color>
+    <color name="color_orange">#ff8903</color>
+    <color name="color_light_orange">#ffa033</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_light_gray_ssss">#fafafa</color>
+    <color name="color_light_gray_sss">#f0f0f0</color>
+    <color name="color_light_gray_ss">#e5e5e5</color>
+    <color name="color_light_gray_s">#cccccc</color>
+    <color name="color_light_gray">#adadad</color>
+    <color name="color_link_gray">#878787</color>
+    <color name="color_dark_gray">#666666</color>
+    <color name="color_gray">#333333</color>
+    <color name="color_red">#fa2419</color>
+    <color name="color_green">#52b786</color>
+    <color name="color_light_grey_ss_l">#ebebeb</color>
+    <color name="color_bts_bottom_bg">#000000</color>
+    <color name="color_bts_bottom_line">#cccccc</color>
+    <color name="color_bts_bottom_hint_txt">#ff8903</color>
+    <color name="color_bts_bottom_text">#666666</color>
+    <color name="color_bts_bottom_text_gray">#999999</color>
+    <color name="color_bts_bottom_text_high">#ff8903</color>
+    <color name="color_bts_bottom_text_white">#ffffff</color>
+    <color name="color_bts_user_text">#333333</color>
+    <color name="color_half_translate_white">#66ffffff</color>
+    <color name="color_estimate_deep_gray">#CC333333</color>
+    <color name="color_splash_version_code">#ffb266</color>
+    <color name="color_im_audio_text">#858a94</color>
 </resources>
