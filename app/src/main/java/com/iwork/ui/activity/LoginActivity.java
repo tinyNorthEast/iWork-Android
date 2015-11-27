@@ -16,6 +16,7 @@ import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.utils.Constant;
 import com.iwork.utils.TextUtil;
+import com.iwork.utils.Utils;
 import com.jakewharton.rxbinding.widget.RxCheckedTextView;
 import com.jakewharton.rxbinding.widget.RxTextView;
 
@@ -69,15 +70,15 @@ public class LoginActivity extends BaseActivity {
         mSubscription = Observable.combineLatest(phoneChangeObservable, passwordChangeObservable, new Func2<CharSequence, CharSequence, Boolean>() {
             @Override
             public Boolean call(CharSequence phone, CharSequence password) {
-                boolean phoneValid = !TextUtils.isEmpty(phone)&& Patterns.PHONE.matcher(phone).matches();
-                if (!phoneValid){
+                boolean phoneValid = Utils.isPhone(phone);
+                if (!phoneValid) {
                     loginEdPhoneInput.setError("请输入正确的手机号");
                 }
-                boolean passwValid = !TextUtils.isEmpty(password)&&password.length()> Constant.PWD_MIN_LENGTH;
-                if (!passwValid){
+                boolean passwValid = !TextUtils.isEmpty(password) && password.length() > Constant.PWD_MIN_LENGTH;
+                if (!passwValid) {
                     loginEdPwdInput.setError("请输入至少6位密码");
                 }
-                return phoneValid&&passwValid;
+                return phoneValid && passwValid;
             }
         }).subscribe(new Observer<Boolean>() {
             @Override
@@ -92,9 +93,9 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void onNext(Boolean aBoolean) {
-                if (aBoolean){
+                if (aBoolean) {
                     loginBtnSubmit.setEnabled(true);
-                }else {
+                } else {
                     loginBtnSubmit.setEnabled(false);
                 }
             }
@@ -102,9 +103,10 @@ public class LoginActivity extends BaseActivity {
 
 
     }
+
     @OnClick(R.id.login_btn_submit)
-    public void login(){
-        Toast.makeText(this,"s",Toast.LENGTH_SHORT).show();
+    public void login() {
+        Toast.makeText(this, "s", Toast.LENGTH_SHORT).show();
     }
 
     @OnClick(R.id.login_random)
@@ -115,7 +117,7 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if (mSubscription!=null)
+        if (mSubscription != null)
             mSubscription.unsubscribe();
     }
 }

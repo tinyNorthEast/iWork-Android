@@ -16,6 +16,7 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Patterns;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
@@ -496,8 +497,8 @@ public class Utils {
         return isNumatcher.matches();
     }
 
-    public static boolean isPhone(String phone) {
-        return !(TextUtil.isEmpty(phone) || !phone.startsWith("1"));
+    public static boolean isPhone(CharSequence phone) {
+        return !(TextUtils.isEmpty(phone) || !phone.toString().startsWith("1") && Patterns.PHONE.matcher(phone).matches());
     }
 
     /**
