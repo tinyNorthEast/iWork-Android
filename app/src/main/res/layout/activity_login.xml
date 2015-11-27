@@ -57,7 +57,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
                 android:src="@drawable/common_delete_selector"
-                android:visibility="visible" />
+                android:visibility="gone" />
         </RelativeLayout>
 
         <ImageView
@@ -106,7 +106,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
                 android:src="@drawable/common_delete_selector"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <!--<RelativeLayout-->
                 <!--android:id="@+id/login_layout_code_input"-->

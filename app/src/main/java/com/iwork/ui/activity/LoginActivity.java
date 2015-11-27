@@ -3,6 +3,7 @@ package com.iwork.ui.activity;
 import android.os.Bundle;
 import android.os.PatternMatcher;
 import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.widget.Button;
@@ -54,13 +55,13 @@ public class LoginActivity extends BaseActivity {
     private Subscription mSubscription = null;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-
         setTextChangeWatch();
     }
+
 
     private void setTextChangeWatch() {
         phoneChangeObservable = RxTextView.textChanges(loginEdPhoneInput).skip(1);
@@ -109,6 +110,13 @@ public class LoginActivity extends BaseActivity {
     @OnClick(R.id.login_random)
     public void setLoginRandom() {
         finish();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mSubscription!=null)
+            mSubscription.unsubscribe();
     }
 }
 
