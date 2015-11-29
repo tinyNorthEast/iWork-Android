@@ -7,13 +7,20 @@ import com.iwork.Base.BaseApplication;
  * Copyright © 2015 impetusconsulting. All rights reserved
  */
 public class Constant {
-    public static final String SMSSDKKEY = "c8d1e269ef14";
-    public static final String SMSSDKSECRET = "68f4803cba8331f482b28399a202b9ca";
+    public static final String SMSSDKKEY = "ca416209842a";
+    public static final String SMSSDKSECRET = "b38c35b3c785b7f1d74f182cee07146d";
+
+    public static final String BASE_URL = "http://123.56.125.133:8082/headhunting_api";
 
     /**
      * SDCARD文件目录
      */
     public static final String SDCARD_FILE_DIR = "iWork";
+
+
+
+
+
     public static final String SDCARD_LOCATE_DIR = "iworklocate";
     /**
      * 密码最大长度

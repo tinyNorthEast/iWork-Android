@@ -1,11 +1,13 @@
 package com.iwork.ui.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.PatternMatcher;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -28,6 +30,7 @@ import rx.Observer;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.functions.Func2;
+import rx.subscriptions.CompositeSubscription;
 
 /**
  * A login screen that offers login via email/password.
@@ -61,6 +64,7 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         setTextChangeWatch();
+        showInputMethod();
     }
 
 
@@ -115,10 +119,23 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        if (mSubscription != null)
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mSubscription!=null)
             mSubscription.unsubscribe();
+        hideInputMethod();
+    }
+
+    /** 显示输入法 */
+    public void showInputMethod() {
+        InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(loginEdPhoneInput, InputMethodManager.SHOW_IMPLICIT);
+    }
+
+    /** 隐藏输入法 */
+    public void hideInputMethod() {
+        InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(loginEdPhoneInput.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }
 

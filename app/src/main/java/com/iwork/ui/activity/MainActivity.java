@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity {
 //                        .setAction("Action", null).show();
                 OnekeyShare oks = new OnekeyShare();
                 oks.setText("我是分享文本");
-                oks.setImageUrl("http://f1.sharesdk.cn/imgs/2014/05/21/oESpJ78_533x800.jpg");
+                oks.setImagePath("http://f1.sharesdk.cn/imgs/2014/05/21/oESpJ78_533x800.jpg");
                 // 启动分享GUI
                 oks.show(MainActivity.this);
 
@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,LoginActivity.class);
+                Intent i = new Intent(MainActivity.this,RegisterActivity.class);
                 startActivity(i);
             }
         });

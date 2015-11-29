@@ -25,4 +25,12 @@
     <dimen name="font_size_x_small">9sp</dimen>
 
 
+    <!--Toast相关-->
+    <dimen name="common_toast_root_layout_wdith">116dp</dimen>
+    <dimen name="common_toast_root_layout_height">105dp</dimen>
+    <dimen name="common_toast_icon_img_wdith">31dp</dimen>
+    <dimen name="common_toast_icon_img_height">31dp</dimen>
+    <dimen name="common_toast_icon_img_margin_top">20dp</dimen>
+    <dimen name="common_toast_content_textview_margin_60">16dp</dimen>
+    <dimen name="common_progressdialog_textview_margin_top">16dp</dimen>
 </resources>

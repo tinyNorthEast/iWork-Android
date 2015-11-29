@@ -116,4 +116,5 @@
     <color name="color_estimate_deep_gray">#CC333333</color>
     <color name="color_splash_version_code">#ffb266</color>
     <color name="color_im_audio_text">#858a94</color>
+    <color name="color_bt_red" >#f9d44313</color>
 </resources>

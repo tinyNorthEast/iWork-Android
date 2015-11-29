@@ -32,7 +32,6 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
 
     <application
@@ -180,6 +179,9 @@
         <activity
             android:name="com.iwork.ui.activity.LoginActivity"
             android:label="@string/title_activity_login" />
+        <activity
+            android:name="com.iwork.ui.activity.RegisterActivity"
+            android:label="注册"></activity>
     </application>
 
 </manifest>
