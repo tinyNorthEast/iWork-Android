@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_gray"
+    tools:context="com.iwork.ui.activity.SignUserInfoActivity">
+
+    <RelativeLayout
+        android:id="@+id/regist_rl_userinfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="50dp">
+
+        <ImageView
+            android:id="@+id/registe_iv_user"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/menu_head" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/registe_iv_user"
+            android:background="@drawable/common_bg_normal">
+
+            <RelativeLayout
+                android:id="@+id/registe_rl_user_cname"
+                android:layout_width="fill_parent"
+                android:layout_height="47dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/regist_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/es_login_phone" />
+
+                <EditText
+                    android:id="@+id/registe_user_cname"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/regist_user_name"
+                    android:background="@null"
+                    android:hint="中文名"
+                    android:inputType="text"
+                    android:maxLength="11"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_dark_gray"
+                    android:textColorHint="@color/text_color_s_gray"
+                    android:textSize="@dimen/font_size_medium" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/registe_iv_deliver_line"
+                android:layout_width="fill_parent"
+                android:layout_height="0.3dp"
+                android:layout_below="@id/registe_rl_user_cname"
+                android:layout_centerInParent="true"
+                android:src="@color/text_color_ss_gray" />
+
+            <RelativeLayout
+                android:id="@+id/registe_rl_user_ename"
+                android:layout_width="fill_parent"
+                android:layout_height="47dp"
+                android:layout_below="@id/registe_iv_deliver_line"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/registe_iv_user_ename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/es_login_password" />
+
+                <EditText
+                    android:id="@+id/registe_ed_user_ename"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/registe_iv_user_ename"
+                    android:background="@null"
+                    android:hint="英文名(选填)"
+                    android:inputType="text"
+                    android:maxLength="16"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_dark_gray"
+                    android:textColorHint="@color/text_color_s_gray"
+                    android:textSize="@dimen/font_size_medium" />
+
+                <ImageView
+                    android:id="@+id/login_img_pwd_del"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/common_delete_selector"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/registe_rl_user_mail"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_below="@+id/registe_iv_user"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/common_bg_normal">
+
+            <ImageView
+                android:id="@+id/registe_iv_user_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/es_login_password" />
+
+            <EditText
+                android:id="@+id/registe_ed_user_mail"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/registe_iv_user_email"
+                android:background="@null"
+                android:hint="请输入您的邮箱"
+                android:inputType="text"
+                android:maxLength="16"
+                android:singleLine="true"
+                android:textColor="@color/text_color_dark_gray"
+                android:textColorHint="@color/text_color_s_gray"
+                android:textSize="@dimen/font_size_medium" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/regist_btn_submit_user"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/registe_rl_user_mail"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/common_login_bt_selector"
+            android:enabled="false"
+            android:text="@string/next"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color_white" />
+    </RelativeLayout>
+</RelativeLayout>

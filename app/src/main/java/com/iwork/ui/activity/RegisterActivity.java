@@ -1,9 +1,15 @@
 package com.iwork.ui.activity;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -253,10 +259,47 @@ public class RegisterActivity extends BaseActivity {
     });
 
     @OnClick(R.id.registe_tv_get_code)
-    public void getCode() {
+    public void getCodeOnClick() {
+        requestPermission();
+//        getCode();
+    }
+
+    private void getCode() {
         phone = registeEdPhoneInput.getText().toString().trim();
         if (Utils.isPhone(phone))
             SMSSDK.getVerificationCode("86", phone);
+    }
+
+    public static final int REQUEST_READ_PHONE_STATE = 123;
+
+    private void requestPermission() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            int checkREAD_PHONE_STATE = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
+            if (checkREAD_PHONE_STATE != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE,
+                        Manifest.permission.RECEIVE_SMS}, REQUEST_READ_PHONE_STATE);
+                return;
+            }else {
+                getCode();
+            }
+        }else {
+            getCode();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case REQUEST_READ_PHONE_STATE:
+                if (grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                    getCode();
+                }else {
+                    ToastHelper.showShortError("获取权限失败，请允许权限申请");
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
     }
 
     @OnClick(R.id.registe_btn_submit)

@@ -117,4 +117,11 @@
     <color name="color_splash_version_code">#ffb266</color>
     <color name="color_im_audio_text">#858a94</color>
     <color name="color_bt_red" >#f9d44313</color>
+
+
+    <!-- 菜单界面 -->
+    <color name="menu_bg_half_transparent">#660a0b0d</color>
+    <color name="menu_bg_color">#ebebeb</color>
+    <color name="common_list_divider">#ebebeb</color>
+
 </resources>

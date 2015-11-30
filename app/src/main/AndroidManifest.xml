@@ -181,7 +181,8 @@
             android:label="@string/title_activity_login" />
         <activity
             android:name="com.iwork.ui.activity.RegisterActivity"
-            android:label="注册"></activity>
+            android:label="注册" />
+        <activity android:name="com.iwork.ui.activity.SignUserInfoActivity"></activity>
     </application>
 
 </manifest>

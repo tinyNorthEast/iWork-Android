@@ -24,6 +24,10 @@
     <dimen name="font_size_xx_bold_small">11sp</dimen>
     <dimen name="font_size_x_small">9sp</dimen>
 
+    <dimen name="bottom_list_menu_height">150px</dimen>
+    <dimen name="bottom_list_menu_margin_cancel">50px</dimen>
+    <dimen name="bottom_list_menu_padding">20px</dimen>
+    <dimen name="common_list_divider_height">4px</dimen>
 
     <!--Toast相关-->
     <dimen name="common_toast_root_layout_wdith">116dp</dimen>
