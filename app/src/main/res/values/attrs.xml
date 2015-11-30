@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <declare-styleable name="TabButton">
+        <!-- Indicates the initial checked state of this button. -->
+        <attr name="checked" format="boolean"/>
+        <!-- Drawable used for the button graphic (e.g. checkbox, radio button, etc). -->
+        <attr name="button" format="reference"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="TabGroup">
+        <attr name="tabButtonStyle" format="reference"/>
+
+        <!-- The id of the child radio button that should be checked by default
+             within this radio group. -->
+        <attr name="checkedButton" format="integer"/>
+        <!-- Should the radio group be a column or a row?  Use "horizontal"
+             for a row, "vertical" for a column.  The default is
+             vertical. -->
+        <!-- Standard orientation constant. -->
+        <attr name="tab_orientation">
+            <!-- Defines an horizontal widget. -->
+            <enum name="horizontal" value="0"/>
+            <!-- Defines a vertical widget. -->
+            <enum name="vertical" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="AnimView">
+        <attr name="type">
+            <!-- 文字以渐隐的方式出现 -->
+            <enum name="text" value="0"/>
+
+            <!-- 图片以pop的方式出现 -->
+            <enum name="pic" value="1"/>
+
+            <!-- 灯光 -->
+            <enum name="lamp" value="2"/>
+
+            <!-- slogan文字 -->
+            <enum name="slogan" value="3"/>
+        </attr>
+    </declare-styleable>
+
+    <!-- SlidingDrawer specific attributes. These attributes are used to configure
+     a SlidingDrawer from XML. -->
+    <declare-styleable name="SlidingDrawer">
+        <!-- Identifier for the child that represents the drawer's handle. -->
+        <attr name="handle" format="reference"/>
+        <!-- Identifier for the child that represents the drawer's content. -->
+        <attr name="content" format="reference"/>
+        <!-- Orientation of the SlidingDrawer. -->
+        <attr name="orientations">
+            <enum name="right_left" value="0"/>
+            <enum name="bottom_top" value="1"/>
+            <enum name="left_right" value="2"/>
+            <enum name="top_bottom" value="3"/>
+        </attr>
+        <!-- Extra offset for the handle at the bottom of the SlidingDrawer. -->
+        <attr name="bottomOffset" format="dimension"/>
+        <!-- Extra offset for the handle at the top of the SlidingDrawer. -->
+        <attr name="topOffset" format="dimension"/>
+        <!-- Indicates whether the drawer can be opened/closed by a single tap
+             on the handle.  (If false, the user must drag or fling, or click
+             using the trackball, to open/close the drawer.)  Default is true. -->
+        <attr name="allowSingleTap" format="boolean"/>
+        <!-- Indicates whether the drawer should be opened/closed with an animation
+             when the user clicks the handle. Default is true. -->
+        <attr name="animateOnClick" format="boolean"/>
+        <attr name="isRequestLayout" format="boolean"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="wheel">
+        <attr name="lineSplitHeight" format="reference|integer"/>
+        <attr name="textColorFirst" format="reference|color"/>
+        <attr name="textColorSecond" format="reference|color"/>
+        <attr name="textColorThird" format="reference|color"/>
+        <attr name="splitLineColor" format="reference|color"/>
+        <attr name="splitLineWidth" format="float"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="textGravity">
+            <flag name="left" value="-1"/>
+            <flag name="center" value="0"/>
+            <flag name="right" value="1"/>
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="PullScrollView">
+        <attr name="header" format="reference"/>
+        <attr name="headerHeight" format="dimension"/>
+        <attr name="headerVisibleHeight" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color"/>
+        <attr name="pstsUnderlineColor" format="color"/>
+        <attr name="pstsDividerColor" format="color"/>
+        <attr name="pstsIndicatorHeight" format="dimension"/>
+        <attr name="pstsUnderlineHeight" format="dimension"/>
+        <attr name="pstsDividerPadding" format="dimension"/>
+        <attr name="pstsTabPaddingLeftRight" format="dimension"/>
+        <attr name="pstsScrollOffset" format="dimension"/>
+        <attr name="pstsTabBackground" format="reference"/>
+        <attr name="pstsShouldExpand" format="boolean"/>
+        <attr name="pstsTextAllCaps" format="boolean"/>
+        <attr name="selectedTabTextColor" format="color"/>
+        <attr name="tabTextColor" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="RedTipTextView">
+        <attr name="redTipsVisibility">
+            <enum name="invisible" value="0"></enum>
+            <enum name="visible" value="1"></enum>
+            <enum name="gone" value="2"></enum>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TabIndication">
+        <attr name="item_width" format="dimension"/>
+        <attr name="item_height" format="dimension"/>
+        <attr name="item_padding" format="dimension"/>
+        <attr name="item_center_padding" format="dimension"/>
+        <attr name="item_text_padding_left_right" format="dimension"/>
+        <attr name="item_text_padding_bottom" format="dimension"/>
+        <attr name="item_text_icon_padding" format="dimension"/>
+        <attr name="item_text_size" format="dimension"/>
+        <attr name="item_text_color" format="color"/>
+        <attr name="item_text_selected_color" format="color"/>
+        <attr name="item_hint_left" format="dimension"/>
+        <attr name="item_hint_top" format="dimension"/>
+        <attr name="item_hint_size" format="dimension"/>
+    </declare-styleable>
+    <!-- bus business -->
+    <declare-styleable name="DGBCalendarView">
+        <attr name="divider_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension"/>
+        <attr name="circle_padding" format="dimension"/>
+        <attr name="border_color" format="color"/>
+    </declare-styleable>
+
+    <!--专车-快车小费 styable begin-->
+    <declare-styleable name="CarTippingStyable">
+        <attr name="separator_shown">
+            <enum name="show" value="1"/>
+            <enum name="hide" value="0"/>
+        </attr>
+    </declare-styleable>
+    <!--专车-快车小费 styable end-->
+
+    <declare-styleable name="FlierDrawerView">
+        <attr name="circular_type">
+            <enum name="fill" value="1"/>
+            <enum name="stroke" value="0"/>
+        </attr>
+        <attr name="circular_width" format="dimension"/>
+        <attr name="circular_max_progress" format="integer"/>
+        <attr name="circular_start_angle" format="integer"/>
+        <attr name="circular_end_angle" format="integer"/>
+    </declare-styleable>
+
+    <!-- Declare custom theme attributes that allow changing which styles are
+      used for button bars depending on the API level.
+        ?android:attr/buttonBarStyle is new as of API 11 so this is
+        necessary to support previous API levels. -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference"/>
+        <attr name="metaButtonBarButtonStyle" format="reference"/>
+    </declare-styleable>
+
+</resources>

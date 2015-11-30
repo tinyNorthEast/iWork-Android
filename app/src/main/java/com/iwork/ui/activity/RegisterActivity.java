@@ -2,6 +2,7 @@ package com.iwork.ui.activity;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -229,10 +230,10 @@ public class RegisterActivity extends BaseActivity {
             Object data = msg.obj;
             if (result == SMSSDK.RESULT_COMPLETE) {
                 if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
+                    jumpNext();
+                } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
                     ToastHelper.showShortCompleted(R.string.get_code_succ);
                     setTimeCount();
-                } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
-
                 }
             } else {
                 // 根据服务器返回的网络错误，给toast提示
@@ -257,7 +258,10 @@ public class RegisterActivity extends BaseActivity {
             return false;
         }
     });
-
+    public void jumpNext(){
+        Intent intent = new Intent(this,SignUserInfoActivity.class);
+        startActivity(intent);
+    }
     @OnClick(R.id.registe_tv_get_code)
     public void getCodeOnClick() {
         requestPermission();

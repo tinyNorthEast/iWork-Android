@@ -2,6 +2,7 @@ package com.iwork.Base;
 
 import android.app.Application;
 
+import com.iwork.model.UserInfo;
 import com.iwork.okhttp.OkHttpClientManager;
 import com.iwork.utils.Constant;
 import com.socks.library.KLog;
@@ -23,6 +24,7 @@ public class BaseApplication extends Application {
 
     private static BaseApplication mContext;
 
+    private UserInfo mUserInfo;
     @Override
     public void onCreate() {
         super.onCreate();

@@ -11,7 +11,7 @@ public class Constant {
     public static final String SMSSDKSECRET = "b38c35b3c785b7f1d74f182cee07146d";
 
     public static final String BASE_URL = "http://123.56.125.133:8082/headhunting_api";
-
+    public static final String CLIEN = "1";
     /**
      * SDCARD文件目录
      */

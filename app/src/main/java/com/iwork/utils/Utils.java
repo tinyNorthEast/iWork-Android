@@ -22,6 +22,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 
+import com.iwork.Base.BaseApplication;
 import com.socks.library.KLog;
 
 import org.json.JSONArray;
@@ -434,10 +435,10 @@ public class Utils {
     /**
      * 获取当前版本号
      */
-    public static String getCurrentVersion(Context context) {
-        String pkgName = getPackageName(context);
+    public static String getCurrentVersion() {
+        String pkgName = getPackageName(BaseApplication.getAppContext());
         try {
-            PackageInfo pinfo = context.getPackageManager().getPackageInfo(pkgName, PackageManager.GET_CONFIGURATIONS);
+            PackageInfo pinfo = BaseApplication.getAppContext().getPackageManager().getPackageInfo(pkgName, PackageManager.GET_CONFIGURATIONS);
             return pinfo.versionName;
         } catch (Exception e) {
         }

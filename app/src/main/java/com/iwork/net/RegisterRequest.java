@@ -54,7 +54,9 @@ public class RegisterRequest {
         Register registe = retrofit.create(Register.class);
         Call<String> call = registe.register("13028000116", "123456", "张三", "a_tao123@163.com", "测试", 1, 100, 1, "sdlfjasldfjlsdf");
         call.enqueue(callback);
-//        RegisterBean registerBean =call.execute().body();
-//        System.out.print("---"+registerBean.toString());
+    }
+
+    public static void register(String phone,String password,String zh_name,String mail,int experience,String position,int role_code ){
+
     }
 }

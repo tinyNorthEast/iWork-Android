@@ -57,7 +57,6 @@ public class SignUserInfoActivity extends BaseActivity {
         setContentView(parentView);
         ButterKnife.bind(this);
         mAvatarOriginFile = FileConfig.getPhotoOutputFile();
-
     }
 
     private BottomListMenu _bottomListMenu;
@@ -86,6 +85,11 @@ public class SignUserInfoActivity extends BaseActivity {
             });
         }
         _bottomListMenu.showDialog();
+    }
+
+    @OnClick(R.id.registe_btn_submit)
+    public void onNext(){
+
     }
 
     @Override

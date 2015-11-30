@@ -182,7 +182,8 @@
         <activity
             android:name="com.iwork.ui.activity.RegisterActivity"
             android:label="注册" />
-        <activity android:name="com.iwork.ui.activity.SignUserInfoActivity"></activity>
+        <activity android:name="com.iwork.ui.activity.SignUserInfoActivity" />
+        <activity android:name="com.iwork.ui.activity.PositionInfoActivity"></activity>
     </application>
 
 </manifest>

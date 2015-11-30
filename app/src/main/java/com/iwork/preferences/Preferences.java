@@ -29,4 +29,20 @@ public class Preferences {
         return instance;
     }
 
+    /**
+     * 清除数据
+     */
+    public void clear() {
+        reset();
+        mEditor.clear();
+    }
+
+    private void reset() {
+
+    }
+
+    public void commit() {
+        if (mEditor != null)
+            mEditor.commit();
+    }
 }

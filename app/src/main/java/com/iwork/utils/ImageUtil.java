@@ -53,8 +53,6 @@ import java.util.Date;
 /**
  * 图片操作工具(加载、创建、缩放、剪裁、圆角、复制...)
  * 
- * @author WangZengYang
- * @since 2013-7-25
  */
 @SuppressLint("NewApi")
 public class ImageUtil {

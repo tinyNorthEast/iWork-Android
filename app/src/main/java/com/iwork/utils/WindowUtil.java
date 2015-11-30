@@ -25,8 +25,6 @@ import java.lang.reflect.Field;
 /**
  * Window及UI缩放工具
  *
- * @author wangzengyang
- *
  */
 @SuppressWarnings("unused")
 public class WindowUtil {

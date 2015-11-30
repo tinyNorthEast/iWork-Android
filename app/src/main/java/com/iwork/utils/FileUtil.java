@@ -42,8 +42,6 @@ import java.util.zip.ZipOutputStream;
 /**
  * IO工具类
  *
- * @author Wood
- * @date 2013-04-17
  */
 @SuppressLint("DefaultLocale")
 public class FileUtil {
