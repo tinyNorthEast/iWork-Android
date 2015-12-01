@@ -16,7 +16,7 @@ import com.iwork.utils.WindowUtil;
 import java.util.Arrays;
 import java.util.List;
 
-import adapter.CommonWheelAdapter;
+import com.iwork.adapter.CommonWheelAdapter;
 
 /**
  * @description:列表型选择弹窗

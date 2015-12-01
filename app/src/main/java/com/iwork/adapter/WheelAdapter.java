@@ -1,4 +1,4 @@
-package adapter;
+package com.iwork.adapter;
 
 import android.graphics.Paint;
 

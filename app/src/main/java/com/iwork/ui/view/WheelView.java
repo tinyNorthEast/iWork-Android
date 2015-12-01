@@ -22,7 +22,7 @@ import com.iwork.utils.WindowUtil;
 
 import java.util.LinkedList;
 
-import adapter.WheelAdapter;
+import com.iwork.adapter.WheelAdapter;
 
 /**
  * 滚轮

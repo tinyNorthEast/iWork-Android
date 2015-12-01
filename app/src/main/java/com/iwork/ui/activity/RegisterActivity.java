@@ -23,6 +23,7 @@ import android.widget.TextView;
 
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
+import com.iwork.Base.BaseApplication;
 import com.iwork.helper.ResourcesHelper;
 import com.iwork.helper.ToastHelper;
 import com.iwork.model.Demo;
@@ -107,6 +108,12 @@ public class RegisterActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        hideInputMethod();
     }
 
     @Override
@@ -259,6 +266,7 @@ public class RegisterActivity extends BaseActivity {
         }
     });
     public void jumpNext(){
+        BaseApplication.getAppContext().mUserInfo.phone = phone;
         Intent intent = new Intent(this,SignUserInfoActivity.class);
         startActivity(intent);
     }

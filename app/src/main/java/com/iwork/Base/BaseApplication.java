@@ -24,7 +24,7 @@ public class BaseApplication extends Application {
 
     private static BaseApplication mContext;
 
-    private UserInfo mUserInfo;
+    public UserInfo mUserInfo;
     @Override
     public void onCreate() {
         super.onCreate();

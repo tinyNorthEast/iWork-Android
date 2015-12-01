@@ -3,7 +3,7 @@
  * @author: "zhengtao"
  * @create: 2015年4月13日
  */
-package adapter;
+package com.iwork.adapter;
 
 import java.util.List;
 

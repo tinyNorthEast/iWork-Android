@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -17,10 +19,14 @@ import android.widget.RelativeLayout;
 
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
+import com.iwork.Base.BaseApplication;
+import com.iwork.helper.ToastHelper;
 import com.iwork.ui.view.BottomListMenu;
 import com.iwork.utils.FileConfig;
 import com.iwork.utils.FileUtil;
 import com.iwork.utils.ImageUtil;
+import com.iwork.utils.TextUtil;
+import com.jakewharton.rxbinding.widget.RxTextView;
 
 import java.io.File;
 import java.io.IOException;
@@ -57,6 +63,7 @@ public class SignUserInfoActivity extends BaseActivity {
         setContentView(parentView);
         ButterKnife.bind(this);
         mAvatarOriginFile = FileConfig.getPhotoOutputFile();
+
     }
 
     private BottomListMenu _bottomListMenu;
@@ -89,6 +96,25 @@ public class SignUserInfoActivity extends BaseActivity {
 
     @OnClick(R.id.registe_btn_submit)
     public void onNext(){
+        String zh_name= registeEdUserEname.getText().toString();
+        if (!TextUtil.isEmpty(zh_name)){
+            BaseApplication.getAppContext().mUserInfo.zh_name= zh_name;
+        }else {
+            ToastHelper.showShortError("请填写您的姓名");
+            return;
+        }
+        CharSequence mail= registeEdUserMail.getText();
+        if (!TextUtils.isEmpty(mail)&& Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
+            BaseApplication.getAppContext().mUserInfo.email = mail.toString();
+        }else {
+            ToastHelper.showShortError("请填写您的邮箱");
+            return;
+        }
+        Intent intent = new Intent(this,PositionInfoActivity.class);
+        startActivity(intent);
+    }
+
+    public void saveData(){
 
     }
 
