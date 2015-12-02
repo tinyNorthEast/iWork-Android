@@ -26,6 +26,20 @@ public class CommonRequest {
 //        Retrofit retrofit = new Retrofit.Builder().baseUrl(Constant.BASE_URL).build();
 //        return retrofit;
 //    }
+
+    /**
+     *  注册接口
+     * @param phone
+     * @param password
+     * @param zh_name
+     * @param mail
+     * @param experience
+     * @param position
+     * @param role_code
+     * @param invate_code
+     * @param pic
+     * @param callback
+     */
     public static void register(String phone, String password, String zh_name, String mail,
                                 int experience, String position, int role_code,
                                 String invate_code, String pic, ResultCallback<Demo> callback) {
@@ -43,6 +57,12 @@ public class CommonRequest {
             params.put(ServerParam.PIC, pic);
         String url = createUrl("/api/v1/user/regist.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
+    }
+
+    public static void getQiniuToken(ResultCallback<String> callback){
+        Map<String,String> params = new HashMap<>();
+        String url = createUrl("/api/v1/qiniu/getQiniuToken",params);
+        new OkHttpRequest.Builder().url(url).get(callback);
     }
 
     protected static String createUrl(String path, Map<String, String> params) {

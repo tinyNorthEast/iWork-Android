@@ -11,6 +11,7 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -92,7 +93,9 @@ public class RegisterActivity extends BaseActivity {
         SMSSDK.registerEventHandler(eventHandler);
         SMSSDK.getSupportedCountries();
         showInputMethod();
-
+//        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+//        getSupportActionBar().setHomeButtonEnabled(true);
+//        getSupportActionBar().setCustomView(R.layout.title_bar);
     }
 
     private void setTextChangeWatch() {

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_bar_height"
+        android:background="@color/title_bar_bg"
+        android:clickable="true">
+        <!--居左的内容 Begin-->
+        <ImageView
+            android:id="@+id/title_bar_img_btn_my"
+            style="@style/TitleBar.ImageButton"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            android:paddingRight="15dp"
+            android:src="@drawable/title_bar_img_btn_my_selector" />
+        <ImageView
+            android:id="@+id/title_bar_img_btn_back"
+            style="@style/TitleBar.ImageButton"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/title_bar_img_btn_margin_left"
+            android:paddingRight="@dimen/title_bar_img_btn_click_extra_width"
+            android:scaleType="fitCenter"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/title_bar_img_btn_back_selector"
+            android:visibility="visible" />
+        <ImageView
+            android:id="@+id/title_bar_img_btn_custom_left"
+            style="@style/TitleBar.ImageButton"
+            android:scaleType="fitCenter"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/title_bar_img_btn_margin_left"
+            android:layout_height="match_parent"
+            android:paddingRight="@dimen/title_bar_img_btn_click_extra_width"
+            android:visibility="gone" />
+        <!--居左的内容 End-->
+
+        <!--居中的内容 Begin-->
+        <TextView
+            android:id="@+id/title_bar_text"
+            style="@style/TitleBar.TitleText"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="visible"
+            android:text="@string/app_name" />
+        <!--居中的内容 End-->
+
+        <!--居右的内容 Begin-->
+        <ImageButton
+            android:id="@+id/title_bar_img_btn_notice"
+            style="@style/TitleBar.ImageButton"
+            android:scaleType="fitCenter"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/title_bar_img_btn_click_extra_width"
+            android:paddingRight="@dimen/title_bar_img_btn_margin_right"
+            android:src="@drawable/title_bar_img_btn_notice_selector"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/title_bar_img_btn_more"
+            style="@style/TitleBar.ImageButton"
+            android:scaleType="fitCenter"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/title_bar_img_btn_click_extra_width"
+            android:paddingRight="@dimen/title_bar_img_btn_margin_right"
+            android:src="@drawable/title_bar_img_btn_more_selector"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+        <ImageButton
+            android:id="@+id/title_bar_img_btn_custom_right"
+            style="@style/TitleBar.ImageButton"
+            android:scaleType="fitCenter"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/title_bar_img_btn_click_extra_width"
+            android:layout_height="match_parent"
+            android:paddingRight="@dimen/title_bar_img_btn_margin_right"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/title_bar_textview_right"
+            android:textSize="@dimen/font_size_bold_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/title_bar_img_btn_click_extra_width"
+            android:paddingRight="@dimen/title_bar_img_btn_margin_right"
+            android:visibility="gone" />
+        <!--居右的内容 End-->
+    </RelativeLayout>
+
+</FrameLayout>

@@ -7,12 +7,61 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:actionBarStyle">@style/MyActionBar</item>
+
     </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Activity.iWork</item>
+
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-    <style name="MyActionBar" parent="@android:style/Widget.Holo.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"></style>
+
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:displayOptions"></item>
+        <item name="android:actionModeCloseDrawable">@drawable/title_bar_img_btn_back_selector
+        </item>
+    </style>
+
+    <style name="Animation.Activity.iWork" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_back_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_back_out</item>
+    </style>
+    <!--标题栏 标题样式-->
+    <style name="TitleBar.TitleText" parent="TextView">
+        <item name="android:textSize">@dimen/font_size_xx_bold_large</item>
+        <item name="android:textColor">@color/text_color_white</item>
+    </style>
+    <!--标题栏 图片按钮样式-->
+    <style name="TitleBar.ImageButton" parent="ImageView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="ImageView">
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:contentDescription">@null</item>
+    </style>
+
+    <style name="TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!--<style name="Tab_Button_TextView.Gray_Medium">-->
+        <!--<item name="android:textColor">@color/text_color_gray</item>-->
+    <!--</style>-->
+
+    <!--<style name="Tab_Button_TextView.DarkGray_Medium">-->
+        <!--<item name="android:textColor">@color/text_color_dark_gray</item>-->
+    <!--</style>-->
+
 </resources>

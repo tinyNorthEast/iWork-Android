@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.impetusconsulting.iwork.R;
+import com.iwork.Base.BaseActivity;
 import com.iwork.Base.BaseApplication;
 import com.iwork.helper.ToastHelper;
 import com.iwork.model.Demo;
@@ -27,7 +28,7 @@ import rx.Observer;
 import rx.Subscription;
 import rx.functions.Func2;
 
-public class PasswordActivity extends AppCompatActivity {
+public class PasswordActivity extends BaseActivity {
 
     @Bind(R.id.password_ed_pt_input)
     EditText passwordEdPtInput;

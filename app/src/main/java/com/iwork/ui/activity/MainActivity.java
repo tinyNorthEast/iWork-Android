@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import com.impetusconsulting.iwork.BuildConfig;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
+import com.iwork.ui.view.TitleBar;
 import com.qiniu.android.utils.StringUtils;
 import com.squareup.picasso.LruCache;
 import com.squareup.picasso.Picasso;
@@ -37,9 +38,11 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        TitleBar toolbar = (TitleBar) findViewById(R.id.toolbar);
 
+//        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+//        getSupportActionBar().setHomeButtonEnabled(true);
+//        getSupportActionBar().setCustomView(R.layout.title_bar);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

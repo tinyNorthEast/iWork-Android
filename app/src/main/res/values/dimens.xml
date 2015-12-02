@@ -39,4 +39,12 @@
     <dimen name="common_progressdialog_textview_margin_top">16dp</dimen>
     <dimen name="wheel_line_split_height">68px</dimen>
 
+
+    <!-- 标题栏 -->
+    <dimen name="title_bar_height">48dp</dimen>
+    <dimen name="title_bar_img_btn_width">18dp</dimen>
+    <dimen name="title_bar_img_btn_height">18dp</dimen>
+    <dimen name="title_bar_img_btn_margin_left">15dp</dimen>
+    <dimen name="title_bar_img_btn_margin_right">15dp</dimen>
+    <dimen name="title_bar_img_btn_click_extra_width">40dp</dimen>
 </resources>
