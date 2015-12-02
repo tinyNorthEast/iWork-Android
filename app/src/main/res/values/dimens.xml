@@ -37,4 +37,6 @@
     <dimen name="common_toast_icon_img_margin_top">20dp</dimen>
     <dimen name="common_toast_content_textview_margin_60">16dp</dimen>
     <dimen name="common_progressdialog_textview_margin_top">16dp</dimen>
+    <dimen name="wheel_line_split_height">68px</dimen>
+
 </resources>

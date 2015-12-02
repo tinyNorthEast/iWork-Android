@@ -123,5 +123,6 @@
     <color name="menu_bg_half_transparent">#660a0b0d</color>
     <color name="menu_bg_color">#ebebeb</color>
     <color name="common_list_divider">#ebebeb</color>
-
+    <!-- 底部选择器后面的半透明背景 -->
+    <color name="list_picker_window_with_bg">#B0000000</color>
 </resources>

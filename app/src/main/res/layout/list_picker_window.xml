@@ -49,6 +49,6 @@
         wheel:textColorFirst="@color/light_s_gray"
         wheel:textColorSecond="@color/light_gray"
         wheel:textColorThird="@color/deep_ss_gray"
-        wheel:textSize="@dimen/font_size_s_large" />
+        wheel:textSize="@dimen/font_size_xxx_m_large" />
     
 </RelativeLayout>

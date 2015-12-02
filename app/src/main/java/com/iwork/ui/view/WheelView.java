@@ -15,13 +15,12 @@ import android.view.ViewConfiguration;
 import android.view.animation.DecelerateInterpolator;
 
 
-import com.impetusconsulting.iwork.R;
 import com.iwork.ui.view.scroll.ScrollableView;
 import com.iwork.ui.view.scroll.Step;
 import com.iwork.utils.WindowUtil;
 
 import java.util.LinkedList;
-
+import com.impetusconsulting.iwork.R;
 import com.iwork.adapter.WheelAdapter;
 
 /**
