@@ -106,6 +106,7 @@ public class PasswordActivity extends BaseActivity {
 
     @OnClick(R.id.password_btn_submit)
     public void onComplate() {
+        showLoading(R.string.loading);
         String pw = MD5.toMD5(passwordCmInput.getText().toString());
         UserInfo userInfo = BaseApplication.getAppContext().mUserInfo;
         CommonRequest.register(userInfo.phone, pw, userInfo.zh_name, userInfo.email, userInfo.experience, userInfo.position, userInfo.role_code, null, null, new ResultCallback<Demo>() {
@@ -117,6 +118,7 @@ public class PasswordActivity extends BaseActivity {
             @Override
             public void onResponse(Demo response) {
                 if (response.getInfoCode() == 0) {
+                    cancelLoading();
                     ToastHelper.showShortCompleted("注册成功");
                     gotoMainActivity();
                 }

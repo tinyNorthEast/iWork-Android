@@ -65,10 +65,28 @@ public class CommonRequest {
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
 
+    /**
+     * 获取七牛token
+     * @param callback
+     */
     public static void getQiniuToken(ResultCallback<String> callback) {
         Map<String, String> params = new HashMap<>();
         String url = createUrl("/api/v1/qiniu/getQiniuToken", params);
         new OkHttpRequest.Builder().url(url).get(callback);
+    }
+
+    /**
+     * 更改密码
+     * @param phone
+     * @param password
+     * @param callback
+     */
+    public static void updataPassword(String phone,String password,ResultCallback<String> callback){
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.PHONE,phone);
+        params.put(ServerParam.PASSWORD,password);
+        String url = createUrl("/api/v1/user/updatePassword",params);
+        new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
 
     protected static String createUrl(String path, Map<String, String> params) {

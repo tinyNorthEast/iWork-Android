@@ -253,6 +253,7 @@ public class RegisterActivity extends BaseActivity {
             int result = msg.arg2;
             Object data = msg.obj;
             if (result == SMSSDK.RESULT_COMPLETE) {
+                cancelLoading();
                 if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
                     jumpNext();
                 } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
@@ -272,12 +273,14 @@ public class RegisterActivity extends BaseActivity {
                     String des = object.optString("detail");
                     if (!TextUtils.isEmpty(des)) {
                         ToastHelper.showShortError(des);
+                    }else {
+                        ToastHelper.showShortError("获取验证码失败");
                     }
                 } catch (Exception e) {
 
                 }
                 // 如果木有找到资源，默认提示
-//                Toast.makeText(MainActivity.this, "验证码错误", Toast.LENGTH_SHORT).show();
+                ToastHelper.showShortError("验证码错误");
             }
             return false;
         }
@@ -301,6 +304,7 @@ public class RegisterActivity extends BaseActivity {
 
     private void getCode() {
         phone = registeEdPhoneInput.getText().toString().trim();
+        showLoading(R.string.login_getCoding);
         if (Utils.isPhone(phone))
             SMSSDK.getVerificationCode("86", phone);
     }
@@ -339,6 +343,7 @@ public class RegisterActivity extends BaseActivity {
 
     @OnClick(R.id.registe_btn_submit)
     public void sendCode() {
+        showLoading(R.string.loading);
         String code = registeEdCodeInput.getText().toString().trim();
         if (!TextUtil.isEmpty(code)) {
             SMSSDK.submitVerificationCode("86", phone, code);
@@ -368,35 +373,6 @@ public class RegisterActivity extends BaseActivity {
                         registeTvGetCode.setText((60 - aLong) + "s");
                     }
                 });
-    }
-
-    public void getUsers() {
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("phone", "13028000116");
-        params.put("password", "123456");
-        params.put("zh_name", "行数");
-        params.put("mail", "a_tao123@163.com");
-        params.put("position", "it");
-        params.put("experience", "1");
-        params.put("role_code", "100");
-        params.put("client", "1");
-        params.put("eq_num", "aslkdfjlksdf");
-        params.put("invate_code", "aslkdfjlksdf");
-        params.put("pic", "aslkdfjlksdf");
-
-        String url = NetConstant.BASE_URL + "/api/v1/user/regist.action";
-        new OkHttpRequest.Builder().url(url).params(params).post(new ResultCallback<Demo>() {
-
-            @Override
-            public void onError(Request request, Exception e) {
-                KLog.d("---", e.toString());
-            }
-
-            @Override
-            public void onResponse(Demo response) {
-                KLog.i("---", response.getData());
-            }
-        });
     }
 
     /**
