@@ -31,6 +31,7 @@ import com.iwork.model.Demo;
 import com.iwork.net.RegisterRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.okhttp.request.OkHttpRequest;
+import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
 import com.iwork.utils.NetConstant;
 import com.iwork.utils.RxUtils;
@@ -78,10 +79,13 @@ public class RegisterActivity extends BaseActivity {
     EditText registeEdCodeInput;
     @Bind(R.id.registe_btn_submit)
     Button registeBtnSubmit;
+    @Bind(R.id.register_title_bar)
+    TitleBar titleBar;
 
     private Subscription subscription = null;
     private Observable<CharSequence> phoneChangeObservable;
     private Observable<CharSequence> codeChangeObservable;
+    private boolean isRegiste;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,11 +97,21 @@ public class RegisterActivity extends BaseActivity {
         SMSSDK.registerEventHandler(eventHandler);
         SMSSDK.getSupportedCountries();
         showInputMethod();
-//        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-//        getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setCustomView(R.layout.title_bar);
+        isRegiste = getIntent().getBooleanExtra("isRegiste", false);
+        if (isRegiste){
+            titleBar.setTitle("注册");
+        }else {
+            titleBar.setTitle("忘记密码");
+        }
+        titleBar.setBackDrawableListener(backListener);
     }
-
+    /** 标题栏返回按钮点击监听 */
+    private View.OnClickListener backListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            finish();
+        }
+    };
     private void setTextChangeWatch() {
         registeEdPhoneInput.addTextChangedListener(phoneWatcher);
         registeEdCodeInput.addTextChangedListener(codeWatcher);
@@ -268,15 +282,21 @@ public class RegisterActivity extends BaseActivity {
             return false;
         }
     });
-    public void jumpNext(){
+
+    public void jumpNext() {
         BaseApplication.getAppContext().mUserInfo.phone = phone;
-        Intent intent = new Intent(this,SignUserInfoActivity.class);
-        startActivity(intent);
+        if (isRegiste) {
+            Intent intent = new Intent(this, SignUserInfoActivity.class);
+            startActivity(intent);
+        }else {
+            Intent intent = new Intent(this,PasswordActivity.class);
+            startActivity(intent);
+        }
     }
+
     @OnClick(R.id.registe_tv_get_code)
     public void getCodeOnClick() {
         requestPermission();
-//        getCode();
     }
 
     private void getCode() {
@@ -294,21 +314,21 @@ public class RegisterActivity extends BaseActivity {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE,
                         Manifest.permission.RECEIVE_SMS}, REQUEST_READ_PHONE_STATE);
                 return;
-            }else {
+            } else {
                 getCode();
             }
-        }else {
+        } else {
             getCode();
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
+        switch (requestCode) {
             case REQUEST_READ_PHONE_STATE:
-                if (grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     getCode();
-                }else {
+                } else {
                     ToastHelper.showShortError("获取权限失败，请允许权限申请");
                 }
                 break;

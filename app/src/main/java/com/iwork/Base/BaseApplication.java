@@ -34,7 +34,7 @@ public class BaseApplication extends Application {
         JPushInterface.init(this);
         ShareSDK.initSDK(this);
         SMSSDK.initSDK(this, Constant.SMSSDKKEY,Constant.SMSSDKSECRET);
-
+        mContext = this;
     }
     public static BaseApplication getAppContext() {
         return mContext;

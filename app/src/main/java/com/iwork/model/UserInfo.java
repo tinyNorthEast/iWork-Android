@@ -7,6 +7,7 @@ package com.iwork.model;
 public class UserInfo {
     public String phone;
     public String zh_name;
+    public String en_name;
     public String email;
     public String position;
     public int experience;

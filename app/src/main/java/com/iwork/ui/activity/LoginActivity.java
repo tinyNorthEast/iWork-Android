@@ -1,12 +1,14 @@
 package com.iwork.ui.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PatternMatcher;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
+import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
 import com.iwork.utils.TextUtil;
 import com.iwork.utils.Utils;
@@ -53,6 +56,8 @@ public class LoginActivity extends BaseActivity {
     TextView loginTvSignNow;
     @Bind(R.id.login_random)
     TextView loginRandom;
+    @Bind(R.id.login_titlebar)
+    TitleBar titleBar;
 
     private Observable<CharSequence> phoneChangeObservable;
     private Observable<CharSequence> passwordChangeObservable;
@@ -65,8 +70,18 @@ public class LoginActivity extends BaseActivity {
         ButterKnife.bind(this);
         setTextChangeWatch();
         showInputMethod();
+        titleBar.setTitle("登陆");
+        titleBar.setBackDrawableListener(backListener);
+
     }
 
+    /** 标题栏返回按钮点击监听 */
+    private View.OnClickListener backListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            finish();
+        }
+    };
 
     private void setTextChangeWatch() {
         phoneChangeObservable = RxTextView.textChanges(loginEdPhoneInput).skip(1);
@@ -118,6 +133,18 @@ public class LoginActivity extends BaseActivity {
         finish();
     }
 
+    @OnClick(R.id.login_tv_sign_now)
+    public void registerNow(){
+        Intent intent= new Intent(this,RegisterActivity.class);
+        intent.putExtra("isRegiste",true);
+        startActivity(intent);
+    }
+    @OnClick(R.id.login_tv_forgot_pw)
+    public void fogetPassword(){
+        Intent intent = new Intent(this,RegisterActivity.class);
+        intent.putExtra("isRegiste",false);
+        startActivity(intent);
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();

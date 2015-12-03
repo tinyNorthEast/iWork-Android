@@ -1,5 +1,7 @@
 package com.iwork.ui.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -15,6 +17,7 @@ import com.iwork.model.Demo;
 import com.iwork.model.UserInfo;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
 import com.iwork.utils.MD5;
 import com.jakewharton.rxbinding.widget.RxTextView;
@@ -40,10 +43,14 @@ public class PasswordActivity extends BaseActivity {
     ImageView passwordImgPwdDel;
     @Bind(R.id.password_btn_submit)
     Button passwordBtnSubmit;
+    @Bind(R.id.password_titlebar)
+    TitleBar titleBar;
 
     private Observable<CharSequence> passwordChangeObservable;
     private Observable<CharSequence> passwordConfimObservable;
     private Subscription mSubscription = null;
+
+    private boolean flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +58,8 @@ public class PasswordActivity extends BaseActivity {
         setContentView(R.layout.activity_password);
         ButterKnife.bind(this);
         setTextChangeWatch();
+        flag = getIntent().getBooleanExtra("password", false);
+        titleBar.setTitle("设置密码");
     }
 
     private void setTextChangeWatch() {
@@ -68,10 +77,10 @@ public class PasswordActivity extends BaseActivity {
                     passwordCmInput.setError("请输入至少6位密码");
                 }
                 boolean isSame = password.equals(password_confim);
-                if (!isSame){
+                if (!isSame) {
                     ToastHelper.showShortError("请输入相同密码");
                 }
-                return passwValid&&passwcomValid&&isSame;
+                return passwValid && passwcomValid && isSame;
             }
         }).subscribe(new Observer<Boolean>() {
             @Override
@@ -94,8 +103,9 @@ public class PasswordActivity extends BaseActivity {
             }
         });
     }
+
     @OnClick(R.id.password_btn_submit)
-    public void onComplate(){
+    public void onComplate() {
         String pw = MD5.toMD5(passwordCmInput.getText().toString());
         UserInfo userInfo = BaseApplication.getAppContext().mUserInfo;
         CommonRequest.register(userInfo.phone, pw, userInfo.zh_name, userInfo.email, userInfo.experience, userInfo.position, userInfo.role_code, null, null, new ResultCallback<Demo>() {
@@ -106,11 +116,19 @@ public class PasswordActivity extends BaseActivity {
 
             @Override
             public void onResponse(Demo response) {
-                if (response.getInfoCode()==0){
+                if (response.getInfoCode() == 0) {
                     ToastHelper.showShortCompleted("注册成功");
+                    gotoMainActivity();
                 }
             }
         });
+    }
+
+    private void gotoMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        startActivity(intent);
     }
 
 }

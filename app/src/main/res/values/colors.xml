@@ -17,6 +17,7 @@
     <color name="bg_color_sss_gray">#fafafa</color>
     <color name="text_color_brown">#a88f67</color>
     <color name="line_color_gray">#e0e0e0</color>
+    <color name="text_color_bg">#11aaaa</color>
 
 
     <!--手机联系人-->
@@ -117,6 +118,7 @@
     <color name="color_splash_version_code">#ffb266</color>
     <color name="color_im_audio_text">#858a94</color>
     <color name="color_bt_red" >#f9d44313</color>
+    <color name="color_bt_bg">#11aaaa</color>
 
 
     <!-- 菜单界面 -->

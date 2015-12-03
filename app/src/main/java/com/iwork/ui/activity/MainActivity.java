@@ -40,15 +40,10 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         TitleBar toolbar = (TitleBar) findViewById(R.id.toolbar);
 
-//        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-//        getSupportActionBar().setHomeButtonEnabled(true);
-//        getSupportActionBar().setCustomView(R.layout.title_bar);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
                 OnekeyShare oks = new OnekeyShare();
                 oks.setText("我是分享文本");
                 oks.setImagePath("http://f1.sharesdk.cn/imgs/2014/05/21/oESpJ78_533x800.jpg");
@@ -61,14 +56,10 @@ public class MainActivity extends BaseActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,RegisterActivity.class);
+                Intent i = new Intent(MainActivity.this,LoginActivity.class);
                 startActivity(i);
             }
         });
-//        LruCache lruCache = new LruCache(this);
-//        lruCache.clear();
-//        Picasso picasso = new Picasso.Builder(this).memoryCache(lruCache).build();
-//        picasso.load("").resize(50, 50).centerCrop().error(R.drawable.ic_richpush_actionbar_back).into(new ImageView());
 
     }
 

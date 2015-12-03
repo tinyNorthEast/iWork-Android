@@ -184,7 +184,7 @@
             android:label="注册" />
         <activity android:name="com.iwork.ui.activity.SignUserInfoActivity" />
         <activity android:name="com.iwork.ui.activity.PositionInfoActivity" />
-        <activity android:name="com.iwork.ui.activity.PasswordActivity"></activity>
+        <activity android:name="com.iwork.ui.activity.PasswordActivity" />
     </application>
 
 </manifest>

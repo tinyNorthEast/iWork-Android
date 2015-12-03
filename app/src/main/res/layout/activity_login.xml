@@ -7,17 +7,23 @@
     android:orientation="vertical"
     tools:context="com.iwork.ui.activity.LoginActivity">
 
+    <com.iwork.ui.view.TitleBar
+        android:id="@+id/login_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
 
     <RelativeLayout
         android:id="@+id/login_layout_input"
         android:layout_width="fill_parent"
-        android:layout_height="96dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_login_layout_marginleft"
+        android:layout_marginRight="@dimen/common_login_layout_marginright"
+        android:layout_marginTop="@dimen/common_login_layout_margintop"
         android:background="@drawable/common_bg_normal">
 
         <RelativeLayout
+            android:id="@+id/login_layout_phone_input"
             android:layout_width="fill_parent"
             android:layout_height="47dp"
             android:layout_marginLeft="15dp"
@@ -61,6 +67,7 @@
             android:layout_width="fill_parent"
             android:layout_height="0.3dp"
             android:layout_centerInParent="true"
+            android:layout_below="@+id/login_layout_phone_input"
             android:src="@color/text_color_ss_gray" />
 
         <RelativeLayout
@@ -87,8 +94,8 @@
                 android:layout_toRightOf="@id/login_iv_pwd_icon"
                 android:background="@null"
                 android:hint="@string/es_login_pwd_text"
-                android:maxLength="16"
                 android:inputType="textPassword"
+                android:maxLength="16"
                 android:singleLine="true"
                 android:textColor="@color/text_color_dark_gray"
                 android:textColorHint="@color/text_color_s_gray"
@@ -119,6 +126,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/common_login_bt_selector"
+        android:clickable="false"
         android:enabled="false"
         android:text="@string/es_login_text"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -133,7 +141,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/login_forgot_password"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/text_color_red" />
+        android:textColor="@color/text_color_bg" />
 
     <TextView
         android:id="@+id/login_tv_sign_now"
@@ -143,7 +151,7 @@
         android:layout_marginTop="80dp"
         android:text="@string/login_sign_now"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/text_color_red" />
+        android:textColor="@color/text_color_bg" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -162,7 +170,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/login_random"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/text_color_gray" />
+        android:textColor="@color/text_color_bg" />
 
 
 </LinearLayout>

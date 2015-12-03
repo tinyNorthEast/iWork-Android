@@ -18,6 +18,7 @@ import com.iwork.helper.ToastHelper;
 import com.iwork.model.UserInfo;
 import com.iwork.net.CommonRequest;
 import com.iwork.ui.view.ListPickerWindow;
+import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.TextUtil;
 import com.socks.library.KLog;
 
@@ -39,7 +40,10 @@ public class PositionInfoActivity extends BaseActivity {
     TextView positionExpInput;
     @Bind(R.id.position_pt_rl)
     RelativeLayout positionPtlayout;
+    @Bind(R.id.position_titlebar)
+    TitleBar titleBar;
     View mRootView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +51,16 @@ public class PositionInfoActivity extends BaseActivity {
         mRootView = LayoutInflater.from(this).inflate(R.layout.activity_position_info, null);
         setContentView(mRootView);
         ButterKnife.bind(this);
+        titleBar.setTitle("职位信息");
+        titleBar.setBackDrawableListener(backListener);
     }
+    /** 标题栏返回按钮点击监听 */
+    private View.OnClickListener backListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            finish();
+        }
+    };
 
     @OnClick(R.id.position_btn_submit)
     public void onComplete() {

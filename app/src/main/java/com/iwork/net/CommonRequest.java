@@ -4,6 +4,7 @@ import com.iwork.model.Demo;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.okhttp.request.OkHttpRequest;
 import com.iwork.utils.Constant;
+import com.iwork.utils.NetConstant;
 import com.iwork.utils.TextUtil;
 import com.iwork.utils.Utils;
 import com.squareup.okhttp.OkHttpClient;
@@ -69,6 +70,6 @@ public class CommonRequest {
         params.put(ServerParam.CLIENT, Constant.CLIEN);
         params.put(ServerParam.EQ_NUM, Constant.ANDROID_ID);
         params.put(ServerParam.VERSION, Utils.getCurrentVersion());
-        return Constant.BASE_URL + path;
+        return NetConstant.BASE_URL + path;
     }
 }

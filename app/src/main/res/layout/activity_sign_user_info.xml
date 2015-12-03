@@ -6,13 +6,21 @@
     android:background="@color/dark_gray"
     tools:context="com.iwork.ui.activity.SignUserInfoActivity">
 
+    <com.iwork.ui.view.TitleBar
+        android:id="@+id/regist_user_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
+
+
     <RelativeLayout
         android:id="@+id/regist_rl_userinfo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="50dp">
+        android:layout_below="@+id/regist_user_titlebar"
+        android:layout_marginLeft="@dimen/common_login_layout_marginleft"
+        android:layout_marginRight="@dimen/common_login_layout_marginright"
+        android:layout_marginTop="@dimen/common_login_layout_margintop">
 
         <ImageView
             android:id="@+id/registe_iv_user"

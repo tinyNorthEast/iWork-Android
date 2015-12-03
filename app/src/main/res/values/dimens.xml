@@ -47,4 +47,7 @@
     <dimen name="title_bar_img_btn_margin_left">15dp</dimen>
     <dimen name="title_bar_img_btn_margin_right">15dp</dimen>
     <dimen name="title_bar_img_btn_click_extra_width">40dp</dimen>
+    <dimen name="common_login_layout_marginleft">15dp</dimen>
+    <dimen name="common_login_layout_marginright">15dp</dimen>
+    <dimen name="common_login_layout_margintop">50dp</dimen>
 </resources>

@@ -35,6 +35,6 @@
             android:paddingBottom="12dp"
             android:textColor="@color/text_color_ss_gray"
             android:textSize="@dimen/font_size_medium"
-            tools:text="@string/no_permision_tip" />
+            />
     </RelativeLayout>
 </RelativeLayout>
