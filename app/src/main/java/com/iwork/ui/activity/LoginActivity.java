@@ -64,7 +64,6 @@ public class LoginActivity extends BaseActivity {
     TextView loginRandom;
     @Bind(R.id.login_titlebar)
     TitleBar titleBar;
-    private LoadingDialog mLoadingDialog;
 
     private Observable<CharSequence> phoneChangeObservable;
     private Observable<CharSequence> passwordChangeObservable;
@@ -78,7 +77,6 @@ public class LoginActivity extends BaseActivity {
         showInputMethod();
         titleBar.setTitle("登陆");
         titleBar.setBackDrawableListener(backListener);
-        mLoadingDialog= new LoadingDialog(this);
     }
 
     /**
@@ -141,7 +139,7 @@ public class LoginActivity extends BaseActivity {
 
         @Override
         public void onResponse(String response) {
-            mLoadingDialog.dismiss();
+            cancelLoading();
             ToastHelper.showShortCompleted("登录成功");
             finish();
         }
@@ -159,8 +157,7 @@ public class LoginActivity extends BaseActivity {
         }
         String phone = loginEdPhoneInput.getText().toString();
         String password = MD5.toMD5(loginEdPwdInput.getText().toString());
-        mLoadingDialog.setLoadingContent("正在登录中");
-        mLoadingDialog.show();
+        showLoading(R.string.login_loading);
         CommonRequest.login(phone,password,callback);
     }
 

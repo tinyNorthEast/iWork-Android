@@ -32,6 +32,8 @@
     <string name="confirm">确认</string>
     <string name="loading">正在加载</string>
     <string name="submit">提交</string>
+    <string name="login_failed_tip">登录失败</string>
+    <string name="login_loading">正在登录</string>
 
     <string-array name="avatar_menu">
         <item>拍照</item>
