@@ -50,4 +50,16 @@
     <dimen name="common_login_layout_marginleft">15dp</dimen>
     <dimen name="common_login_layout_marginright">15dp</dimen>
     <dimen name="common_login_layout_margintop">50dp</dimen>
+    <!-- Dialog对话框 -->
+    <dimen name="common_dialog_root_layout_width">269dp</dimen>
+    <dimen name="common_dialog_root_layout_height">135dp</dimen>
+    <dimen name="common_dialog_title_txtview_single_margin_top">27dp</dimen>
+    <dimen name="common_dialog_title_txtview_single_margin_bottom">30dp</dimen>
+    <dimen name="common_dialog_title_txtview_multi_margin_top">21dp</dimen>
+    <dimen name="common_dialog_title_txtview_multi_margin_bottom">27dp</dimen>
+    <dimen name="common_dialog_btn_layout_margin_left">15dp</dimen>
+    <dimen name="common_dialog_btn_height">50dp</dimen>
+    <dimen name="common_dialog_btn_margin_left">6dp</dimen>
+    <dimen name="common_dialog_title_txtview_multi_width">239dp</dimen>
+
 </resources>

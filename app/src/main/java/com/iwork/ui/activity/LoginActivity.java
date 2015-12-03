@@ -18,12 +18,18 @@ import android.widget.Toast;
 
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
+import com.iwork.helper.ToastHelper;
+import com.iwork.net.CommonRequest;
+import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.dialog.LoadingDialog;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
+import com.iwork.utils.MD5;
 import com.iwork.utils.TextUtil;
 import com.iwork.utils.Utils;
 import com.jakewharton.rxbinding.widget.RxCheckedTextView;
 import com.jakewharton.rxbinding.widget.RxTextView;
+import com.squareup.okhttp.Request;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -58,11 +64,11 @@ public class LoginActivity extends BaseActivity {
     TextView loginRandom;
     @Bind(R.id.login_titlebar)
     TitleBar titleBar;
+    private LoadingDialog mLoadingDialog;
 
     private Observable<CharSequence> phoneChangeObservable;
     private Observable<CharSequence> passwordChangeObservable;
     private Subscription mSubscription = null;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,10 +78,12 @@ public class LoginActivity extends BaseActivity {
         showInputMethod();
         titleBar.setTitle("登陆");
         titleBar.setBackDrawableListener(backListener);
-
+        mLoadingDialog= new LoadingDialog(this);
     }
 
-    /** 标题栏返回按钮点击监听 */
+    /**
+     * 标题栏返回按钮点击监听
+     */
     private View.OnClickListener backListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -83,19 +91,21 @@ public class LoginActivity extends BaseActivity {
         }
     };
 
+    boolean phoneValid, passwValid;
+
     private void setTextChangeWatch() {
         phoneChangeObservable = RxTextView.textChanges(loginEdPhoneInput).skip(1);
         passwordChangeObservable = RxTextView.textChanges(loginEdPwdInput).skip(1);
         mSubscription = Observable.combineLatest(phoneChangeObservable, passwordChangeObservable, new Func2<CharSequence, CharSequence, Boolean>() {
             @Override
             public Boolean call(CharSequence phone, CharSequence password) {
-                boolean phoneValid = Utils.isPhone(phone);
+                phoneValid = Utils.isPhone(phone);
                 if (!phoneValid) {
-                    loginEdPhoneInput.setError("请输入正确的手机号");
+//                    loginEdPhoneInput.setError("请输入正确的手机号");
                 }
-                boolean passwValid = !TextUtils.isEmpty(password) && password.length() > Constant.PWD_MIN_LENGTH;
+                passwValid = !TextUtils.isEmpty(password) && password.length() > Constant.PWD_MIN_LENGTH;
                 if (!passwValid) {
-                    loginEdPwdInput.setError("请输入至少6位密码");
+//                    loginEdPwdInput.setError("请输入至少6位密码");
                 }
                 return phoneValid && passwValid;
             }
@@ -123,9 +133,35 @@ public class LoginActivity extends BaseActivity {
 
     }
 
+    private ResultCallback<String> callback = new ResultCallback<String>() {
+        @Override
+        public void onError(Request request, Exception e) {
+
+        }
+
+        @Override
+        public void onResponse(String response) {
+            mLoadingDialog.dismiss();
+            ToastHelper.showShortCompleted("登录成功");
+            finish();
+        }
+    };
+
     @OnClick(R.id.login_btn_submit)
     public void login() {
-        Toast.makeText(this, "s", Toast.LENGTH_SHORT).show();
+        if (!phoneValid){
+            ToastHelper.showShortError("请输入正确的手机号");
+            return;
+        }
+        if (!phoneValid){
+            ToastHelper.showShortError("请输入至少6位密码");
+            return;
+        }
+        String phone = loginEdPhoneInput.getText().toString();
+        String password = MD5.toMD5(loginEdPwdInput.getText().toString());
+        mLoadingDialog.setLoadingContent("正在登录中");
+        mLoadingDialog.show();
+        CommonRequest.login(phone,password,callback);
     }
 
     @OnClick(R.id.login_random)
@@ -134,32 +170,38 @@ public class LoginActivity extends BaseActivity {
     }
 
     @OnClick(R.id.login_tv_sign_now)
-    public void registerNow(){
-        Intent intent= new Intent(this,RegisterActivity.class);
-        intent.putExtra("isRegiste",true);
+    public void registerNow() {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        intent.putExtra("isRegiste", true);
         startActivity(intent);
     }
+
     @OnClick(R.id.login_tv_forgot_pw)
-    public void fogetPassword(){
-        Intent intent = new Intent(this,RegisterActivity.class);
-        intent.putExtra("isRegiste",false);
+    public void fogetPassword() {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        intent.putExtra("isRegiste", false);
         startActivity(intent);
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mSubscription!=null)
+        if (mSubscription != null)
             mSubscription.unsubscribe();
         hideInputMethod();
     }
 
-    /** 显示输入法 */
+    /**
+     * 显示输入法
+     */
     public void showInputMethod() {
         InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(loginEdPhoneInput, InputMethodManager.SHOW_IMPLICIT);
     }
 
-    /** 隐藏输入法 */
+    /**
+     * 隐藏输入法
+     */
     public void hideInputMethod() {
         InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(loginEdPhoneInput.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);

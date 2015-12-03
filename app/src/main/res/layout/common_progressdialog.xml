@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="@dimen/common_toast_root_layout_wdith"
+              android:layout_height="@dimen/common_toast_root_layout_height"
+              android:background="@drawable/common_toast_bg"
+              android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/loadingImageView"
+        android:layout_width="@dimen/common_toast_icon_img_wdith"
+        android:layout_height="@dimen/common_toast_icon_img_height"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/common_toast_icon_img_margin_top"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/loading_anim"/>
+
+    <TextView
+        android:id="@+id/loadingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/common_progressdialog_textview_margin_top"
+        android:textColor="@color/text_color_ss_gray"
+        android:textSize="@dimen/font_size_medium"
+        android:singleLine="true"
+        tools:text="正在取消"
+        />
+</LinearLayout>

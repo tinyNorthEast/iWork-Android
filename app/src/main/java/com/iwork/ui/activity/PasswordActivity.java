@@ -127,7 +127,6 @@ public class PasswordActivity extends BaseActivity {
     private void gotoMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
         startActivity(intent);
     }
 

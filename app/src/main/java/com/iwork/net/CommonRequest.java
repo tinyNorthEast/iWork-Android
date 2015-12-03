@@ -23,13 +23,18 @@ public class CommonRequest {
 
     public static final String BASE_PARAM = "/version/{version}/";
 
-    //    public static Retrofit getBaseRetrfit(){
-//        Retrofit retrofit = new Retrofit.Builder().baseUrl(Constant.BASE_URL).build();
-//        return retrofit;
-//    }
+
+    public static void login(String phone, String password, ResultCallback<String> callback) {
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.PHONE, phone);
+        params.put(ServerParam.PASSWORD, password);
+        String url = createUrl("/api/v1/user/login.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).post(callback);
+    }
 
     /**
-     *  注册接口
+     * 注册接口
+     *
      * @param phone
      * @param password
      * @param zh_name
@@ -60,9 +65,9 @@ public class CommonRequest {
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
 
-    public static void getQiniuToken(ResultCallback<String> callback){
-        Map<String,String> params = new HashMap<>();
-        String url = createUrl("/api/v1/qiniu/getQiniuToken",params);
+    public static void getQiniuToken(ResultCallback<String> callback) {
+        Map<String, String> params = new HashMap<>();
+        String url = createUrl("/api/v1/qiniu/getQiniuToken", params);
         new OkHttpRequest.Builder().url(url).get(callback);
     }
 
