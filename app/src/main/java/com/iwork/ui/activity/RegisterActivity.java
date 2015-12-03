@@ -157,13 +157,13 @@ public class RegisterActivity extends BaseActivity {
             String code = registeEdCodeInput.getText().toString();
             String p = registeEdPhoneInput.getText().toString();
             if (TextUtils.isEmpty(p)) {
-                registeImgPhoneDel.setVisibility(View.GONE);
+//                registeImgPhoneDel.setVisibility(View.GONE);
             } else {
-                registeImgPhoneDel.setVisibility(View.VISIBLE);
+//                registeImgPhoneDel.setVisibility(View.VISIBLE);
             }
             if (!Utils.isPhone(p)) {
                 setGetCodeShow(false);
-                registeBtnSubmit.setEnabled(false);
+//                registeBtnSubmit.setEnabled(false);
                 if (!TextUtils.isEmpty(p))
                     ToastHelper.showShortError(R.string.phone_errns);
                 return;
@@ -178,11 +178,11 @@ public class RegisterActivity extends BaseActivity {
 
             if (!Utils.isNum(code))
                 return;
-            if (code.length() == 4 && p.length() == 11) {
-                registeBtnSubmit.setEnabled(true);
-            } else {
-                registeBtnSubmit.setEnabled(false);
-            }
+//            if (code.length() == 4 && p.length() == 11) {
+//                registeBtnSubmit.setEnabled(true);
+//            } else {
+//                registeBtnSubmit.setEnabled(false);
+//            }
         }
     };
 
@@ -205,30 +205,30 @@ public class RegisterActivity extends BaseActivity {
         public void afterTextChanged(Editable editable) {
             String code = registeEdCodeInput.getText().toString();
             String p = registeEdPhoneInput.getText().toString();
-            if (!Utils.isNum(code)) {
-                registeBtnSubmit.setEnabled(false);
-                if (!TextUtils.isEmpty(code))
-                    ToastHelper.showShortError(R.string.phone_errns);
-                return;
-            }
+//            if (!Utils.isNum(code)) {
+//                registeBtnSubmit.setEnabled(false);
+//                if (!TextUtils.isEmpty(code))
+//                    ToastHelper.showShortError(R.string.phone_errns);
+//                return;
+//            }
             if (code.length() < 4) {
-                registeBtnSubmit.setEnabled(false);
+//                registeBtnSubmit.setEnabled(false);
                 return;
             }
             if (!Utils.isNum(p))
                 return;
-            if (code.length() == 4 && p.length() == 11) {
-                registeBtnSubmit.setEnabled(true);
-            } else {
-                registeBtnSubmit.setEnabled(false);
-            }
+//            if (code.length() == 4 && p.length() == 11) {
+//                registeBtnSubmit.setEnabled(true);
+//            } else {
+//                registeBtnSubmit.setEnabled(false);
+//            }
         }
     };
 
 
     private void setGetCodeShow(boolean isenble) {
         if (isenble)
-            registeTvGetCode.setTextColor(getResources().getColor(R.color.text_color_red));
+            registeTvGetCode.setTextColor(getResources().getColor(R.color.text_color_bg));
         else
             registeTvGetCode.setTextColor(getResources().getColor(R.color.text_color_s_gray));
         registeTvGetCode.setEnabled(isenble);
@@ -299,14 +299,18 @@ public class RegisterActivity extends BaseActivity {
 
     @OnClick(R.id.registe_tv_get_code)
     public void getCodeOnClick() {
+
         requestPermission();
     }
 
     private void getCode() {
         phone = registeEdPhoneInput.getText().toString().trim();
-        showLoading(R.string.login_getCoding);
-        if (Utils.isPhone(phone))
+        if (Utils.isPhone(phone)){
+            showLoading(R.string.login_getCoding);
             SMSSDK.getVerificationCode("86", phone);
+        }else {
+            ToastHelper.showShortError(R.string.phone_errns);
+        }
     }
 
     public static final int REQUEST_READ_PHONE_STATE = 123;
@@ -357,19 +361,20 @@ public class RegisterActivity extends BaseActivity {
                 .subscribe(new Observer<Long>() {
                     @Override
                     public void onCompleted() {
-                        registeTvGetCode.setEnabled(true);
+                        setGetCodeShow(true);
                         registeTvGetCode.setText("重新发送");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        registeTvGetCode.setEnabled(true);
+                        setGetCodeShow(true);
                         registeTvGetCode.setText("重新发送");
                     }
 
                     @Override
                     public void onNext(Long aLong) {
                         registeTvGetCode.setEnabled(false);
+                        setGetCodeShow(false);
                         registeTvGetCode.setText((60 - aLong) + "s");
                     }
                 });
