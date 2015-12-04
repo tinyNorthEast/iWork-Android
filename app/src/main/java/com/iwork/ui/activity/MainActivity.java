@@ -42,6 +42,8 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
         viewpager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), titles));
 
         slidingTabs.setViewPager(viewpager);
+        slidingTabs.setDistributeEvenly(true);
+//        slidingTabs.setSelectedIndicatorColors(R.color.color_bt_bg);
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override

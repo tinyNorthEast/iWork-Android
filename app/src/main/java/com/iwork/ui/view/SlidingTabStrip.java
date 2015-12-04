@@ -25,13 +25,15 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.impetusconsulting.iwork.R;
+
 
 class SlidingTabStrip extends LinearLayout {
 
     private static final int DEFAULT_BOTTOM_BORDER_THICKNESS_DIPS = 0;
     private static final byte DEFAULT_BOTTOM_BORDER_COLOR_ALPHA = 0x26;
     private static final int SELECTED_INDICATOR_THICKNESS_DIPS = 3;
-    private static final int DEFAULT_SELECTED_INDICATOR_COLOR = 0xFF33B5E5;
+    private static final int DEFAULT_SELECTED_INDICATOR_COLOR = R.color.color_bt_bg;
 
     private final int mBottomBorderThickness;
     private final Paint mBottomBorderPaint;
@@ -111,7 +113,7 @@ class SlidingTabStrip extends LinearLayout {
             if (mSelectionOffset > 0f && mSelectedPosition < (getChildCount() - 1)) {
                 int nextColor = tabColorizer.getIndicatorColor(mSelectedPosition + 1);
                 if (color != nextColor) {
-                    color = blendColors(nextColor, color, mSelectionOffset);
+//                    color = blendColors(nextColor, color, mSelectionOffset);
                 }
 
                 // Draw the selection partway between the tabs
@@ -122,7 +124,7 @@ class SlidingTabStrip extends LinearLayout {
                         (1.0f - mSelectionOffset) * right);
             }
 
-            mSelectedIndicatorPaint.setColor(color);
+            mSelectedIndicatorPaint.setColor(getResources().getColor(R.color.color_bt_bg));
 
             canvas.drawRect(left, height - mSelectedIndicatorThickness, right,
                     height, mSelectedIndicatorPaint);
