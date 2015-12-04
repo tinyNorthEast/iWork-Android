@@ -1,67 +1,76 @@
 package com.iwork.ui.activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
+import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.Toast;
 
-import com.impetusconsulting.iwork.BuildConfig;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
+import com.iwork.ui.view.SampleFragment;
+import com.iwork.ui.view.SlidingTabLayout;
 import com.iwork.ui.view.TitleBar;
-import com.qiniu.android.utils.StringUtils;
-import com.squareup.picasso.LruCache;
-import com.squareup.picasso.Picasso;
+import com.iwork.ui.view.ViewPagerAdapter;
 
-import java.util.Iterator;
-import java.util.List;
-
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import cn.jpush.android.api.JPushInterface;
-import cn.sharesdk.onekeyshare.OnekeyShare;
-import cn.smssdk.SMSSDK;
 
-public class MainActivity extends BaseActivity {
-    Button button;
+public class MainActivity extends BaseActivity implements SampleFragment.OnFragmentInteractionListener{
+    @Bind(R.id.main_title_bar)
+    TitleBar titleBar;
+    @Bind(R.id.sliding_tabs)
+    SlidingTabLayout slidingTabs;
+    @Bind(R.id.viewpager)
+    ViewPager viewpager;
+    private String titles[] = new String[]{"金融", "消费品", "房产", "医疗",
+            "全部", "互联网", "工业", "教育", "汽车", "政府部门"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TitleBar toolbar = (TitleBar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
+        titleBar.hideBackDrawable();
+        titleBar.setCustomImageButtonRight(R.drawable.title_bar_my, loginListener);
+        titleBar.setCustomImageButtonLeft(R.drawable.common_icon_transfer_down, "北京", positionListener);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                OnekeyShare oks = new OnekeyShare();
-                oks.setText("我是分享文本");
-                oks.setImagePath("http://f1.sharesdk.cn/imgs/2014/05/21/oESpJ78_533x800.jpg");
-                // 启动分享GUI
-                oks.show(MainActivity.this);
+        viewpager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), titles));
 
-            }
-        });
-        button = (Button) findViewById(R.id.login);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(i);
-            }
-        });
+        slidingTabs.setViewPager(viewpager);
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                OnekeyShare oks = new OnekeyShare();
+//                oks.setText("我是分享文本");
+//                oks.setImagePath("http://f1.sharesdk.cn/imgs/2014/05/21/oESpJ78_533x800.jpg");
+//                // 启动分享GUI
+//                oks.show(MainActivity.this);
+//
+//            }
+//        });
 
     }
+
+    private View.OnClickListener positionListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+//            ToastHelper.showShortCompleted("选择城市");
+            Toast.makeText(MainActivity.this, "选择城市", Toast.LENGTH_SHORT).show();
+        }
+    };
+    private View.OnClickListener loginListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(i);
+        }
+    };
 
     @Override
     protected void onResume() {
@@ -95,5 +104,10 @@ public class MainActivity extends BaseActivity {
 //        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

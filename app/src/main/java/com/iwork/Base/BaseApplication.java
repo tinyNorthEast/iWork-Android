@@ -28,13 +28,13 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = this;
         OkHttpClientManager.getInstance().getOkHttpClient().setConnectTimeout(10000, TimeUnit.MILLISECONDS);
         KLog.init(BuildConfig.LOG_DEBUG);
         JPushInterface.setDebugMode(BuildConfig.JPUSH_DEBUG);
         JPushInterface.init(this);
         ShareSDK.initSDK(this);
         SMSSDK.initSDK(this, Constant.SMSSDKKEY,Constant.SMSSDKSECRET);
-        mContext = this;
     }
     public static BaseApplication getAppContext() {
         return mContext;

@@ -193,9 +193,10 @@ public class TitleBar extends RelativeLayout {
      * @param src
      * @param listener
      */
-    public void setCustomImageButtonLeft(int src, OnClickListener listener) {
+    public void setCustomImageButtonLeft(int src,String s, OnClickListener listener) {
         title_bar_img_btn_custom_left.setImageDrawable(getResources().getDrawable(src));
-        show(title_bar_img_btn_custom_left);
+        show(title_layout_left);
+        title_bar_textview_left.setText(s);
         customImgBtnLeftClickListener = listener;
     }
 
@@ -233,7 +234,8 @@ public class TitleBar extends RelativeLayout {
         //可自定义的ImageButton
         title_bar_img_btn_custom_left = (ImageView) findViewById(R.id.title_bar_img_btn_custom_left);
         title_bar_img_btn_custom_right = (ImageView) findViewById(R.id.title_bar_img_btn_custom_right);
-
+        title_layout_left = (LinearLayout) findViewById(R.id.title_bar_layout_custom_left);
+        title_bar_textview_left = (TextView) findViewById(R.id.title_bar_textview_left);
         setListeners();
     }
 
@@ -247,7 +249,7 @@ public class TitleBar extends RelativeLayout {
         title_bar_img_btn_notice.setOnClickListener(onClickListener);
         title_bar_img_btn_more.setOnClickListener(onClickListener);
         title_bar_textview_right.setOnClickListener(onClickListener);
-        title_bar_img_btn_custom_left.setOnClickListener(onClickListener);
+        title_layout_left.setOnClickListener(onClickListener);
         title_bar_img_btn_custom_right.setOnClickListener(onClickListener);
     }
 
@@ -268,7 +270,7 @@ public class TitleBar extends RelativeLayout {
                         backImgBtnClickListener.onClick(view);
                     }
                     break;
-                case R.id.title_bar_img_btn_custom_left:
+                case R.id.title_bar_layout_custom_left:
                     if (customImgBtnLeftClickListener != null) {
                         customImgBtnLeftClickListener.onClick(view);
                     }
@@ -307,9 +309,10 @@ public class TitleBar extends RelativeLayout {
     private ImageView title_bar_img_btn_notice;
     private ImageView title_bar_img_btn_back;
     private ImageView title_bar_img_btn_more;
-    private TextView title_bar_textview_right;
+    private TextView title_bar_textview_right,title_bar_textview_left;
     private ImageView title_bar_img_btn_my;
     private TextView title_bar_text;
+    private LinearLayout title_layout_left;
 
     /*下面是所有控件的事件Listener*/
     private OnClickListener customImgBtnLeftClickListener;
