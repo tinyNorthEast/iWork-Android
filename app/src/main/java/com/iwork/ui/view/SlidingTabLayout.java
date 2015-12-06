@@ -32,6 +32,9 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.impetusconsulting.iwork.R;
+import com.iwork.helper.ResourcesHelper;
+
 public class SlidingTabLayout extends HorizontalScrollView {
     public interface TabColorizer {
 
@@ -97,7 +100,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
     }
 
     /**
-     * Set the {@link android.support.v4.view.ViewPager.OnPageChangeListener}. When using {@link com.tekinarslan.material.sample.SlidingTabLayout} you are
+     * Set the {@link android.support.v4.view.ViewPager.OnPageChangeListener}. When using {@link SlidingTabLayout} you are
      * required to set any {@link android.support.v4.view.ViewPager.OnPageChangeListener} through this method. This is so
      * that the layout can update it's scroll position correctly.
      *
@@ -131,7 +134,19 @@ public class SlidingTabLayout extends HorizontalScrollView {
             populateTabStrip();
         }
     }
+    protected ColorTrackView createColoTrackView(Context context){
+        ColorTrackView colorTrackView = new ColorTrackView(context,null);
+        colorTrackView.setProgress(0);
+        colorTrackView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        colorTrackView.setDirection(1);
+        colorTrackView.setTextOriginColor(ResourcesHelper.getColor(R.color.white));
+        colorTrackView.setTextChangeColor(ResourcesHelper.getColor(R.color.text_color_bg));
+        colorTrackView.setTextSize(30);
+        int padding = (int) (TAB_VIEW_PADDING_DIPS * getResources().getDisplayMetrics().density);
+        colorTrackView.setPadding(padding, padding, padding, padding);
 
+        return colorTrackView;
+    }
     /**
      * Create a default view to be used for tabs. This is called if a custom tab view is not set via
      * {@link #setCustomTabView(int, int)}.
@@ -162,21 +177,22 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
         for (int i = 0; i < adapter.getCount(); i++) {
             View tabView = null;
-            TextView tabTitleView = null;
+            ColorTrackView tabTitleView = null;
 
             if (mTabViewLayoutId != 0) {
                 // If there is a custom tab view layout id set, try and inflate it
                 tabView = LayoutInflater.from(getContext()).inflate(mTabViewLayoutId, mTabStrip,
                         false);
-                tabTitleView = (TextView) tabView.findViewById(mTabViewTextViewId);
+                tabTitleView = (ColorTrackView) tabView.findViewById(mTabViewTextViewId);
             }
 
             if (tabView == null) {
-                tabView = createDefaultTabView(getContext());
+//                tabView = createDefaultTabView(getContext());
+                tabView = createColoTrackView(getContext());
             }
 
-            if (tabTitleView == null && TextView.class.isInstance(tabView)) {
-                tabTitleView = (TextView) tabView;
+            if (tabTitleView == null && ColorTrackView.class.isInstance(tabView)) {
+                tabTitleView = (ColorTrackView) tabView;
             }
 
             if (mDistributeEvenly) {
@@ -185,8 +201,9 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 lp.weight = 1;
             }
 
-            tabTitleView.setText(adapter.getPageTitle(i));
-            tabTitleView.setTextColor(Color.WHITE);
+            tabTitleView.setText(adapter.getPageTitle(i)+"");
+            tabTitleView.setTextOriginColor(Color.WHITE);
+            tabTitleView.setTextChangeColor(ResourcesHelper.getColor(R.color.text_color_bg));
             tabView.setOnClickListener(tabClickListener);
             String desc = mContentDescriptions.get(i, null);
             if (desc != null) {

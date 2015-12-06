@@ -105,7 +105,8 @@ class SlidingTabStrip extends LinearLayout {
 
         // Thick colored underline below the current selection
         if (childCount > 0) {
-            View selectedTitle = getChildAt(mSelectedPosition);
+            ColorTrackView selectedTitle = (ColorTrackView) getChildAt(mSelectedPosition);
+
             int left = selectedTitle.getLeft();
             int right = selectedTitle.getRight();
             int color = tabColorizer.getIndicatorColor(mSelectedPosition);
@@ -117,7 +118,11 @@ class SlidingTabStrip extends LinearLayout {
                 }
 
                 // Draw the selection partway between the tabs
-                View nextTitle = getChildAt(mSelectedPosition + 1);
+                ColorTrackView nextTitle = (ColorTrackView) getChildAt(mSelectedPosition + 1);
+                selectedTitle.setDirection(1);
+                nextTitle.setDirection(0);
+                selectedTitle.setProgress(1-mSelectionOffset);
+                nextTitle.setProgress(mSelectionOffset);
                 left = (int) (mSelectionOffset * nextTitle.getLeft() +
                         (1.0f - mSelectionOffset) * left);
                 right = (int) (mSelectionOffset * nextTitle.getRight() +
