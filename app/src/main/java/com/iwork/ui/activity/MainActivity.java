@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
         titleBar.setCustomImageButtonLeft(R.drawable.common_icon_transfer_down, "北京", positionListener);
 
         viewpager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), titles));
-        slidingTabs.setDistributeEvenly(true);
+//        slidingTabs.setDistributeEvenly(true);
 //        slidingTabs.setCustomTabView(R.layout.slidingtablayout_view,R.id.sliding_tabs_tv);
         slidingTabs.setViewPager(viewpager);
 //        slidingTabs.setSelectedIndicatorColors(R.color.color_bt_bg);

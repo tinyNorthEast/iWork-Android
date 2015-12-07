@@ -137,7 +137,6 @@ public class ColorTrackView extends View {
 		mTextWidth = (int) mPaint.measureText(mText);
 		FontMetrics fm = mPaint.getFontMetrics();
 		mTextHeight = (int) Math.ceil(fm.descent - fm.top);
-
 		mPaint.getTextBounds(mText, 0, mText.length(), mTextBound);
 		mTextHeight = mTextBound.height();
 	}
@@ -182,7 +181,7 @@ public class ColorTrackView extends View {
 		canvas.save(Canvas.CLIP_SAVE_FLAG);
 		canvas.clipRect(startX, 0, endX, getMeasuredHeight());// left, top,
 //		if (mProgress!=0)														// right, bottom
-		mPaint.setTextSize(mTextSize*(1+mProgress/4));
+//		mPaint.setTextSize(mTextSize*(1+mProgress/4));
 		canvas.drawText(mText, mTextStartX,
 				getMeasuredHeight() / 2
 						- ((mPaint.descent() + mPaint.ascent()) / 2), mPaint);
