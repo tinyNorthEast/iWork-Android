@@ -1,6 +1,7 @@
 package com.iwork.net;
 
 import com.iwork.model.LoginInfo;
+import com.iwork.model.RequestMessage;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.okhttp.request.OkHttpRequest;
 import com.iwork.utils.Constant;
@@ -20,8 +21,9 @@ public class CommonRequest {
     public static final String BASE_PARAM = "/version/{version}/";
 
     /**
-     *  登录接口
-     * @param phone 手机号
+     * 登录接口
+     *
+     * @param phone    手机号
      * @param password 密码 MD5
      * @param callback 回调接口
      */
@@ -36,16 +38,16 @@ public class CommonRequest {
     /**
      * 注册接口
      *
-     * @param phone  手机号
-     * @param password 密码
-     * @param zh_name 中文名
-     * @param mail   邮箱
+     * @param phone       手机号
+     * @param password    密码
+     * @param zh_name     中文名
+     * @param mail        邮箱
      * @param experience  工作经验
-     * @param position  职位
-     * @param role_code 100-猎头顾问 101-企业HR 102-候选人
+     * @param position    职位
+     * @param role_code   100-猎头顾问 101-企业HR 102-候选人
      * @param invate_code 邀请码
-     * @param pic  头像
-     * @param callback 回调
+     * @param pic         头像
+     * @param callback    回调
      */
     public static void register(String phone, String password, String zh_name, String mail,
                                 int experience, String position, int role_code,
@@ -67,7 +69,20 @@ public class CommonRequest {
     }
 
     /**
+     * 检查手机号是否使用过
+     * @param phone
+     * @param callback
+     */
+    public static void checkphonestatus(String phone, ResultCallback<RequestMessage> callback) {
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.PHONE, phone);
+        String url = createUrl("/api/v1/user/phone.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+    }
+
+    /**
      * 获取七牛token
+     *
      * @param callback
      */
     public static void getQiniuToken(ResultCallback<String> callback) {
@@ -78,15 +93,16 @@ public class CommonRequest {
 
     /**
      * 更改密码
+     *
      * @param phone
      * @param password
      * @param callback
      */
-    public static void updataPassword(String phone,String password,ResultCallback<String> callback){
+    public static void updataPassword(String phone, String password, ResultCallback<String> callback) {
         Map<String, String> params = new HashMap<>();
-        params.put(ServerParam.PHONE,phone);
-        params.put(ServerParam.PASSWORD,password);
-        String url = createUrl("/api/v1/user/updatePassword",params);
+        params.put(ServerParam.PHONE, phone);
+        params.put(ServerParam.PASSWORD, password);
+        String url = createUrl("/api/v1/user/updatePassword", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
 

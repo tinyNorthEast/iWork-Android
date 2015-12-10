@@ -25,11 +25,16 @@ import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.Base.BaseApplication;
 import com.iwork.helper.ToastHelper;
+import com.iwork.model.RequestMessage;
+import com.iwork.net.CommonRequest;
+import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
+import com.iwork.utils.NetConstant;
 import com.iwork.utils.TextUtil;
 import com.iwork.utils.Utils;
 import com.socks.library.KLog;
+import com.squareup.okhttp.Request;
 
 import org.json.JSONObject;
 
@@ -311,18 +316,40 @@ public class RegisterActivity extends BaseActivity {
     @OnClick(R.id.registe_btn_submit)
     public void sendCode() {
         showLoading(R.string.loading);
-        String code = registeEdCodeInput.getText().toString().trim();
-        String phone = registeEdPhoneInput.getText().toString().trim();
+        phone = registeEdPhoneInput.getText().toString().trim();
         if (!Utils.isPhone(phone)) {
             ToastHelper.showShortError(R.string.phone_errns);
             return;
-        }
-        if (!TextUtil.isEmpty(code)) {
-            SMSSDK.submitVerificationCode("86", phone, code);
         } else {
-            ToastHelper.showShortError("请填写正确的验证码");
+            CommonRequest.checkphonestatus(phone, phoneStatusCallback);
         }
+
     }
+
+    private ResultCallback<RequestMessage> phoneStatusCallback = new ResultCallback<RequestMessage>() {
+        @Override
+        public void onError(Request request, Exception e) {
+
+        }
+
+        @Override
+        public void onResponse(RequestMessage response) {
+            KLog.i("---phonestatus", response.toString());
+            if (response.getInfoCode() == NetConstant.PARAM_OK) {
+                String code = registeEdCodeInput.getText().toString().trim();
+                if (!TextUtil.isEmpty(code)) {
+//            SMSSDK.submitVerificationCode("86", phone, code);
+                    jumpNext();
+                } else {
+                    ToastHelper.showShortError("请填写正确的验证码");
+                }
+            } else if (response.getInfoCode() == NetConstant.PARAM_ALREADY_PHONE) {
+                ToastHelper.showShortError(response.getMessage());
+            }
+
+        }
+
+    };
 
     private void setTimeCount() {
         Observable.interval(1, TimeUnit.SECONDS).take(60)
