@@ -139,14 +139,14 @@ public class SignUserInfoActivity extends BaseActivity {
     public void onNext() {
         String zh_name = registeEdUserEname.getText().toString();
         if (!TextUtil.isEmpty(zh_name)) {
-            BaseApplication.getAppContext().mUserInfo.zh_name = zh_name;
+            BaseApplication.getAppContext().getmUserInfo().zh_name = zh_name;
         } else {
             ToastHelper.showShortError("请填写您的姓名");
             return;
         }
         CharSequence mail = registeEdUserMail.getText();
         if (!TextUtils.isEmpty(mail) && Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
-            BaseApplication.getAppContext().mUserInfo.email = mail.toString();
+            BaseApplication.getAppContext().getmUserInfo().email = mail.toString();
         } else {
             ToastHelper.showShortError("请正确填写您的邮箱");
             return;
@@ -163,15 +163,15 @@ public class SignUserInfoActivity extends BaseActivity {
         String en_name = registeEdUserEname.getText().toString();
         String email = registeEdUserMail.getText().toString();
         if (!TextUtils.isEmpty(zh_name)) {
-            BaseApplication.getAppContext().mUserInfo.zh_name = zh_name;
+            BaseApplication.getAppContext().getmUserInfo().zh_name = zh_name;
         }
         if (!TextUtils.isEmpty(en_name))
-            BaseApplication.getAppContext().mUserInfo.en_name = en_name;
+            BaseApplication.getAppContext().getmUserInfo().en_name = en_name;
         if (!TextUtils.isEmpty(email)) {
-            BaseApplication.getAppContext().mUserInfo.email = email;
+            BaseApplication.getAppContext().getmUserInfo().email = email;
         }
         if (!TextUtils.isEmpty(img_url)) {
-            BaseApplication.getAppContext().mUserInfo.pic_url = img_url;
+            BaseApplication.getAppContext().getmUserInfo().pic_url = img_url;
         }
     }
 

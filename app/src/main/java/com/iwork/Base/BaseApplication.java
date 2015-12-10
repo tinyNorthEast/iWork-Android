@@ -24,7 +24,7 @@ public class BaseApplication extends Application {
 
     private static BaseApplication mContext;
 
-    public UserInfo mUserInfo;
+    private UserInfo mUserInfo;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -38,5 +38,11 @@ public class BaseApplication extends Application {
     }
     public static BaseApplication getAppContext() {
         return mContext;
+    }
+    public UserInfo getmUserInfo(){
+        if (mUserInfo!=null)
+            return mUserInfo;
+        else
+            return new UserInfo();
     }
 }

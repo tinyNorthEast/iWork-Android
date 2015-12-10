@@ -29,6 +29,7 @@ import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
 import com.iwork.utils.TextUtil;
 import com.iwork.utils.Utils;
+import com.socks.library.KLog;
 
 import org.json.JSONObject;
 
@@ -76,20 +77,24 @@ public class RegisterActivity extends BaseActivity {
         SMSSDK.getSupportedCountries();
         showInputMethod();
         isRegiste = getIntent().getBooleanExtra("isRegiste", false);
-        if (isRegiste){
+        if (isRegiste) {
             titleBar.setTitle("注册");
-        }else {
+        } else {
             titleBar.setTitle("忘记密码");
         }
         titleBar.setBackDrawableListener(backListener);
     }
-    /** 标题栏返回按钮点击监听 */
+
+    /**
+     * 标题栏返回按钮点击监听
+     */
     private View.OnClickListener backListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             finish();
         }
     };
+
     private void setTextChangeWatch() {
         registeEdPhoneInput.addTextChangedListener(phoneWatcher);
         registeEdCodeInput.addTextChangedListener(codeWatcher);
@@ -135,13 +140,10 @@ public class RegisterActivity extends BaseActivity {
             String code = registeEdCodeInput.getText().toString();
             String p = registeEdPhoneInput.getText().toString();
             if (TextUtils.isEmpty(p)) {
-//                registeImgPhoneDel.setVisibility(View.GONE);
             } else {
-//                registeImgPhoneDel.setVisibility(View.VISIBLE);
             }
             if (!Utils.isPhone(p)) {
                 setGetCodeShow(false);
-//                registeBtnSubmit.setEnabled(false);
                 if (!TextUtils.isEmpty(p))
                     ToastHelper.showShortError(R.string.phone_errns);
                 return;
@@ -150,17 +152,11 @@ public class RegisterActivity extends BaseActivity {
                 setGetCodeShow(true);
             } else {
                 setGetCodeShow(false);
-                registeBtnSubmit.setEnabled(false);
                 return;
             }
 
             if (!Utils.isNum(code))
                 return;
-//            if (code.length() == 4 && p.length() == 11) {
-//                registeBtnSubmit.setEnabled(true);
-//            } else {
-//                registeBtnSubmit.setEnabled(false);
-//            }
         }
     };
 
@@ -183,23 +179,12 @@ public class RegisterActivity extends BaseActivity {
         public void afterTextChanged(Editable editable) {
             String code = registeEdCodeInput.getText().toString();
             String p = registeEdPhoneInput.getText().toString();
-//            if (!Utils.isNum(code)) {
-//                registeBtnSubmit.setEnabled(false);
-//                if (!TextUtils.isEmpty(code))
-//                    ToastHelper.showShortError(R.string.phone_errns);
-//                return;
-//            }
             if (code.length() < 4) {
-//                registeBtnSubmit.setEnabled(false);
                 return;
             }
             if (!Utils.isNum(p))
                 return;
-//            if (code.length() == 4 && p.length() == 11) {
-//                registeBtnSubmit.setEnabled(true);
-//            } else {
-//                registeBtnSubmit.setEnabled(false);
-//            }
+
         }
     };
 
@@ -212,7 +197,7 @@ public class RegisterActivity extends BaseActivity {
         registeTvGetCode.setEnabled(isenble);
     }
 
-    private String country, phone;
+    private String phone;
     private EventHandler eventHandler = new EventHandler() {
         @Override
         public void afterEvent(int event, int result, Object data) {
@@ -230,8 +215,8 @@ public class RegisterActivity extends BaseActivity {
             int event = msg.arg1;
             int result = msg.arg2;
             Object data = msg.obj;
+            cancelLoading();
             if (result == SMSSDK.RESULT_COMPLETE) {
-                cancelLoading();
                 if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
                     jumpNext();
                 } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
@@ -244,14 +229,14 @@ public class RegisterActivity extends BaseActivity {
                     ((Throwable) data).printStackTrace();
                     Throwable throwable = (Throwable) data;
 
-                    System.out.println("---------------------" + ((Throwable) data).getMessage());
+                    KLog.e("--", ((Throwable) data).getMessage());
 
                     JSONObject object = new JSONObject(
                             throwable.getMessage());
                     String des = object.optString("detail");
                     if (!TextUtils.isEmpty(des)) {
                         ToastHelper.showShortError(des);
-                    }else {
+                    } else {
                         ToastHelper.showShortError("获取验证码失败");
                     }
                 } catch (Exception e) {
@@ -265,12 +250,12 @@ public class RegisterActivity extends BaseActivity {
     });
 
     public void jumpNext() {
-        BaseApplication.getAppContext().mUserInfo.phone = phone;
+        BaseApplication.getAppContext().getmUserInfo().phone = phone;
         if (isRegiste) {
             Intent intent = new Intent(this, SignUserInfoActivity.class);
             startActivity(intent);
-        }else {
-            Intent intent = new Intent(this,PasswordActivity.class);
+        } else {
+            Intent intent = new Intent(this, PasswordActivity.class);
             startActivity(intent);
         }
     }
@@ -283,10 +268,10 @@ public class RegisterActivity extends BaseActivity {
 
     private void getCode() {
         phone = registeEdPhoneInput.getText().toString().trim();
-        if (Utils.isPhone(phone)){
+        if (Utils.isPhone(phone)) {
             showLoading(R.string.login_getCoding);
             SMSSDK.getVerificationCode("86", phone);
-        }else {
+        } else {
             ToastHelper.showShortError(R.string.phone_errns);
         }
     }
@@ -327,8 +312,15 @@ public class RegisterActivity extends BaseActivity {
     public void sendCode() {
         showLoading(R.string.loading);
         String code = registeEdCodeInput.getText().toString().trim();
+        String phone = registeEdPhoneInput.getText().toString().trim();
+        if (!Utils.isPhone(phone)) {
+            ToastHelper.showShortError(R.string.phone_errns);
+            return;
+        }
         if (!TextUtil.isEmpty(code)) {
             SMSSDK.submitVerificationCode("86", phone, code);
+        } else {
+            ToastHelper.showShortError("请填写正确的验证码");
         }
     }
 

@@ -68,7 +68,7 @@ public class PositionInfoActivity extends BaseActivity {
             ToastHelper.showShortError("请填写完整信息");
             return;
         }
-        BaseApplication.getAppContext().mUserInfo.position = positionCmInput.getText().toString();
+        BaseApplication.getAppContext().getmUserInfo().position = positionCmInput.getText().toString();
         Intent intent = new Intent(this,PasswordActivity.class);
         startActivity(intent);
     }
@@ -83,7 +83,7 @@ public class PositionInfoActivity extends BaseActivity {
             @Override
             public void onItemSelected(int position, String object) {
                 positionExpInput.setText(object);
-                BaseApplication.getAppContext().mUserInfo.experience = position;
+                BaseApplication.getAppContext().getmUserInfo().experience = position;
                 KLog.i("---exp", position);
             }
         });
@@ -98,7 +98,7 @@ public class PositionInfoActivity extends BaseActivity {
             @Override
             public void onItemSelected(int position, String object) {
                 positionEdPtInput.setText(object);
-                BaseApplication.getAppContext().mUserInfo.role_code = position + 100;
+                BaseApplication.getAppContext().getmUserInfo().role_code = position + 100;
                 KLog.i("---pt", position);
             }
         });
