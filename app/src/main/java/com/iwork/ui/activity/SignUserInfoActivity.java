@@ -135,7 +135,7 @@ public class SignUserInfoActivity extends BaseActivity {
         hideInputMethod();
     }
 
-    @OnClick(R.id.registe_btn_submit)
+    @OnClick(R.id.regist_btn_submit_user)
     public void onNext() {
         String zh_name = registeEdUserEname.getText().toString();
         if (!TextUtil.isEmpty(zh_name)) {
