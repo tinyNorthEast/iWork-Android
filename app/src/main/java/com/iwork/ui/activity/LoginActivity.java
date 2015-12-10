@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PatternMatcher;
 import android.os.PersistableBundle;
+import android.preference.Preference;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -22,6 +23,7 @@ import com.iwork.helper.ToastHelper;
 import com.iwork.model.LoginInfo;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.preferences.Preferences;
 import com.iwork.ui.dialog.LoadingDialog;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
@@ -102,6 +104,8 @@ public class LoginActivity extends BaseActivity {
             cancelLoading();
             if (response.getInfoCode()==0){
                 ToastHelper.showShortCompleted("登录成功");
+                Preferences.getInstance().setToken(response.getData().token);
+                Preferences.getInstance().setZhName(response.getData().zh_name);
                 finish();
             }else {
                 ToastHelper.showShortError(response.getMessage());

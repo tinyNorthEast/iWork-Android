@@ -30,6 +30,30 @@ public class Preferences {
     }
 
     /**
+     * 保存 token
+     * @param token
+     */
+    public void setToken(String token) {
+        mEditor.putString("token", token);
+        mEditor.commit();
+    }
+
+    public String getToken() {
+        return mPref.getString("token", "");
+    }/**
+     * 保存 中文名
+     * @param zhName
+     */
+    public void setZhName(String zhName) {
+        mEditor.putString("zh_name", zhName);
+        mEditor.commit();
+    }
+
+    public String getZhName() {
+        return mPref.getString("zh_name", "");
+    }
+
+    /**
      * 清除数据
      */
     public void clear() {

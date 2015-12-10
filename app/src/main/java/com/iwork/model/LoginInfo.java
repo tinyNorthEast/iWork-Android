@@ -11,7 +11,7 @@ public class LoginInfo {
      */
 
     private int infoCode;
-    private String data;
+    private Data data;
     /**
      * message : 登陆成功
      */
@@ -22,7 +22,7 @@ public class LoginInfo {
         this.infoCode = infoCode;
     }
 
-    public void setData(String data) {
+    public void setData(Data data) {
         this.data = data;
     }
 
@@ -30,7 +30,7 @@ public class LoginInfo {
         return infoCode;
     }
 
-    public String getData() {
+    public Data getData() {
         return data;
     }
 
