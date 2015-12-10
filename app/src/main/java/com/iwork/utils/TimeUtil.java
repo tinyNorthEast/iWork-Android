@@ -16,6 +16,14 @@ public class TimeUtil {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(date);
     }
+    /**
+     * 将千毫秒格式化为yyyy-MM-dd HH:mm:ss格式
+     */
+    public static String formatDates(long millis) {
+        Date date = new Date(millis);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss-fff");
+        return sdf.format(date);
+    }
 
     /**
      * 将千毫秒格式化为yyyy-MM-dd格式

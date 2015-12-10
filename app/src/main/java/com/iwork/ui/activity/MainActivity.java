@@ -73,7 +73,7 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
         @Override
         public void onClick(View v) {
             if (TextUtils.isEmpty(Preferences.getInstance().getToken())) {
-                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                Intent i = new Intent(MainActivity.this, SignUserInfoActivity.class);
                 startActivity(i);
             }else {
                 ToastHelper.showShortCompleted("您已经登录");

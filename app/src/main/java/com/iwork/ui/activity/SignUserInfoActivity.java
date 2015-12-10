@@ -9,8 +9,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.util.TimeUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -23,6 +25,7 @@ import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.Base.BaseApplication;
 import com.iwork.helper.ToastHelper;
+import com.iwork.model.QinNiuToken;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.view.BottomListMenu;
@@ -30,7 +33,9 @@ import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.FileConfig;
 import com.iwork.utils.FileUtil;
 import com.iwork.utils.ImageUtil;
+import com.iwork.utils.NetConstant;
 import com.iwork.utils.TextUtil;
+import com.iwork.utils.TimeUtil;
 import com.jakewharton.rxbinding.widget.RxTextView;
 import com.qiniu.android.http.ResponseInfo;
 import com.qiniu.android.storage.UpCompletionHandler;
@@ -83,22 +88,27 @@ public class SignUserInfoActivity extends BaseActivity {
         titleBar.setBackDrawableListener(backListener);
     }
 
-    /** 标题栏返回按钮点击监听 */
+    /**
+     * 标题栏返回按钮点击监听
+     */
     private View.OnClickListener backListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             finish();
         }
     };
-    private ResultCallback<String> callback = new ResultCallback<String>() {
+
+    private ResultCallback<QinNiuToken> callback = new ResultCallback<QinNiuToken>() {
         @Override
         public void onError(Request request, Exception e) {
 
         }
 
         @Override
-        public void onResponse(String response) {
-            qiniuToken = response;
+        public void onResponse(QinNiuToken response) {
+            if (response.getInfoCode() == NetConstant.PARAM_OK) {
+                qiniuToken = response.getData();
+            }
         }
     };
     private BottomListMenu _bottomListMenu;
@@ -213,14 +223,25 @@ public class SignUserInfoActivity extends BaseActivity {
         Bitmap bitmap = ImageUtil.createBitmap(absolutePath);
         registeIvUser.setImageBitmap(bitmap);
         UploadManager uploadManager = new UploadManager();
-        String key = "iWork_user_img";
+        String key = getImageKey();
         String token = qiniuToken;
         uploadManager.put(absolutePath, key, token, new UpCompletionHandler() {
             @Override
             public void complete(String key, ResponseInfo info, JSONObject response) {
                 KLog.i("---qiniures", response.toString());
+                img_url = NetConstant.BASE_QINIU_URL+key;
+
             }
         }, null);
+    }
+
+    /**
+     * 生成上传七牛图片的key
+     *
+     * @return
+     */
+    private String getImageKey() {
+        return "PNG-"+ TimeUtil.formatDates(System.currentTimeMillis());
     }
 
     // 打开裁剪界面

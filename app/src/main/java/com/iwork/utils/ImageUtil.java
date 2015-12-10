@@ -666,7 +666,7 @@ public class ImageUtil {
                     return null;
                 }
                 fos = new FileOutputStream(f);
-                bitmap.compress(Bitmap.CompressFormat.JPEG, quality, fos);
+                bitmap.compress(Bitmap.CompressFormat.PNG, quality, fos);
                 fos.flush();
                 return path;
             }

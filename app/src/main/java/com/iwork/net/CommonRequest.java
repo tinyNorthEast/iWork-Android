@@ -1,6 +1,7 @@
 package com.iwork.net;
 
 import com.iwork.model.LoginInfo;
+import com.iwork.model.QinNiuToken;
 import com.iwork.model.RequestMessage;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.okhttp.request.OkHttpRequest;
@@ -85,9 +86,9 @@ public class CommonRequest {
      *
      * @param callback
      */
-    public static void getQiniuToken(ResultCallback<String> callback) {
+    public static void getQiniuToken(ResultCallback<QinNiuToken> callback) {
         Map<String, String> params = new HashMap<>();
-        String url = createUrl("/api/v1/qiniu/getQiniuToken", params);
+        String url = createUrl("/api/v1/qiniu/getQiniuToken.action", params);
         new OkHttpRequest.Builder().url(url).get(callback);
     }
 
