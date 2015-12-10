@@ -69,7 +69,7 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
     private View.OnClickListener loginListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent i = new Intent(MainActivity.this, LoginActivity.class);
+            Intent i = new Intent(MainActivity.this, PositionInfoActivity.class);
             startActivity(i);
         }
     };

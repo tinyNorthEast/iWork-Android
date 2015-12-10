@@ -31,10 +31,10 @@
             android:gravity="center_horizontal"
             android:maxEms="12"
             android:minEms="7"
-            android:minLines="2"
+            android:minLines="1"
             android:paddingBottom="12dp"
+            tools:text="请填写正确地说的和司机和"
             android:textColor="@color/text_color_ss_gray"
-            android:textSize="@dimen/font_size_medium"
-            />
+            android:textSize="@dimen/font_size_medium" />
     </RelativeLayout>
 </RelativeLayout>

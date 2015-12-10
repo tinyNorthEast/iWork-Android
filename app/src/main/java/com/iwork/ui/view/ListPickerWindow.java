@@ -135,7 +135,7 @@ public class ListPickerWindow<T> {
         } else {
             mContentView = View.inflate(mContext, R.layout.list_picker_window, null);
         }
-        WindowUtil.resizeRecursively(mContentView);
+//        WindowUtil.resizeRecursively(mContentView);
         mBtnConfirm = (TextView)mContentView.findViewById(R.id.bar_btn_confirm);
         mBtnCancel = (TextView)mContentView.findViewById(R.id.bar_btn_cancel);
         mTvTitle = (TextView)mContentView.findViewById(R.id.bar_title);

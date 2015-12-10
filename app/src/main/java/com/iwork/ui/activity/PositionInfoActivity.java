@@ -87,6 +87,7 @@ public class PositionInfoActivity extends BaseActivity {
                 KLog.i("---exp", position);
             }
         });
+        mExplistPickerWindow.showDialog();
     }
 
     private ListPickerWindow<String> mPtListPicker;
@@ -102,5 +103,6 @@ public class PositionInfoActivity extends BaseActivity {
                 KLog.i("---pt", position);
             }
         });
+        mPtListPicker.showDialog();
     }
 }

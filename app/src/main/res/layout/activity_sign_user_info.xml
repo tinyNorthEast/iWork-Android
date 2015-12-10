@@ -159,7 +159,6 @@
             android:layout_below="@id/registe_rl_user_mail"
             android:layout_marginTop="20dp"
             android:background="@drawable/common_login_bt_selector"
-            android:enabled="false"
             android:text="@string/next"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/text_color_white" />

@@ -14,6 +14,7 @@
         android:textSize="46px"
         android:layout_width="263px"
         android:layout_height="120px"
+        android:gravity="center"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/bar_top_line"
         android:text="@string/cancel_txt" />
@@ -23,6 +24,7 @@
         android:id="@+id/bar_btn_confirm"
         android:textSize="46px"
         android:layout_width="263px"
+        android:gravity="center"
         android:layout_height="120px"
         android:layout_alignParentRight="true"
         android:layout_below="@id/bar_top_line"
@@ -38,7 +40,7 @@
         android:gravity="center"
         android:text=""/>
     
-    <com.example.wheel.WheelView
+    <com.iwork.ui.view.WheelView
         android:id="@+id/wheelview"
         android:layout_width="match_parent"
         android:layout_height="380px"
@@ -49,6 +51,6 @@
         wheel:textColorFirst="@color/light_s_gray"
         wheel:textColorSecond="@color/light_gray"
         wheel:textColorThird="@color/deep_ss_gray"
-        wheel:textSize="@dimen/font_size_xxx_m_large" />
-    
+        wheel:textSize="@dimen/font_size_xxx_large" />
+    <!---->
 </RelativeLayout>

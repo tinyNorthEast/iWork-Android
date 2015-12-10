@@ -44,9 +44,6 @@ public class PasswordActivity extends BaseActivity {
     @Bind(R.id.password_titlebar)
     TitleBar titleBar;
 
-    private Observable<CharSequence> passwordChangeObservable;
-    private Observable<CharSequence> passwordConfimObservable;
-    private Subscription mSubscription = null;
 
     private boolean flag;
 
@@ -55,55 +52,22 @@ public class PasswordActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password);
         ButterKnife.bind(this);
-        setTextChangeWatch();
         flag = getIntent().getBooleanExtra("password", false);
         titleBar.setTitle("设置密码");
     }
 
-    private void setTextChangeWatch() {
-        passwordChangeObservable = RxTextView.textChanges(passwordEdPtInput).skip(1);
-        passwordConfimObservable = RxTextView.textChanges(passwordCmInput).skip(1);
-        mSubscription = (Subscription) Observable.combineLatest(passwordChangeObservable, passwordConfimObservable, new Func2<CharSequence, CharSequence, Boolean>() {
-            @Override
-            public Boolean call(CharSequence password, CharSequence password_confim) {
-                boolean passwValid = !TextUtils.isEmpty(password) && password.length() > Constant.PWD_MIN_LENGTH;
-                if (!passwValid) {
-                    passwordEdPtInput.setError("请输入至少6位密码");
-                }
-                boolean passwcomValid = !TextUtils.isEmpty(password_confim) && password_confim.length() > Constant.PWD_MIN_LENGTH;
-                if (!passwcomValid) {
-                    passwordCmInput.setError("请输入至少6位密码");
-                }
-                boolean isSame = password.equals(password_confim);
-                if (!isSame) {
-                    ToastHelper.showShortError("请输入相同密码");
-                }
-                return passwValid && passwcomValid && isSame;
-            }
-        }).subscribe(new Observer<Boolean>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(Boolean aBoolean) {
-                if (aBoolean) {
-                    passwordBtnSubmit.setEnabled(true);
-                } else {
-                    passwordBtnSubmit.setEnabled(false);
-                }
-            }
-        });
-    }
-
     @OnClick(R.id.password_btn_submit)
     public void onComplate() {
+        String password = passwordEdPtInput.getText().toString().trim();
+        String passwordcm = passwordCmInput.getText().toString().trim();
+        if (TextUtils.isEmpty(password) && password.length() > Constant.PWD_MIN_LENGTH) {
+           ToastHelper.showShortError("请正确填写密码");
+            return;
+        }
+        if (TextUtils.isEmpty(password) && password.length() > Constant.PWD_MIN_LENGTH&&!password.equals(passwordcm)){
+            ToastHelper.showShortError("请填写相同密码");
+            return;
+        }
         showLoading(R.string.loading);
         String pw = MD5.toMD5(passwordCmInput.getText().toString());
         UserInfo userInfo = BaseApplication.getAppContext().getmUserInfo();
