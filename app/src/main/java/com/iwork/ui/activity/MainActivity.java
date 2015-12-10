@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
+import com.iwork.helper.ToastHelper;
+import com.iwork.preferences.Preferences;
 import com.iwork.ui.view.SampleFragment;
 import com.iwork.ui.view.SlidingTabLayout;
 import com.iwork.ui.view.TitleBar;
@@ -20,7 +23,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.jpush.android.api.JPushInterface;
 
-public class MainActivity extends BaseActivity implements SampleFragment.OnFragmentInteractionListener{
+public class MainActivity extends BaseActivity implements SampleFragment.OnFragmentInteractionListener {
     @Bind(R.id.main_title_bar)
     TitleBar titleBar;
     @Bind(R.id.sliding_tabs)
@@ -69,8 +72,12 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
     private View.OnClickListener loginListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent i = new Intent(MainActivity.this, PositionInfoActivity.class);
-            startActivity(i);
+            if (TextUtils.isEmpty(Preferences.getInstance().getToken())) {
+                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(i);
+            }else {
+                ToastHelper.showShortCompleted("您已经登录");
+            }
         }
     };
 
