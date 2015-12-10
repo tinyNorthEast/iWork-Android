@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.helper.ToastHelper;
+import com.iwork.model.LoginInfo;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.dialog.LoadingDialog;
@@ -29,6 +30,7 @@ import com.iwork.utils.TextUtil;
 import com.iwork.utils.Utils;
 import com.jakewharton.rxbinding.widget.RxCheckedTextView;
 import com.jakewharton.rxbinding.widget.RxTextView;
+import com.socks.library.KLog;
 import com.squareup.okhttp.Request;
 
 import butterknife.Bind;
@@ -65,15 +67,11 @@ public class LoginActivity extends BaseActivity {
     @Bind(R.id.login_titlebar)
     TitleBar titleBar;
 
-    private Observable<CharSequence> phoneChangeObservable;
-    private Observable<CharSequence> passwordChangeObservable;
-    private Subscription mSubscription = null;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        setTextChangeWatch();
         showInputMethod();
         titleBar.setTitle("登陆");
         titleBar.setBackDrawableListener(backListener);
@@ -89,76 +87,43 @@ public class LoginActivity extends BaseActivity {
         }
     };
 
-    boolean phoneValid, passwValid;
-
-    private void setTextChangeWatch() {
-        phoneChangeObservable = RxTextView.textChanges(loginEdPhoneInput).skip(1);
-        passwordChangeObservable = RxTextView.textChanges(loginEdPwdInput).skip(1);
-        mSubscription = Observable.combineLatest(phoneChangeObservable, passwordChangeObservable, new Func2<CharSequence, CharSequence, Boolean>() {
-            @Override
-            public Boolean call(CharSequence phone, CharSequence password) {
-                phoneValid = Utils.isPhone(phone);
-                if (!phoneValid) {
-//                    loginEdPhoneInput.setError("请输入正确的手机号");
-                }
-                passwValid = !TextUtils.isEmpty(password) && password.length() > Constant.PWD_MIN_LENGTH;
-                if (!passwValid) {
-//                    loginEdPwdInput.setError("请输入至少6位密码");
-                }
-                return phoneValid && passwValid;
-            }
-        }).subscribe(new Observer<Boolean>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(Boolean aBoolean) {
-                if (aBoolean) {
-                    loginBtnSubmit.setEnabled(true);
-                } else {
-                    loginBtnSubmit.setEnabled(false);
-                }
-            }
-        });
-
-
-    }
-
-    private ResultCallback<String> callback = new ResultCallback<String>() {
+    /**
+     * 登录回调
+     */
+    private ResultCallback<LoginInfo> callback = new ResultCallback<LoginInfo>() {
         @Override
         public void onError(Request request, Exception e) {
 
         }
 
         @Override
-        public void onResponse(String response) {
+        public void onResponse(LoginInfo response) {
+            KLog.i("--login",response.toString());
             cancelLoading();
-            ToastHelper.showShortCompleted("登录成功");
-            finish();
+            if (response.getInfoCode()==0){
+                ToastHelper.showShortCompleted("登录成功");
+                finish();
+            }else {
+                ToastHelper.showShortError(response.getMessage());
+            }
         }
     };
 
     @OnClick(R.id.login_btn_submit)
-    public void login() {
-        if (!phoneValid){
+    public void loginSubmit() {
+        String phone = loginEdPhoneInput.getText().toString();
+        String password=loginEdPwdInput.getText().toString();
+        if (!Utils.isPhone(phone)){
             ToastHelper.showShortError("请输入正确的手机号");
             return;
         }
-        if (!phoneValid){
+        if (TextUtils.isEmpty(password) && password.length() > Constant.PWD_MIN_LENGTH){
             ToastHelper.showShortError("请输入至少6位密码");
             return;
         }
-        String phone = loginEdPhoneInput.getText().toString();
-        String password = MD5.toMD5(loginEdPwdInput.getText().toString());
+        String passwordMd5 = MD5.toMD5(password);
         showLoading(R.string.login_loading);
-        CommonRequest.login(phone,password,callback);
+        CommonRequest.login(phone,passwordMd5,callback);
     }
 
     @OnClick(R.id.login_random)
@@ -183,8 +148,6 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mSubscription != null)
-            mSubscription.unsubscribe();
         hideInputMethod();
     }
 

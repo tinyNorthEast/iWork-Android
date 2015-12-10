@@ -1,19 +1,15 @@
 package com.iwork.net;
 
-import com.iwork.model.Demo;
+import com.iwork.model.LoginInfo;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.okhttp.request.OkHttpRequest;
 import com.iwork.utils.Constant;
 import com.iwork.utils.NetConstant;
 import com.iwork.utils.TextUtil;
 import com.iwork.utils.Utils;
-import com.squareup.okhttp.OkHttpClient;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import retrofit.BaseUrl;
-import retrofit.Retrofit;
 
 /**
  * Created by JianTao on 15/11/28.
@@ -23,8 +19,13 @@ public class CommonRequest {
 
     public static final String BASE_PARAM = "/version/{version}/";
 
-
-    public static void login(String phone, String password, ResultCallback<String> callback) {
+    /**
+     *  登录接口
+     * @param phone 手机号
+     * @param password 密码 MD5
+     * @param callback 回调接口
+     */
+    public static void login(String phone, String password, ResultCallback<LoginInfo> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.PHONE, phone);
         params.put(ServerParam.PASSWORD, password);
@@ -35,20 +36,20 @@ public class CommonRequest {
     /**
      * 注册接口
      *
-     * @param phone
-     * @param password
-     * @param zh_name
-     * @param mail
-     * @param experience
-     * @param position
-     * @param role_code
-     * @param invate_code
-     * @param pic
-     * @param callback
+     * @param phone  手机号
+     * @param password 密码
+     * @param zh_name 中文名
+     * @param mail   邮箱
+     * @param experience  工作经验
+     * @param position  职位
+     * @param role_code 100-猎头顾问 101-企业HR 102-候选人
+     * @param invate_code 邀请码
+     * @param pic  头像
+     * @param callback 回调
      */
     public static void register(String phone, String password, String zh_name, String mail,
                                 int experience, String position, int role_code,
-                                String invate_code, String pic, ResultCallback<Demo> callback) {
+                                String invate_code, String pic, ResultCallback<LoginInfo> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.PHONE, phone);
         params.put(ServerParam.PASSWORD, password);//MD5

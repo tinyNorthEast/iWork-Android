@@ -1,9 +1,7 @@
 package com.iwork.ui.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,7 +11,7 @@ import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.Base.BaseApplication;
 import com.iwork.helper.ToastHelper;
-import com.iwork.model.Demo;
+import com.iwork.model.LoginInfo;
 import com.iwork.model.UserInfo;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
@@ -109,14 +107,14 @@ public class PasswordActivity extends BaseActivity {
         showLoading(R.string.loading);
         String pw = MD5.toMD5(passwordCmInput.getText().toString());
         UserInfo userInfo = BaseApplication.getAppContext().mUserInfo;
-        CommonRequest.register(userInfo.phone, pw, userInfo.zh_name, userInfo.email, userInfo.experience, userInfo.position, userInfo.role_code, null, null, new ResultCallback<Demo>() {
+        CommonRequest.register(userInfo.phone, pw, userInfo.zh_name, userInfo.email, userInfo.experience, userInfo.position, userInfo.role_code, null, null, new ResultCallback<LoginInfo>() {
             @Override
             public void onError(Request request, Exception e) {
 
             }
 
             @Override
-            public void onResponse(Demo response) {
+            public void onResponse(LoginInfo response) {
                 if (response.getInfoCode() == 0) {
                     cancelLoading();
                     ToastHelper.showShortCompleted("注册成功");

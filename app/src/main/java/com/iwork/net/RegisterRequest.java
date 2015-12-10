@@ -1,9 +1,7 @@
 package com.iwork.net;
 
-import com.iwork.model.Demo;
 import com.iwork.model.RegisterBean;
 import com.iwork.utils.NetConstant;
-import com.socks.library.KLog;
 
 import java.io.IOException;
 
@@ -12,11 +10,8 @@ import retrofit.Callback;
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 import retrofit.http.Field;
-import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
-import retrofit.http.Headers;
 import retrofit.http.POST;
-import retrofit.http.Path;
 
 /**
  * Created by JianTao on 15/11/28.

@@ -11,7 +11,6 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -25,29 +24,14 @@ import android.widget.TextView;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.Base.BaseApplication;
-import com.iwork.helper.ResourcesHelper;
 import com.iwork.helper.ToastHelper;
-import com.iwork.model.Demo;
-import com.iwork.net.RegisterRequest;
-import com.iwork.okhttp.callback.ResultCallback;
-import com.iwork.okhttp.request.OkHttpRequest;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
-import com.iwork.utils.NetConstant;
-import com.iwork.utils.RxUtils;
 import com.iwork.utils.TextUtil;
 import com.iwork.utils.Utils;
-import com.jakewharton.rxbinding.widget.RxTextView;
-import com.jakewharton.rxbinding.widget.TextViewAfterTextChangeEvent;
-import com.jakewharton.rxbinding.widget.TextViewTextChangeEvent;
-import com.socks.library.KLog;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.internal.framed.FrameReader;
 
 import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.Bind;
@@ -55,17 +39,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
-import retrofit.Callback;
-import retrofit.Response;
-import retrofit.Retrofit;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.functions.Func2;
 import rx.schedulers.Schedulers;
-import rx.subscriptions.CompositeSubscription;
 
 public class RegisterActivity extends BaseActivity {
 
