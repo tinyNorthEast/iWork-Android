@@ -54,6 +54,7 @@ public class TitleBar extends RelativeLayout {
     public void setTitle(String titleTxt) {
         title_bar_text.setText(titleTxt);
         show(title_bar_text);
+        hide(title_bar_img);
     }
 
     /**
@@ -64,8 +65,23 @@ public class TitleBar extends RelativeLayout {
     public void setTitle(int resid) {
         title_bar_text.setText(getResources().getString(resid));
         show(title_bar_text);
+        hide(title_bar_img);
     }
 
+    /**
+     * 显示titlebar 中间的图片(logo)
+     */
+    public void showCenterImg(){
+        hide(title_bar_text);
+        show(title_bar_img);
+    }
+
+    /**
+     * 隐藏titlebar 中间图片
+     */
+    public void hideCenterImg(){
+        hide(title_bar_img);
+    }
     /**
      * 设置标题栏右侧文本内容
      * 用默认样式
@@ -236,6 +252,7 @@ public class TitleBar extends RelativeLayout {
         title_bar_img_btn_custom_right = (ImageView) findViewById(R.id.title_bar_img_btn_custom_right);
         title_layout_left = (LinearLayout) findViewById(R.id.title_bar_layout_custom_left);
         title_bar_textview_left = (TextView) findViewById(R.id.title_bar_textview_left);
+        title_bar_img = (ImageView) findViewById(R.id.title_bar_img);
         setListeners();
     }
 
@@ -308,7 +325,7 @@ public class TitleBar extends RelativeLayout {
 
     private ImageView title_bar_img_btn_notice;
     private ImageView title_bar_img_btn_back;
-    private ImageView title_bar_img_btn_more;
+    private ImageView title_bar_img_btn_more,title_bar_img;
     private TextView title_bar_textview_right,title_bar_textview_left;
     private ImageView title_bar_img_btn_my;
     private TextView title_bar_text;

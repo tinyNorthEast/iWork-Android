@@ -39,9 +39,9 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         titleBar.hideBackDrawable();
-        titleBar.setCustomImageButtonRight(R.drawable.title_bar_my, loginListener);
+        titleBar.setCustomImageButtonRight(R.drawable.common_my, loginListener);
         titleBar.setCustomImageButtonLeft(R.drawable.common_icon_transfer_down, "北京", positionListener);
-
+        titleBar.showCenterImg();
         viewpager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), titles));
 //        slidingTabs.setDistributeEvenly(true);
 //        slidingTabs.setCustomTabView(R.layout.slidingtablayout_view,R.id.sliding_tabs_tv);

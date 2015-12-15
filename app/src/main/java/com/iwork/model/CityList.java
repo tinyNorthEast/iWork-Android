@@ -9,26 +9,23 @@ import java.util.List;
  * Copyright © 2015 impetusconsulting. All rights reserved
  */
 public class CityList {
+
     /**
      * infoCode : 0
      * message : 城市获取成功！
-     * data : [{"id":4,"areaName":"浙江","areaCode":"10004","areaIsLeaf":true,"areaLevel":1,"areaSort":"Z","createTime":1449985702000},{"id":3,"areaName":"广州","areaCode":"10003","areaIsLeaf":true,"areaLevel":1,"areaSort":"G","createTime":1449985688000},{"id":2,"areaName":"上海","areaCode":"10002","areaIsLeaf":true,"areaLevel":1,"areaSort":"S","createTime":1449985669000},{"id":1,"areaName":"北京","areaCode":"10001","areaIsLeaf":true,"areaLevel":1,"areaSort":"B","createTime":1449985652000}]
+     * data : [{"areaName":"北京","areaCode":"1000","areaSort":"B"},{"areaName":"成都","areaCode":"6510","areaSort":"C"},{"areaName":"广州","areaCode":"5810","areaSort":"G"},{"areaName":"上海","areaCode":"2900","areaSort":"S"},{"areaName":"苏州","areaCode":"3050","areaSort":"S"},{"areaName":"深圳","areaCode":"5840","areaSort":"Z"}]
      */
 
     private int infoCode;
     private String message;
     /**
-     * id : 4
-     * areaName : 浙江
-     * areaCode : 10004
-     * areaIsLeaf : true
-     * areaLevel : 1
-     * areaSort : Z
-     * createTime : 1449985702000
+     * areaName : 北京
+     * areaCode : 1000
+     * areaSort : B
      */
 
     @SerializedName("data")
-    private List<City> CityLists;
+    private List<City> citys;
 
     public void setInfoCode(int infoCode) {
         this.infoCode = infoCode;
@@ -38,8 +35,8 @@ public class CityList {
         this.message = message;
     }
 
-    public void setCityLists(List<City> CityLists) {
-        this.CityLists = CityLists;
+    public void setCitys(List<City> citys) {
+        this.citys = citys;
     }
 
     public int getInfoCode() {
@@ -50,22 +47,14 @@ public class CityList {
         return message;
     }
 
-    public List<City> getCityLists() {
-        return CityLists;
+    public List<City> getCitys() {
+        return citys;
     }
 
     public static class City {
-        private int id;
         private String areaName;
         private String areaCode;
-        private boolean areaIsLeaf;
-        private int areaLevel;
         private String areaSort;
-        private long createTime;
-
-        public void setId(int id) {
-            this.id = id;
-        }
 
         public void setAreaName(String areaName) {
             this.areaName = areaName;
@@ -75,24 +64,8 @@ public class CityList {
             this.areaCode = areaCode;
         }
 
-        public void setAreaIsLeaf(boolean areaIsLeaf) {
-            this.areaIsLeaf = areaIsLeaf;
-        }
-
-        public void setAreaLevel(int areaLevel) {
-            this.areaLevel = areaLevel;
-        }
-
         public void setAreaSort(String areaSort) {
             this.areaSort = areaSort;
-        }
-
-        public void setCreateTime(long createTime) {
-            this.createTime = createTime;
-        }
-
-        public int getId() {
-            return id;
         }
 
         public String getAreaName() {
@@ -103,20 +76,8 @@ public class CityList {
             return areaCode;
         }
 
-        public boolean isAreaIsLeaf() {
-            return areaIsLeaf;
-        }
-
-        public int getAreaLevel() {
-            return areaLevel;
-        }
-
         public String getAreaSort() {
             return areaSort;
-        }
-
-        public long getCreateTime() {
-            return createTime;
         }
     }
 }

@@ -71,7 +71,14 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="@string/app_name"
-            android:visibility="visible" />
+            android:visibility="gone" />
+        <ImageView
+            android:id="@+id/title_bar_img"
+            android:visibility="visible"
+            android:src="@drawable/logo"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <!--居中的内容 End-->
 
         <!--居右的内容 Begin-->

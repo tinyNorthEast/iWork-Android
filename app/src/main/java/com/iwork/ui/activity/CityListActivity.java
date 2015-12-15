@@ -43,14 +43,6 @@ public class CityListActivity extends AppCompatActivity {
         cityTitlebar.setTitle("城市列表");
         cityTitlebar.setBackDrawableListener(backListener);
         getCityList();
-        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cityStrings);
-        cityListView.setAdapter(arrayAdapter);
-        cityListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ToastHelper.showShortCompleted("城市：" + cityList.get(position).getAreaName());
-            }
-        });
     }
 
     /**
@@ -75,11 +67,11 @@ public class CityListActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onResponse(CityList response) {
+            public void onResponse(final CityList response) {
                 if (response.getInfoCode() == 0) {
                     cityStrings = new ArrayList<>();
-                    if (!CollectionUtil.isEmpty(response.getCityLists())) {
-                        for (CityList.City c : response.getCityLists()) {
+                    if (!CollectionUtil.isEmpty(response.getCitys())) {
+                        for (CityList.City c : response.getCitys()) {
                             cityStrings.add(c.getAreaName());
                         }
                     }
@@ -88,7 +80,7 @@ public class CityListActivity extends AppCompatActivity {
                     cityListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            ToastHelper.showShortCompleted("城市：" + cityList.get(position).getAreaName());
+                            ToastHelper.showShortCompleted("城市：" + response.getCitys().get(position).getAreaName());
                         }
                     });
                 } else {
