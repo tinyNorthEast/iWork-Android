@@ -1,5 +1,6 @@
 package com.iwork.net;
 
+import com.iwork.model.CityList;
 import com.iwork.model.LoginInfo;
 import com.iwork.model.QinNiuToken;
 import com.iwork.model.RequestMessage;
@@ -107,6 +108,15 @@ public class CommonRequest {
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
 
+    /**
+     * 获取城市列表
+     * @param callback
+     */
+    public static void getCityList(ResultCallback<CityList> callback){
+        Map<String,String> params = new HashMap<>();
+        String url = createUrl("/api/v1/city/findCityList.action",params);
+        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+    }
     protected static String createUrl(String path, Map<String, String> params) {
         params.put(ServerParam.CLIENT, Constant.CLIEN);
         params.put(ServerParam.EQ_NUM, Constant.ANDROID_ID);

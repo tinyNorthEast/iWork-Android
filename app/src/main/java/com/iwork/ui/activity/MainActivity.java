@@ -66,7 +66,8 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
         @Override
         public void onClick(View v) {
 //            ToastHelper.showShortCompleted("选择城市");
-            Toast.makeText(MainActivity.this, "选择城市", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this,CityListActivity.class);
+            startActivity(intent);
         }
     };
     private View.OnClickListener loginListener = new View.OnClickListener() {

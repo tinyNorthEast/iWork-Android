@@ -104,8 +104,8 @@ public class LoginActivity extends BaseActivity {
             cancelLoading();
             if (response.getInfoCode()==0){
                 ToastHelper.showShortCompleted("登录成功");
-                Preferences.getInstance().setToken(response.getData().token);
-                Preferences.getInstance().setZhName(response.getData().zh_name);
+                Preferences.getInstance().setToken(response.getLogin_data().getToken());
+                Preferences.getInstance().setZhName(response.getLogin_data().getZh_name());
                 finish();
             }else {
                 ToastHelper.showShortError(response.getMessage());
