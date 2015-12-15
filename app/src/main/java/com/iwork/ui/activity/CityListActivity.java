@@ -63,6 +63,9 @@ public class CityListActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * 获取城市列表
+     */
     public void getCityList() {
         cityList = new ArrayList<>();
         CommonRequest.getCityList(new ResultCallback<CityList>() {
