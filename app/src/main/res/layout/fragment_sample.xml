@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_gray"
-    tools:context="com.iwork.ui.view.SampleFragment">
+    tools:context="com.iwork.ui.fragment.SampleFragment">
 
     <com.jcodecraeer.xrecyclerview.XRecyclerView
         android:id="@+id/recyclerView"

@@ -2,6 +2,7 @@ package com.iwork.net;
 
 import com.iwork.model.CityList;
 import com.iwork.model.LoginInfo;
+import com.iwork.model.MainList;
 import com.iwork.model.QinNiuToken;
 import com.iwork.model.RequestMessage;
 import com.iwork.okhttp.callback.ResultCallback;
@@ -72,6 +73,7 @@ public class CommonRequest {
 
     /**
      * 检查手机号是否使用过
+     *
      * @param phone
      * @param callback
      */
@@ -110,13 +112,29 @@ public class CommonRequest {
 
     /**
      * 获取城市列表
+     *
      * @param callback
      */
-    public static void getCityList(ResultCallback<CityList> callback){
-        Map<String,String> params = new HashMap<>();
-        String url = createUrl("/api/v1/city/findCityList.action",params);
+    public static void getCityList(ResultCallback<CityList> callback) {
+        Map<String, String> params = new HashMap<>();
+
+        String url = createUrl("/api/v1/city/findCityList.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
+
+    /**
+     * 获取首页用户信息
+     *
+     * @param pageNo
+     * @param callback
+     */
+    public static void getPersonList(int pageNo, ResultCallback<MainList> callback) {
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.PAGENO, pageNo + "");
+        String url = createUrl("/api/v1/headhunter/list.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+    }
+
     protected static String createUrl(String path, Map<String, String> params) {
         params.put(ServerParam.CLIENT, Constant.CLIEN);
         params.put(ServerParam.EQ_NUM, Constant.ANDROID_ID);
