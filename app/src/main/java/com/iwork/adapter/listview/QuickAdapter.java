@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.joanzapata.android.listview;
+package com.iwork.adapter.listview;
 
 import android.content.Context;
 import android.view.View;
@@ -21,7 +21,8 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import static com.joanzapata.android.listview.BaseAdapterHelper.get;
+import static com.iwork.adapter.listview.BaseAdapterHelper.get;
+
 
 /**
  * Abstraction class of a BaseAdapter in which you only need

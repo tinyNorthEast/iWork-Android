@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.joanzapata.android.listview;
+package com.iwork.adapter.listview;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -27,7 +27,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
-import android.widget.*;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.Checkable;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 

@@ -1,9 +1,8 @@
-package com.joanzapata.android.recyclerview;
+package com.iwork.adapter.recyclerview;
 
 import android.content.Context;
 
 import java.util.List;
-
 
 
 /**

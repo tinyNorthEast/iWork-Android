@@ -1,4 +1,4 @@
-package com.joanzapata.android.recyclerview;
+package com.iwork.adapter.recyclerview;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;

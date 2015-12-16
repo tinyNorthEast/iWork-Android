@@ -126,7 +126,6 @@
     <orderEntry type="library" exported="" name="bga-adapter-1.0.9" level="project" />
     <orderEntry type="library" exported="" name="rxbinding-0.3.0" level="project" />
     <orderEntry type="library" exported="" name="android-async-http-1.4.9" level="project" />
-    <orderEntry type="module" module-name="baseadapterhelper" exported="" />
     <orderEntry type="module" module-name="sharesdk" exported="" />
   </component>
 </module>

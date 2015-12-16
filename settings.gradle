@@ -1,1 +1,1 @@
-include ':app', ':sharesdk', ':autolayout', ':baseadapterhelper'
+include ':app', ':sharesdk', ':autolayout'

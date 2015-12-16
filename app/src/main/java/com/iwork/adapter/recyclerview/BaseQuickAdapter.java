@@ -1,4 +1,4 @@
-package com.joanzapata.android.recyclerview;
+package com.iwork.adapter.recyclerview;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -27,7 +27,7 @@ public abstract class BaseQuickAdapter <T, H extends BaseAdapterHelper> extends 
 
     //define interface
     public static interface OnItemClickListener {
-        void onItemClick(View view , int position);
+        void onItemClick(View view, int position);
     }
 
     /**
@@ -63,7 +63,7 @@ public abstract class BaseQuickAdapter <T, H extends BaseAdapterHelper> extends 
         return data.get(position);
     }
     @Override
-    public BaseAdapterHelper onCreateViewHolder(ViewGroup viewGroup,  int viewType) {
+    public BaseAdapterHelper onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(layoutResId, viewGroup, false);
         view.setOnClickListener(this);
         BaseAdapterHelper vh = new BaseAdapterHelper(view);
@@ -71,7 +71,7 @@ public abstract class BaseQuickAdapter <T, H extends BaseAdapterHelper> extends 
     }
 
     @Override
-    public void onBindViewHolder(BaseAdapterHelper helper,  int position) {
+    public void onBindViewHolder(BaseAdapterHelper helper, int position) {
         helper.itemView.setTag(position);
         T item = getItem(position);
         convert((H)helper, item);

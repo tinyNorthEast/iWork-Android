@@ -12,7 +12,6 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/autolayout" />
-            <option value="$PROJECT_DIR$/baseadapterhelper" />
             <option value="$PROJECT_DIR$/sharesdk" />
           </set>
         </option>
@@ -21,7 +20,6 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/autolayout" />
-            <option value="$PROJECT_DIR$/baseadapterhelper" />
             <option value="$PROJECT_DIR$/sharesdk" />
           </set>
         </option>

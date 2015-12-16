@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.joanzapata.android.listview;
+package com.iwork.adapter.listview;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -25,6 +25,7 @@ import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Abstraction class of a BaseAdapter in which you only need
  * to provide the convert() implementation.<br/>
