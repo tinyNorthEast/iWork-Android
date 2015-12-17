@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.impetusconsulting.iwork.R;
+import com.iwork.adapter.recyclerview.BaseAdapterHelper;
+import com.iwork.adapter.recyclerview.QuickAdapter;
 import com.iwork.model.CityList;
 import com.iwork.model.MainList;
 import com.iwork.net.CommonRequest;
@@ -21,8 +23,7 @@ import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.UiThreadHandler;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
-import com.joanzapata.android.recyclerview.BaseAdapterHelper;
-import com.joanzapata.android.recyclerview.QuickAdapter;
+import com.readystatesoftware.viewbadger.BadgeView;
 import com.squareup.okhttp.Request;
 import com.squareup.picasso.Picasso;
 
@@ -33,12 +34,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link SampleFragment#newInstance} factory method to
- * create an instance of this fragment.
  */
 public class SampleFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -52,7 +47,7 @@ public class SampleFragment extends Fragment {
     private List<MainList.Person> persons;
     QuickAdapter<MainList.Person> mAdapter;
     private OnFragmentInteractionListener mListener;
-
+    private BadgeView badgeView;
     public SampleFragment() {
         // Required empty public constructor
     }
@@ -80,10 +75,9 @@ public class SampleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         mRootView = inflater.inflate(R.layout.fragment_sample, container, false);
         ButterKnife.bind(this, mRootView);
-//        initAdapter();
+        badgeView = new BadgeView(getContext());
         getData();
         initXRecyclerView() ;
         return mRootView;
@@ -96,7 +90,14 @@ public class SampleFragment extends Fragment {
             protected void convert(BaseAdapterHelper helper, MainList.Person item) {
                 helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
                 helper.getTextView(R.id.item_zh_name).setText(item.getRealName());
+
                 Picasso.with(getContext()).load(item.getPic()).into(helper.getImageView(R.id.item_pic));
+                badgeView = new BadgeView(getActivity(),helper.getLayout(R.id.item_comment));
+                badgeView.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
+                badgeView.setBadgeMargin(5,5);
+                badgeView.setTextSize(8);
+                badgeView.setText(item.getCommentCount()+1+"");
+                badgeView.show();
             }
         };
         recyclerView.setAdapter(mAdapter);

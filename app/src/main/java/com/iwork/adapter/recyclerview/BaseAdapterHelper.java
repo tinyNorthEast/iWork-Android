@@ -5,14 +5,17 @@ import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
  * Created by jianghejie on 15/8/8.
  */
-public class BaseAdapterHelper extends RecyclerView.ViewHolder{
+public class BaseAdapterHelper extends RecyclerView.ViewHolder {
     private SparseArray<View> views;
-    public BaseAdapterHelper(View itemView){
+
+    public BaseAdapterHelper(View itemView) {
         super(itemView);
         this.views = new SparseArray<View>();
     }
@@ -26,6 +29,10 @@ public class BaseAdapterHelper extends RecyclerView.ViewHolder{
     }
 
     public ImageView getImageView(int viewId) {
+        return retrieveView(viewId);
+    }
+
+    public RelativeLayout getLayout(int viewId) {
         return retrieveView(viewId);
     }
 
