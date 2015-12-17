@@ -9,13 +9,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.impetusconsulting.iwork.R;
 import com.iwork.adapter.recyclerview.BaseAdapterHelper;
 import com.iwork.adapter.recyclerview.QuickAdapter;
-import com.iwork.model.CityList;
 import com.iwork.model.MainList;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
@@ -90,24 +88,19 @@ public class SampleFragment extends Fragment {
             protected void convert(BaseAdapterHelper helper, MainList.Person item) {
                 helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
                 helper.getTextView(R.id.item_zh_name).setText(item.getRealName());
-
                 Picasso.with(getContext()).load(item.getPic()).into(helper.getImageView(R.id.item_pic));
-                badgeView = new BadgeView(getActivity(),helper.getLayout(R.id.item_comment));
-                badgeView.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
-                badgeView.setBadgeMargin(5,5);
-                badgeView.setTextSize(8);
-                badgeView.setText(item.getCommentCount()+1+"");
-                badgeView.show();
+                showBadgeView(helper.getLayout(R.id.item_comment),item.getCommentCount()+"");
             }
         };
         recyclerView.setAdapter(mAdapter);
     }
 
+    /**
+     * 初始化列表布局
+     */
     private void initXRecyclerView() {
         persons = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//        recyclerView.setAdapter(new RecyclerAdapter(createItemList()));
-
         recyclerView.setBackgroundColor(getResources().getColor(R.color.white));
         recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         recyclerView.setLaodingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
@@ -141,7 +134,14 @@ public class SampleFragment extends Fragment {
             }, 5000);
         }
     };
-
+    private void showBadgeView(View v, String text){
+        badgeView = new BadgeView(getActivity(),v);
+        badgeView.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
+        badgeView.setBadgeMargin(5,5);
+        badgeView.setTextSize(8);
+        badgeView.setText(text);
+        badgeView.show();
+    }
     /**
      * 从网络获取数据
      */
