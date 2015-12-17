@@ -17,11 +17,11 @@ import com.iwork.adapter.recyclerview.QuickAdapter;
 import com.iwork.model.MainList;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.view.BadgeView;
 import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.UiThreadHandler;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
-import com.readystatesoftware.viewbadger.BadgeView;
 import com.squareup.okhttp.Request;
 import com.squareup.picasso.Picasso;
 
