@@ -185,7 +185,8 @@
         <activity android:name="com.iwork.ui.activity.SignUserInfoActivity" />
         <activity android:name="com.iwork.ui.activity.PositionInfoActivity" />
         <activity android:name="com.iwork.ui.activity.PasswordActivity" />
-        <activity android:name="com.iwork.ui.activity.CityListActivity"></activity>
+        <activity android:name="com.iwork.ui.activity.CityListActivity" />
+        <activity android:name="com.iwork.ui.activity.PersonDetailActivty"></activity>
     </application>
 
 </manifest>

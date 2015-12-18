@@ -95,27 +95,28 @@
             android:visibility="gone" />
 
         <ImageButton
-            android:id="@+id/title_bar_img_btn_more"
+            android:id="@+id/title_bar_img_btn_share"
             style="@style/TitleBar.ImageButton"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:paddingLeft="@dimen/title_bar_img_btn_click_extra_width"
             android:paddingRight="@dimen/title_bar_img_btn_margin_right"
             android:scaleType="fitCenter"
-            android:src="@drawable/title_bar_img_btn_more_selector"
+            android:src="@drawable/common_share"
             android:visibility="gone" />
 
         <ImageButton
             android:id="@+id/title_bar_img_btn_custom_right"
             style="@style/TitleBar.ImageButton"
             android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:paddingLeft="@dimen/title_bar_img_btn_click_extra_width"
-            android:paddingRight="@dimen/title_bar_img_btn_margin_right"
+            android:src="@drawable/common_store"
             android:scaleType="fitCenter"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/title_bar_img_btn_share"
+            android:layout_toStartOf="@+id/title_bar_img_btn_share"
+            android:layout_marginRight="17dp"
+            android:layout_marginEnd="17dp" />
 
         <TextView
             android:id="@+id/title_bar_textview_right"

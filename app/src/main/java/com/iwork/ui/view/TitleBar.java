@@ -245,7 +245,7 @@ public class TitleBar extends RelativeLayout {
         title_bar_img_btn_my = (ImageView) findViewById(R.id.title_bar_img_btn_my);
         title_bar_img_btn_back = (ImageView) findViewById(R.id.title_bar_img_btn_back);
         title_bar_img_btn_notice = (ImageView) findViewById(R.id.title_bar_img_btn_notice);
-        title_bar_img_btn_more = (ImageView) findViewById(R.id.title_bar_img_btn_more);
+        title_bar_img_btn_more = (ImageView) findViewById(R.id.title_bar_img_btn_share);
         title_bar_textview_right = (TextView) findViewById(R.id.title_bar_textview_right);
         //可自定义的ImageButton
         title_bar_img_btn_custom_left = (ImageView) findViewById(R.id.title_bar_img_btn_custom_left);
@@ -297,7 +297,7 @@ public class TitleBar extends RelativeLayout {
                         noticeImgBtnClickListener.onClick(view);
                     }
                     break;
-                case R.id.title_bar_img_btn_more:
+                case R.id.title_bar_img_btn_share:
                     if (moreImgBtnClickListener != null) {
                         moreImgBtnClickListener.onClick(view);
                     }
