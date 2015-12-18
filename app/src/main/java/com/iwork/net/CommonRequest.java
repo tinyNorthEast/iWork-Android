@@ -1,12 +1,16 @@
 package com.iwork.net;
 
+import android.preference.Preference;
+
 import com.iwork.model.CityList;
 import com.iwork.model.LoginInfo;
 import com.iwork.model.MainList;
+import com.iwork.model.PersonDetail;
 import com.iwork.model.QinNiuToken;
 import com.iwork.model.RequestMessage;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.okhttp.request.OkHttpRequest;
+import com.iwork.preferences.Preferences;
 import com.iwork.utils.Constant;
 import com.iwork.utils.NetConstant;
 import com.iwork.utils.TextUtil;
@@ -132,6 +136,19 @@ public class CommonRequest {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.PAGENO, pageNo + "");
         String url = createUrl("/api/v1/headhunter/list.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+    }
+
+    /**
+     * 获取首页详情页
+     * @param headHunterId 猎头id
+     * @param callback
+     */
+    public static void getDetail(int headHunterId, ResultCallback<PersonDetail> callback) {
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.HEADHUNTERID, headHunterId + "");
+        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
+        String url = createUrl("/api/v1/headhunter/detail.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
 

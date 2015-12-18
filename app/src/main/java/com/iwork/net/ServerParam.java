@@ -18,4 +18,6 @@ public class ServerParam {
     public static final String PIC = "pic";
     public static final String ZH_NAME = "zh_name";
     public static final String PAGENO = "pageNo";
+    public static final String HEADHUNTERID = "headhunterId";
+    public static final String TOKEN = "token";
 }

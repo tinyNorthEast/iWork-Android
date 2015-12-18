@@ -25,6 +25,7 @@ public class BaseApplication extends Application {
     private static BaseApplication mContext;
 
     private UserInfo mUserInfo;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -34,13 +35,17 @@ public class BaseApplication extends Application {
         JPushInterface.setDebugMode(BuildConfig.JPUSH_DEBUG);
         JPushInterface.init(this);
         ShareSDK.initSDK(this);
-        SMSSDK.initSDK(this, Constant.SMSSDKKEY,Constant.SMSSDKSECRET);
+        SMSSDK.initSDK(this, Constant.SMSSDKKEY, Constant.SMSSDKSECRET);
     }
+
     public static BaseApplication getAppContext() {
+        if (mContext == null)
+            return new BaseApplication();
         return mContext;
     }
-    public UserInfo getmUserInfo(){
-        if (mUserInfo!=null)
+
+    public UserInfo getmUserInfo() {
+        if (mUserInfo != null)
             return mUserInfo;
         else
             return new UserInfo();

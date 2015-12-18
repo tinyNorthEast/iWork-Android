@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         titleBar.hideBackDrawable();
-        titleBar.setCustomImageButtonRight(R.drawable.common_my, loginListener);
+        titleBar.setMeDrawableListener(loginListener);
         titleBar.setCustomImageButtonLeft(R.drawable.common_icon_transfer_down, "北京", positionListener);
         titleBar.showCenterImg();
         viewpager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), titles));
@@ -49,11 +49,6 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                OnekeyShare oks = new OnekeyShare();
-//                oks.setText("我是分享文本");
-//                oks.setImagePath("http://f1.sharesdk.cn/imgs/2014/05/21/oESpJ78_533x800.jpg");
-//                // 启动分享GUI
-//                oks.show(MainActivity.this);
 //
 //            }
 //        });

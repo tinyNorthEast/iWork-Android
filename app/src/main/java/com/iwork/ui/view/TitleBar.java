@@ -94,7 +94,7 @@ public class TitleBar extends RelativeLayout {
         show(title_bar_textview_right);
         hide(title_bar_img_btn_custom_right);
         hide(title_bar_img_btn_notice);
-        hide(title_bar_img_btn_more);
+        hide(title_bar_img_btn_share);
     }
 
     /**
@@ -113,7 +113,7 @@ public class TitleBar extends RelativeLayout {
         show(title_bar_textview_right);
         hide(title_bar_img_btn_custom_right);
         hide(title_bar_img_btn_notice);
-        hide(title_bar_img_btn_more);
+        hide(title_bar_img_btn_share);
     }
 
     /**
@@ -131,7 +131,7 @@ public class TitleBar extends RelativeLayout {
         show(title_bar_textview_right);
         hide(title_bar_img_btn_custom_right);
         hide(title_bar_img_btn_notice);
-        hide(title_bar_img_btn_more);
+        hide(title_bar_img_btn_share);
     }
 
     /**
@@ -167,10 +167,10 @@ public class TitleBar extends RelativeLayout {
      *
      * @param listener
      */
-    public void setMoreDrawableListener(OnClickListener listener) {
-        show(title_bar_img_btn_more);
+    public void setShareDrawableListener(OnClickListener listener) {
+        show(title_bar_img_btn_share);
         hide(title_bar_textview_right);
-        hide(title_bar_img_btn_custom_right);
+//        hide(title_bar_img_btn_custom_right);
         hide(title_bar_img_btn_notice);
         moreImgBtnClickListener = listener;
     }
@@ -182,7 +182,7 @@ public class TitleBar extends RelativeLayout {
      */
     public void setNoticeDrawableListener(OnClickListener listener) {
         show(title_bar_img_btn_notice);
-        hide(title_bar_img_btn_more);
+        hide(title_bar_img_btn_share);
         hide(title_bar_textview_right);
         hide(title_bar_img_btn_custom_right);
         noticeImgBtnClickListener = listener;
@@ -198,11 +198,18 @@ public class TitleBar extends RelativeLayout {
         title_bar_img_btn_custom_right.setImageDrawable(getResources().getDrawable(src));
         show(title_bar_img_btn_custom_right);
         hide(title_bar_textview_right);
-        hide(title_bar_img_btn_more);
+        hide(title_bar_img_btn_share);
         hide(title_bar_img_btn_notice);
         customImgBtnRightClickListener = listener;
     }
 
+    public void setCustomImageButtonStore(OnClickListener listener){
+        show(title_bar_img_btn_custom_right);
+        hide(title_bar_textview_right);
+        hide(title_bar_img_btn_share);
+        hide(title_bar_img_btn_notice);
+        customImgBtnRightClickListener = listener;
+    }
     /**
      * 设置左侧自定义ImageButton
      *
@@ -245,7 +252,7 @@ public class TitleBar extends RelativeLayout {
         title_bar_img_btn_my = (ImageView) findViewById(R.id.title_bar_img_btn_my);
         title_bar_img_btn_back = (ImageView) findViewById(R.id.title_bar_img_btn_back);
         title_bar_img_btn_notice = (ImageView) findViewById(R.id.title_bar_img_btn_notice);
-        title_bar_img_btn_more = (ImageView) findViewById(R.id.title_bar_img_btn_share);
+        title_bar_img_btn_share = (ImageView) findViewById(R.id.title_bar_img_btn_share);
         title_bar_textview_right = (TextView) findViewById(R.id.title_bar_textview_right);
         //可自定义的ImageButton
         title_bar_img_btn_custom_left = (ImageView) findViewById(R.id.title_bar_img_btn_custom_left);
@@ -264,7 +271,7 @@ public class TitleBar extends RelativeLayout {
         title_bar_img_btn_my.setOnClickListener(onClickListener);
         title_bar_img_btn_back.setOnClickListener(onClickListener);
         title_bar_img_btn_notice.setOnClickListener(onClickListener);
-        title_bar_img_btn_more.setOnClickListener(onClickListener);
+        title_bar_img_btn_share.setOnClickListener(onClickListener);
         title_bar_textview_right.setOnClickListener(onClickListener);
         title_layout_left.setOnClickListener(onClickListener);
         title_bar_img_btn_custom_right.setOnClickListener(onClickListener);
@@ -325,7 +332,7 @@ public class TitleBar extends RelativeLayout {
 
     private ImageView title_bar_img_btn_notice;
     private ImageView title_bar_img_btn_back;
-    private ImageView title_bar_img_btn_more,title_bar_img;
+    private ImageView title_bar_img_btn_share,title_bar_img;
     private TextView title_bar_textview_right,title_bar_textview_left;
     private ImageView title_bar_img_btn_my;
     private TextView title_bar_text;

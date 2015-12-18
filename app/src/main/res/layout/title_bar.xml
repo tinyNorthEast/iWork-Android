@@ -18,7 +18,7 @@
             android:layout_centerVertical="true"
             android:paddingRight="15dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/title_bar_img_btn_my_selector"
+            android:src="@drawable/common_my"
             android:visibility="gone" />
 
         <ImageView
@@ -91,7 +91,7 @@
             android:paddingLeft="@dimen/title_bar_img_btn_click_extra_width"
             android:paddingRight="@dimen/title_bar_img_btn_margin_right"
             android:scaleType="fitCenter"
-            android:src="@drawable/title_bar_img_btn_notice_selector"
+            android:src="@drawable/common_my"
             android:visibility="gone" />
 
         <ImageButton
