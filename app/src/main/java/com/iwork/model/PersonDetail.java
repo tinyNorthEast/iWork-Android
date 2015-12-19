@@ -280,6 +280,15 @@ public class PersonDetail {
                 public String getIndustryName() {
                     return industryName;
                 }
+
+                @Override
+                public String toString() {
+                    return "IndustryListEntity{" +
+                            "objId=" + objId +
+                            ", createTime=" + createTime +
+                            ", industryName='" + industryName + '\'' +
+                            '}';
+                }
             }
 
             public static class FunctionsListEntity {
@@ -310,6 +319,35 @@ public class PersonDetail {
                 public String getFunctionsName() {
                     return functionsName;
                 }
+
+                @Override
+                public String toString() {
+                    return "FunctionsListEntity{" +
+                            "objId=" + objId +
+                            ", createTime=" + createTime +
+                            ", functionsName='" + functionsName + '\'' +
+                            '}';
+                }
+            }
+
+            @Override
+            public String toString() {
+                return "HeadhunterInfoEntity{" +
+                        "objId=" + objId +
+                        ", realName='" + realName + '\'' +
+                        ", phone='" + phone + '\'' +
+                        ", companyName='" + companyName + '\'' +
+                        ", position='" + position + '\'' +
+                        ", workTime=" + workTime +
+                        ", phone400='" + phone400 + '\'' +
+                        ", pic='" + pic + '\'' +
+                        ", describe='" + describe + '\'' +
+                        ", ranking=" + ranking +
+                        ", participated=" + participated +
+                        ", commentCount=" + commentCount +
+                        ", industryList=" + industryList +
+                        ", functionsList=" + functionsList +
+                        '}';
             }
         }
 
@@ -386,6 +424,20 @@ public class PersonDetail {
             public String getAnnualSalary() {
                 return annualSalary;
             }
+
+            @Override
+            public String toString() {
+                return "PerformanceListEntity{" +
+                        "objId=" + objId +
+                        ", status=" + status +
+                        ", createTime=" + createTime +
+                        ", companyName='" + companyName + '\'' +
+                        ", headhunterId=" + headhunterId +
+                        ", hiddenName='" + hiddenName + '\'' +
+                        ", position='" + position + '\'' +
+                        ", annualSalary='" + annualSalary + '\'' +
+                        '}';
+            }
         }
 
         public static class CommentListEntity {
@@ -425,6 +477,34 @@ public class PersonDetail {
             public String getContent() {
                 return content;
             }
+
+            @Override
+            public String toString() {
+                return "CommentListEntity{" +
+                        "objId=" + objId +
+                        ", c_from_id=" + c_from_id +
+                        ", c_to_user_id=" + c_to_user_id +
+                        ", content='" + content + '\'' +
+                        '}';
+            }
         }
+
+        @Override
+        public String toString() {
+            return "DataEntity{" +
+                    "commentList=" + commentList +
+                    ", headhunterInfo=" + headhunterInfo.toString() +
+                    ", performanceList=" + performanceList +
+                    '}';
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "PersonDetail{" +
+                "infoCode=" + infoCode +
+                ", message='" + message + '\'' +
+                ", data=" + data.toString() +
+                '}';
     }
 }

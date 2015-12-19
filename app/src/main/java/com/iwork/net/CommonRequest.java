@@ -141,13 +141,17 @@ public class CommonRequest {
 
     /**
      * 获取首页详情页
+     *
      * @param headHunterId 猎头id
      * @param callback
      */
     public static void getDetail(int headHunterId, ResultCallback<PersonDetail> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.HEADHUNTERID, headHunterId + "");
-        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
+        String token = Preferences.getInstance().getToken();
+        if (TextUtil.isEmpty(token))
+            token = "646b8d1499215247d5bef1c506cc6ef7";
+        params.put(ServerParam.TOKEN, token);
         String url = createUrl("/api/v1/headhunter/detail.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }

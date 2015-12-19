@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context="com.iwork.ui.activity.SetActivity">
+
+    <com.iwork.ui.view.TitleBar
+        android:id="@+id/set_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
+
+    <LinearLayout
+        android:id="@+id/clear_img_cache"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/set_titlebar"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text="清除缓存"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/img_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/exit_account"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/clear_img_cache"
+        android:layout_marginTop="20dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text="退出"
+            android:textSize="18sp" />
+    </LinearLayout>
+</RelativeLayout>

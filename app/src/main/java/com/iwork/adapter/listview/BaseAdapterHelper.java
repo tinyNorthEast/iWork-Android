@@ -36,8 +36,7 @@ import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.RequestCreator;
+import com.bumptech.glide.Glide;
 
 /**
  * Allows an abstraction of the ViewHolder pattern.<br>
@@ -205,21 +204,21 @@ public class BaseAdapterHelper {
      */
     public BaseAdapterHelper setImageUrl(int viewId, String imageUrl) {
         ImageView view = retrieveView(viewId);
-        Picasso.with(context).load(imageUrl).into(view);
+        Glide.with(context).load(imageUrl).into(view);
         return this;
     }
 
-    /**
-     * Will download an image from a URL and put it in an ImageView.<br/>
-     * @param viewId         The view id.
-     * @param requestBuilder The Picasso request builder. (e.g. Picasso.with(context).load(imageUrl))
-     * @return The BaseAdapterHelper for chaining.
-     */
-    public BaseAdapterHelper setImageBuilder(int viewId, RequestCreator requestBuilder) {
-        ImageView view = retrieveView(viewId);
-        requestBuilder.into(view);
-        return this;
-    }
+//    /**
+//     * Will download an image from a URL and put it in an ImageView.<br/>
+//     * @param viewId         The view id.
+//     * @param requestBuilder The Picasso request builder. (e.g. Picasso.with(context).load(imageUrl))
+//     * @return The BaseAdapterHelper for chaining.
+//     */
+//    public BaseAdapterHelper setImageBuilder(int viewId, RequestCreator requestBuilder) {
+//        ImageView view = retrieveView(viewId);
+//        requestBuilder.into(view);
+//        return this;
+//    }
 
     /** Add an action to set the image of an image view. Can be called multiple times. */
     public BaseAdapterHelper setImageBitmap(int viewId, Bitmap bitmap) {

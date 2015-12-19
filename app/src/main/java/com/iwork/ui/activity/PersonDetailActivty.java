@@ -6,7 +6,12 @@ import android.view.View;
 
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
+import com.iwork.model.PersonDetail;
+import com.iwork.net.CommonRequest;
+import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.view.TitleBar;
+import com.socks.library.KLog;
+import com.squareup.okhttp.Request;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -22,6 +27,24 @@ public class PersonDetailActivty extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person_detail_activty);
         ButterKnife.bind(this);
+        initTitleBar();
+        getData();
+    }
+
+    private void getData() {
+        CommonRequest.getDetail(16, new ResultCallback<PersonDetail>() {
+            @Override
+            public void onError(Request request, Exception e) {
+
+            }
+
+            @Override
+            public void onResponse(PersonDetail response) {
+            }
+        });
+    }
+
+    private void initTitleBar() {
         detailTitlebar.setTitle("顾问详情");
         detailTitlebar.setCustomImageButtonStore(storeListener);
         detailTitlebar.setShareDrawableListener(shareListener);
@@ -45,10 +68,10 @@ public class PersonDetailActivty extends BaseActivity {
         @Override
         public void onClick(View v) {
             OnekeyShare oks = new OnekeyShare();
-                oks.setText("我是分享文本");
-                oks.setImagePath("http://f1.sharesdk.cn/imgs/2014/05/21/oESpJ78_533x800.jpg");
-                // 启动分享GUI
-                oks.show(PersonDetailActivty.this);
+            oks.setText("我是分享文本");
+            oks.setImagePath("http://f1.sharesdk.cn/imgs/2014/05/21/oESpJ78_533x800.jpg");
+            // 启动分享GUI
+            oks.show(PersonDetailActivty.this);
         }
     };
     /**

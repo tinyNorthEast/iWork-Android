@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
 import com.iwork.adapter.recyclerview.BaseAdapterHelper;
 import com.iwork.adapter.recyclerview.BaseQuickAdapter;
@@ -26,7 +27,6 @@ import com.iwork.utils.UiThreadHandler;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.squareup.okhttp.Request;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +91,9 @@ public class SampleFragment extends Fragment {
             protected void convert(BaseAdapterHelper helper, MainList.Person item) {
                 helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
                 helper.getTextView(R.id.item_zh_name).setText(item.getRealName());
-                Picasso.with(getContext()).load(item.getPic()).into(helper.getImageView(R.id.item_pic));
+                Glide.with(getContext()).load(item.getPic()).error(R.drawable.main_no_pic).placeholder(R.drawable.main_no_pic).
+                        into(helper.getImageView(R.id.item_pic));
+
                 showBadgeView(helper.getLayout(R.id.item_comment),item.getCommentCount()+"");
             }
         };
