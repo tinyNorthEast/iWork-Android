@@ -187,7 +187,8 @@
         <activity android:name="com.iwork.ui.activity.PasswordActivity" />
         <activity android:name="com.iwork.ui.activity.CityListActivity" />
         <activity android:name="com.iwork.ui.activity.PersonDetailActivty" />
-        <activity android:name="com.iwork.ui.activity.SetActivity"></activity>
+        <activity android:name="com.iwork.ui.activity.SetActivity" />
+        <activity android:name="com.iwork.ui.activity.MySelfActivity"></activity>
     </application>
 
 </manifest>

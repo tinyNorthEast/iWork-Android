@@ -24,7 +24,7 @@ public class SetActivity extends BaseActivity {
     TitleBar setTitlebar;
     @Bind(R.id.clear_img_cache)
     LinearLayout clearImgCache;
-    @Bind(R.id.exit_account)
+    @Bind(R.id.set_about)
     LinearLayout exitAccount;
     @Bind(R.id.img_size)
     TextView imgSize;
@@ -58,9 +58,9 @@ public class SetActivity extends BaseActivity {
         Glide.get(this).clearMemory();
         ToastHelper.showShortCompleted("已经清除缓存");
     }
-    @OnClick(R.id.exit_account)
-    public void exitAccount(){
-        Preferences.getInstance().clear();
-        finish();
+    @OnClick(R.id.set_about)
+    public void setAbout(){
+//        Preferences.getInstance().clear();
+//        finish();
     }
 }

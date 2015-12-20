@@ -4,19 +4,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    tools:context="com.iwork.ui.activity.SetActivity">
+    tools:context="com.iwork.ui.activity.MySelfActivity">
 
     <com.iwork.ui.view.TitleBar
-        android:id="@+id/set_titlebar"
+        android:id="@+id/myself_titlebar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary" />
 
+    <ImageView
+        android:id="@+id/myself_iv_user"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/myself_titlebar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/menu_head" />
+
+    <TextView
+        android:id="@+id/myself_tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myself_iv_user"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/text_color_dark_gray"
+        android:textSize="18sp"
+        tools:text="姓名" />
+
     <LinearLayout
-        android:id="@+id/set_recommon"
+        android:id="@+id/myself_myattention"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/set_titlebar"
+        android:layout_below="@+id/myself_tv_name"
         android:layout_marginTop="20dp"
         android:background="@color/white"
         android:orientation="horizontal">
@@ -26,16 +46,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="推荐码"
+            android:text="我的关注"
             android:textSize="18sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/set_push"
+        android:id="@+id/myself_setmyinfo"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/set_recommon"
+        android:layout_below="@+id/myself_myattention"
         android:layout_marginTop="20dp"
         android:background="@color/white"
         android:orientation="horizontal">
@@ -45,16 +65,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="推送设置"
+            android:text="修改个人信息"
             android:textSize="18sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/clear_img_cache"
+        android:id="@+id/myself_messages"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/set_push"
+        android:layout_below="@+id/myself_setmyinfo"
         android:layout_marginTop="20dp"
         android:background="@color/white"
         android:orientation="horizontal">
@@ -64,24 +84,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="清空缓存"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/img_size"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:text="消息列表"
             android:textSize="18sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/set_about"
+        android:id="@+id/exit_account"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/clear_img_cache"
+        android:layout_below="@+id/myself_messages"
         android:layout_marginTop="20dp"
         android:background="@color/white">
 
@@ -90,7 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="关于"
+            android:text="退出"
             android:textSize="18sp" />
     </LinearLayout>
 </RelativeLayout>
