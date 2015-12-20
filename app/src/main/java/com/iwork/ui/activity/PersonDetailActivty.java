@@ -1,16 +1,23 @@
 package com.iwork.ui.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.model.PersonDetail;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.view.FlowLayout;
+import com.iwork.ui.view.TagAdapter;
+import com.iwork.ui.view.TagFlowLayout;
 import com.iwork.ui.view.TitleBar;
-import com.socks.library.KLog;
 import com.squareup.okhttp.Request;
 
 import butterknife.Bind;
@@ -21,6 +28,17 @@ public class PersonDetailActivty extends BaseActivity {
 
     @Bind(R.id.detail_titlebar)
     TitleBar detailTitlebar;
+    @Bind(R.id.detail_myself_des)
+    LinearLayout detailMyselfDes;
+    @Bind(R.id.detail_person_pic)
+    ImageView detailPersonPic;
+    @Bind(R.id.detail_person_realname)
+    TextView detailPersonRealname;
+    @Bind(R.id.detail_profession_taglayout)
+    TagFlowLayout detailProfessionTaglayout;
+    TextView myself_tv;
+    private String[] mVals = new String[]
+            {"房地产", "金融", "IT互联网", "消费电子", "服装"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +47,26 @@ public class PersonDetailActivty extends BaseActivity {
         ButterKnife.bind(this);
         initTitleBar();
         getData();
+        addView();
+    }
+
+    private void addView() {
+        final LayoutInflater mInflater = LayoutInflater.from(this);
+
+        for (int i = 0; i < 5; i++) {
+            RelativeLayout rl = (RelativeLayout) mInflater.inflate(R.layout.addtextview, null);
+            myself_tv = (TextView) rl.findViewById(R.id.addview_tv);
+            myself_tv.setText(String.format("%s、8年以上猎头经验", i + 1));
+            detailMyselfDes.addView(rl);
+        }
+        detailProfessionTaglayout.setAdapter(new TagAdapter<String>(mVals) {
+            @Override
+            public View getView(FlowLayout parent, int position, String o) {
+                TextView t = (TextView) mInflater.inflate(R.layout.profession_tag_tv,detailProfessionTaglayout,false);
+                t.setText(o);
+                return t;
+            }
+        });
     }
 
     private void getData() {
@@ -40,6 +78,11 @@ public class PersonDetailActivty extends BaseActivity {
 
             @Override
             public void onResponse(PersonDetail response) {
+                if (response.getInfoCode() == 0) {
+                    detailPersonRealname.setText(response.getData().getHeadhunterInfo().getRealName());
+                    Glide.with(PersonDetailActivty.this).load(response.getData().getHeadhunterInfo().getPic())
+                            .error(R.drawable.detail_no_pic).placeholder(R.drawable.detail_no_pic);
+                }
             }
         });
     }

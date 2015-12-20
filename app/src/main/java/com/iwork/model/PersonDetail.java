@@ -8,10 +8,11 @@ import java.util.List;
  */
 public class PersonDetail {
 
+
     /**
      * infoCode : 0
      * message : 获取数据成功
-     * data : {"performanceList":[{"objId":10,"status":1,"createTime":1449758846000,"companyName":"sssss","headhunterId":16,"hiddenName":"xxxxx","position":"经理","annualSalary":"11111"}],"commentList":[{"objId":1,"c_from_id":1,"c_to_user_id":16,"content":"你好吗"},{"objId":2,"c_from_id":4,"c_to_user_id":16,"content":"不好帅"}],"headhunterInfo":{"objId":16,"realName":"廖端永","phone":"18201413265","companyName":"搜狐","position":"高级开发","workTime":1448380800000,"phone400":"0101234","pic":"http://www.7xoors.com1.z0.glb.clouddn.com/JPG-20151214210947-312.jpg","describe":"阿斯顿飞洒","ranking":1,"participated":1,"commentCount":2,"industryList":[{"objId":3,"createTime":1450361350555,"industryName":"法务"}],"functionsList":[{"objId":82,"createTime":1450361350557,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450361350557,"functionsName":"洽谈"}]}}
+     * data : {"performanceList":[{"objId":10,"status":1,"createTime":1449758846000,"companyName":"sssss","headhunterId":16,"hiddenName":"xxxxx","position":"经理","annualSalary":"11111"}],"commentList":[{"objId":1,"c_from_id":1,"c_to_user_id":16,"content":"你好吗"},{"objId":2,"c_from_id":4,"c_to_user_id":16,"content":"不好帅"}],"headhunterInfo":{"objId":16,"realName":"廖端永","phone":"18201413265","companyName":"搜狐","position":"高级开发","workTime":1448380800000,"phone400":"0101234","pic":"http://www.7xoors.com1.z0.glb.clouddn.com/JPG-20151214210947-312.jpg","describe":"阿斯顿飞洒","ranking":1,"participated":1,"commentCount":2,"industryList":[{"objId":3,"createTime":1450586619533,"industryName":"法务"}],"functionsList":[{"objId":82,"createTime":1450586619542,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450586619542,"functionsName":"洽谈"}]}}
      */
 
     private int infoCode;
@@ -19,7 +20,7 @@ public class PersonDetail {
     /**
      * performanceList : [{"objId":10,"status":1,"createTime":1449758846000,"companyName":"sssss","headhunterId":16,"hiddenName":"xxxxx","position":"经理","annualSalary":"11111"}]
      * commentList : [{"objId":1,"c_from_id":1,"c_to_user_id":16,"content":"你好吗"},{"objId":2,"c_from_id":4,"c_to_user_id":16,"content":"不好帅"}]
-     * headhunterInfo : {"objId":16,"realName":"廖端永","phone":"18201413265","companyName":"搜狐","position":"高级开发","workTime":1448380800000,"phone400":"0101234","pic":"http://www.7xoors.com1.z0.glb.clouddn.com/JPG-20151214210947-312.jpg","describe":"阿斯顿飞洒","ranking":1,"participated":1,"commentCount":2,"industryList":[{"objId":3,"createTime":1450361350555,"industryName":"法务"}],"functionsList":[{"objId":82,"createTime":1450361350557,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450361350557,"functionsName":"洽谈"}]}
+     * headhunterInfo : {"objId":16,"realName":"廖端永","phone":"18201413265","companyName":"搜狐","position":"高级开发","workTime":1448380800000,"phone400":"0101234","pic":"http://www.7xoors.com1.z0.glb.clouddn.com/JPG-20151214210947-312.jpg","describe":"阿斯顿飞洒","ranking":1,"participated":1,"commentCount":2,"industryList":[{"objId":3,"createTime":1450586619533,"industryName":"法务"}],"functionsList":[{"objId":82,"createTime":1450586619542,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450586619542,"functionsName":"洽谈"}]}
      */
 
     private DataEntity data;
@@ -62,8 +63,8 @@ public class PersonDetail {
          * ranking : 1
          * participated : 1
          * commentCount : 2
-         * industryList : [{"objId":3,"createTime":1450361350555,"industryName":"法务"}]
-         * functionsList : [{"objId":82,"createTime":1450361350557,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450361350557,"functionsName":"洽谈"}]
+         * industryList : [{"objId":3,"createTime":1450586619533,"industryName":"法务"}]
+         * functionsList : [{"objId":82,"createTime":1450586619542,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450586619542,"functionsName":"洽谈"}]
          */
 
         private HeadhunterInfoEntity headhunterInfo;
@@ -127,14 +128,14 @@ public class PersonDetail {
             private int commentCount;
             /**
              * objId : 3
-             * createTime : 1450361350555
+             * createTime : 1450586619533
              * industryName : 法务
              */
 
             private List<IndustryListEntity> industryList;
             /**
              * objId : 82
-             * createTime : 1450361350557
+             * createTime : 1450586619542
              * functionsName : 外部审计-四大
              */
 
@@ -280,15 +281,6 @@ public class PersonDetail {
                 public String getIndustryName() {
                     return industryName;
                 }
-
-                @Override
-                public String toString() {
-                    return "IndustryListEntity{" +
-                            "objId=" + objId +
-                            ", createTime=" + createTime +
-                            ", industryName='" + industryName + '\'' +
-                            '}';
-                }
             }
 
             public static class FunctionsListEntity {
@@ -319,35 +311,6 @@ public class PersonDetail {
                 public String getFunctionsName() {
                     return functionsName;
                 }
-
-                @Override
-                public String toString() {
-                    return "FunctionsListEntity{" +
-                            "objId=" + objId +
-                            ", createTime=" + createTime +
-                            ", functionsName='" + functionsName + '\'' +
-                            '}';
-                }
-            }
-
-            @Override
-            public String toString() {
-                return "HeadhunterInfoEntity{" +
-                        "objId=" + objId +
-                        ", realName='" + realName + '\'' +
-                        ", phone='" + phone + '\'' +
-                        ", companyName='" + companyName + '\'' +
-                        ", position='" + position + '\'' +
-                        ", workTime=" + workTime +
-                        ", phone400='" + phone400 + '\'' +
-                        ", pic='" + pic + '\'' +
-                        ", describe='" + describe + '\'' +
-                        ", ranking=" + ranking +
-                        ", participated=" + participated +
-                        ", commentCount=" + commentCount +
-                        ", industryList=" + industryList +
-                        ", functionsList=" + functionsList +
-                        '}';
             }
         }
 
@@ -424,20 +387,6 @@ public class PersonDetail {
             public String getAnnualSalary() {
                 return annualSalary;
             }
-
-            @Override
-            public String toString() {
-                return "PerformanceListEntity{" +
-                        "objId=" + objId +
-                        ", status=" + status +
-                        ", createTime=" + createTime +
-                        ", companyName='" + companyName + '\'' +
-                        ", headhunterId=" + headhunterId +
-                        ", hiddenName='" + hiddenName + '\'' +
-                        ", position='" + position + '\'' +
-                        ", annualSalary='" + annualSalary + '\'' +
-                        '}';
-            }
         }
 
         public static class CommentListEntity {
@@ -477,34 +426,6 @@ public class PersonDetail {
             public String getContent() {
                 return content;
             }
-
-            @Override
-            public String toString() {
-                return "CommentListEntity{" +
-                        "objId=" + objId +
-                        ", c_from_id=" + c_from_id +
-                        ", c_to_user_id=" + c_to_user_id +
-                        ", content='" + content + '\'' +
-                        '}';
-            }
         }
-
-        @Override
-        public String toString() {
-            return "DataEntity{" +
-                    "commentList=" + commentList +
-                    ", headhunterInfo=" + headhunterInfo.toString() +
-                    ", performanceList=" + performanceList +
-                    '}';
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "PersonDetail{" +
-                "infoCode=" + infoCode +
-                ", message='" + message + '\'' +
-                ", data=" + data.toString() +
-                '}';
     }
 }

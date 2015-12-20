@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Iwork</string>
+    <string name="app_name">iWork</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">登录</string>
 
@@ -54,7 +54,10 @@
         <item>候选人</item>
     </string-array>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="gravity_left">left</string>
+    <string name="gravity_center">center</string>
+    <string name="gravity_right">right</string>
+        <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
