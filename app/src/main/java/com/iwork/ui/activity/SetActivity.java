@@ -36,8 +36,6 @@ public class SetActivity extends BaseActivity {
         ButterKnife.bind(this);
         setTitlebar.setTitle("设置");
         setTitlebar.setBackDrawableListener(backListener);
-//        String size=Utils.bytes2kb(Glide.getPhotoCacheDir(this).getUsableSpace());
-//        imgSize.setText(String.format("( %s )",size));
     }
 
     /**
