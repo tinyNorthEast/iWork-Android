@@ -20,6 +20,7 @@
     <string name="es_login_get_code_text">获取验证码</string>
     <string name="es_login_sms_code_text">短信验证码</string>
     <string name="es_login_text">登录</string>
+    <string name="exit_app">退出</string>
     <string name="next">下一步</string>
     <string name="title_activity_login2">Sign in</string>
     <string name="login_forgot_password">忘记密码</string>

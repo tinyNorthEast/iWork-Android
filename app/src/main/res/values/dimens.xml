@@ -62,5 +62,7 @@
     <dimen name="common_dialog_btn_margin_left">6dp</dimen>
     <dimen name="common_dialog_title_txtview_multi_width">239dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="myself_layout_height">42dp</dimen>
 
+    <item name="layout_line_height" type="dimen" format="float">0.5px</item>
 </resources>
