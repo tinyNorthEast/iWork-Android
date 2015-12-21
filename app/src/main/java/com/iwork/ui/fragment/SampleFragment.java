@@ -151,6 +151,7 @@ public class SampleFragment extends Fragment {
         badgeView = new BadgeView(getActivity(),v);
         badgeView.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
         badgeView.setBadgeMargin(5,5);
+        badgeView.setBackgroundColor(getResources().getColor(R.color.color_bt_bg));
         badgeView.setTextSize(8);
         badgeView.setText(text);
         badgeView.show();

@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/profession_tag_bg"
     android:gravity="center"
+    android:layout_margin="5dp"
     android:textSize="11sp"
     android:text="Helloworld"
     android:textColor="@color/text_color_gray">

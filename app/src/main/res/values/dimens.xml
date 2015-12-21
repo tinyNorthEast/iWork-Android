@@ -64,5 +64,5 @@
     <dimen name="text_margin">16dp</dimen>
     <dimen name="myself_layout_height">42dp</dimen>
 
-    <item name="layout_line_height" type="dimen" format="float">0.5px</item>
+    <dimen name="layout_line_height">1px</dimen>
 </resources>
