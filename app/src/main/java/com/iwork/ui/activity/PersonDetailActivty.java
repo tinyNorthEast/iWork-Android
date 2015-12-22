@@ -1,6 +1,7 @@
 package com.iwork.ui.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,13 +13,19 @@ import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.model.PersonDetail;
+import com.iwork.model.PersonDetail.DataEntity.HeadhunterInfoEntity.DescribeListEntity;
+import com.iwork.model.PersonDetail.DataEntity.HeadhunterInfoEntity.FunctionsListEntity;
+import com.iwork.model.PersonDetail.DataEntity.HeadhunterInfoEntity.IndustryListEntity;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.view.FlowLayout;
+import com.iwork.ui.view.QuickReturnFooterBehavior;
 import com.iwork.ui.view.TagAdapter;
 import com.iwork.ui.view.TagFlowLayout;
 import com.iwork.ui.view.TitleBar;
 import com.squareup.okhttp.Request;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -36,9 +43,16 @@ public class PersonDetailActivty extends BaseActivity {
     TextView detailPersonRealname;
     @Bind(R.id.detail_profession_taglayout)
     TagFlowLayout detailProfessionTaglayout;
+
     TextView myself_tv;
-    private String[] mVals = new String[]
-            {"房地产", "金融", "IT互联网", "消费电子", "服装"};
+    @Bind(R.id.detail_function_val_layout)
+    LinearLayout detailFunctionValLayout;
+    @Bind(R.id.detail_bottom_layout)
+    LinearLayout detailBottomLayout;
+    @Bind(R.id.detail_coordinatorlayout)
+    CoordinatorLayout detailCoordinatorlayout;
+    private List<DescribeListEntity> mDescribeVals;
+    private List<IndustryListEntity> mIndustryVals;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,28 +61,18 @@ public class PersonDetailActivty extends BaseActivity {
         ButterKnife.bind(this);
         initTitleBar();
         getData();
-        addView();
     }
 
-    private void addView() {
-        final LayoutInflater mInflater = LayoutInflater.from(this);
-
-        for (int i = 0; i < 5; i++) {
-            RelativeLayout rl = (RelativeLayout) mInflater.inflate(R.layout.addtextview, null);
-            myself_tv = (TextView) rl.findViewById(R.id.addview_tv);
-            myself_tv.setText(String.format("%s、8年以上猎头经验", i + 1));
-            detailMyselfDes.addView(rl);
-        }
-        detailProfessionTaglayout.setAdapter(new TagAdapter<String>(mVals) {
-            @Override
-            public View getView(FlowLayout parent, int position, String o) {
-                TextView t = (TextView) mInflater.inflate(R.layout.profession_tag_tv,detailProfessionTaglayout,false);
-                t.setText(o);
-                return t;
-            }
-        });
+    private void initTitleBar() {
+        detailTitlebar.setTitle("顾问详情");
+        detailTitlebar.setCustomImageButtonStore(storeListener);
+        detailTitlebar.setShareDrawableListener(shareListener);
+        detailTitlebar.setBackDrawableListener(backListener);
     }
 
+    /**
+     * 从服务器获取数据
+     */
     private void getData() {
         CommonRequest.getDetail(16, new ResultCallback<PersonDetail>() {
             @Override
@@ -81,17 +85,53 @@ public class PersonDetailActivty extends BaseActivity {
                 if (response.getInfoCode() == 0) {
                     detailPersonRealname.setText(response.getData().getHeadhunterInfo().getRealName());
                     Glide.with(PersonDetailActivty.this).load(response.getData().getHeadhunterInfo().getPic())
-                            .error(R.drawable.detail_no_pic).placeholder(R.drawable.detail_no_pic);
+                            .error(R.drawable.detail_no_pic).placeholder(R.drawable.detail_no_pic).into(detailPersonPic);
+                    setDescribeData(response.getData().getHeadhunterInfo().getDescribeList());
+                    setIndustryData(response.getData().getHeadhunterInfo().getIndustryList());
+                    setFunctionData(response.getData().getHeadhunterInfo().getFunctionsList());
                 }
             }
         });
     }
 
-    private void initTitleBar() {
-        detailTitlebar.setTitle("顾问详情");
-        detailTitlebar.setCustomImageButtonStore(storeListener);
-        detailTitlebar.setShareDrawableListener(shareListener);
-        detailTitlebar.setBackDrawableListener(backListener);
+    /**
+     * 添加自我介绍数据
+     *
+     * @param list
+     */
+    private void setDescribeData(List<DescribeListEntity> list) {
+        for (int i = 0; i < list.size(); i++) {
+            RelativeLayout rl = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.detail_des_addview, null);
+            myself_tv = (TextView) rl.findViewById(R.id.addview_tv);
+            myself_tv.setText(list.get(i).getDescribe());
+            detailMyselfDes.addView(rl);
+        }
+    }
+
+    /**
+     * 获取行业数据
+     */
+    private void setIndustryData(List<IndustryListEntity> list) {
+        final LayoutInflater mInflater = LayoutInflater.from(this);
+        detailProfessionTaglayout.setAdapter(new TagAdapter<IndustryListEntity>(list) {
+
+            @Override
+            public View getView(FlowLayout parent, int position, IndustryListEntity industryListEntity) {
+                TextView t = (TextView) mInflater.inflate(R.layout.profession_tag_tv, detailProfessionTaglayout, false);
+                t.setText(industryListEntity.getIndustryName());
+                return t;
+            }
+        });
+    }
+
+    private void setFunctionData(List<FunctionsListEntity> list) {
+        for (int i = 0; i < list.size(); i++) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.detail_function_addview, null);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.detail_function_addview_tv);
+            textView.setText(list.get(i).getFunctionsName());
+            detailFunctionValLayout.addView(linearLayout);
+        }
+
     }
 
     /**

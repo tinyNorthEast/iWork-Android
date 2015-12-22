@@ -12,15 +12,15 @@ public class PersonDetail {
     /**
      * infoCode : 0
      * message : 获取数据成功
-     * data : {"performanceList":[{"objId":10,"status":1,"createTime":1449758846000,"companyName":"sssss","headhunterId":16,"hiddenName":"xxxxx","position":"经理","annualSalary":"11111"}],"commentList":[{"objId":1,"c_from_id":1,"c_to_user_id":16,"content":"你好吗"},{"objId":2,"c_from_id":4,"c_to_user_id":16,"content":"不好帅"}],"headhunterInfo":{"objId":16,"realName":"廖端永","phone":"18201413265","companyName":"搜狐","position":"高级开发","workTime":1448380800000,"phone400":"0101234","pic":"http://www.7xoors.com1.z0.glb.clouddn.com/JPG-20151214210947-312.jpg","describe":"阿斯顿飞洒","ranking":1,"participated":1,"commentCount":2,"industryList":[{"objId":3,"createTime":1450586619533,"industryName":"法务"}],"functionsList":[{"objId":82,"createTime":1450586619542,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450586619542,"functionsName":"洽谈"}]}}
+     * data : {"performanceList":[{"objId":10,"status":1,"createTime":1449758846000,"companyName":"sssss","headhunterId":16,"hiddenName":"xxxxx","position":"经理","annualSalary":"11111"}],"commentList":[{"objId":1,"c_from_id":1,"c_to_user_id":16,"content":"你好吗","toUserName":"测试人员"},{"objId":2,"c_from_id":4,"c_to_user_id":16,"content":"不好帅","toUserName":"测试人员"}],"headhunterInfo":{"objId":16,"realName":"廖端永","phone":"18201413265","companyName":"搜狐","position":"高级开发","workTime":1448380800000,"phone400":"0101234","pic":"http://www.7xoors.com1.z0.glb.clouddn.com/JPG-20151214210947-312.jpg","ranking":1,"participated":1,"commentCount":2,"industryList":[{"objId":3,"createTime":1450765939120,"industryName":"法务"}],"functionsList":[{"objId":82,"createTime":1450765939124,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450765939124,"functionsName":"洽谈"}],"describeList":[{"id":1,"headhunterId":16,"describe":"测试1","status":1},{"id":2,"headhunterId":16,"describe":"测试2","status":1},{"id":3,"headhunterId":16,"describe":"测试3","status":1},{"id":4,"headhunterId":16,"describe":"测试4","status":1},{"id":5,"headhunterId":16,"describe":"测试5","status":1}]}}
      */
 
     private int infoCode;
     private String message;
     /**
      * performanceList : [{"objId":10,"status":1,"createTime":1449758846000,"companyName":"sssss","headhunterId":16,"hiddenName":"xxxxx","position":"经理","annualSalary":"11111"}]
-     * commentList : [{"objId":1,"c_from_id":1,"c_to_user_id":16,"content":"你好吗"},{"objId":2,"c_from_id":4,"c_to_user_id":16,"content":"不好帅"}]
-     * headhunterInfo : {"objId":16,"realName":"廖端永","phone":"18201413265","companyName":"搜狐","position":"高级开发","workTime":1448380800000,"phone400":"0101234","pic":"http://www.7xoors.com1.z0.glb.clouddn.com/JPG-20151214210947-312.jpg","describe":"阿斯顿飞洒","ranking":1,"participated":1,"commentCount":2,"industryList":[{"objId":3,"createTime":1450586619533,"industryName":"法务"}],"functionsList":[{"objId":82,"createTime":1450586619542,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450586619542,"functionsName":"洽谈"}]}
+     * commentList : [{"objId":1,"c_from_id":1,"c_to_user_id":16,"content":"你好吗","toUserName":"测试人员"},{"objId":2,"c_from_id":4,"c_to_user_id":16,"content":"不好帅","toUserName":"测试人员"}]
+     * headhunterInfo : {"objId":16,"realName":"廖端永","phone":"18201413265","companyName":"搜狐","position":"高级开发","workTime":1448380800000,"phone400":"0101234","pic":"http://www.7xoors.com1.z0.glb.clouddn.com/JPG-20151214210947-312.jpg","ranking":1,"participated":1,"commentCount":2,"industryList":[{"objId":3,"createTime":1450765939120,"industryName":"法务"}],"functionsList":[{"objId":82,"createTime":1450765939124,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450765939124,"functionsName":"洽谈"}],"describeList":[{"id":1,"headhunterId":16,"describe":"测试1","status":1},{"id":2,"headhunterId":16,"describe":"测试2","status":1},{"id":3,"headhunterId":16,"describe":"测试3","status":1},{"id":4,"headhunterId":16,"describe":"测试4","status":1},{"id":5,"headhunterId":16,"describe":"测试5","status":1}]}
      */
 
     private DataEntity data;
@@ -59,12 +59,12 @@ public class PersonDetail {
          * workTime : 1448380800000
          * phone400 : 0101234
          * pic : http://www.7xoors.com1.z0.glb.clouddn.com/JPG-20151214210947-312.jpg
-         * describe : 阿斯顿飞洒
          * ranking : 1
          * participated : 1
          * commentCount : 2
-         * industryList : [{"objId":3,"createTime":1450586619533,"industryName":"法务"}]
-         * functionsList : [{"objId":82,"createTime":1450586619542,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450586619542,"functionsName":"洽谈"}]
+         * industryList : [{"objId":3,"createTime":1450765939120,"industryName":"法务"}]
+         * functionsList : [{"objId":82,"createTime":1450765939124,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450765939124,"functionsName":"洽谈"}]
+         * describeList : [{"id":1,"headhunterId":16,"describe":"测试1","status":1},{"id":2,"headhunterId":16,"describe":"测试2","status":1},{"id":3,"headhunterId":16,"describe":"测试3","status":1},{"id":4,"headhunterId":16,"describe":"测试4","status":1},{"id":5,"headhunterId":16,"describe":"测试5","status":1}]
          */
 
         private HeadhunterInfoEntity headhunterInfo;
@@ -85,6 +85,7 @@ public class PersonDetail {
          * c_from_id : 1
          * c_to_user_id : 16
          * content : 你好吗
+         * toUserName : 测试人员
          */
 
         private List<CommentListEntity> commentList;
@@ -122,24 +123,31 @@ public class PersonDetail {
             private long workTime;
             private String phone400;
             private String pic;
-            private String describe;
             private int ranking;
             private int participated;
             private int commentCount;
             /**
              * objId : 3
-             * createTime : 1450586619533
+             * createTime : 1450765939120
              * industryName : 法务
              */
 
             private List<IndustryListEntity> industryList;
             /**
              * objId : 82
-             * createTime : 1450586619542
+             * createTime : 1450765939124
              * functionsName : 外部审计-四大
              */
 
             private List<FunctionsListEntity> functionsList;
+            /**
+             * id : 1
+             * headhunterId : 16
+             * describe : 测试1
+             * status : 1
+             */
+
+            private List<DescribeListEntity> describeList;
 
             public void setObjId(int objId) {
                 this.objId = objId;
@@ -173,10 +181,6 @@ public class PersonDetail {
                 this.pic = pic;
             }
 
-            public void setDescribe(String describe) {
-                this.describe = describe;
-            }
-
             public void setRanking(int ranking) {
                 this.ranking = ranking;
             }
@@ -195,6 +199,10 @@ public class PersonDetail {
 
             public void setFunctionsList(List<FunctionsListEntity> functionsList) {
                 this.functionsList = functionsList;
+            }
+
+            public void setDescribeList(List<DescribeListEntity> describeList) {
+                this.describeList = describeList;
             }
 
             public int getObjId() {
@@ -229,10 +237,6 @@ public class PersonDetail {
                 return pic;
             }
 
-            public String getDescribe() {
-                return describe;
-            }
-
             public int getRanking() {
                 return ranking;
             }
@@ -251,6 +255,10 @@ public class PersonDetail {
 
             public List<FunctionsListEntity> getFunctionsList() {
                 return functionsList;
+            }
+
+            public List<DescribeListEntity> getDescribeList() {
+                return describeList;
             }
 
             public static class IndustryListEntity {
@@ -310,6 +318,45 @@ public class PersonDetail {
 
                 public String getFunctionsName() {
                     return functionsName;
+                }
+            }
+
+            public static class DescribeListEntity {
+                private int id;
+                private int headhunterId;
+                private String describe;
+                private int status;
+
+                public void setId(int id) {
+                    this.id = id;
+                }
+
+                public void setHeadhunterId(int headhunterId) {
+                    this.headhunterId = headhunterId;
+                }
+
+                public void setDescribe(String describe) {
+                    this.describe = describe;
+                }
+
+                public void setStatus(int status) {
+                    this.status = status;
+                }
+
+                public int getId() {
+                    return id;
+                }
+
+                public int getHeadhunterId() {
+                    return headhunterId;
+                }
+
+                public String getDescribe() {
+                    return describe;
+                }
+
+                public int getStatus() {
+                    return status;
                 }
             }
         }
@@ -394,6 +441,7 @@ public class PersonDetail {
             private int c_from_id;
             private int c_to_user_id;
             private String content;
+            private String toUserName;
 
             public void setObjId(int objId) {
                 this.objId = objId;
@@ -411,6 +459,10 @@ public class PersonDetail {
                 this.content = content;
             }
 
+            public void setToUserName(String toUserName) {
+                this.toUserName = toUserName;
+            }
+
             public int getObjId() {
                 return objId;
             }
@@ -425,6 +477,10 @@ public class PersonDetail {
 
             public String getContent() {
                 return content;
+            }
+
+            public String getToUserName() {
+                return toUserName;
             }
         }
     }

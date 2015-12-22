@@ -49,7 +49,12 @@
             android:layout_marginLeft="10dp"
             android:text="推送设置"
             android:textSize="18sp" />
-
+        <Switch
+            android:layout_marginLeft="220dp"
+            android:id="@+id/set_push_switch"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <View
@@ -106,4 +111,15 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_line_height"
         android:background="@color/gray" />
+    <Button
+        android:id="@+id/myself_btn_exit"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/common_login_bt_selector"
+        android:text="@string/exit_app"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text_color_white" />
 </LinearLayout>
