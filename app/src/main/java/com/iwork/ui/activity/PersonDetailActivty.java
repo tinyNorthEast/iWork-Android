@@ -1,12 +1,21 @@
 package com.iwork.ui.activity;
 
+import android.animation.Animator;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewPropertyAnimator;
+import android.view.ViewTreeObserver;
+import android.view.animation.Interpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -19,6 +28,7 @@ import com.iwork.model.PersonDetail.DataEntity.HeadhunterInfoEntity.IndustryList
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.view.FlowLayout;
+import com.iwork.ui.view.ObservableScrollView;
 import com.iwork.ui.view.QuickReturnFooterBehavior;
 import com.iwork.ui.view.TagAdapter;
 import com.iwork.ui.view.TagFlowLayout;
@@ -30,6 +40,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.sharesdk.onekeyshare.OnekeyShare;
+
 
 public class PersonDetailActivty extends BaseActivity {
 
@@ -49,10 +60,14 @@ public class PersonDetailActivty extends BaseActivity {
     LinearLayout detailFunctionValLayout;
     @Bind(R.id.detail_bottom_layout)
     LinearLayout detailBottomLayout;
-    @Bind(R.id.detail_coordinatorlayout)
-    CoordinatorLayout detailCoordinatorlayout;
+    @Bind(R.id.detail_scrollview)
+    ObservableScrollView mScrollview;
     private List<DescribeListEntity> mDescribeVals;
     private List<IndustryListEntity> mIndustryVals;
+    private int touchEventId = -9983761;
+    private int mDySinceDirectionChange = 0;
+    private boolean mIsHiding;
+    private boolean mIsShowing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +76,45 @@ public class PersonDetailActivty extends BaseActivity {
         ButterKnife.bind(this);
         initTitleBar();
         getData();
+        initBottomlayout();
     }
+
+    private void initBottomlayout() {
+        mScrollview.setCallbacks(new ObservableScrollView.Callbacks() {
+            @Override
+            public void onScrollChanged(int dy) {
+                if (dy > 0 && mDySinceDirectionChange < 0
+                        || dy < 0 && mDySinceDirectionChange > 0) {
+                    // We detected a direction change- cancel existing animations and reset our cumulative delta Y
+                    detailBottomLayout.animate().cancel();
+                    mDySinceDirectionChange = 0;
+                }
+
+                mDySinceDirectionChange += dy;
+
+                if (mDySinceDirectionChange > detailBottomLayout.getHeight()
+                        && detailBottomLayout.getVisibility() == View.VISIBLE
+                        && !mIsHiding) {
+                    hide(detailBottomLayout);
+                } else if (mDySinceDirectionChange < 0
+                        && detailBottomLayout.getVisibility() == View.GONE
+                        && !mIsShowing) {
+                    show(detailBottomLayout);
+                }
+            }
+
+            @Override
+            public void onDownMotionEvent() {
+
+            }
+
+            @Override
+            public void onUpOrCancelMotionEvent() {
+
+            }
+        });
+    }
+
 
     private void initTitleBar() {
         detailTitlebar.setTitle("顾问详情");
@@ -166,4 +219,88 @@ public class PersonDetailActivty extends BaseActivity {
 
         }
     };
+    /**
+     * Hide the quick return view.
+     *
+     * Animates hiding the view, with the view sliding down and out of the screen.
+     * After the view has disappeared, its visibility will change to GONE.
+     *
+     * @param view The quick return view
+     */
+    private void hide(final View view) {
+        mIsHiding = true;
+        ViewPropertyAnimator animator = view.animate()
+                .translationY(view.getHeight())
+                .setInterpolator(INTERPOLATOR)
+                .setDuration(200);
+
+        animator.setListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {}
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                // Prevent drawing the View after it is gone
+                mIsHiding = false;
+                view.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+                // Canceling a hide should show the view
+                mIsHiding = false;
+                if (!mIsShowing) {
+                    show(view);
+                }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {}
+        });
+
+        animator.start();
+    }
+    private static final Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
+
+    /**
+     * Show the quick return view.
+     *
+     * Animates showing the view, with the view sliding up from the bottom of the screen.
+     * After the view has reappeared, its visibility will change to VISIBLE.
+     *
+     * @param view The quick return view
+     */
+    private void show(final View view) {
+        mIsShowing = true;
+        ViewPropertyAnimator animator = view.animate()
+                .translationY(0)
+                .setInterpolator(INTERPOLATOR)
+                .setDuration(200);
+
+        animator.setListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+                view.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                mIsShowing = false;
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+                // Canceling a show should hide the view
+                mIsShowing = false;
+                if (!mIsHiding) {
+                    hide(view);
+                }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {}
+        });
+
+        animator.start();
+    }
 }
