@@ -178,65 +178,10 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/detail_bottom_layout"
+            <include
+                layout="@layout/detail_bottom_layout"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="bottom"
-                android:background="@color/color_white"
-                android:orientation="horizontal"
-                app:layout_scrollFlags="scroll|enterAlways">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/light_gray"
-                    android:gravity="center"
-
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/detail_message" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="给顾问留言"
-                        android:textColor="@color/text_color_white"
-                        android:textSize="17sp" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="1px"
-                    android:layout_height="match_parent" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/light_gray"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    app:layout_behavior="">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/detail_phone" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="联系顾问"
-                        android:textColor="@color/text_color_white"
-                        android:textSize="17sp" />
-                </LinearLayout>
-            </LinearLayout>
+                android:layout_height="wrap_content" />
         </FrameLayout>
     </ScrollView>
 
