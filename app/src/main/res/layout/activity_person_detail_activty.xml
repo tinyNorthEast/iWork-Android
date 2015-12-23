@@ -29,7 +29,8 @@
                 android:id="@+id/detail_person_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="260dp"
-                android:gravity="center_horizontal">
+                android:gravity="center_horizontal"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/detail_person_pic"
@@ -171,6 +172,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/detail_performance_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -182,7 +184,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
-                    android:text="擅长职能"
+                    android:text="个人业绩"
                     android:textColor="@color/text_color_gray"
                     android:textSize="17sp" />
 
@@ -194,44 +196,14 @@
                     android:src="@drawable/detail_septal_line" />
 
                 <LinearLayout
+                    android:id="@+id/detail_performance_val_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:orientation="vertical" />
+
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@color/white"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:text="擅长职能"
-                    android:textColor="@color/text_color_gray"
-                    android:textSize="17sp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:src="@drawable/detail_septal_line" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical" />
-            </LinearLayout>
-
         </LinearLayout>
     </com.iwork.ui.view.ObservableScrollView>
 
