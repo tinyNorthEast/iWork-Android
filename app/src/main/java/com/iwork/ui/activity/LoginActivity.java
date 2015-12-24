@@ -127,7 +127,7 @@ public class LoginActivity extends BaseActivity {
         }
         String passwordMd5 = MD5.toMD5(password);
         showLoading(R.string.login_loading);
-        CommonRequest.login(phone,passwordMd5,callback);
+        CommonRequest.login(phone,password,callback);
     }
 
     @OnClick(R.id.login_random)

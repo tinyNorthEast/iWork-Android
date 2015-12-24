@@ -149,8 +149,6 @@ public class CommonRequest {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.HEADHUNTERID, headHunterId + "");
         String token = Preferences.getInstance().getToken();
-        if (TextUtil.isEmpty(token))
-            token = "646b8d1499215247d5bef1c506cc6ef7";
         params.put(ServerParam.TOKEN, token);
         String url = createUrl("/api/v1/headhunter/detail.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);

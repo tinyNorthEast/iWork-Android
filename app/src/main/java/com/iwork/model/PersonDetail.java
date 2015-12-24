@@ -12,15 +12,15 @@ public class PersonDetail {
     /**
      * infoCode : 0
      * message : 获取数据成功
-     * data : {"performanceList":[{"objId":10,"status":1,"createTime":1449758846000,"companyName":"sssss","headhunterId":16,"hiddenName":"xxxxx","position":"经理","annualSalary":"11111"}],"commentList":[{"objId":1,"c_from_id":1,"c_to_user_id":16,"content":"你好吗","toUserName":"测试人员"},{"objId":2,"c_from_id":4,"c_to_user_id":16,"content":"不好帅","toUserName":"测试人员"}],"headhunterInfo":{"objId":16,"realName":"廖端永","phone":"18201413265","companyName":"搜狐","position":"高级开发","workTime":1448380800000,"phone400":"0101234","pic":"http://www.7xoors.com1.z0.glb.clouddn.com/JPG-20151214210947-312.jpg","ranking":1,"participated":1,"commentCount":2,"industryList":[{"objId":3,"createTime":1450765939120,"industryName":"法务"}],"functionsList":[{"objId":82,"createTime":1450765939124,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450765939124,"functionsName":"洽谈"}],"describeList":[{"id":1,"headhunterId":16,"describe":"测试1","status":1},{"id":2,"headhunterId":16,"describe":"测试2","status":1},{"id":3,"headhunterId":16,"describe":"测试3","status":1},{"id":4,"headhunterId":16,"describe":"测试4","status":1},{"id":5,"headhunterId":16,"describe":"测试5","status":1}]}}
+     * data : {"performanceList":[{"groupDate":"2015/12","list":[{"objId":10,"companyName":"xxxxx","headhunterId":16,"position":"经理","annualSalary":"11111"}]}],"commentList":[{"objId":1,"c_from_id":1,"c_to_user_id":16,"content":"你好吗","toUserName":"测试人员"},{"objId":2,"c_from_id":4,"c_to_user_id":16,"content":"不好帅","toUserName":"测试人员"}],"headhunterInfo":{"objId":16,"realName":"廖端永","phone":"18201413265","companyName":"搜狐","position":"高级开发","workTime":1448380800000,"phone400":"0101234","pic":"http://www.7xoors.com1.z0.glb.clouddn.com/JPG-20151214210947-312.jpg","ranking":1,"participated":1,"commentCount":2,"industryList":[{"objId":3,"createTime":1450922224046,"industryName":"的撒旦法"}],"functionsList":[{"objId":1,"createTime":1450922224049,"functionsName":"职能1"},{"objId":2,"createTime":1450922224049,"functionsName":"职能2"}],"describeList":[{"objId":1,"headhunterId":16,"describe":"测试1","status":1},{"objId":2,"headhunterId":16,"describe":"测试2","status":1},{"objId":3,"headhunterId":16,"describe":"测试3","status":1},{"objId":4,"headhunterId":16,"describe":"测试4","status":1},{"objId":5,"headhunterId":16,"describe":"测试5","status":1}],"isAuth":0}}
      */
 
     private int infoCode;
     private String message;
     /**
-     * performanceList : [{"objId":10,"status":1,"createTime":1449758846000,"companyName":"sssss","headhunterId":16,"hiddenName":"xxxxx","position":"经理","annualSalary":"11111"}]
+     * performanceList : [{"groupDate":"2015/12","list":[{"objId":10,"companyName":"xxxxx","headhunterId":16,"position":"经理","annualSalary":"11111"}]}]
      * commentList : [{"objId":1,"c_from_id":1,"c_to_user_id":16,"content":"你好吗","toUserName":"测试人员"},{"objId":2,"c_from_id":4,"c_to_user_id":16,"content":"不好帅","toUserName":"测试人员"}]
-     * headhunterInfo : {"objId":16,"realName":"廖端永","phone":"18201413265","companyName":"搜狐","position":"高级开发","workTime":1448380800000,"phone400":"0101234","pic":"http://www.7xoors.com1.z0.glb.clouddn.com/JPG-20151214210947-312.jpg","ranking":1,"participated":1,"commentCount":2,"industryList":[{"objId":3,"createTime":1450765939120,"industryName":"法务"}],"functionsList":[{"objId":82,"createTime":1450765939124,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450765939124,"functionsName":"洽谈"}],"describeList":[{"id":1,"headhunterId":16,"describe":"测试1","status":1},{"id":2,"headhunterId":16,"describe":"测试2","status":1},{"id":3,"headhunterId":16,"describe":"测试3","status":1},{"id":4,"headhunterId":16,"describe":"测试4","status":1},{"id":5,"headhunterId":16,"describe":"测试5","status":1}]}
+     * headhunterInfo : {"objId":16,"realName":"廖端永","phone":"18201413265","companyName":"搜狐","position":"高级开发","workTime":1448380800000,"phone400":"0101234","pic":"http://www.7xoors.com1.z0.glb.clouddn.com/JPG-20151214210947-312.jpg","ranking":1,"participated":1,"commentCount":2,"industryList":[{"objId":3,"createTime":1450922224046,"industryName":"的撒旦法"}],"functionsList":[{"objId":1,"createTime":1450922224049,"functionsName":"职能1"},{"objId":2,"createTime":1450922224049,"functionsName":"职能2"}],"describeList":[{"objId":1,"headhunterId":16,"describe":"测试1","status":1},{"objId":2,"headhunterId":16,"describe":"测试2","status":1},{"objId":3,"headhunterId":16,"describe":"测试3","status":1},{"objId":4,"headhunterId":16,"describe":"测试4","status":1},{"objId":5,"headhunterId":16,"describe":"测试5","status":1}],"isAuth":0}
      */
 
     private DataEntity data;
@@ -62,21 +62,16 @@ public class PersonDetail {
          * ranking : 1
          * participated : 1
          * commentCount : 2
-         * industryList : [{"objId":3,"createTime":1450765939120,"industryName":"法务"}]
-         * functionsList : [{"objId":82,"createTime":1450765939124,"functionsName":"外部审计-四大"},{"objId":2,"createTime":1450765939124,"functionsName":"洽谈"}]
-         * describeList : [{"id":1,"headhunterId":16,"describe":"测试1","status":1},{"id":2,"headhunterId":16,"describe":"测试2","status":1},{"id":3,"headhunterId":16,"describe":"测试3","status":1},{"id":4,"headhunterId":16,"describe":"测试4","status":1},{"id":5,"headhunterId":16,"describe":"测试5","status":1}]
+         * industryList : [{"objId":3,"createTime":1450922224046,"industryName":"的撒旦法"}]
+         * functionsList : [{"objId":1,"createTime":1450922224049,"functionsName":"职能1"},{"objId":2,"createTime":1450922224049,"functionsName":"职能2"}]
+         * describeList : [{"objId":1,"headhunterId":16,"describe":"测试1","status":1},{"objId":2,"headhunterId":16,"describe":"测试2","status":1},{"objId":3,"headhunterId":16,"describe":"测试3","status":1},{"objId":4,"headhunterId":16,"describe":"测试4","status":1},{"objId":5,"headhunterId":16,"describe":"测试5","status":1}]
+         * isAuth : 0
          */
 
         private HeadhunterInfoEntity headhunterInfo;
         /**
-         * objId : 10
-         * status : 1
-         * createTime : 1449758846000
-         * companyName : sssss
-         * headhunterId : 16
-         * hiddenName : xxxxx
-         * position : 经理
-         * annualSalary : 11111
+         * groupDate : 2015/12
+         * list : [{"objId":10,"companyName":"xxxxx","headhunterId":16,"position":"经理","annualSalary":"11111"}]
          */
 
         private List<PerformanceListEntity> performanceList;
@@ -126,22 +121,23 @@ public class PersonDetail {
             private int ranking;
             private int participated;
             private int commentCount;
+            private int isAuth;
             /**
              * objId : 3
-             * createTime : 1450765939120
-             * industryName : 法务
+             * createTime : 1450922224046
+             * industryName : 的撒旦法
              */
 
             private List<IndustryListEntity> industryList;
             /**
-             * objId : 82
-             * createTime : 1450765939124
-             * functionsName : 外部审计-四大
+             * objId : 1
+             * createTime : 1450922224049
+             * functionsName : 职能1
              */
 
             private List<FunctionsListEntity> functionsList;
             /**
-             * id : 1
+             * objId : 1
              * headhunterId : 16
              * describe : 测试1
              * status : 1
@@ -191,6 +187,10 @@ public class PersonDetail {
 
             public void setCommentCount(int commentCount) {
                 this.commentCount = commentCount;
+            }
+
+            public void setIsAuth(int isAuth) {
+                this.isAuth = isAuth;
             }
 
             public void setIndustryList(List<IndustryListEntity> industryList) {
@@ -247,6 +247,10 @@ public class PersonDetail {
 
             public int getCommentCount() {
                 return commentCount;
+            }
+
+            public int getIsAuth() {
+                return isAuth;
             }
 
             public List<IndustryListEntity> getIndustryList() {
@@ -322,13 +326,13 @@ public class PersonDetail {
             }
 
             public static class DescribeListEntity {
-                private int id;
+                private int objId;
                 private int headhunterId;
                 private String describe;
                 private int status;
 
-                public void setId(int id) {
-                    this.id = id;
+                public void setObjId(int objId) {
+                    this.objId = objId;
                 }
 
                 public void setHeadhunterId(int headhunterId) {
@@ -343,8 +347,8 @@ public class PersonDetail {
                     this.status = status;
                 }
 
-                public int getId() {
-                    return id;
+                public int getObjId() {
+                    return objId;
                 }
 
                 public int getHeadhunterId() {
@@ -362,77 +366,79 @@ public class PersonDetail {
         }
 
         public static class PerformanceListEntity {
-            private int objId;
-            private int status;
-            private long createTime;
-            private String companyName;
-            private int headhunterId;
-            private String hiddenName;
-            private String position;
-            private String annualSalary;
+            private String groupDate;
+            /**
+             * objId : 10
+             * companyName : xxxxx
+             * headhunterId : 16
+             * position : 经理
+             * annualSalary : 11111
+             */
 
-            public void setObjId(int objId) {
-                this.objId = objId;
+            private List<ListEntity> list;
+
+            public void setGroupDate(String groupDate) {
+                this.groupDate = groupDate;
             }
 
-            public void setStatus(int status) {
-                this.status = status;
+            public void setList(List<ListEntity> list) {
+                this.list = list;
             }
 
-            public void setCreateTime(long createTime) {
-                this.createTime = createTime;
+            public String getGroupDate() {
+                return groupDate;
             }
 
-            public void setCompanyName(String companyName) {
-                this.companyName = companyName;
+            public List<ListEntity> getList() {
+                return list;
             }
 
-            public void setHeadhunterId(int headhunterId) {
-                this.headhunterId = headhunterId;
-            }
+            public static class ListEntity {
+                private int objId;
+                private String companyName;
+                private int headhunterId;
+                private String position;
+                private String annualSalary;
 
-            public void setHiddenName(String hiddenName) {
-                this.hiddenName = hiddenName;
-            }
+                public void setObjId(int objId) {
+                    this.objId = objId;
+                }
 
-            public void setPosition(String position) {
-                this.position = position;
-            }
+                public void setCompanyName(String companyName) {
+                    this.companyName = companyName;
+                }
 
-            public void setAnnualSalary(String annualSalary) {
-                this.annualSalary = annualSalary;
-            }
+                public void setHeadhunterId(int headhunterId) {
+                    this.headhunterId = headhunterId;
+                }
 
-            public int getObjId() {
-                return objId;
-            }
+                public void setPosition(String position) {
+                    this.position = position;
+                }
 
-            public int getStatus() {
-                return status;
-            }
+                public void setAnnualSalary(String annualSalary) {
+                    this.annualSalary = annualSalary;
+                }
 
-            public long getCreateTime() {
-                return createTime;
-            }
+                public int getObjId() {
+                    return objId;
+                }
 
-            public String getCompanyName() {
-                return companyName;
-            }
+                public String getCompanyName() {
+                    return companyName;
+                }
 
-            public int getHeadhunterId() {
-                return headhunterId;
-            }
+                public int getHeadhunterId() {
+                    return headhunterId;
+                }
 
-            public String getHiddenName() {
-                return hiddenName;
-            }
+                public String getPosition() {
+                    return position;
+                }
 
-            public String getPosition() {
-                return position;
-            }
-
-            public String getAnnualSalary() {
-                return annualSalary;
+                public String getAnnualSalary() {
+                    return annualSalary;
+                }
             }
         }
 

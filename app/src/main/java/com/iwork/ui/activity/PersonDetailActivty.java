@@ -2,20 +2,14 @@ package com.iwork.ui.activity;
 
 import android.animation.Animator;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
-import android.view.ViewTreeObserver;
 import android.view.animation.Interpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -25,14 +19,15 @@ import com.iwork.model.PersonDetail;
 import com.iwork.model.PersonDetail.DataEntity.HeadhunterInfoEntity.DescribeListEntity;
 import com.iwork.model.PersonDetail.DataEntity.HeadhunterInfoEntity.FunctionsListEntity;
 import com.iwork.model.PersonDetail.DataEntity.HeadhunterInfoEntity.IndustryListEntity;
+import com.iwork.model.PersonDetail.DataEntity.PerformanceListEntity;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.view.FlowLayout;
 import com.iwork.ui.view.ObservableScrollView;
-import com.iwork.ui.view.QuickReturnFooterBehavior;
 import com.iwork.ui.view.TagAdapter;
 import com.iwork.ui.view.TagFlowLayout;
 import com.iwork.ui.view.TitleBar;
+import com.iwork.utils.CollectionUtil;
 import com.squareup.okhttp.Request;
 
 import java.util.List;
@@ -41,7 +36,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
-
+/**
+ * 个人详情页
+ */
 public class PersonDetailActivty extends BaseActivity {
 
     @Bind(R.id.detail_titlebar)
@@ -62,6 +59,9 @@ public class PersonDetailActivty extends BaseActivity {
     LinearLayout detailBottomLayout;
     @Bind(R.id.detail_scrollview)
     ObservableScrollView mScrollview;
+    @Bind(R.id.detail_performance_val_layout)
+    LinearLayout detailPerformanceValLayout;
+
     private List<DescribeListEntity> mDescribeVals;
     private List<IndustryListEntity> mIndustryVals;
     private int touchEventId = -9983761;
@@ -79,6 +79,9 @@ public class PersonDetailActivty extends BaseActivity {
         initBottomlayout();
     }
 
+    /**
+     * 初始化底部菜单栏
+     */
     private void initBottomlayout() {
         mScrollview.setCallbacks(new ObservableScrollView.Callbacks() {
             @Override
@@ -142,6 +145,7 @@ public class PersonDetailActivty extends BaseActivity {
                     setDescribeData(response.getData().getHeadhunterInfo().getDescribeList());
                     setIndustryData(response.getData().getHeadhunterInfo().getIndustryList());
                     setFunctionData(response.getData().getHeadhunterInfo().getFunctionsList());
+                    setPerformanceData(response.getData().getPerformanceList());
                 }
             }
         });
@@ -175,6 +179,35 @@ public class PersonDetailActivty extends BaseActivity {
                 return t;
             }
         });
+    }
+
+    /**
+     * 添加个人业绩数据
+     *
+     * @param list
+     */
+    private void setPerformanceData(List<PerformanceListEntity> list) {
+        for (int i = 0; i < list.size(); i++) {
+            LinearLayout layout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.detail_performance_addview, null);
+            TextView tv = (TextView) layout.findViewById(R.id.detail_performance_time_tv);
+            tv.setText(list.get(i).getGroupDate());
+            LinearLayout itemLayout = (LinearLayout) layout.findViewById(R.id.detail_performance_item_ly);
+            List<PerformanceListEntity.ListEntity> listEntities = list.get(i).getList();
+            if (!CollectionUtil.isEmpty(listEntities)) {
+                for (int j = 0; j < listEntities.size(); j++) {
+                    RelativeLayout rl = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.detail_performance_item_addview, null);
+                    TextView commpany_tv = (TextView) rl.findViewById(R.id.detail_pf_commpany_tv);
+                    TextView position_tv = (TextView) rl.findViewById(R.id.detail_pf_position_tv);
+                    TextView annualSalary_tv = (TextView) rl.findViewById(R.id.detail_pf_annualSalary_tv);
+                    commpany_tv.setText(listEntities.get(j).getCompanyName());
+                    position_tv.setText(listEntities.get(j).getPosition());
+                    annualSalary_tv.setText(listEntities.get(j).getAnnualSalary());
+                    itemLayout.addView(rl);
+                }
+            }
+            detailPerformanceValLayout.addView(layout);
+        }
+
     }
 
     private void setFunctionData(List<FunctionsListEntity> list) {
@@ -219,9 +252,10 @@ public class PersonDetailActivty extends BaseActivity {
 
         }
     };
+
     /**
      * Hide the quick return view.
-     *
+     * <p/>
      * Animates hiding the view, with the view sliding down and out of the screen.
      * After the view has disappeared, its visibility will change to GONE.
      *
@@ -236,7 +270,8 @@ public class PersonDetailActivty extends BaseActivity {
 
         animator.setListener(new Animator.AnimatorListener() {
             @Override
-            public void onAnimationStart(Animator animator) {}
+            public void onAnimationStart(Animator animator) {
+            }
 
             @Override
             public void onAnimationEnd(Animator animator) {
@@ -255,16 +290,18 @@ public class PersonDetailActivty extends BaseActivity {
             }
 
             @Override
-            public void onAnimationRepeat(Animator animator) {}
+            public void onAnimationRepeat(Animator animator) {
+            }
         });
 
         animator.start();
     }
+
     private static final Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
 
     /**
      * Show the quick return view.
-     *
+     * <p/>
      * Animates showing the view, with the view sliding up from the bottom of the screen.
      * After the view has reappeared, its visibility will change to VISIBLE.
      *
@@ -298,7 +335,8 @@ public class PersonDetailActivty extends BaseActivity {
             }
 
             @Override
-            public void onAnimationRepeat(Animator animator) {}
+            public void onAnimationRepeat(Animator animator) {
+            }
         });
 
         animator.start();
