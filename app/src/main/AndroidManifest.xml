@@ -33,6 +33,7 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name="com.iwork.Base.BaseApplication"
@@ -188,7 +189,9 @@
         <activity android:name="com.iwork.ui.activity.CityListActivity" />
         <activity android:name="com.iwork.ui.activity.PersonDetailActivty" />
         <activity android:name="com.iwork.ui.activity.SetActivity" />
-        <activity android:name="com.iwork.ui.activity.MySelfActivity"></activity>
+        <activity android:name="com.iwork.ui.activity.MySelfActivity" />
+        <activity android:name="com.iwork.ui.activity.SendMessageActivity" />
+        <activity android:name="com.iwork.ui.activity.SetUserInfoActivity"></activity>
     </application>
 
 </manifest>

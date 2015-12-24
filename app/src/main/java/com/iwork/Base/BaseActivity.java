@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.iwork.ui.dialog.DialogHelper;
 import com.iwork.ui.dialog.LoadingDialog;
@@ -58,4 +59,13 @@ public class BaseActivity extends AppCompatActivity {
             loadingDialog = null;
         }
     }
+    /**
+     * 标题栏返回按钮点击监听
+     */
+    protected View.OnClickListener backListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            finish();
+        }
+    };
 }

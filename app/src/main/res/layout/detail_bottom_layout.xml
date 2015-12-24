@@ -7,7 +7,7 @@
         android:id="@+id/detail_bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
         android:background="@color/color_white"
@@ -15,11 +15,11 @@
 
         <LinearLayout
             android:layout_width="0dp"
+            android:id="@+id/detail_bottom_sendms_layout"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/light_gray"
             android:gravity="center"
-
             android:orientation="horizontal">
 
             <ImageView
@@ -42,6 +42,7 @@
 
         <LinearLayout
             android:layout_width="0dp"
+            android:id="@+id/detail_bottom_call_layout"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/light_gray"

@@ -1,8 +1,11 @@
 package com.iwork.ui.activity;
 
 import android.animation.Animator;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
@@ -34,6 +37,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
 /**
@@ -61,6 +65,10 @@ public class PersonDetailActivty extends BaseActivity {
     ObservableScrollView mScrollview;
     @Bind(R.id.detail_performance_val_layout)
     LinearLayout detailPerformanceValLayout;
+    @Bind(R.id.detail_bottom_sendms_layout)
+    LinearLayout detailBottomSendmsLayout;
+    @Bind(R.id.detail_bottom_call_layout)
+    LinearLayout detailBottomCallLayout;
 
     private List<DescribeListEntity> mDescribeVals;
     private List<IndustryListEntity> mIndustryVals;
@@ -68,6 +76,7 @@ public class PersonDetailActivty extends BaseActivity {
     private int mDySinceDirectionChange = 0;
     private boolean mIsHiding;
     private boolean mIsShowing;
+    private String phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,34 +95,34 @@ public class PersonDetailActivty extends BaseActivity {
         mScrollview.setCallbacks(new ObservableScrollView.Callbacks() {
             @Override
             public void onScrollChanged(int dy) {
-                if (dy > 0 && mDySinceDirectionChange < 0
-                        || dy < 0 && mDySinceDirectionChange > 0) {
-                    // We detected a direction change- cancel existing animations and reset our cumulative delta Y
-                    detailBottomLayout.animate().cancel();
-                    mDySinceDirectionChange = 0;
-                }
-
-                mDySinceDirectionChange += dy;
-
-                if (mDySinceDirectionChange > detailBottomLayout.getHeight()
-                        && detailBottomLayout.getVisibility() == View.VISIBLE
-                        && !mIsHiding) {
-                    hide(detailBottomLayout);
-                } else if (mDySinceDirectionChange < 0
-                        && detailBottomLayout.getVisibility() == View.GONE
-                        && !mIsShowing) {
-                    show(detailBottomLayout);
-                }
+//                if (dy > 0 && mDySinceDirectionChange < 0
+//                        || dy < 0 && mDySinceDirectionChange > 0) {
+//                    // We detected a direction change- cancel existing animations and reset our cumulative delta Y
+//                    detailBottomLayout.animate().cancel();
+//                    mDySinceDirectionChange = 0;
+//                }
+//
+//                mDySinceDirectionChange += dy;
+//
+//                if (mDySinceDirectionChange > detailBottomLayout.getHeight()
+//                        && detailBottomLayout.getVisibility() == View.VISIBLE
+//                        && !mIsHiding) {
+//                    hide(detailBottomLayout);
+//                } else if (mDySinceDirectionChange < 0
+//                        && detailBottomLayout.getVisibility() == View.GONE
+//                        && !mIsShowing) {
+//                    show(detailBottomLayout);
+//                }
             }
 
             @Override
             public void onDownMotionEvent() {
-
+                hide(detailBottomLayout);
             }
 
             @Override
             public void onUpOrCancelMotionEvent() {
-
+                show(detailBottomLayout);
             }
         });
     }
@@ -139,6 +148,7 @@ public class PersonDetailActivty extends BaseActivity {
             @Override
             public void onResponse(PersonDetail response) {
                 if (response.getInfoCode() == 0) {
+                    phone = response.getData().getHeadhunterInfo().getPhone();
                     detailPersonRealname.setText(response.getData().getHeadhunterInfo().getRealName());
                     Glide.with(PersonDetailActivty.this).load(response.getData().getHeadhunterInfo().getPic())
                             .error(R.drawable.detail_no_pic).placeholder(R.drawable.detail_no_pic).into(detailPersonPic);
@@ -221,14 +231,22 @@ public class PersonDetailActivty extends BaseActivity {
     }
 
     /**
-     * 标题栏返回按钮点击监听
+     * 给顾问留言
      */
-    private View.OnClickListener backListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            finish();
+    @OnClick(R.id.detail_bottom_sendms_layout)
+    public void sendMessage() {
+        Intent intent = new Intent(this, SendMessageActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.detail_bottom_call_layout)
+    public void callPerson() {
+        if (TextUtils.isEmpty(phone)) {
+            return;
         }
-    };
+        Intent CallIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phone));
+        startActivity(CallIntent);
+    }
 
     /**
      * 分享

@@ -70,7 +70,8 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
                 Intent i = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(i);
             }else {
-                ToastHelper.showShortCompleted("您已经登录");
+                Intent i = new Intent(MainActivity.this,MySelfActivity.class);
+                startActivity(i);
             }
         }
     };

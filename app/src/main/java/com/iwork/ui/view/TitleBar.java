@@ -170,7 +170,7 @@ public class TitleBar extends RelativeLayout {
     public void setShareDrawableListener(OnClickListener listener) {
         show(title_bar_img_btn_share);
         hide(title_bar_textview_right);
-//        hide(title_bar_img_btn_custom_right);
+        hide(title_bar_img_btn_custom_right);
         hide(title_bar_img_btn_notice);
         moreImgBtnClickListener = listener;
     }

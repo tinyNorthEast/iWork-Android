@@ -5,6 +5,7 @@ import android.preference.Preference;
 import com.iwork.model.CityList;
 import com.iwork.model.LoginInfo;
 import com.iwork.model.MainList;
+import com.iwork.model.MySelfModel;
 import com.iwork.model.PersonDetail;
 import com.iwork.model.QinNiuToken;
 import com.iwork.model.RequestMessage;
@@ -151,6 +152,18 @@ public class CommonRequest {
         String token = Preferences.getInstance().getToken();
         params.put(ServerParam.TOKEN, token);
         String url = createUrl("/api/v1/headhunter/detail.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+    }
+
+    /**
+     * 获取个人中心数据
+     * @param callback
+     */
+    public static void getMySelfData(ResultCallback<MySelfModel>callback){
+        Map<String, String> params = new HashMap<>();
+        String token = Preferences.getInstance().getToken();
+        params.put(ServerParam.TOKEN, token);
+        String url = createUrl("/api/v1/user/get.action",params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
 
