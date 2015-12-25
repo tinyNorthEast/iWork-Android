@@ -20,4 +20,5 @@ public class ServerParam {
     public static final String PAGENO = "pageNo";
     public static final String HEADHUNTERID = "headhunterId";
     public static final String TOKEN = "token";
+    public static final String TO_USER_ID = "to_user_id";
 }

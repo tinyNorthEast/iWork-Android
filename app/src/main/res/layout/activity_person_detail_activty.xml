@@ -113,7 +113,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@color/white"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -144,7 +145,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@color/white"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -177,7 +179,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@color/white"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -204,6 +207,45 @@
                     android:orientation="vertical" />
 
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/detail_comment_layout_ly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="评论"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/detail_septal_line" />
+
+                <Button
+                    android:id="@+id/detail_comment_val_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/fb_content_bg"
+                    android:orientation="vertical"
+                    android:textColor="@color/text_color_bg"
+                    android:visibility="visible"
+                    tools:text="查看全部9条评论" />
+
+            </LinearLayout>
+
         </LinearLayout>
     </com.iwork.ui.view.ObservableScrollView>
 
@@ -211,6 +253,7 @@
         layout="@layout/detail_bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_below="@+id/detail_scrollview" />
 
 </RelativeLayout>

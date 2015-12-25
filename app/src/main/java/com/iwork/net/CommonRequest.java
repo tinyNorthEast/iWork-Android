@@ -3,6 +3,7 @@ package com.iwork.net;
 import android.preference.Preference;
 
 import com.iwork.model.CityList;
+import com.iwork.model.CommentListModel;
 import com.iwork.model.LoginInfo;
 import com.iwork.model.MainList;
 import com.iwork.model.MySelfModel;
@@ -157,13 +158,29 @@ public class CommonRequest {
 
     /**
      * 获取个人中心数据
+     *
      * @param callback
      */
-    public static void getMySelfData(ResultCallback<MySelfModel>callback){
+    public static void getMySelfData(ResultCallback<MySelfModel> callback) {
         Map<String, String> params = new HashMap<>();
         String token = Preferences.getInstance().getToken();
         params.put(ServerParam.TOKEN, token);
-        String url = createUrl("/api/v1/user/get.action",params);
+        String url = createUrl("/api/v1/user/get.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+    }
+
+    /**
+     * 获取评论列表
+     *
+     * @param to_user_id
+     * @param callback
+     */
+    public static void getCommonentListData(int to_user_id, ResultCallback<CommentListModel> callback) {
+        Map<String, String> params = new HashMap<>();
+        String token = Preferences.getInstance().getToken();
+        params.put(ServerParam.TOKEN, token);
+        params.put(ServerParam.TO_USER_ID, to_user_id + "");
+        String url = createUrl("/api/v1/comment/findCommentList.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
 
