@@ -202,7 +202,7 @@
                     android:id="@+id/detail_performance_val_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="50dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:orientation="vertical" />
 
@@ -231,18 +231,23 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/detail_septal_line" />
-
-                <Button
+                <LinearLayout
                     android:id="@+id/detail_comment_val_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginBottom="50dp"
                     android:layout_marginTop="10dp"
+                    android:orientation="vertical" />
+                <Button
+                    android:id="@+id/detail_comment_more_bt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:background="@drawable/fb_content_bg"
                     android:orientation="vertical"
                     android:textColor="@color/text_color_bg"
                     android:visibility="visible"
-                    tools:text="查看全部9条评论" />
+                    android:text="查看全部评论" />
 
             </LinearLayout>
 

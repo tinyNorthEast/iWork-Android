@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
 import android.view.animation.Interpolator;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -19,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.model.PersonDetail;
+import com.iwork.model.PersonDetail.DataEntity.CommentListEntity;
 import com.iwork.model.PersonDetail.DataEntity.HeadhunterInfoEntity.DescribeListEntity;
 import com.iwork.model.PersonDetail.DataEntity.HeadhunterInfoEntity.FunctionsListEntity;
 import com.iwork.model.PersonDetail.DataEntity.HeadhunterInfoEntity.IndustryListEntity;
@@ -69,6 +71,10 @@ public class PersonDetailActivty extends BaseActivity {
     LinearLayout detailBottomSendmsLayout;
     @Bind(R.id.detail_bottom_call_layout)
     LinearLayout detailBottomCallLayout;
+    @Bind(R.id.detail_comment_val_layout)
+    LinearLayout detailCommentValLayout;
+    @Bind(R.id.detail_comment_more_bt)
+    Button detailCommentMoreBt;
 
     private List<DescribeListEntity> mDescribeVals;
     private List<IndustryListEntity> mIndustryVals;
@@ -95,24 +101,6 @@ public class PersonDetailActivty extends BaseActivity {
         mScrollview.setCallbacks(new ObservableScrollView.Callbacks() {
             @Override
             public void onScrollChanged(int dy) {
-//                if (dy > 0 && mDySinceDirectionChange < 0
-//                        || dy < 0 && mDySinceDirectionChange > 0) {
-//                    // We detected a direction change- cancel existing animations and reset our cumulative delta Y
-//                    detailBottomLayout.animate().cancel();
-//                    mDySinceDirectionChange = 0;
-//                }
-//
-//                mDySinceDirectionChange += dy;
-//
-//                if (mDySinceDirectionChange > detailBottomLayout.getHeight()
-//                        && detailBottomLayout.getVisibility() == View.VISIBLE
-//                        && !mIsHiding) {
-//                    hide(detailBottomLayout);
-//                } else if (mDySinceDirectionChange < 0
-//                        && detailBottomLayout.getVisibility() == View.GONE
-//                        && !mIsShowing) {
-//                    show(detailBottomLayout);
-//                }
             }
 
             @Override
@@ -156,6 +144,7 @@ public class PersonDetailActivty extends BaseActivity {
                     setIndustryData(response.getData().getHeadhunterInfo().getIndustryList());
                     setFunctionData(response.getData().getHeadhunterInfo().getFunctionsList());
                     setPerformanceData(response.getData().getPerformanceList());
+                    setCommentData(response.getData().getCommentList());
                 }
             }
         });
@@ -220,6 +209,11 @@ public class PersonDetailActivty extends BaseActivity {
 
     }
 
+    /**
+     * 设置擅长职能数据
+     *
+     * @param list
+     */
     private void setFunctionData(List<FunctionsListEntity> list) {
         for (int i = 0; i < list.size(); i++) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.detail_function_addview, null);
@@ -228,6 +222,36 @@ public class PersonDetailActivty extends BaseActivity {
             detailFunctionValLayout.addView(linearLayout);
         }
 
+    }
+
+    private void setCommentData(List<CommentListEntity> list) {
+        int size = list.size();
+        if (size>2){
+            detailCommentMoreBt.setVisibility(View.VISIBLE);
+            detailCommentMoreBt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(PersonDetailActivty.this,CommentActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }else {
+            detailCommentMoreBt.setVisibility(View.GONE);
+        }
+        CommentListEntity commentListEntity;
+        for (int i=0;i<size;i++){
+            commentListEntity = list.get(i);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.commentlist_item_layout,null);
+            TextView tv_name = (TextView) linearLayout.findViewById(R.id.comment_name_tv);
+            tv_name.setText(commentListEntity.getFromName());
+            TextView tv_time = (TextView) linearLayout.findViewById(R.id.comment_time_tv);
+            tv_time.setText(commentListEntity.getCreate_time());
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.comment_img);
+
+            TextView tv_content = (TextView) linearLayout.findViewById(R.id.comment_content_tv);
+            tv_content.setText(commentListEntity.getContent());
+            detailCommentValLayout.addView(linearLayout);
+        }
     }
 
     /**
@@ -273,7 +297,7 @@ public class PersonDetailActivty extends BaseActivity {
 
     /**
      * Hide the quick return view.
-     * <p/>
+     * <p>
      * Animates hiding the view, with the view sliding down and out of the screen.
      * After the view has disappeared, its visibility will change to GONE.
      *
@@ -319,7 +343,7 @@ public class PersonDetailActivty extends BaseActivity {
 
     /**
      * Show the quick return view.
-     * <p/>
+     * <p>
      * Animates showing the view, with the view sliding up from the bottom of the screen.
      * After the view has reappeared, its visibility will change to VISIBLE.
      *

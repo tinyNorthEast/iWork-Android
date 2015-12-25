@@ -447,7 +447,24 @@ public class PersonDetail {
             private int c_from_id;
             private int c_to_user_id;
             private String content;
-            private String toUserName;
+            private String fromName;
+            private String create_time;
+
+            public String getCreate_time() {
+                return create_time;
+            }
+
+            public void setCreate_time(String create_time) {
+                this.create_time = create_time;
+            }
+
+            public String getFromName() {
+                return fromName;
+            }
+
+            public void setFromName(String fromName) {
+                this.fromName = fromName;
+            }
 
             public void setObjId(int objId) {
                 this.objId = objId;
@@ -465,9 +482,6 @@ public class PersonDetail {
                 this.content = content;
             }
 
-            public void setToUserName(String toUserName) {
-                this.toUserName = toUserName;
-            }
 
             public int getObjId() {
                 return objId;
@@ -485,9 +499,6 @@ public class PersonDetail {
                 return content;
             }
 
-            public String getToUserName() {
-                return toUserName;
-            }
         }
     }
 }
