@@ -54,6 +54,18 @@ public class Preferences {
     }
 
     /**
+     * 保存UserId
+     * @param userId
+     */
+    public void setUserId(String userId){
+        mEditor.putString("userId",userId);
+        mEditor.commit();
+    }
+
+    public String getUserId(){
+        return mPref.getString("userId","");
+    }
+    /**
      * 清除数据
      */
     public void clear() {

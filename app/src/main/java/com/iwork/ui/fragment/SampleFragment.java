@@ -94,6 +94,9 @@ public class SampleFragment extends Fragment {
         mAdapter = new QuickAdapter<MainList.Person>(getContext(), R.layout.recycler_item, persons) {
             @Override
             protected void convert(BaseAdapterHelper helper, MainList.Person item) {
+                if (CollectionUtil.isEmpty(item.getIndustryList())){
+                    return;
+                }
                 helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
                 helper.getTextView(R.id.item_zh_name).setText(item.getRealName());
                 Glide.with(getContext()).load(item.getPic()).error(R.drawable.main_no_pic).placeholder(R.drawable.main_no_pic).

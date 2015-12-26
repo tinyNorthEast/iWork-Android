@@ -5,8 +5,11 @@ import android.app.Application;
 import com.iwork.model.UserInfo;
 import com.iwork.okhttp.OkHttpClientManager;
 import com.iwork.utils.Constant;
+import com.iwork.utils.Utils;
 import com.socks.library.KLog;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import cn.jpush.android.api.JPushInterface;
@@ -25,7 +28,7 @@ public class BaseApplication extends Application {
     private static BaseApplication mContext;
 
     private UserInfo mUserInfo;
-
+    private Set<String> tagSet;
     @Override
     public void onCreate() {
         super.onCreate();

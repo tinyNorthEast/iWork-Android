@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * Copyright © 2015 impetusconsulting. All rights reserved
  */
 public class PreferenceEditorProxy {
-    private static final int MAX_MODIFY_COUNT = 5;
+    private static final int MAX_MODIFY_COUNT = 0;
 
     private static final int CLASS_INDEX_INT = 0;
     private static final int CLASS_INDEX_LONG = 1;

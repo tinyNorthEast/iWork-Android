@@ -53,6 +53,15 @@ public class LoginInfo {
         private String zh_name;
         private int role_code;
         private String token;
+        private String userId;
+
+        public String getUserId() {
+            return userId;
+        }
+
+        public void setUserId(String userId) {
+            this.userId = userId;
+        }
 
         public void setZh_name(String zh_name) {
             this.zh_name = zh_name;

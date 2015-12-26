@@ -1,5 +1,6 @@
 package com.iwork.preferences;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.iwork.Base.BaseApplication;
@@ -29,7 +30,7 @@ public class PreferenceProxy {
     }
 
     private PreferenceProxy() {
-        sharedPreferences = BaseApplication.getAppContext().getSharedPreferences("imconfig", 0);
+        sharedPreferences = BaseApplication.getAppContext().getSharedPreferences("iWork", Context.MODE_PRIVATE);
         preferenceEditorProxy = PreferenceEditorProxy.getInstance();
         preferenceEditorProxy.setEditor(sharedPreferences.edit());
         preferenceEditorProxy.setMap(map);

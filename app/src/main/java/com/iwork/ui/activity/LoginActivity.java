@@ -38,6 +38,7 @@ import com.squareup.okhttp.Request;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.jpush.android.api.JPushInterface;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
@@ -100,14 +101,16 @@ public class LoginActivity extends BaseActivity {
 
         @Override
         public void onResponse(LoginInfo response) {
-            KLog.i("--login",response.toString());
+            KLog.i("--login", response.toString());
             cancelLoading();
-            if (response.getInfoCode()==0){
+            if (response.getInfoCode() == 0) {
                 ToastHelper.showShortCompleted("登录成功");
                 Preferences.getInstance().setToken(response.getLogin_data().getToken());
                 Preferences.getInstance().setZhName(response.getLogin_data().getZh_name());
+                Preferences.getInstance().setUserId(response.getLogin_data().getUserId());
+                JPushInterface.setAlias(getApplicationContext(), response.getLogin_data().getUserId(), null);
                 finish();
-            }else {
+            } else {
                 ToastHelper.showShortError(response.getMessage());
             }
         }
@@ -116,18 +119,18 @@ public class LoginActivity extends BaseActivity {
     @OnClick(R.id.login_btn_submit)
     public void loginSubmit() {
         String phone = loginEdPhoneInput.getText().toString();
-        String password=loginEdPwdInput.getText().toString();
-        if (!Utils.isPhone(phone)){
+        String password = loginEdPwdInput.getText().toString();
+        if (!Utils.isPhone(phone)) {
             ToastHelper.showShortError("请输入正确的手机号");
             return;
         }
-        if (TextUtils.isEmpty(password) && password.length() > Constant.PWD_MIN_LENGTH){
+        if (TextUtils.isEmpty(password) && password.length() > Constant.PWD_MIN_LENGTH) {
             ToastHelper.showShortError("请输入至少6位密码");
             return;
         }
         String passwordMd5 = MD5.toMD5(password);
         showLoading(R.string.login_loading);
-        CommonRequest.login(phone,password,callback);
+        CommonRequest.login(phone, password, callback);
     }
 
     @OnClick(R.id.login_random)
