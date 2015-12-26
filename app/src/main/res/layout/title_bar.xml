@@ -40,9 +40,9 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:orientation="horizontal"
-            android:visibility="gone"
             android:paddingLeft="@dimen/title_bar_img_btn_margin_left"
-            android:paddingRight="@dimen/title_bar_img_btn_click_extra_width">
+            android:paddingRight="@dimen/title_bar_img_btn_click_extra_width"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/title_bar_textview_left"
@@ -58,8 +58,8 @@
                 style="@style/TitleBar.ImageButton"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/common_icon_transfer_down"
                 android:scaleType="fitCenter"
+                android:src="@drawable/common_icon_transfer_down"
                 android:visibility="visible" />
         </LinearLayout>
         <!--居左的内容 End-->
@@ -72,13 +72,14 @@
             android:layout_centerVertical="true"
             android:text="@string/app_name"
             android:visibility="gone" />
+
         <ImageView
             android:id="@+id/title_bar_img"
-            android:visibility="visible"
-            android:src="@drawable/logo"
-            android:layout_centerInParent="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/logo"
+            android:visibility="visible" />
         <!--居中的内容 End-->
 
         <!--居右的内容 Begin-->
@@ -109,14 +110,13 @@
             android:id="@+id/title_bar_img_btn_custom_right"
             style="@style/TitleBar.ImageButton"
             android:layout_height="match_parent"
-            android:src="@drawable/common_store"
-            android:scaleType="fitCenter"
-            android:visibility="gone"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/title_bar_img_btn_share"
-            android:layout_toStartOf="@+id/title_bar_img_btn_share"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="17dp"
             android:layout_marginRight="17dp"
-            android:layout_marginEnd="17dp" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/common_store"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/title_bar_textview_right"

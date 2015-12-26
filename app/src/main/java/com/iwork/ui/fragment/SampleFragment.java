@@ -17,12 +17,16 @@ import com.impetusconsulting.iwork.R;
 import com.iwork.adapter.recyclerview.BaseAdapterHelper;
 import com.iwork.adapter.recyclerview.BaseQuickAdapter;
 import com.iwork.adapter.recyclerview.QuickAdapter;
+import com.iwork.helper.ResourcesHelper;
+import com.iwork.helper.ToastHelper;
 import com.iwork.model.MainList;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.activity.LoginActivity;
 import com.iwork.ui.activity.PersonDetailActivty;
 import com.iwork.ui.view.BadgeView;
 import com.iwork.utils.CollectionUtil;
+import com.iwork.utils.LoginUtil;
 import com.iwork.utils.UiThreadHandler;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -44,11 +48,12 @@ public class SampleFragment extends Fragment {
     private static int POSITION = 0;
     @Bind(R.id.recyclerView)
     XRecyclerView recyclerView;
-    private int pageNo=1;
+    private int pageNo = 1;
     private List<MainList.Person> persons;
     QuickAdapter<MainList.Person> mAdapter;
     private OnFragmentInteractionListener mListener;
     private BadgeView badgeView;
+
     public SampleFragment() {
         // Required empty public constructor
     }
@@ -80,13 +85,13 @@ public class SampleFragment extends Fragment {
         ButterKnife.bind(this, mRootView);
         badgeView = new BadgeView(getContext());
         getData();
-        initXRecyclerView() ;
+        initXRecyclerView();
         return mRootView;
     }
 
     private void initAdapter() {
 
-        mAdapter = new QuickAdapter<MainList.Person>(getContext(),R.layout.recycler_item,persons) {
+        mAdapter = new QuickAdapter<MainList.Person>(getContext(), R.layout.recycler_item, persons) {
             @Override
             protected void convert(BaseAdapterHelper helper, MainList.Person item) {
                 helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
@@ -94,16 +99,21 @@ public class SampleFragment extends Fragment {
                 Glide.with(getContext()).load(item.getPic()).error(R.drawable.main_no_pic).placeholder(R.drawable.main_no_pic).
                         into(helper.getImageView(R.id.item_pic));
 
-                showBadgeView(helper.getLayout(R.id.item_comment),item.getCommentCount()+"");
+                showBadgeView(helper.getLayout(R.id.item_comment), item.getCommentCount() + "");
             }
         };
         recyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Intent intent = new Intent(getActivity(), PersonDetailActivty.class);
-                intent.putExtra("position",position);
-                startActivity(intent);
+                if (LoginUtil.isLogion()){
+                    Intent intent = new Intent(getActivity(), PersonDetailActivty.class);
+                    intent.putExtra("position", position);
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -147,21 +157,23 @@ public class SampleFragment extends Fragment {
             }, 5000);
         }
     };
-    private void showBadgeView(View v, String text){
-        badgeView = new BadgeView(getActivity(),v);
+
+    private void showBadgeView(View v, String text) {
+        badgeView = new BadgeView(getActivity(), v);
         badgeView.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
-        badgeView.setBadgeMargin(5,5);
+        badgeView.setBadgeMargin(5, 5);
         badgeView.setBackgroundColor(getResources().getColor(R.color.color_bt_bg));
         badgeView.setTextSize(8);
         badgeView.setText(text);
         badgeView.show();
     }
+
     /**
      * 从网络获取数据
      */
     public void getData() {
 
-        CommonRequest.getPersonList(pageNo,new ResultCallback<MainList>(){
+        CommonRequest.getPersonList(pageNo, new ResultCallback<MainList>() {
 
             @Override
             public void onError(Request request, Exception e) {
@@ -170,8 +182,8 @@ public class SampleFragment extends Fragment {
 
             @Override
             public void onResponse(MainList response) {
-                if (response.getInfoCode()==0){
-                    if (!CollectionUtil.isEmpty(response.getData())){
+                if (response.getInfoCode() == 0) {
+                    if (!CollectionUtil.isEmpty(response.getData())) {
                         persons.addAll(response.getData());
                     }
                     initAdapter();
@@ -262,7 +274,7 @@ public class SampleFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
+     * <p>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

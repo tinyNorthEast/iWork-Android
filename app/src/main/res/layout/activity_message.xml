@@ -11,4 +11,9 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary" />
 
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/message_xrecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/message_titlebar" />
 </RelativeLayout>

@@ -32,25 +32,32 @@ public class SetUserInfoActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_user_info);
         ButterKnife.bind(this);
+        setuserTitlebar.setTitle("设置个人信息");
+        setuserTitlebar.setBackDrawableListener(backListener);
     }
+
     @OnClick(R.id.myself_setmypassword)
-    public void setPassword(){
+    public void setPassword() {
 
     }
+
     @OnClick(R.id.myself_setmyemail)
-    public void setMyselfSetmyemail(){
+    public void setMyselfSetmyemail() {
 
     }
+
     @OnClick(R.id.myself_setmyename)
-    public void setMyselfSetmyename(){
+    public void setMyselfSetmyename() {
 
     }
+
     @OnClick(R.id.myself_setmyexpersence)
-    public void setMyselfSetmyexpersence(){
+    public void setMyselfSetmyexpersence() {
 
     }
+
     @OnClick(R.id.myself_setmycompany)
-    public void setMyselfSetmycompany(){
+    public void setMyselfSetmycompany() {
 
     }
 }
