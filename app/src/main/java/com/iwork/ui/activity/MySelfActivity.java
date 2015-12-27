@@ -12,6 +12,7 @@ import com.iwork.Base.BaseActivity;
 import com.iwork.model.MySelfModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.view.BadgeView;
 import com.iwork.ui.view.TitleBar;
 import com.squareup.okhttp.Request;
 
@@ -27,8 +28,8 @@ public class MySelfActivity extends BaseActivity {
     ImageView myselfIvUser;
     @Bind(R.id.myself_tv_name)
     TextView myselfTvName;
-    @Bind(R.id.myself_tv_phone)
-    TextView myselfTvPhone;
+    @Bind(R.id.myself_tv_roleName)
+    TextView myselfTvRoleName;
     @Bind(R.id.myself_setuserinfo)
     RelativeLayout myselfSetuserinfo;
     @Bind(R.id.myself_myattention)
@@ -37,6 +38,7 @@ public class MySelfActivity extends BaseActivity {
     RelativeLayout myselfMessages;
     @Bind(R.id.myself_attention_me)
     RelativeLayout myselfAttentionMe;
+    private BadgeView badgeView;
 
 
     @Override
@@ -68,6 +70,8 @@ public class MySelfActivity extends BaseActivity {
             public void onResponse(MySelfModel response) {
                 if (response.getInfoCode() == 0) {
                     myselfTvName.setText(response.getData().getZh_name());
+                    myselfTvRoleName.setText(response.getData().getRoleName());
+                    showBadgeView(myselfMessages,response.getData().getNoticeCount()+"");
                 }
             }
         });
@@ -100,7 +104,18 @@ public class MySelfActivity extends BaseActivity {
      */
     @OnClick(R.id.myself_messages)
     public void goTomyMessage() {
-        Intent intent =new Intent(this,MessageActivity.class);
+
+        Intent intent = new Intent(this, MessageActivity.class);
         startActivity(intent);
+    }
+
+    private void showBadgeView(View v, String text) {
+        badgeView = new BadgeView(this, v);
+        badgeView.setBadgePosition(BadgeView.POSITION_CENTER);
+        badgeView.setBadgeMargin(5, 5);
+        badgeView.setBadgeBackgroundColor(getResources().getColor(R.color.color_bt_bg));
+        badgeView.setTextSize(8);
+        badgeView.setText(text);
+        badgeView.show();
     }
 }
