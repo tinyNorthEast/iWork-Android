@@ -15,8 +15,10 @@ import com.daimajia.swipe.SimpleSwipeListener;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
 import com.impetusconsulting.iwork.R;
+import com.iwork.model.MessageList;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.SimpleViewHolder> {
 
@@ -34,11 +36,11 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
     }
 
     private Context mContext;
-    private ArrayList<String> mDataset;
+    private List<MessageList.MessageDataEntity> mDataset;
 
     //protected SwipeItemRecyclerMangerImpl mItemManger = new SwipeItemRecyclerMangerImpl(this);
 
-    public RecyclerViewAdapter(Context context, ArrayList<String> objects) {
+    public RecyclerViewAdapter(Context context, List<MessageList.MessageDataEntity> objects) {
         this.mContext = context;
         this.mDataset = objects;
     }
@@ -51,7 +53,7 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(final SimpleViewHolder viewHolder, final int position) {
-        String item = mDataset.get(position);
+        String item = mDataset.get(position).getContent();
         viewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
 //        viewHolder.swipeLayout.addSwipeListener(new SimpleSwipeListener() {
 //            @Override

@@ -80,7 +80,8 @@ public class SlidingTabLayout extends HorizontalScrollView {
         mTitleOffset = (int) (TITLE_OFFSET_DIPS * getResources().getDisplayMetrics().density);
 
         mTabStrip = new SlidingTabStrip(context);
-        addView(mTabStrip, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        mTabStrip.setGravity(Gravity.CENTER_HORIZONTAL);
+        addView(mTabStrip, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
     }
 
     public void setCustomTabColorizer(TabColorizer tabColorizer) {
@@ -137,7 +138,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
     protected ColorTrackView createColoTrackView(Context context){
         ColorTrackView colorTrackView = new ColorTrackView(context,null);
         colorTrackView.setProgress(0);
-        colorTrackView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        colorTrackView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         colorTrackView.setDirection(1);
         colorTrackView.setTextOriginColor(ResourcesHelper.getColor(R.color.white));
         colorTrackView.setTextChangeColor(ResourcesHelper.getColor(R.color.text_color_bg));

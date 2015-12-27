@@ -49,7 +49,7 @@ public class SampleFragment extends Fragment {
     @Bind(R.id.recyclerView)
     XRecyclerView recyclerView;
     private int pageNo = 1;
-    private List<MainList.Person> persons;
+//    private List<MainList.Person> persons;
     QuickAdapter<MainList.Person> mAdapter;
     private OnFragmentInteractionListener mListener;
     private BadgeView badgeView;
@@ -88,7 +88,7 @@ public class SampleFragment extends Fragment {
         return mRootView;
     }
 
-    private void initAdapter() {
+    private void initAdapter(List<MainList.Person> persons) {
 
         mAdapter = new QuickAdapter<MainList.Person>(getContext(), R.layout.recycler_item, persons) {
             @Override
@@ -124,7 +124,6 @@ public class SampleFragment extends Fragment {
      * 初始化列表布局
      */
     private void initXRecyclerView() {
-        persons = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setBackgroundColor(getResources().getColor(R.color.white));
         recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
@@ -185,10 +184,7 @@ public class SampleFragment extends Fragment {
             @Override
             public void onResponse(MainList response) {
                 if (response.getInfoCode() == 0) {
-                    if (!CollectionUtil.isEmpty(response.getData())) {
-                        persons.addAll(response.getData());
-                    }
-                    initAdapter();
+                    initAdapter(response.getData());
                 }
             }
         });

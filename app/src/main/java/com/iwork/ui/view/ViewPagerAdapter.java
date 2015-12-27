@@ -4,17 +4,21 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.iwork.model.IndustryListModel;
 import com.iwork.ui.fragment.SampleFragment;
+
+import java.util.List;
 
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     final int PAGE_COUNT = 8;
-    private String titles[];
+    private List<IndustryListModel.Industry> titles;
 
-    public ViewPagerAdapter(FragmentManager fm, String[] titles2) {
+    public ViewPagerAdapter(FragmentManager fm, List<IndustryListModel.Industry> titles2) {
         super(fm);
         titles = titles2;
+
     }
 
     @Override
@@ -43,12 +47,12 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     }
 
     public CharSequence getPageTitle(int position) {
-        return titles[position];
+        return titles.get(position).getName();
     }
 
     @Override
     public int getCount() {
-        return PAGE_COUNT;
+        return titles.size();
     }
 
 }

@@ -11,11 +11,17 @@ import android.view.View;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.helper.ToastHelper;
+import com.iwork.model.IndustryListModel;
+import com.iwork.net.CommonRequest;
+import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.preferences.Preferences;
 import com.iwork.ui.fragment.SampleFragment;
 import com.iwork.ui.view.SlidingTabLayout;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.ui.view.ViewPagerAdapter;
+import com.squareup.okhttp.Request;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -28,8 +34,7 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
     SlidingTabLayout slidingTabs;
     @Bind(R.id.viewpager)
     ViewPager viewpager;
-    private String titles[] = new String[]{"金融", "消费品", "房产", "医疗",
-            "全部", "互联网", "工业", "教育", "汽车", "政府部门"};
+    private String titles[] = new String[]{"金融", "消费品", "房产"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,19 +45,33 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
         titleBar.setMeDrawableListener(loginListener);
         titleBar.setCustomImageButtonLeft(R.drawable.common_icon_transfer_down, "北京", positionListener);
         titleBar.showCenterImg();
-        viewpager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), titles));
+        getIndustryData();
+
+    }
+
+    private void getIndustryData() {
+        CommonRequest.getIndustryList(new ResultCallback<IndustryListModel>() {
+            @Override
+            public void onError(Request request, Exception e) {
+
+            }
+
+            @Override
+            public void onResponse(IndustryListModel response) {
+                if (response.getInfoCode()==0){
+                    initTabLayout(response.getData());
+                }
+            }
+        });
+    }
+
+    private void initTabLayout(List<IndustryListModel.Industry> list) {
+
+        viewpager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), list));
 //        slidingTabs.setDistributeEvenly(true);
 //        slidingTabs.setCustomTabView(R.layout.slidingtablayout_view,R.id.sliding_tabs_tv);
         slidingTabs.setViewPager(viewpager);
 //        slidingTabs.setSelectedIndicatorColors(R.color.color_bt_bg);
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
-
     }
 
     private View.OnClickListener positionListener = new View.OnClickListener() {

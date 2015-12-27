@@ -4,8 +4,10 @@ import android.preference.Preference;
 
 import com.iwork.model.CityList;
 import com.iwork.model.CommentListModel;
+import com.iwork.model.IndustryListModel;
 import com.iwork.model.LoginInfo;
 import com.iwork.model.MainList;
+import com.iwork.model.MessageList;
 import com.iwork.model.MySelfModel;
 import com.iwork.model.PersonDetail;
 import com.iwork.model.QinNiuToken;
@@ -184,6 +186,26 @@ public class CommonRequest {
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
 
+    /**
+     * 获取评论列表
+     * @param callback
+     */
+    public static void getMessageListData(ResultCallback<MessageList> callback){
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.TOKEN,Preferences.getInstance().getToken());
+        String url = createUrl("/api/v1/notice/findNoticeList.action",params);
+        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+    }
+
+    /**
+     * 获取行业列表
+     * @param callback
+     */
+    public static void getIndustryList(ResultCallback<IndustryListModel> callback){
+        Map<String, String> params = new HashMap<>();
+        String url = createUrl("/api/v1/industry/findIndustryList.action",params);
+        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+    }
     protected static String createUrl(String path, Map<String, String> params) {
         params.put(ServerParam.CLIENT, Constant.CLIEN);
         params.put(ServerParam.EQ_NUM, Constant.ANDROID_ID);

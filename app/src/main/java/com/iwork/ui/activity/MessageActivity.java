@@ -15,10 +15,14 @@ import com.iwork.adapter.recyclerview.BaseQuickAdapter;
 import com.iwork.adapter.recyclerview.QuickAdapter;
 import com.iwork.adapter.recyclerview.RecyclerViewAdapter;
 import com.iwork.model.MainList;
+import com.iwork.model.MessageList;
+import com.iwork.net.CommonRequest;
+import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.UiThreadHandler;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
+import com.squareup.okhttp.Request;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +45,23 @@ public class MessageActivity extends BaseActivity {
         messageTitlebar.setTitle("消息列表");
         messageTitlebar.setBackDrawableListener(mBackListener);
         initXRecyclerView();
+        getMessageDate();
+    }
 
+    private void getMessageDate() {
+        CommonRequest.getMessageListData(new ResultCallback<MessageList>() {
+            @Override
+            public void onError(Request request, Exception e) {
+
+            }
+
+            @Override
+            public void onResponse(MessageList response) {
+                if (response.getInfoCode()==0){
+                    initAdaper(response.getData());
+                }
+            }
+        });
     }
 
     /**
@@ -54,7 +74,10 @@ public class MessageActivity extends BaseActivity {
         recyclerView.setLaodingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
         recyclerView.setLoadingMoreEnabled(true);
         recyclerView.setLoadingListener(loadingListener);
-        mAdapter = new RecyclerViewAdapter(this,createItemList());
+    }
+
+    private void initAdaper(List<MessageList.MessageDataEntity> list) {
+        mAdapter = new RecyclerViewAdapter(this,list);
         ((RecyclerViewAdapter) mAdapter).setMode(Attributes.Mode.Single);
         recyclerView.setAdapter(mAdapter);
     }
