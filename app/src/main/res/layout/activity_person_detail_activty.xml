@@ -57,6 +57,16 @@
                         android:textStyle="bold"
                         tools:text="张剑涛" />
 
+                    <RadioButton
+                        android:id="@+id/detail_person_favorite_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:button="@null"
+                        android:layout_marginRight="20dp"
+                        android:layout_toLeftOf="@+id/detail_comment_layout"
+                        android:background="@drawable/common_store_selecter" />
+
                     <RelativeLayout
                         android:id="@+id/detail_comment_layout"
                         android:layout_width="25dp"
@@ -70,7 +80,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
-                            android:src="@drawable/common_comment" />
+                            android:src="@drawable/common_comment_white" />
                     </RelativeLayout>
                 </RelativeLayout>
             </RelativeLayout>
@@ -231,6 +241,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/detail_septal_line" />
+
                 <LinearLayout
                     android:id="@+id/detail_comment_val_layout"
                     android:layout_width="match_parent"
@@ -238,6 +249,7 @@
                     android:layout_marginBottom="50dp"
                     android:layout_marginTop="10dp"
                     android:orientation="vertical" />
+
                 <Button
                     android:id="@+id/detail_comment_more_bt"
                     android:layout_width="match_parent"
@@ -245,9 +257,9 @@
                     android:layout_margin="10dp"
                     android:background="@drawable/fb_content_bg"
                     android:orientation="vertical"
+                    android:text="查看全部评论"
                     android:textColor="@color/text_color_bg"
-                    android:visibility="visible"
-                    android:text="查看全部评论" />
+                    android:visibility="visible" />
 
             </LinearLayout>
 

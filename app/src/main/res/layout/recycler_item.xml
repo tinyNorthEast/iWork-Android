@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:src="@drawable/common_good" />
+                android:src="@drawable/myself_set_attention" />
 
             <RelativeLayout
                 android:id="@+id/item_comment"

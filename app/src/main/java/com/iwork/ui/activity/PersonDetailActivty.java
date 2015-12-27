@@ -11,8 +11,10 @@ import android.view.View;
 import android.view.ViewPropertyAnimator;
 import android.view.animation.Interpolator;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -75,6 +77,10 @@ public class PersonDetailActivty extends BaseActivity {
     LinearLayout detailCommentValLayout;
     @Bind(R.id.detail_comment_more_bt)
     Button detailCommentMoreBt;
+    @Bind(R.id.detail_person_favorite_iv)
+    RadioButton detailPersonFavorite;
+    @Bind(R.id.detail_comment_layout)
+    RelativeLayout detailCommentLayout;
 
     private List<DescribeListEntity> mDescribeVals;
     private List<IndustryListEntity> mIndustryVals;
@@ -224,24 +230,29 @@ public class PersonDetailActivty extends BaseActivity {
 
     }
 
+    /**
+     * 获取评论列表
+     *
+     * @param list
+     */
     private void setCommentData(List<CommentListEntity> list) {
         int size = list.size();
-        if (size>2){
+        if (size > 2) {
             detailCommentMoreBt.setVisibility(View.VISIBLE);
             detailCommentMoreBt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(PersonDetailActivty.this,CommentActivity.class);
+                    Intent intent = new Intent(PersonDetailActivty.this, CommentActivity.class);
                     startActivity(intent);
                 }
             });
-        }else {
+        } else {
             detailCommentMoreBt.setVisibility(View.GONE);
         }
         CommentListEntity commentListEntity;
-        for (int i=0;i<size;i++){
+        for (int i = 0; i < size; i++) {
             commentListEntity = list.get(i);
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.commentlist_item_layout,null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.commentlist_item_layout, null);
             TextView tv_name = (TextView) linearLayout.findViewById(R.id.comment_name_tv);
             tv_name.setText(commentListEntity.getFromName());
             TextView tv_time = (TextView) linearLayout.findViewById(R.id.comment_time_tv);
@@ -255,6 +266,28 @@ public class PersonDetailActivty extends BaseActivity {
     }
 
     /**
+     * 点击收藏
+     */
+    @OnClick(R.id.detail_person_favorite_iv)
+    public void setFavorite() {
+        detailPersonFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+            }
+        });
+    }
+
+    /**
+     * 进入详情页
+     */
+    @OnClick(R.id.detail_comment_layout)
+    public void goToComment() {
+        Intent intent = new Intent(this, CommentActivity.class);
+        startActivity(intent);
+    }
+
+    /**
      * 给顾问留言
      */
     @OnClick(R.id.detail_bottom_sendms_layout)
@@ -263,6 +296,9 @@ public class PersonDetailActivty extends BaseActivity {
         startActivity(intent);
     }
 
+    /**
+     * 打电话
+     */
     @OnClick(R.id.detail_bottom_call_layout)
     public void callPerson() {
         if (TextUtils.isEmpty(phone)) {
@@ -297,7 +333,7 @@ public class PersonDetailActivty extends BaseActivity {
 
     /**
      * Hide the quick return view.
-     * <p>
+     * <p/>
      * Animates hiding the view, with the view sliding down and out of the screen.
      * After the view has disappeared, its visibility will change to GONE.
      *
@@ -343,7 +379,7 @@ public class PersonDetailActivty extends BaseActivity {
 
     /**
      * Show the quick return view.
-     * <p>
+     * <p/>
      * Animates showing the view, with the view sliding up from the bottom of the screen.
      * After the view has reappeared, its visibility will change to VISIBLE.
      *
