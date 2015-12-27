@@ -100,6 +100,7 @@ public class MySelfActivity extends BaseActivity {
      */
     @OnClick(R.id.myself_messages)
     public void goTomyMessage() {
-
+        Intent intent =new Intent(this,MessageActivity.class);
+        startActivity(intent);
     }
 }
