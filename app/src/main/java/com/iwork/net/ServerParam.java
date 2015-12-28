@@ -23,4 +23,8 @@ public class ServerParam {
     public static final String TOKEN = "token";
     public static final String TO_USER_ID = "to_user_id";
     public static final String COMPANY = "company";
+    public static final String ATTENTION_TO_ID = "attention_to_id";
+    public static final String OBJID = "objId";
+    public static final String INDUSTRYID = "industryId";
+    public static final String CITY = "city";
 }

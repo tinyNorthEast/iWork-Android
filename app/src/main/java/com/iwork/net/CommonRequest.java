@@ -138,9 +138,13 @@ public class CommonRequest {
      * @param pageNo
      * @param callback
      */
-    public static void getPersonList(int pageNo, ResultCallback<MainList> callback) {
+    public static void getPersonList(int pageNo, int industryId, int city, ResultCallback<MainList> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.PAGENO, pageNo + "");
+        if (industryId != 0)
+            params.put(ServerParam.INDUSTRYID, industryId + "");
+        if (city != 0)
+            params.put(ServerParam.CITY, city + "");
         String url = createUrl("/api/v1/headhunter/list.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
@@ -154,8 +158,8 @@ public class CommonRequest {
     public static void getDetail(int headHunterId, ResultCallback<PersonDetail> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.HEADHUNTERID, headHunterId + "");
-        String token = Preferences.getInstance().getToken();
-        params.put(ServerParam.TOKEN, token);
+//        String token = Preferences.getInstance().getToken();
+//        params.put(ServerParam.TOKEN, token);
         String url = createUrl("/api/v1/headhunter/detail.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
@@ -231,9 +235,36 @@ public class CommonRequest {
             params.put(ServerParam.COMPANY, company);
         if (experience != 0)
             params.put(ServerParam.EXPERIENCE, experience + "");
-        String url = createUrl("/api/v1/user/update.action",params);
+        String url = createUrl("/api/v1/user/update.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
+
+    /**
+     * 保存关注
+     *
+     * @param attention_to_id 关注者id
+     * @param callback
+     */
+    public static void saveAttention(int attention_to_id, ResultCallback<CommonModel> callback) {
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.ATTENTION_TO_ID, attention_to_id + "");
+        String url = createUrl("/api/v1/attention/saveAttention.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).post(callback);
+    }
+
+    /**
+     * 取消关注
+     *
+     * @param objId
+     * @param callback
+     */
+    public static void cancelAttention(int objId, ResultCallback<CommonModel> callback) {
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.OBJID, objId + "");
+        String url = createUrl("/api/v1/attention/cancelAttention.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).post(callback);
+    }
+
 
     protected static String createUrl(String path, Map<String, String> params) {
         params.put(ServerParam.CLIENT, Constant.CLIEN);

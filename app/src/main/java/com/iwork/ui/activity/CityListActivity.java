@@ -81,6 +81,8 @@ public class CityListActivity extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             ToastHelper.showShortCompleted("城市：" + response.getCitys().get(position).getAreaName());
+                            CityListActivity.this.setResult(RESULT_OK);
+                            finish();
                         }
                     });
                 } else {

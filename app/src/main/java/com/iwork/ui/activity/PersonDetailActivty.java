@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.helper.ToastHelper;
+import com.iwork.model.CommonModel;
 import com.iwork.model.PersonDetail;
 import com.iwork.model.PersonDetail.DataEntity.CommentListEntity;
 import com.iwork.model.PersonDetail.DataEntity.HeadhunterInfoEntity.DescribeListEntity;
@@ -36,6 +37,7 @@ import com.iwork.ui.view.TagAdapter;
 import com.iwork.ui.view.TagFlowLayout;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.CollectionUtil;
+import com.iwork.utils.Constant;
 import com.iwork.utils.LoginUtil;
 import com.iwork.utils.Utils;
 import com.squareup.okhttp.Request;
@@ -92,6 +94,7 @@ public class PersonDetailActivty extends BaseActivity {
     private boolean mIsHiding;
     private boolean mIsShowing;
     private String phone;
+    private int objId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +102,7 @@ public class PersonDetailActivty extends BaseActivity {
         setContentView(R.layout.activity_person_detail_activty);
         ButterKnife.bind(this);
         initTitleBar();
+        objId = getIntent().getIntExtra(Constant.OBJID, 0);
         getData();
         initBottomlayout();
     }
@@ -136,7 +140,7 @@ public class PersonDetailActivty extends BaseActivity {
      * 从服务器获取数据
      */
     private void getData() {
-        CommonRequest.getDetail(16, new ResultCallback<PersonDetail>() {
+        CommonRequest.getDetail(objId, new ResultCallback<PersonDetail>() {
             @Override
             public void onError(Request request, Exception e) {
 
@@ -273,16 +277,40 @@ public class PersonDetailActivty extends BaseActivity {
      */
     @OnClick(R.id.detail_person_favorite_iv)
     public void setFavorite() {
-        if (!LoginUtil.isLogion()){
+        if (!LoginUtil.isLogion()) {
             ToastHelper.showShortError(getResources().getString(R.string.no_login));
-            Intent intent = new Intent(this,LoginActivity.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             return;
         }
         detailPersonFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    CommonRequest.saveAttention(objId, new ResultCallback<CommonModel>() {
+                        @Override
+                        public void onError(Request request, Exception e) {
+                        }
 
+                        @Override
+                        public void onResponse(CommonModel response) {
+                            if (response.getInfoCode() == 0)
+                                ToastHelper.showShortCompleted("关注成功");
+                        }
+                    });
+                } else {
+                    CommonRequest.cancelAttention(objId, new ResultCallback<CommonModel>() {
+                        @Override
+                        public void onError(Request request, Exception e) {
+                        }
+
+                        @Override
+                        public void onResponse(CommonModel response) {
+                            if (response.getInfoCode() == 0)
+                                ToastHelper.showShortCompleted("取消关注");
+                        }
+                    });
+                }
             }
         });
     }

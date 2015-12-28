@@ -19,6 +19,7 @@ import com.iwork.ui.fragment.SampleFragment;
 import com.iwork.ui.view.SlidingTabLayout;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.ui.view.ViewPagerAdapter;
+import com.iwork.utils.Constant;
 import com.squareup.okhttp.Request;
 
 import java.util.List;
@@ -58,7 +59,7 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
 
             @Override
             public void onResponse(IndustryListModel response) {
-                if (response.getInfoCode()==0){
+                if (response.getInfoCode() == 0) {
                     initTabLayout(response.getData());
                 }
             }
@@ -77,9 +78,8 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
     private View.OnClickListener positionListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-//            ToastHelper.showShortCompleted("选择城市");
-            Intent intent = new Intent(MainActivity.this,CityListActivity.class);
-            startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, CityListActivity.class);
+            startActivityForResult(intent, Constant.REQUEST_CODE_FOR_CITY);
         }
     };
     private View.OnClickListener loginListener = new View.OnClickListener() {
@@ -88,12 +88,24 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
             if (TextUtils.isEmpty(Preferences.getInstance().getToken())) {
                 Intent i = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(i);
-            }else {
-                Intent i = new Intent(MainActivity.this,MySelfActivity.class);
+            } else {
+                Intent i = new Intent(MainActivity.this, MySelfActivity.class);
                 startActivity(i);
             }
         }
     };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case Constant.REQUEST_CODE_FOR_CITY:
+
+                    break;
+            }
+        }
+    }
 
     @Override
     protected void onResume() {

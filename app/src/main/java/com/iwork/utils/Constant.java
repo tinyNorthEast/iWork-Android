@@ -9,8 +9,11 @@ import com.iwork.Base.BaseApplication;
 public class Constant {
     public static final String SMSSDKKEY = "ca416209842a";
     public static final String SMSSDKSECRET = "b38c35b3c785b7f1d74f182cee07146d";
-
+    public static final String OBJID = "objId";
     public static final String CLIEN = "1";
+    public static final String INDUSTRYID="industryid";
+    public static final String CITY = "cityid";
+    public static final int REQUEST_CODE_FOR_CITY = 1006;
     /**
      * SDCARD文件目录
      */

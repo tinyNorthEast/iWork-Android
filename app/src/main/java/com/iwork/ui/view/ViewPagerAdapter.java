@@ -23,27 +23,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-//        switch (position) {
-//            // Open FragmentTab1.java
-//            case 0:
-//                return SampleFragment.newInstance(position);
-//            case 1:
-//                return SampleFragment.newInstance(position);
-//            case 2:
-//                return SampleFragment.newInstance(position);
-//            case 3:
-//                return SampleFragment.newInstance(position);
-//            case 4:
-//                return SampleFragment.newInstance(position);
-//            case 5:
-//                return SampleFragment.newInstance(position);
-//            case 6:
-//                return SampleFragment.newInstance(position);
-//            case 7:
-        return SampleFragment.newInstance(position);
 
-//        }
-//        return null;
+        return SampleFragment.newInstance(titles.get(position).getObjId());
     }
 
     public CharSequence getPageTitle(int position) {

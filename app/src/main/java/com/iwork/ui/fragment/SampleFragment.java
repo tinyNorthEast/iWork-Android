@@ -17,16 +17,13 @@ import com.impetusconsulting.iwork.R;
 import com.iwork.adapter.recyclerview.BaseAdapterHelper;
 import com.iwork.adapter.recyclerview.BaseQuickAdapter;
 import com.iwork.adapter.recyclerview.QuickAdapter;
-import com.iwork.helper.ResourcesHelper;
-import com.iwork.helper.ToastHelper;
 import com.iwork.model.MainList;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
-import com.iwork.ui.activity.LoginActivity;
 import com.iwork.ui.activity.PersonDetailActivty;
 import com.iwork.ui.view.BadgeView;
 import com.iwork.utils.CollectionUtil;
-import com.iwork.utils.LoginUtil;
+import com.iwork.utils.Constant;
 import com.iwork.utils.UiThreadHandler;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -41,15 +38,14 @@ import butterknife.ButterKnife;
 /**
  */
 public class SampleFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static int POSITION = 0;
+    private static int industryid = 0;
+    private int cityId;
     @Bind(R.id.recyclerView)
     XRecyclerView recyclerView;
     private int pageNo = 1;
-//    private List<MainList.Person> persons;
+    //    private List<MainList.Person> persons;
     QuickAdapter<MainList.Person> mAdapter;
     private OnFragmentInteractionListener mListener;
     private BadgeView badgeView;
@@ -60,10 +56,10 @@ public class SampleFragment extends Fragment {
 
     private static final String ARG_POSITION = "position";
 
-    public static SampleFragment newInstance(int position) {
+    public static SampleFragment newInstance(int objId) {
         SampleFragment f = new SampleFragment();
         Bundle b = new Bundle();
-        b.putInt(ARG_POSITION, position);
+        b.putInt(Constant.INDUSTRYID, objId);
         f.setArguments(b);
         return f;
     }
@@ -72,7 +68,7 @@ public class SampleFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            POSITION = getArguments().getInt(ARG_POSITION);
+            industryid = getArguments().getInt(Constant.INDUSTRYID);
         }
     }
 
@@ -88,12 +84,12 @@ public class SampleFragment extends Fragment {
         return mRootView;
     }
 
-    private void initAdapter(List<MainList.Person> persons) {
+    private void initAdapter(final List<MainList.Person> persons) {
 
         mAdapter = new QuickAdapter<MainList.Person>(getContext(), R.layout.recycler_item, persons) {
             @Override
             protected void convert(BaseAdapterHelper helper, MainList.Person item) {
-                if (CollectionUtil.isEmpty(item.getIndustryList())){
+                if (CollectionUtil.isEmpty(item.getIndustryList())) {
                     return;
                 }
                 helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
@@ -108,10 +104,10 @@ public class SampleFragment extends Fragment {
         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                    Intent intent = new Intent(getActivity(), PersonDetailActivty.class);
-                    intent.putExtra("position", position);
-                    startActivity(intent);
-                
+                Intent intent = new Intent(getActivity(), PersonDetailActivty.class);
+                intent.putExtra(Constant.OBJID, persons.get(position).getObjId());
+                startActivity(intent);
+
             }
         });
     }
@@ -170,7 +166,7 @@ public class SampleFragment extends Fragment {
      */
     public void getData() {
 
-        CommonRequest.getPersonList(pageNo, new ResultCallback<MainList>() {
+        CommonRequest.getPersonList(pageNo, industryid, cityId, new ResultCallback<MainList>() {
 
             @Override
             public void onError(Request request, Exception e) {
@@ -268,7 +264,7 @@ public class SampleFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
+     * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
