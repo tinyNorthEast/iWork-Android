@@ -222,7 +222,9 @@ public class TitleBar extends RelativeLayout {
         title_bar_textview_left.setText(s);
         customImgBtnLeftClickListener = listener;
     }
-
+    public void setCustomImageButtonLeft(String s){
+        title_bar_textview_left.setText(s);
+    }
 
     /**
      * 显示指定的视图

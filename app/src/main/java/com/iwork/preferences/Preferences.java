@@ -31,6 +31,7 @@ public class Preferences {
 
     /**
      * 保存 token
+     *
      * @param token
      */
     public void setToken(String token) {
@@ -40,8 +41,11 @@ public class Preferences {
 
     public String getToken() {
         return mPref.getString("token", "");
-    }/**
+    }
+
+    /**
      * 保存 中文名
+     *
      * @param zhName
      */
     public void setZhName(String zhName) {
@@ -55,16 +59,31 @@ public class Preferences {
 
     /**
      * 保存UserId
+     *
      * @param userId
      */
-    public void setUserId(String userId){
-        mEditor.putString("userId",userId);
+    public void setUserId(String userId) {
+        mEditor.putString("userId", userId);
         mEditor.commit();
     }
 
-    public String getUserId(){
-        return mPref.getString("userId","");
+    public String getUserId() {
+        return mPref.getString("userId", "");
     }
+
+    /**
+     * 保存当前的城市id
+     * @param cityid
+     */
+    public void setCurrentCityId(int cityid) {
+        mEditor.putInt("cityId", cityid);
+        mEditor.commit();
+    }
+
+    public int getCurrentCityId() {
+        return mPref.getInt("cityId", 10001);
+    }
+
     /**
      * 清除数据
      */

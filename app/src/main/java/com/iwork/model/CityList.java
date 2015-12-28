@@ -53,14 +53,14 @@ public class CityList {
 
     public static class City {
         private String areaName;
-        private String areaCode;
+        private int areaCode;
         private String areaSort;
 
         public void setAreaName(String areaName) {
             this.areaName = areaName;
         }
 
-        public void setAreaCode(String areaCode) {
+        public void setAreaCode(int areaCode) {
             this.areaCode = areaCode;
         }
 
@@ -72,7 +72,7 @@ public class CityList {
             return areaName;
         }
 
-        public String getAreaCode() {
+        public int getAreaCode() {
             return areaCode;
         }
 

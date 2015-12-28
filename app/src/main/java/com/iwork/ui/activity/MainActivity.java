@@ -3,6 +3,7 @@ package com.iwork.ui.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -21,6 +22,9 @@ import com.iwork.ui.view.TitleBar;
 import com.iwork.ui.view.ViewPagerAdapter;
 import com.iwork.utils.Constant;
 import com.squareup.okhttp.Request;
+
+import org.simple.eventbus.EventBus;
+import org.simple.eventbus.Subscriber;
 
 import java.util.List;
 
@@ -47,7 +51,7 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
         titleBar.setCustomImageButtonLeft(R.drawable.common_icon_transfer_down, "北京", positionListener);
         titleBar.showCenterImg();
         getIndustryData();
-
+        EventBus.getDefault().register(this);
     }
 
     private void getIndustryData() {
@@ -74,7 +78,10 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
         slidingTabs.setViewPager(viewpager);
 //        slidingTabs.setSelectedIndicatorColors(R.color.color_bt_bg);
     }
-
+    @Subscriber(tag = Constant.CITY)
+    public void setCity(String city){
+        titleBar.setCustomImageButtonLeft(city);
+    }
     private View.OnClickListener positionListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -101,10 +108,21 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case Constant.REQUEST_CODE_FOR_CITY:
-
+                    List<Fragment> sampleFragments = getSupportFragmentManager().getFragments();
+                    for (Fragment s:sampleFragments){
+                        if (s!=null&&s instanceof SampleFragment){
+                            s.onActivityResult(requestCode,resultCode,data);
+                        }
+                    }
                     break;
             }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 
     @Override

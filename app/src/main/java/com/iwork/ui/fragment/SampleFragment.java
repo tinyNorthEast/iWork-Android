@@ -17,17 +17,22 @@ import com.impetusconsulting.iwork.R;
 import com.iwork.adapter.recyclerview.BaseAdapterHelper;
 import com.iwork.adapter.recyclerview.BaseQuickAdapter;
 import com.iwork.adapter.recyclerview.QuickAdapter;
+import com.iwork.helper.ToastHelper;
 import com.iwork.model.MainList;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.preferences.Preferences;
 import com.iwork.ui.activity.PersonDetailActivty;
 import com.iwork.ui.view.BadgeView;
 import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
 import com.iwork.utils.UiThreadHandler;
+import com.jcodecraeer.xrecyclerview.ArrowRefreshHeader;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.squareup.okhttp.Request;
+
+import org.simple.eventbus.Subscriber;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,11 +46,11 @@ public class SampleFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static int industryid = 0;
-    private int cityId;
     @Bind(R.id.recyclerView)
     XRecyclerView recyclerView;
     private int pageNo = 1;
-    //    private List<MainList.Person> persons;
+    private int cityId;
+    private List<MainList.Person> persons;
     QuickAdapter<MainList.Person> mAdapter;
     private OnFragmentInteractionListener mListener;
     private BadgeView badgeView;
@@ -79,8 +84,11 @@ public class SampleFragment extends Fragment {
                              Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_sample, container, false);
         ButterKnife.bind(this, mRootView);
-        getData();
+        cityId = Preferences.getInstance().getCurrentCityId();
+        persons = new ArrayList<>();
+        getData(cityId);
         initXRecyclerView();
+        initAdapter(persons);
         return mRootView;
     }
 
@@ -134,6 +142,7 @@ public class SampleFragment extends Fragment {
             UiThreadHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    getData(cityId);
                     recyclerView.refreshComplete();
                 }
             }, 5000);
@@ -145,6 +154,8 @@ public class SampleFragment extends Fragment {
             UiThreadHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    pageNo++;
+                    getData(cityId);
                     recyclerView.loadMoreComplete();
                 }
             }, 5000);
@@ -164,7 +175,8 @@ public class SampleFragment extends Fragment {
     /**
      * 从网络获取数据
      */
-    public void getData() {
+    @Subscriber(tag = Constant.CITY)
+    public void getData(int cityId) {
 
         CommonRequest.getPersonList(pageNo, industryid, cityId, new ResultCallback<MainList>() {
 
@@ -176,64 +188,22 @@ public class SampleFragment extends Fragment {
             @Override
             public void onResponse(MainList response) {
                 if (response.getInfoCode() == 0) {
-                    initAdapter(response.getData());
+                    persons.addAll(response.getData());
+                    mAdapter.notifyDataSetChanged();
+                    if (CollectionUtil.isEmpty(response.getData())){
+                        recyclerView.loadMoreComplete();
+                        recyclerView.setLoadingMoreEnabled(false);
+                        ToastHelper.showShortCompleted("已经没有更多数据啦");
+                    }
                 }
             }
         });
     }
 
-    public static class RecyclerItemViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-        private TextView mItemTextView;
-
-        public RecyclerItemViewHolder(View p) {
-            super(p);
-        }
-
-        public void setItemText(CharSequence text) {
-            mItemTextView.setText(text);
-        }
-    }
-
-    public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-        private List<String> mItemList;
-
-        public RecyclerAdapter(List<String> mItemList) {
-            this.mItemList = mItemList;
-        }
-
-        @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item, parent, false);
-            return new RecyclerItemViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
-            RecyclerItemViewHolder holder = (RecyclerItemViewHolder) viewHolder;
-            String itemtext = mItemList.get(position);
-            holder.setItemText(itemtext);
-        }
-
-        @Override
-        public int getItemCount() {
-            return mItemList == null ? 0 : mItemList.size();
-        }
-    }
-
-    private List<String> createItemList() {
-        List<String> itemList = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            itemList.add("Item " + i);
-        }
-        return itemList;
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     @Override

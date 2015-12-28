@@ -1,30 +1,32 @@
 package com.iwork.ui.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.impetusconsulting.iwork.R;
+import com.iwork.Base.BaseActivity;
 import com.iwork.helper.ToastHelper;
 import com.iwork.model.CityList;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.preferences.Preferences;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.CollectionUtil;
-import com.iwork.utils.Utils;
+import com.iwork.utils.Constant;
 import com.squareup.okhttp.Request;
 
-import java.sql.Connection;
+import org.simple.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class CityListActivity extends AppCompatActivity {
+public class CityListActivity extends BaseActivity {
 
     @Bind(R.id.city_titlebar)
     TitleBar cityTitlebar;
@@ -33,7 +35,7 @@ public class CityListActivity extends AppCompatActivity {
     private List<CityList.City> cityList;
     private List<String> cityStrings;
 
-    private ArrayAdapter arrayAdapter;
+    private ArrayAdapter<String> arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class CityListActivity extends AppCompatActivity {
         cityTitlebar.setTitle("城市列表");
         cityTitlebar.setBackDrawableListener(backListener);
         getCityList();
+        EventBus.getDefault().register(this);
     }
 
     /**
@@ -75,13 +78,16 @@ public class CityListActivity extends AppCompatActivity {
                             cityStrings.add(c.getAreaName());
                         }
                     }
-                    arrayAdapter = new ArrayAdapter(CityListActivity.this, android.R.layout.simple_list_item_1, cityStrings);
+                    arrayAdapter = new ArrayAdapter<String>(CityListActivity.this, android.R.layout.simple_list_item_1, cityStrings);
                     cityListView.setAdapter(arrayAdapter);
                     cityListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             ToastHelper.showShortCompleted("城市：" + response.getCitys().get(position).getAreaName());
-                            CityListActivity.this.setResult(RESULT_OK);
+                            int cityid= response.getCitys().get(position).getAreaCode();
+                            EventBus.getDefault().postSticky(cityid, Constant.CITY);
+                            EventBus.getDefault().post(response.getCitys().get(position).getAreaName(),Constant.CITY);
+                            Preferences.getInstance().setCurrentCityId(cityid);
                             finish();
                         }
                     });
@@ -90,6 +96,11 @@ public class CityListActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }

@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
-        android:singleLine="true"
+        android:singleLine="false"
         android:layout_marginBottom="10dp"
         android:textSize="17sp"
-        tools:text="1、8年以上猎头经验" />
+        tools:text="1、8年以上猎头经验asdlkfjladjflkasdjflkjasldfaslkdfjlasjdflkasjdlfsdflasjdlfkjsldkf" />
 </RelativeLayout>
