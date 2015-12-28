@@ -1,11 +1,14 @@
 package com.iwork.Base;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.iwork.net.JudgeNetIsConnectedReceiver;
 import com.iwork.ui.dialog.DialogHelper;
 import com.iwork.ui.dialog.LoadingDialog;
 import com.socks.library.KLog;
@@ -17,15 +20,32 @@ import com.socks.library.KLog;
 public class BaseActivity extends AppCompatActivity {
 
     private boolean isFinished;
+    private JudgeNetIsConnectedReceiver judgeNetIsConnectedReceiver;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityManager.getInstance().addAcitivty(this);
         String name = ActivityManager.getInstance().getTopActivityName();
+        judgeNetIsConnectedReceiver = new JudgeNetIsConnectedReceiver();
         KLog.d("TopClassName=" + name);
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        this.registerReceiver(judgeNetIsConnectedReceiver, intentFilter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (judgeNetIsConnectedReceiver != null)
+            this.unregisterReceiver(judgeNetIsConnectedReceiver);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -59,6 +79,7 @@ public class BaseActivity extends AppCompatActivity {
             loadingDialog = null;
         }
     }
+
     /**
      * 标题栏返回按钮点击监听
      */

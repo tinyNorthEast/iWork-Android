@@ -108,14 +108,10 @@ public class SampleFragment extends Fragment {
         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                if (LoginUtil.isLogion()){
                     Intent intent = new Intent(getActivity(), PersonDetailActivty.class);
                     intent.putExtra("position", position);
                     startActivity(intent);
-                }else {
-                    Intent intent = new Intent(getActivity(), LoginActivity.class);
-                    startActivity(intent);
-                }
+                
             }
         });
     }
