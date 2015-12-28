@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
+import com.iwork.helper.ToastHelper;
 import com.iwork.model.PersonDetail;
 import com.iwork.model.PersonDetail.DataEntity.CommentListEntity;
 import com.iwork.model.PersonDetail.DataEntity.HeadhunterInfoEntity.DescribeListEntity;
@@ -35,6 +36,8 @@ import com.iwork.ui.view.TagAdapter;
 import com.iwork.ui.view.TagFlowLayout;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.CollectionUtil;
+import com.iwork.utils.LoginUtil;
+import com.iwork.utils.Utils;
 import com.squareup.okhttp.Request;
 
 import java.util.List;
@@ -270,6 +273,12 @@ public class PersonDetailActivty extends BaseActivity {
      */
     @OnClick(R.id.detail_person_favorite_iv)
     public void setFavorite() {
+        if (!LoginUtil.isLogion()){
+            ToastHelper.showShortError(getResources().getString(R.string.no_login));
+            Intent intent = new Intent(this,LoginActivity.class);
+            startActivity(intent);
+            return;
+        }
         detailPersonFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

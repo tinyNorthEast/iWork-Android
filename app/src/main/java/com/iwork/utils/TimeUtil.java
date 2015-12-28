@@ -21,7 +21,7 @@ public class TimeUtil {
      */
     public static String formatDates(long millis) {
         Date date = new Date(millis);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss-fff");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
         return sdf.format(date);
     }
 

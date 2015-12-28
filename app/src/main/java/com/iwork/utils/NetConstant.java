@@ -19,7 +19,7 @@ public class NetConstant {
     /**
      * 手机号已经存在
      */
-    public static final Integer PARAM_ALREADY_PHONE = 10004;
+    public static final Integer PARAM_ALREADY_PHONE = 20000;
 
 
 }
