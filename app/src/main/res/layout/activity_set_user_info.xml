@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_light_gray_sss"
     tools:context="com.iwork.ui.activity.SetUserInfoActivity">
 
     <com.iwork.ui.view.TitleBar
@@ -15,37 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/setuser_titlebar"
+        android:layout_marginTop="40dp"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/myself_setmypassword"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/myself_layout_height"
-            android:background="@color/white"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/myself_set_person_info" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:text="修改密码"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="203dp"
-                android:src="@drawable/common_right_arrow" />
-        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
@@ -59,27 +32,24 @@
             android:background="@color/white"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/myself_set_person_info" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
-                android:text="修改邮箱"
+                android:text="邮      箱"
                 android:textSize="18sp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/myself_setmyemail_ed"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="203dp"
-                android:src="@drawable/common_right_arrow" />
+                android:hint="请输入您要更改的邮箱"
+                android:src="@drawable/common_right_arrow"
+                android:textColor="@color/text_color_dark_gray"
+                android:textColorHint="@color/text_color_s_gray" />
         </LinearLayout>
 
         <View
@@ -94,27 +64,24 @@
             android:background="@color/white"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/myself_set_person_info" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
-                android:text="修改英文名"
+                android:text="英 文 名"
                 android:textSize="18sp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/myself_setmyename_ed"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="185dp"
-                android:src="@drawable/common_right_arrow" />
+                android:hint="请输入您要更改英文名"
+
+                android:src="@drawable/common_right_arrow"
+                android:textColor="@color/text_color_dark_gray"
+                android:textColorHint="@color/text_color_s_gray" />
         </LinearLayout>
 
         <View
@@ -122,35 +89,41 @@
             android:layout_height="@dimen/layout_line_height"
             android:background="@color/gray" />
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/myself_setmyexpersence"
             android:layout_width="match_parent"
             android:layout_height="@dimen/myself_layout_height"
             android:background="@color/white"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/myself_set_person_info" />
 
             <TextView
+                android:id="@+id/myself_setmyexpersence_t"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
-                android:text="修改工作年限"
+                android:text="工作年限"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/myself_setmyexpersence_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/myself_setmyexpersence_t"
+                android:text="1"
                 android:textSize="18sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="167dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="40dp"
                 android:src="@drawable/common_right_arrow" />
-        </LinearLayout>
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
@@ -164,28 +137,55 @@
             android:background="@color/white"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/myself_set_person_info" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
-                android:text="修改公司名称"
+                android:text="公司名称"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/myself_setmycompany_ed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:hint="请输入您要更改的公司名称"
+                android:src="@drawable/common_right_arrow"
+                android:textColor="@color/text_color_dark_gray"
+                android:textColorHint="@color/text_color_s_gray" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_line_height"
+            android:layout_marginTop="50dp"
+            android:background="@color/gray" />
+
+        <RelativeLayout
+            android:id="@+id/myself_setmypassword"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/myself_layout_height"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="修改密码"
                 android:textSize="18sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="167dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="40dp"
                 android:src="@drawable/common_right_arrow" />
-        </LinearLayout>
-
+        </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

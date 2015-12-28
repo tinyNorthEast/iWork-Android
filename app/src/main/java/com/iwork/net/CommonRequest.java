@@ -1,9 +1,11 @@
 package com.iwork.net;
 
 import android.preference.Preference;
+import android.text.TextUtils;
 
 import com.iwork.model.CityList;
 import com.iwork.model.CommentListModel;
+import com.iwork.model.CommonModel;
 import com.iwork.model.IndustryListModel;
 import com.iwork.model.LoginInfo;
 import com.iwork.model.MainList;
@@ -188,24 +190,51 @@ public class CommonRequest {
 
     /**
      * 获取评论列表
+     *
      * @param callback
      */
-    public static void getMessageListData(ResultCallback<MessageList> callback){
+    public static void getMessageListData(ResultCallback<MessageList> callback) {
         Map<String, String> params = new HashMap<>();
-        params.put(ServerParam.TOKEN,Preferences.getInstance().getToken());
-        String url = createUrl("/api/v1/notice/findNoticeList.action",params);
+        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
+        String url = createUrl("/api/v1/notice/findNoticeList.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
 
     /**
      * 获取行业列表
+     *
      * @param callback
      */
-    public static void getIndustryList(ResultCallback<IndustryListModel> callback){
+    public static void getIndustryList(ResultCallback<IndustryListModel> callback) {
         Map<String, String> params = new HashMap<>();
-        String url = createUrl("/api/v1/industry/findIndustryList.action",params);
+        String url = createUrl("/api/v1/industry/findIndustryList.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
+
+    /**
+     * 修改个人信息
+     *
+     * @param en_name
+     * @param mail
+     * @param company
+     * @param experience
+     * @param callback
+     */
+    public static void setUserInfo(String en_name, String mail, String company, int experience, ResultCallback<CommonModel> callback) {
+        Map<String, String> params = new HashMap<>();
+        if (!TextUtil.isEmpty(en_name)) {
+            params.put(ServerParam.EN_NAME, en_name);
+        }
+        if (!TextUtil.isEmpty(mail))
+            params.put(ServerParam.MAIL, mail);
+        if (!TextUtil.isEmpty(company))
+            params.put(ServerParam.COMPANY, company);
+        if (experience != 0)
+            params.put(ServerParam.EXPERIENCE, experience + "");
+        String url = createUrl("/api/v1/user/update.action",params);
+        new OkHttpRequest.Builder().url(url).params(params).post(callback);
+    }
+
     protected static String createUrl(String path, Map<String, String> params) {
         params.put(ServerParam.CLIENT, Constant.CLIEN);
         params.put(ServerParam.EQ_NUM, Constant.ANDROID_ID);
