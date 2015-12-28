@@ -11,6 +11,7 @@ import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.Base.BaseApplication;
 import com.iwork.helper.ToastHelper;
+import com.iwork.model.CommonModel;
 import com.iwork.model.LoginInfo;
 import com.iwork.model.UserInfo;
 import com.iwork.net.CommonRequest;
@@ -60,32 +61,52 @@ public class PasswordActivity extends BaseActivity {
     public void onComplate() {
         String password = passwordEdPtInput.getText().toString().trim();
         String passwordcm = passwordCmInput.getText().toString().trim();
-        if (TextUtils.isEmpty(password) && password.length() > Constant.PWD_MIN_LENGTH) {
-           ToastHelper.showShortError("请正确填写密码");
+        if (TextUtils.isEmpty(password) && password.length() < Constant.PWD_MIN_LENGTH) {
+            ToastHelper.showShortError("请正确填写密码");
             return;
         }
-        if (TextUtils.isEmpty(password) && password.length() > Constant.PWD_MIN_LENGTH&&!password.equals(passwordcm)){
+        if (TextUtils.isEmpty(password) && password.length() < Constant.PWD_MIN_LENGTH && !password.equals(passwordcm)) {
             ToastHelper.showShortError("请填写相同密码");
             return;
         }
         showLoading(R.string.loading);
-        String pw = MD5.toMD5(passwordCmInput.getText().toString());
         UserInfo userInfo = BaseApplication.getAppContext().getmUserInfo();
-        CommonRequest.register(userInfo.phone, pw, userInfo.zh_name, userInfo.email, userInfo.experience, userInfo.position, userInfo.role_code, null, null, new ResultCallback<LoginInfo>() {
-            @Override
-            public void onError(Request request, Exception e) {
+        String pw = MD5.toMD5(passwordCmInput.getText().toString());
+        if (flag) {
 
-            }
+            CommonRequest.register(userInfo.phone, pw, userInfo.zh_name, userInfo.email, userInfo.experience, userInfo.position, userInfo.role_code, null, null, new ResultCallback<LoginInfo>() {
+                @Override
+                public void onError(Request request, Exception e) {
 
-            @Override
-            public void onResponse(LoginInfo response) {
-                if (response.getInfoCode() == 0) {
-                    cancelLoading();
-                    ToastHelper.showShortCompleted("注册成功");
-                    gotoMainActivity();
                 }
-            }
-        });
+
+                @Override
+                public void onResponse(LoginInfo response) {
+                    if (response.getInfoCode() == 0) {
+                        cancelLoading();
+                        ToastHelper.showShortCompleted("注册成功");
+                        gotoMainActivity();
+                    }
+                }
+            });
+        } else {
+            CommonRequest.forgetPassword(userInfo.phone, pw, new ResultCallback<CommonModel>() {
+                @Override
+                public void onError(Request request, Exception e) {
+
+                }
+
+                @Override
+                public void onResponse(CommonModel response) {
+                    if (response.getInfoCode() == 0) {
+
+                        ToastHelper.showShortCompleted("修改密码成功");
+                        gotoMainActivity();
+                    }
+                }
+            });
+        }
+
     }
 
     private void gotoMainActivity() {

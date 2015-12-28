@@ -106,17 +106,31 @@ public class CommonRequest {
     }
 
     /**
-     * 更改密码
+     * 忘记密码
      *
      * @param phone
      * @param password
      * @param callback
      */
-    public static void updataPassword(String phone, String password, ResultCallback<String> callback) {
+    public static void forgetPassword(String phone, String password, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.PHONE, phone);
         params.put(ServerParam.PASSWORD, password);
-        String url = createUrl("/api/v1/user/updatePassword", params);
+        String url = createUrl("/api/v1/user/forgetPassword.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).post(callback);
+    }
+    /**
+     * 更改密码 个人中心
+     *
+     * @param oldps
+     * @param password
+     * @param callback
+     */
+    public static void updataPassword(String oldps, String password, ResultCallback<CommonModel> callback) {
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.OLDPASSWORD, oldps);
+        params.put(ServerParam.PASSWORD, password);
+        String url = createUrl("/api/v1/user/updatePassword.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
 

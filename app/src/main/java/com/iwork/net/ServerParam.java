@@ -10,6 +10,7 @@ public class ServerParam {
     public static final String VERSION = "version";
     public static final String PHONE = "phone";
     public static final String PASSWORD ="password";
+    public static final String OLDPASSWORD="oldPassword";
     public static final String MAIL = "mail";
     public static final String POSITION = "position";
     public static final String EXPERIENCE = "experience";

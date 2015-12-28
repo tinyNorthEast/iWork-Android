@@ -261,6 +261,7 @@ public class RegisterActivity extends BaseActivity {
             startActivity(intent);
         } else {
             Intent intent = new Intent(this, PasswordActivity.class);
+            intent.putExtra("password",isRegiste);
             startActivity(intent);
         }
     }

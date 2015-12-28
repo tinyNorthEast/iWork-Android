@@ -53,7 +53,7 @@ public class SetUserInfoActivity extends BaseActivity {
         ButterKnife.bind(this);
         setuserTitlebar.setTitle("修改个人信息");
         setuserTitlebar.setBackDrawableListener(backListener);
-        setuserTitlebar.setRightTextView("保存", saveListener);
+        setuserTitlebar.setRightTextView("保存", R.color.white, saveListener);
     }
 
     private View.OnClickListener saveListener = new View.OnClickListener() {
@@ -74,7 +74,7 @@ public class SetUserInfoActivity extends BaseActivity {
 
                 @Override
                 public void onResponse(CommonModel response) {
-                    if (response.getInfoCode()==0){
+                    if (response.getInfoCode() == 0) {
                         ToastHelper.showShortCompleted("修改信息成功");
                         finish();
                     }

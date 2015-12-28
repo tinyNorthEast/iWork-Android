@@ -192,7 +192,8 @@
         <activity android:name="com.iwork.ui.activity.MySelfActivity" />
         <activity android:name="com.iwork.ui.activity.SendMessageActivity" />
         <activity android:name="com.iwork.ui.activity.SetUserInfoActivity" />
-        <activity android:name="com.iwork.ui.activity.CommentActivity"/>
+        <activity android:name="com.iwork.ui.activity.CommentActivity" />
+        <activity android:name="com.iwork.ui.activity.SetMyselfPassword"></activity>
     </application>
 
 </manifest>

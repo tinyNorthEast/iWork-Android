@@ -39,16 +39,6 @@ public class SetActivity extends BaseActivity {
     }
 
     /**
-     * 标题栏返回按钮点击监听
-     */
-    private View.OnClickListener backListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            finish();
-        }
-    };
-
-    /**
      * 清除缓存
      */
     @OnClick(R.id.clear_img_cache)

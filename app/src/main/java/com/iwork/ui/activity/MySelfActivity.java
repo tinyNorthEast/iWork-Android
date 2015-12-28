@@ -47,6 +47,7 @@ public class MySelfActivity extends BaseActivity {
         setContentView(R.layout.activity_my_self);
         ButterKnife.bind(this);
         myselfTitlebar.setTitle("个人中心");
+        myselfTitlebar.setBackDrawableListener(backListener);
         myselfTitlebar.setCustomImageButtonRight(R.drawable.title_bar_set, setListener);
         getMySelfData();
     }

@@ -49,12 +49,14 @@
             android:layout_marginLeft="10dp"
             android:text="推送设置"
             android:textSize="18sp" />
+
         <Switch
-            android:layout_marginLeft="220dp"
             android:id="@+id/set_push_switch"
-            android:checked="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="220dp"
+            android:checked="true" />
     </LinearLayout>
 
     <View
@@ -111,6 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_line_height"
         android:background="@color/gray" />
+
     <Button
         android:id="@+id/myself_btn_exit"
         android:layout_width="fill_parent"
