@@ -1,4 +1,4 @@
-package com.iwork.ui.activity;
+package com.iwork.ui.activity.regist;
 
 import android.Manifest;
 import android.content.Context;

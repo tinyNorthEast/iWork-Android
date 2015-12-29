@@ -1,4 +1,4 @@
-package com.iwork.ui.activity;
+package com.iwork.ui.activity.persondetail;
 
 import android.animation.Animator;
 import android.content.Intent;
@@ -31,6 +31,8 @@ import com.iwork.model.PersonDetail.DataEntity.HeadhunterInfoEntity.IndustryList
 import com.iwork.model.PersonDetail.DataEntity.PerformanceListEntity;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.activity.LoginActivity;
+import com.iwork.ui.activity.common.CommentActivity;
 import com.iwork.ui.view.FlowLayout;
 import com.iwork.ui.view.ObservableScrollView;
 import com.iwork.ui.view.TagAdapter;
@@ -39,7 +41,6 @@ import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
 import com.iwork.utils.LoginUtil;
-import com.iwork.utils.Utils;
 import com.squareup.okhttp.Request;
 
 import java.util.List;

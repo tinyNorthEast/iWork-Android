@@ -176,24 +176,24 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name="com.iwork.ui.activity.MessageActivity" />
+        <activity android:name="com.iwork.ui.activity.common.MessageActivity" />
         <activity
             android:name="com.iwork.ui.activity.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
-            android:name="com.iwork.ui.activity.RegisterActivity"
+            android:name="com.iwork.ui.activity.regist.RegisterActivity"
             android:label="注册" />
-        <activity android:name="com.iwork.ui.activity.SignUserInfoActivity" />
-        <activity android:name="com.iwork.ui.activity.PositionInfoActivity" />
-        <activity android:name="com.iwork.ui.activity.PasswordActivity" />
+        <activity android:name="com.iwork.ui.activity.regist.SignUserInfoActivity" />
+        <activity android:name="com.iwork.ui.activity.regist.PositionInfoActivity" />
+        <activity android:name="com.iwork.ui.activity.regist.PasswordActivity" />
         <activity android:name="com.iwork.ui.activity.CityListActivity" />
-        <activity android:name="com.iwork.ui.activity.PersonDetailActivty" />
-        <activity android:name="com.iwork.ui.activity.SetActivity" />
-        <activity android:name="com.iwork.ui.activity.MySelfActivity" />
-        <activity android:name="com.iwork.ui.activity.SendMessageActivity" />
-        <activity android:name="com.iwork.ui.activity.SetUserInfoActivity" />
-        <activity android:name="com.iwork.ui.activity.CommentActivity" />
-        <activity android:name="com.iwork.ui.activity.SetMyselfPassword"></activity>
+        <activity android:name="com.iwork.ui.activity.persondetail.PersonDetailActivty" />
+        <activity android:name="com.iwork.ui.activity.myself.SetActivity" />
+        <activity android:name="com.iwork.ui.activity.myself.MySelfActivity" />
+        <activity android:name="com.iwork.ui.activity.persondetail.SendMessageActivity" />
+        <activity android:name="com.iwork.ui.activity.myself.SetUserInfoActivity" />
+        <activity android:name="com.iwork.ui.activity.common.CommentActivity" />
+        <activity android:name="com.iwork.ui.activity.myself.SetMyselfPassword"></activity>
     </application>
 
 </manifest>

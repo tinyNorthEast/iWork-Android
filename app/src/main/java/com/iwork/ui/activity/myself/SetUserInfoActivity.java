@@ -1,8 +1,7 @@
-package com.iwork.ui.activity;
+package com.iwork.ui.activity.myself;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
-import com.iwork.Base.BaseApplication;
 import com.iwork.helper.ResourcesHelper;
 import com.iwork.helper.ToastHelper;
 import com.iwork.model.CommonModel;
@@ -19,8 +17,6 @@ import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.view.ListPickerWindow;
 import com.iwork.ui.view.TitleBar;
-import com.iwork.utils.TextUtil;
-import com.iwork.utils.Utils;
 import com.socks.library.KLog;
 import com.squareup.okhttp.Request;
 

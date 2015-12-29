@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_gray"
-    tools:context="com.iwork.ui.activity.SignUserInfoActivity">
+    tools:context="com.iwork.ui.activity.regist.SignUserInfoActivity">
 
     <com.iwork.ui.view.TitleBar
         android:id="@+id/regist_user_titlebar"

@@ -1,4 +1,4 @@
-package com.iwork.ui.activity;
+package com.iwork.ui.activity.myself;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import com.iwork.helper.ToastHelper;
 import com.iwork.model.MySelfModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.activity.common.MessageActivity;
 import com.iwork.ui.view.BadgeView;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
@@ -113,7 +114,7 @@ public class MySelfActivity extends BaseActivity {
     public void goTomyMessage() {
 
         Intent intent = new Intent(this, MessageActivity.class);
-        intent.putExtra(Constant.isfromSet,true);
+        intent.putExtra(Constant.ISFROMSET,true);
         startActivity(intent);
     }
 

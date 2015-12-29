@@ -1,4 +1,4 @@
-package com.iwork.ui.activity;
+package com.iwork.ui.activity.regist;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -9,10 +9,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Patterns;
-import android.util.TimeUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -36,7 +34,6 @@ import com.iwork.utils.ImageUtil;
 import com.iwork.utils.NetConstant;
 import com.iwork.utils.TextUtil;
 import com.iwork.utils.TimeUtil;
-import com.jakewharton.rxbinding.widget.RxTextView;
 import com.qiniu.android.http.ResponseInfo;
 import com.qiniu.android.storage.UpCompletionHandler;
 import com.qiniu.android.storage.UploadManager;

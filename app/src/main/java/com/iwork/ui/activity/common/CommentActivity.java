@@ -1,4 +1,4 @@
-package com.iwork.ui.activity;
+package com.iwork.ui.activity.common;
 
 import android.os.Bundle;
 

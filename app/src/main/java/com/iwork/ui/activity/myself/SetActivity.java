@@ -1,4 +1,4 @@
-package com.iwork.ui.activity;
+package com.iwork.ui.activity.myself;
 
 import android.os.Bundle;
 import android.widget.Button;

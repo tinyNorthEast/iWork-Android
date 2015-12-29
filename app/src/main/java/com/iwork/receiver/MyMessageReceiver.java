@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.iwork.ui.activity.MessageActivity;
+import com.iwork.ui.activity.common.MessageActivity;
 import com.iwork.utils.Constant;
 import com.socks.library.KLog;
 
@@ -15,7 +15,6 @@ import org.json.JSONObject;
 import java.util.Iterator;
 
 import cn.jpush.android.api.JPushInterface;
-import cn.jpush.android.data.JPushLocalNotification;
 
 public class MyMessageReceiver extends BroadcastReceiver {
     private static final String TAG = MyMessageReceiver.class.getName();

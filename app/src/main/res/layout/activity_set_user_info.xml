@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_light_gray_sss"
-    tools:context="com.iwork.ui.activity.SetUserInfoActivity">
+    tools:context="com.iwork.ui.activity.myself.SetUserInfoActivity">
 
     <com.iwork.ui.view.TitleBar
         android:id="@+id/setuser_titlebar"

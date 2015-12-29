@@ -1,4 +1,4 @@
-package com.iwork.ui.activity;
+package com.iwork.ui.activity.regist;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,11 +15,9 @@ import com.iwork.Base.BaseActivity;
 import com.iwork.Base.BaseApplication;
 import com.iwork.helper.ResourcesHelper;
 import com.iwork.helper.ToastHelper;
-import com.iwork.model.UserInfo;
-import com.iwork.net.CommonRequest;
+import com.iwork.ui.activity.regist.PasswordActivity;
 import com.iwork.ui.view.ListPickerWindow;
 import com.iwork.ui.view.TitleBar;
-import com.iwork.utils.TextUtil;
 import com.socks.library.KLog;
 
 import butterknife.Bind;

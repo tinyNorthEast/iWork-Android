@@ -3,19 +3,14 @@ package com.iwork.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PatternMatcher;
-import android.os.PersistableBundle;
-import android.preference.Preference;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
@@ -24,14 +19,11 @@ import com.iwork.model.LoginInfo;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.preferences.Preferences;
-import com.iwork.ui.dialog.LoadingDialog;
+import com.iwork.ui.activity.regist.RegisterActivity;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
 import com.iwork.utils.MD5;
-import com.iwork.utils.TextUtil;
 import com.iwork.utils.Utils;
-import com.jakewharton.rxbinding.widget.RxCheckedTextView;
-import com.jakewharton.rxbinding.widget.RxTextView;
 import com.socks.library.KLog;
 import com.squareup.okhttp.Request;
 
@@ -39,12 +31,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.jpush.android.api.JPushInterface;
-import rx.Observable;
-import rx.Observer;
-import rx.Subscriber;
-import rx.Subscription;
-import rx.functions.Func2;
-import rx.subscriptions.CompositeSubscription;
 
 /**
  * A login screen that offers login via email/password.

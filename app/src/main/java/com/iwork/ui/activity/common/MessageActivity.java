@@ -1,24 +1,20 @@
-package com.iwork.ui.activity;
+package com.iwork.ui.activity.common;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.TextView;
 
 import com.daimajia.swipe.util.Attributes;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
-import com.iwork.adapter.recyclerview.BaseAdapterHelper;
-import com.iwork.adapter.recyclerview.BaseQuickAdapter;
-import com.iwork.adapter.recyclerview.QuickAdapter;
 import com.iwork.adapter.recyclerview.RecyclerViewAdapter;
 import com.iwork.helper.ToastHelper;
-import com.iwork.model.MainList;
 import com.iwork.model.MessageList;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.activity.MainActivity;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
 import com.iwork.utils.UiThreadHandler;

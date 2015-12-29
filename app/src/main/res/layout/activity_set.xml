@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context="com.iwork.ui.activity.SetActivity">
+    tools:context="com.iwork.ui.activity.myself.SetActivity">
 
     <com.iwork.ui.view.TitleBar
         android:id="@+id/set_titlebar"

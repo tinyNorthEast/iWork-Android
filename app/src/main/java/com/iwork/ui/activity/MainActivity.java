@@ -12,11 +12,11 @@ import android.view.View;
 
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
-import com.iwork.helper.ToastHelper;
 import com.iwork.model.IndustryListModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.preferences.Preferences;
+import com.iwork.ui.activity.myself.MySelfActivity;
 import com.iwork.ui.fragment.SampleFragment;
 import com.iwork.ui.view.SlidingTabLayout;
 import com.iwork.ui.view.TitleBar;
