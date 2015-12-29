@@ -2,6 +2,7 @@ package com.iwork.ui.activity;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -9,12 +10,15 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
+import com.iwork.Base.BaseApplication;
 import com.iwork.helper.ToastHelper;
+import com.iwork.preferences.Preferences;
 import com.iwork.ui.view.TitleBar;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.jpush.android.api.JPushInterface;
 
 public class SetActivity extends BaseActivity {
 
@@ -40,6 +44,7 @@ public class SetActivity extends BaseActivity {
         ButterKnife.bind(this);
         setTitlebar.setTitle("设置");
         setTitlebar.setBackDrawableListener(backListener);
+        setPushSwitch();
     }
 
     /**
@@ -61,5 +66,24 @@ public class SetActivity extends BaseActivity {
     @OnClick(R.id.set_recommon)
     public void setInvate(){
 
+    }
+    @OnClick(R.id.myself_btn_exit)
+    public void setExitAccount(){
+        Preferences.getInstance().clear();
+        finish();
+    }
+    public void setPushSwitch(){
+        setPushSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    ToastHelper.showShortCompleted("开启推送");
+                    JPushInterface.resumePush(BaseApplication.getAppContext());
+                }else {
+                    ToastHelper.showShortCompleted("推送关闭");
+                    JPushInterface.stopPush(BaseApplication.getAppContext());
+                }
+            }
+        });
     }
 }

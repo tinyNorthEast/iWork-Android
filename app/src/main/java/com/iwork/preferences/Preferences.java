@@ -108,7 +108,9 @@ public class Preferences {
     }
 
     private void reset() {
-
+        setUserId("");
+        setToken("");
+        setPhone("");
     }
 
     public void commit() {
