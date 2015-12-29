@@ -14,11 +14,13 @@ import com.iwork.adapter.recyclerview.BaseAdapterHelper;
 import com.iwork.adapter.recyclerview.BaseQuickAdapter;
 import com.iwork.adapter.recyclerview.QuickAdapter;
 import com.iwork.adapter.recyclerview.RecyclerViewAdapter;
+import com.iwork.helper.ToastHelper;
 import com.iwork.model.MainList;
 import com.iwork.model.MessageList;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.view.TitleBar;
+import com.iwork.utils.Constant;
 import com.iwork.utils.UiThreadHandler;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -37,13 +39,19 @@ public class MessageActivity extends BaseActivity {
     @Bind(R.id.message_xrecyclerView)
     XRecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
         ButterKnife.bind(this);
         messageTitlebar.setTitle("消息列表");
-        messageTitlebar.setBackDrawableListener(mBackListener);
+        boolean isfromset = getIntent().getBooleanExtra(Constant.ISFROMSET, true);
+        if (isfromset) {
+            messageTitlebar.setBackDrawableListener(backListener);
+        } else {
+            messageTitlebar.setBackDrawableListener(mBackListener);
+        }
         initXRecyclerView();
         getMessageDate();
     }
@@ -57,8 +65,10 @@ public class MessageActivity extends BaseActivity {
 
             @Override
             public void onResponse(MessageList response) {
-                if (response.getInfoCode()==0){
+                if (response.getInfoCode() == 0) {
                     initAdaper(response.getData());
+                } else {
+                    ToastHelper.showShortError(response.getMessage());
                 }
             }
         });
@@ -77,7 +87,7 @@ public class MessageActivity extends BaseActivity {
     }
 
     private void initAdaper(List<MessageList.MessageDataEntity> list) {
-        mAdapter = new RecyclerViewAdapter(this,list);
+        mAdapter = new RecyclerViewAdapter(this, list);
         ((RecyclerViewAdapter) mAdapter).setMode(Attributes.Mode.Single);
         recyclerView.setAdapter(mAdapter);
     }

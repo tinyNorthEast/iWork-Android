@@ -7,13 +7,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
+import com.iwork.helper.ToastHelper;
 import com.iwork.model.MySelfModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.view.BadgeView;
 import com.iwork.ui.view.TitleBar;
+import com.iwork.utils.Constant;
 import com.squareup.okhttp.Request;
 
 import butterknife.Bind;
@@ -72,7 +75,10 @@ public class MySelfActivity extends BaseActivity {
                 if (response.getInfoCode() == 0) {
                     myselfTvName.setText(response.getData().getZh_name());
                     myselfTvRoleName.setText(response.getData().getRoleName());
+                    Glide.with(MySelfActivity.this).load(response.getData().getPic()).into(myselfIvUser);
                     showBadgeView(myselfMessages,response.getData().getNoticeCount()+"");
+                }else {
+                    ToastHelper.showShortError(response.getMessage());
                 }
             }
         });
@@ -107,6 +113,7 @@ public class MySelfActivity extends BaseActivity {
     public void goTomyMessage() {
 
         Intent intent = new Intent(this, MessageActivity.class);
+        intent.putExtra(Constant.isfromSet,true);
         startActivity(intent);
     }
 

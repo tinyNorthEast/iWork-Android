@@ -14,6 +14,7 @@ public class Constant {
     public static final String INDUSTRYID="industryid";
     public static final String CITY = "cityid";
     public static final int REQUEST_CODE_FOR_CITY = 1006;
+    public static final String ISFROMSET = "isfromSet";
     /**
      * SDCARD文件目录
      */

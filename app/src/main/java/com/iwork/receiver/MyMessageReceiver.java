@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.iwork.ui.activity.MessageActivity;
+import com.iwork.utils.Constant;
 import com.socks.library.KLog;
 
 import org.json.JSONException;
@@ -26,6 +27,7 @@ public class MyMessageReceiver extends BroadcastReceiver {
         KLog.i(TAG,intent.getAction() + ", extras: " + printBundle(bundle));
         if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())){
             Intent intent1 =new Intent(context, MessageActivity.class);
+            intent.putExtra(Constant.ISFROMSET,false);
             intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(intent1);
         }
