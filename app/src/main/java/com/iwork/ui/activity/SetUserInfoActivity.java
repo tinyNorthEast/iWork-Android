@@ -1,5 +1,6 @@
 package com.iwork.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -86,7 +87,8 @@ public class SetUserInfoActivity extends BaseActivity {
 
     @OnClick(R.id.myself_setmypassword)
     public void setPassword() {
-
+        Intent intent = new Intent(this,SetMyselfPassword.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.myself_setmyexpersence)

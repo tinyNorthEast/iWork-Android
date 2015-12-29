@@ -69,6 +69,8 @@ public class SetMyselfPassword extends BaseActivity {
                 if (response.getInfoCode() == 0) {
                     ToastHelper.showShortCompleted("修改密码成功");
                     finish();
+                }else {
+                    ToastHelper.showShortError(response.getMessage());
                 }
             }
         });

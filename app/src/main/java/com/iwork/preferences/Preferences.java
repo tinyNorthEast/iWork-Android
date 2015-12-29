@@ -73,6 +73,7 @@ public class Preferences {
 
     /**
      * 保存当前的城市id
+     *
      * @param cityid
      */
     public void setCurrentCityId(int cityid) {
@@ -82,6 +83,20 @@ public class Preferences {
 
     public int getCurrentCityId() {
         return mPref.getInt("cityId", 10001);
+    }
+
+    /**
+     * 保存手机号
+     *
+     * @param phone
+     */
+    public void setPhone(String phone) {
+        mEditor.putString("phone", phone);
+        mEditor.commit();
+    }
+
+    public String getPhone() {
+        return mPref.getString("phone", "");
     }
 
     /**

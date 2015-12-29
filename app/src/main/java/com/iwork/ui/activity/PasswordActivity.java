@@ -16,6 +16,7 @@ import com.iwork.model.LoginInfo;
 import com.iwork.model.UserInfo;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.preferences.Preferences;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
 import com.iwork.utils.MD5;
@@ -70,7 +71,7 @@ public class PasswordActivity extends BaseActivity {
             return;
         }
         showLoading(R.string.loading);
-        UserInfo userInfo = BaseApplication.getAppContext().getmUserInfo();
+        final UserInfo userInfo = BaseApplication.getAppContext().getmUserInfo();
         String pw = MD5.toMD5(passwordCmInput.getText().toString());
         if (flag) {
 
@@ -84,6 +85,7 @@ public class PasswordActivity extends BaseActivity {
                 public void onResponse(LoginInfo response) {
                     if (response.getInfoCode() == 0) {
                         cancelLoading();
+                        Preferences.getInstance().setPhone(userInfo.phone);
                         ToastHelper.showShortCompleted("注册成功");
                         gotoMainActivity();
                     }

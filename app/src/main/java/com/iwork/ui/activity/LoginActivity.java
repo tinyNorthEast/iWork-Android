@@ -108,6 +108,7 @@ public class LoginActivity extends BaseActivity {
                 Preferences.getInstance().setToken(response.getLogin_data().getToken());
                 Preferences.getInstance().setZhName(response.getLogin_data().getZh_name());
                 Preferences.getInstance().setUserId(response.getLogin_data().getUserId());
+                Preferences.getInstance().setPhone(phone);
                 JPushInterface.setAlias(getApplicationContext(), response.getLogin_data().getUserId(), null);
                 finish();
             } else {
@@ -115,10 +116,10 @@ public class LoginActivity extends BaseActivity {
             }
         }
     };
-
+    private String phone;
     @OnClick(R.id.login_btn_submit)
     public void loginSubmit() {
-        String phone = loginEdPhoneInput.getText().toString();
+        phone = loginEdPhoneInput.getText().toString();
         String password = loginEdPwdInput.getText().toString();
         if (!Utils.isPhone(phone)) {
             ToastHelper.showShortError("请输入正确的手机号");

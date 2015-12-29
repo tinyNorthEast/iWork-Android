@@ -1,18 +1,16 @@
 package com.iwork.ui.activity;
 
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.helper.ToastHelper;
-import com.iwork.preferences.Preferences;
 import com.iwork.ui.view.TitleBar;
-import com.iwork.utils.Utils;
-import com.socks.library.KLog;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -28,6 +26,12 @@ public class SetActivity extends BaseActivity {
     LinearLayout exitAccount;
     @Bind(R.id.img_size)
     TextView imgSize;
+    @Bind(R.id.set_recommon)
+    LinearLayout setRecommon;
+    @Bind(R.id.set_push_switch)
+    Switch setPushSwitch;
+    @Bind(R.id.myself_btn_exit)
+    Button myselfBtnExit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +50,16 @@ public class SetActivity extends BaseActivity {
         Glide.get(this).clearMemory();
         ToastHelper.showShortCompleted("已经清除缓存");
     }
+
     @OnClick(R.id.set_about)
-    public void setAbout(){
-//        Preferences.getInstance().clear();
-//        finish();
+    public void setAbout() {
+    }
+
+    /**
+     * 生成邀请码
+     */
+    @OnClick(R.id.set_recommon)
+    public void setInvate(){
+
     }
 }

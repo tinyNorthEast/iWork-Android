@@ -279,7 +279,15 @@ public class CommonRequest {
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
 
-
+    /**
+     * 获取邀请码
+     */
+    public static void setInvate(){
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.TOKEN,Preferences.getInstance().getToken());
+        params.put(ServerParam.PHONE,Preferences.getInstance().getPhone());
+        String url = createUrl("/api/v1/industry/findIndustryList.action", params);
+    }
     protected static String createUrl(String path, Map<String, String> params) {
         params.put(ServerParam.CLIENT, Constant.CLIEN);
         params.put(ServerParam.EQ_NUM, Constant.ANDROID_ID);
