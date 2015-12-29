@@ -78,6 +78,8 @@ public class SetUserInfoActivity extends BaseActivity {
                     if (response.getInfoCode() == 0) {
                         ToastHelper.showShortCompleted("修改信息成功");
                         finish();
+                    }else {
+                        ToastHelper.showShortError(response.getMessage());
                     }
                 }
             });

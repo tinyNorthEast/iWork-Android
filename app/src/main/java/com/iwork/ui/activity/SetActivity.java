@@ -12,8 +12,12 @@ import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.Base.BaseApplication;
 import com.iwork.helper.ToastHelper;
+import com.iwork.model.InvateCodeMode;
+import com.iwork.net.CommonRequest;
+import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.preferences.Preferences;
 import com.iwork.ui.view.TitleBar;
+import com.squareup.okhttp.Request;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -65,7 +69,19 @@ public class SetActivity extends BaseActivity {
      */
     @OnClick(R.id.set_recommon)
     public void setInvate(){
+        CommonRequest.getInvateCode(new ResultCallback<InvateCodeMode>() {
+            @Override
+            public void onError(Request request, Exception e) {
 
+            }
+
+            @Override
+            public void onResponse(InvateCodeMode response) {
+                if (response.getInfoCode()==0){
+
+                }
+            }
+        });
     }
     @OnClick(R.id.myself_btn_exit)
     public void setExitAccount(){

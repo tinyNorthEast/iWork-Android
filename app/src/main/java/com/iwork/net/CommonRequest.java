@@ -7,6 +7,7 @@ import com.iwork.model.CityList;
 import com.iwork.model.CommentListModel;
 import com.iwork.model.CommonModel;
 import com.iwork.model.IndustryListModel;
+import com.iwork.model.InvateCodeMode;
 import com.iwork.model.LoginInfo;
 import com.iwork.model.MainList;
 import com.iwork.model.MessageList;
@@ -119,6 +120,7 @@ public class CommonRequest {
         String url = createUrl("/api/v1/user/forgetPassword.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
+
     /**
      * 更改密码 个人中心
      *
@@ -185,8 +187,7 @@ public class CommonRequest {
      */
     public static void getMySelfData(ResultCallback<MySelfModel> callback) {
         Map<String, String> params = new HashMap<>();
-        String token = Preferences.getInstance().getToken();
-        params.put(ServerParam.TOKEN, token);
+        params.put(ServerParam.TOKEN,Preferences.getInstance().getToken());
         String url = createUrl("/api/v1/user/get.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
@@ -249,6 +250,7 @@ public class CommonRequest {
             params.put(ServerParam.COMPANY, company);
         if (experience != 0)
             params.put(ServerParam.EXPERIENCE, experience + "");
+        params.put(ServerParam.TOKEN,Preferences.getInstance().getToken());
         String url = createUrl("/api/v1/user/update.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
@@ -262,6 +264,7 @@ public class CommonRequest {
     public static void saveAttention(int attention_to_id, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.ATTENTION_TO_ID, attention_to_id + "");
+        params.put(ServerParam.TOKEN,Preferences.getInstance().getToken());
         String url = createUrl("/api/v1/attention/saveAttention.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
@@ -275,6 +278,7 @@ public class CommonRequest {
     public static void cancelAttention(int objId, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.OBJID, objId + "");
+        params.put(ServerParam.TOKEN,Preferences.getInstance().getToken());
         String url = createUrl("/api/v1/attention/cancelAttention.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
@@ -282,12 +286,13 @@ public class CommonRequest {
     /**
      * 获取邀请码
      */
-    public static void setInvate(){
+    public static void getInvateCode(ResultCallback<InvateCodeMode> callback) {
         Map<String, String> params = new HashMap<>();
-        params.put(ServerParam.TOKEN,Preferences.getInstance().getToken());
-        params.put(ServerParam.PHONE,Preferences.getInstance().getPhone());
-        String url = createUrl("/api/v1/industry/findIndustryList.action", params);
+        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
+        String url = createUrl("/api/v1/invate/getInvates.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
+
     protected static String createUrl(String path, Map<String, String> params) {
         params.put(ServerParam.CLIENT, Constant.CLIEN);
         params.put(ServerParam.EQ_NUM, Constant.ANDROID_ID);
