@@ -369,6 +369,7 @@ public class PersonDetailActivty extends BaseActivity {
     @OnClick(R.id.detail_bottom_sendms_layout)
     public void sendMessage() {
         Intent intent = new Intent(this, SendMessageActivity.class);
+        intent.putExtra(Constant.C_MAIN_ID,headhunter_id);
         startActivity(intent);
     }
 

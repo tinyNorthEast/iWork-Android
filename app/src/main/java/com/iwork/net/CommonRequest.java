@@ -358,6 +358,24 @@ public class CommonRequest {
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
 
+    /**
+     * 发表评论
+     * @param c_main_id
+     * @param c_to_user_id
+     * @param content
+     * @param callback
+     */
+    public static void sendComment(int c_main_id,int c_to_user_id,String content,ResultCallback<CommonModel>callback){
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
+        params.put(ServerParam.CONTENT, content);
+        if (c_main_id != 0)
+            params.put(ServerParam.C_MAIN_ID, c_main_id + "");
+        if (c_to_user_id != 0)
+            params.put(ServerParam.C_TO_USER_ID, c_to_user_id + "");
+        String url = createUrl("/api/v1/comment/saveComment.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+    }
     protected static String createUrl(String path, Map<String, String> params) {
         params.put(ServerParam.CLIENT, Constant.CLIEN);
         params.put(ServerParam.EQ_NUM, Constant.ANDROID_ID);

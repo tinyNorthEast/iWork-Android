@@ -9,8 +9,8 @@ public class ServerParam {
     public static final String EQ_NUM = "eq_num";
     public static final String VERSION = "version";
     public static final String PHONE = "phone";
-    public static final String PASSWORD ="password";
-    public static final String OLDPASSWORD="oldPassword";
+    public static final String PASSWORD = "password";
+    public static final String OLDPASSWORD = "oldPassword";
     public static final String MAIL = "mail";
     public static final String POSITION = "position";
     public static final String EXPERIENCE = "experience";
@@ -28,8 +28,11 @@ public class ServerParam {
     public static final String OBJID = "objId";
     public static final String INDUSTRYID = "industryId";
     public static final String CITY = "city";
-    public static final String N_TYPE="n_type";
+    public static final String N_TYPE = "n_type";
     public static final String ID = "id";
     public static final String SEARCHTYPE = "searchType";
-    public static final String PAGESIZE="pageSize";
+    public static final String PAGESIZE = "pageSize";
+    public static final String C_MAIN_ID = "c_main_id";
+    public static final String C_TO_USER_ID = "c_to_user_id";
+    public static final String CONTENT = "content";
 }

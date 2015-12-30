@@ -17,6 +17,7 @@
         android:layout_height="100dp"
         android:layout_below="@+id/sendmes_titlebar"
         android:layout_margin="10dp"
+        android:maxLength="140"
         android:background="@drawable/fb_content_bg"
         android:gravity="left"
         android:hint="请输入您的留言"
