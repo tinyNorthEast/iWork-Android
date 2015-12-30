@@ -175,8 +175,6 @@ public class CommonRequest {
     public static void getDetail(int headHunterId, ResultCallback<PersonDetail> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.HEADHUNTERID, headHunterId + "");
-//        String token = Preferences.getInstance().getToken();
-//        params.put(ServerParam.TOKEN, token);
         String url = createUrl("/api/v1/headhunter/detail.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
@@ -209,7 +207,7 @@ public class CommonRequest {
     }
 
     /**
-     * 获取评论列表
+     * 获取消息列表
      *
      * @param callback
      */

@@ -288,6 +288,7 @@ public class PersonDetailActivty extends BaseActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(PersonDetailActivty.this, CommentActivity.class);
+                    intent.putExtra(Constant.COMMENTID,headhunter_id);
                     startActivity(intent);
                 }
             });

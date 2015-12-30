@@ -16,6 +16,7 @@ public class Constant {
     public static final int REQUEST_CODE_FOR_CITY = 1006;
     public static final String ISFROMSET = "isfromSet";
     public static final String MESSAGETYPE = "messagetype";
+    public static final String COMMENTID="commentid";
     /**
      * SDCARD文件目录
      */
