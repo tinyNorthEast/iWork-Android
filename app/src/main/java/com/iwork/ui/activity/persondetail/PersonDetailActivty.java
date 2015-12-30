@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
+import com.iwork.helper.ResourcesHelper;
 import com.iwork.helper.ToastHelper;
 import com.iwork.model.CommonModel;
 import com.iwork.model.PersonDetail;
@@ -87,6 +88,8 @@ public class PersonDetailActivty extends BaseActivity {
     RadioButton detailPersonFavorite;
     @Bind(R.id.detail_comment_layout)
     RelativeLayout detailCommentLayout;
+    @Bind(R.id.detail_performance_bt)
+    Button detailPerformanceBt;
 
     private List<DescribeListEntity> mDescribeVals;
     private List<IndustryListEntity> mIndustryVals;
@@ -96,6 +99,7 @@ public class PersonDetailActivty extends BaseActivity {
     private boolean mIsShowing;
     private String phone;
     private int objId;
+    private int headhunter_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,6 +155,7 @@ public class PersonDetailActivty extends BaseActivity {
             public void onResponse(PersonDetail response) {
                 if (response.getInfoCode() == 0) {
                     phone = response.getData().getHeadhunterInfo().getPhone();
+                    headhunter_id = response.getData().getHeadhunterInfo().getObjId();
                     detailPersonRealname.setText(response.getData().getHeadhunterInfo().getRealName());
                     Glide.with(PersonDetailActivty.this).load(response.getData().getHeadhunterInfo().getPic())
                             .error(R.drawable.detail_no_pic).placeholder(R.drawable.detail_no_pic).into(detailPersonPic);
@@ -159,11 +164,43 @@ public class PersonDetailActivty extends BaseActivity {
                     setFunctionData(response.getData().getHeadhunterInfo().getFunctionsList());
                     setPerformanceData(response.getData().getPerformanceList());
                     setCommentData(response.getData().getCommentList());
+                    if (response.getData().getHeadhunterInfo().getIsAuth()==1){
+                        detailPerformanceBt.setVisibility(View.VISIBLE);
+                    }else {
+                        detailPerformanceBt.setVisibility(View.GONE);
+                    }
                 }
             }
         });
     }
 
+    /**
+     * 申请查看权限
+     */
+    @OnClick(R.id.detail_performance_bt)
+    private void getAuthoried(){
+       detailPerformanceBt.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+                CommonRequest.getAuth(headhunter_id, new ResultCallback<CommonModel>() {
+                    @Override
+                    public void onError(Request request, Exception e) {
+
+                    }
+
+                    @Override
+                    public void onResponse(CommonModel response) {
+                        if (response.getInfoCode()==0){
+                            ToastHelper.showLongCompleteMessage(ResourcesHelper.getString(R.string.get_author_success));
+                            detailPerformanceBt.setVisibility(View.GONE);
+                        }else {
+                            ToastHelper.showShortError(response.getMessage());
+                        }
+                    }
+                });
+           }
+       });
+    }
     /**
      * 添加自我介绍数据
      *

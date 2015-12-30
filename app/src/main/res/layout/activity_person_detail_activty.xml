@@ -215,7 +215,16 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:orientation="vertical" />
-
+                <Button
+                    android:id="@+id/detail_performance_bt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/fb_content_bg"
+                    android:orientation="vertical"
+                    android:text="申请查看权限"
+                    android:textColor="@color/text_color_bg"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout

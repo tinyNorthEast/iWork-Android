@@ -318,6 +318,19 @@ public class CommonRequest {
         String url = createUrl("/api/v1/notice/deleteNotice.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
+
+    /**
+     * 申请权限
+     * @param headhunter_id
+     * @param callback
+     */
+    public static void getAuth(int headhunter_id,ResultCallback<CommonModel> callback){
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
+        params.put(ServerParam.HEADHUNTERID,headhunter_id+"");
+        String url = createUrl("/api/v1/headhunter/saveHeadhunterAuth.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+    }
     protected static String createUrl(String path, Map<String, String> params) {
         params.put(ServerParam.CLIENT, Constant.CLIEN);
         params.put(ServerParam.EQ_NUM, Constant.ANDROID_ID);
