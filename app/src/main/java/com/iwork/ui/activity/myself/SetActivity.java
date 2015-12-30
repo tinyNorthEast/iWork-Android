@@ -69,19 +69,7 @@ public class SetActivity extends BaseActivity {
      */
     @OnClick(R.id.set_recommon)
     public void setInvate(){
-        CommonRequest.getInvateCode(new ResultCallback<InvateCodeMode>() {
-            @Override
-            public void onError(Request request, Exception e) {
 
-            }
-
-            @Override
-            public void onResponse(InvateCodeMode response) {
-                if (response.getInfoCode()==0){
-
-                }
-            }
-        });
     }
     @OnClick(R.id.myself_btn_exit)
     public void setExitAccount(){

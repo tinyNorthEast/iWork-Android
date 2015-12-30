@@ -195,7 +195,8 @@
         <activity android:name="com.iwork.ui.activity.common.CommentActivity" />
         <activity android:name="com.iwork.ui.activity.myself.SetMyselfPassword" />
         <activity android:name="com.iwork.ui.activity.myself.MessageCountActivity" />
-        <activity android:name="com.iwork.ui.activity.common.AttentionActivity"></activity>
+        <activity android:name="com.iwork.ui.activity.common.AttentionActivity" />
+        <activity android:name="com.iwork.ui.activity.myself.InvateCodeActivity"></activity>
     </application>
 
 </manifest>
