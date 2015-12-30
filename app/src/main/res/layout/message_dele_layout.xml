@@ -72,15 +72,17 @@
 
                 <Button
                     android:id="@+id/message_item_content_bt_cancel"
-                    android:layout_width="60dp"
-                    android:layout_height="40dp"
-                    android:text="取消" />
+                    android:background="@drawable/cancel_bt"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                     />
 
                 <Button
                     android:id="@+id/message_item_content_bt_confim"
-                    android:layout_width="60dp"
-                    android:layout_height="40dp"
-                    android:text="确认" />
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/confim_bt" />
             </LinearLayout>
         </RelativeLayout>
     </com.daimajia.swipe.SwipeLayout>

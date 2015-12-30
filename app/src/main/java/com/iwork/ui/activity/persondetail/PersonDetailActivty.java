@@ -178,7 +178,7 @@ public class PersonDetailActivty extends BaseActivity {
      * 申请查看权限
      */
     @OnClick(R.id.detail_performance_bt)
-    private void getAuthoried(){
+    public void getAuthoried(){
        detailPerformanceBt.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {

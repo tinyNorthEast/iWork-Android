@@ -22,6 +22,8 @@ import com.squareup.okhttp.Request;
 
 import java.util.List;
 
+import butterknife.OnClick;
+
 public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.SimpleViewHolder> {
 
     public static class SimpleViewHolder extends RecyclerView.ViewHolder {
@@ -62,7 +64,7 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(final SimpleViewHolder viewHolder, final int position) {
-        String item = mDataset.get(position).getContent();
+        MessageList.MessageDataEntity item = mDataset.get(position);
         viewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
         viewHolder.dele_ly.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,9 +88,29 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
                 });
             }
         });
-        viewHolder.message_content_title.setText(item);
+        viewHolder.message_content_title.setText(item.getContent());
+        if (item.getN_type() == 2) {
+            viewHolder.button_ly.setVisibility(View.VISIBLE);
+            viewHolder.bt_confim.setOnClickListener(confimListener);
+            viewHolder.bt_cancel.setOnClickListener(cancelListener);
+        } else {
+            viewHolder.button_ly.setVisibility(View.GONE);
+        }
         mItemManger.bindView(viewHolder.itemView, position);
     }
+
+    private View.OnClickListener confimListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+        }
+    };
+    private View.OnClickListener cancelListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+        }
+    };
 
     @Override
     public int getItemCount() {

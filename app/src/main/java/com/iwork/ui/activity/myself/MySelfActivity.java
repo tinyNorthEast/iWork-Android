@@ -77,7 +77,7 @@ public class MySelfActivity extends BaseActivity {
                 if (response.getInfoCode() == 0) {
                     myselfTvName.setText(response.getData().getZh_name());
                     myselfTvRoleName.setText(response.getData().getRoleName());
-                    Glide.with(MySelfActivity.this).load(response.getData().getPic()).into(myselfIvUser);
+                    Glide.with(MySelfActivity.this).load(response.getData().getPic()).error(R.drawable.myself_head).placeholder(R.drawable.myself_head).into(myselfIvUser);
                     showBadgeView(myselfMessages,response.getData().getNoticeCount()+"");
                 }else {
                     ToastHelper.showShortError(response.getMessage());

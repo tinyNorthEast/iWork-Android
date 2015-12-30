@@ -85,7 +85,7 @@ public class MessageCountActivity extends BaseActivity {
     }
 
     @OnClick(R.id.message_count_comment_layout)
-    private void messagecomment() {
+    public void messagecomment() {
         Intent i = new Intent(this, MessageActivity.class);
         i.putExtra(Constant.MESSAGETYPE, 1);
         i.putExtra(Constant.ISFROMSET, true);
@@ -94,7 +94,7 @@ public class MessageCountActivity extends BaseActivity {
     }
 
     @OnClick(R.id.message_count_authority_layout)
-    private void messageauthorty() {
+    public void messageauthorty() {
         Intent i = new Intent(this, MessageActivity.class);
         i.putExtra(Constant.MESSAGETYPE, 2);
         i.putExtra(Constant.ISFROMSET, true);
@@ -102,7 +102,7 @@ public class MessageCountActivity extends BaseActivity {
     }
 
     @OnClick(R.id.message_count_attention_layout)
-    private void messageattention() {
+    public void messageattention() {
         Intent i = new Intent(this, MessageActivity.class);
         i.putExtra(Constant.MESSAGETYPE, 3);
         i.putExtra(Constant.ISFROMSET, true);
@@ -110,7 +110,7 @@ public class MessageCountActivity extends BaseActivity {
     }
 
     @OnClick(R.id.message_count_system_layout)
-    private void messagesystem() {
+    public void messagesystem() {
         Intent i = new Intent(this, MessageActivity.class);
         i.putExtra(Constant.MESSAGETYPE, 4);
         i.putExtra(Constant.ISFROMSET, true);

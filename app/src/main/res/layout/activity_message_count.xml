@@ -50,7 +50,7 @@
                 android:layout_below="@+id/message_count_comment_title"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/message_count_comment_iv"
-                tools:text="5个未读消息" />
+                android:text="0个未读消息" />
         </RelativeLayout>
 
         <View
@@ -90,7 +90,7 @@
                 android:layout_below="@+id/message_count_authority_iv"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/message_count_authority_iv"
-                tools:text="5个未读消息" />
+                android:text="0个未读消息" />
         </RelativeLayout>
 
         <View
@@ -131,7 +131,7 @@
                 android:layout_below="@+id/message_count_attention_title"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/message_count_attention_iv"
-                tools:text="5个未读消息" />
+                android:text="0个未读消息" />
         </RelativeLayout>
 
         <View
@@ -171,7 +171,7 @@
                 android:layout_below="@+id/message_count_system_title"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/message_count_system_iv"
-                tools:text="5个未读消息" />
+                android:text="0个未读消息" />
         </RelativeLayout>
 
         <View

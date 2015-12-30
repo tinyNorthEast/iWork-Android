@@ -20,6 +20,7 @@ import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.squareup.okhttp.Request;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -29,7 +30,8 @@ public class AttentionActivity extends BaseActivity {
 
     @Bind(R.id.attention_titlebar)
     TitleBar attentionTitlebar;
-    private int searchType, pageNo;
+    private int searchType;
+    private int pageNo=1;
     private int pageSize = 10;
     @Bind(R.id.attention_xrecyclerview)
     XRecyclerView attentionXrecyclerview;
@@ -41,6 +43,7 @@ public class AttentionActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attention);
         ButterKnife.bind(this);
+        initXRecyclerView();
         searchType = getIntent().getIntExtra(Constant.SEARCHTYPE, 1);
         if (searchType == 1) {
             attentionTitlebar.setTitle("我的关注");
@@ -48,6 +51,7 @@ public class AttentionActivity extends BaseActivity {
             attentionTitlebar.setTitle("谁关注了我");
         }
         attentionTitlebar.setBackDrawableListener(backListener);
+        attentions = new ArrayList<>();
         getData();
     }
 
