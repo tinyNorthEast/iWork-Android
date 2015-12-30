@@ -89,13 +89,6 @@ public class MessageActivity extends BaseActivity {
         recyclerView.setAdapter(mAdapter);
     }
 
-    private View.OnClickListener deleClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-        }
-    };
-
     /**
      * 上拉刷新 下拉加载 监听
      */

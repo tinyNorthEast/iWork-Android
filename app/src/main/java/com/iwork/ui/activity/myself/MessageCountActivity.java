@@ -83,21 +83,29 @@ public class MessageCountActivity extends BaseActivity {
             }
         });
     }
+
     @OnClick(R.id.message_count_comment_layout)
-    private void messagecomment(){
-        Intent i= new Intent(this, MessageActivity.class);
-        i.putExtra(Constant.MESSAGETYPE,1);
+    private void messagecomment() {
+        Intent i = new Intent(this, MessageActivity.class);
+        i.putExtra(Constant.MESSAGETYPE, 1);
+        i.putExtra(Constant.ISFROMSET, true);
         startActivity(i);
 
-    }@OnClick(R.id.message_count_authority_layout)
-    private void messageauthorty(){
-        Intent i= new Intent(this, MessageActivity.class);
-        i.putExtra(Constant.MESSAGETYPE,2);
+    }
+
+    @OnClick(R.id.message_count_authority_layout)
+    private void messageauthorty() {
+        Intent i = new Intent(this, MessageActivity.class);
+        i.putExtra(Constant.MESSAGETYPE, 2);
+        i.putExtra(Constant.ISFROMSET, true);
         startActivity(i);
-    }@OnClick(R.id.message_count_attention_layout)
-    private void messageattention(){
-        Intent i= new Intent(this, MessageActivity.class);
-        i.putExtra(Constant.MESSAGETYPE,3);
+    }
+
+    @OnClick(R.id.message_count_attention_layout)
+    private void messageattention() {
+        Intent i = new Intent(this, MessageActivity.class);
+        i.putExtra(Constant.MESSAGETYPE, 3);
+        i.putExtra(Constant.ISFROMSET, true);
         startActivity(i);
     }
 
@@ -105,6 +113,7 @@ public class MessageCountActivity extends BaseActivity {
     private void messagesystem() {
         Intent i = new Intent(this, MessageActivity.class);
         i.putExtra(Constant.MESSAGETYPE, 4);
+        i.putExtra(Constant.ISFROMSET, true);
         startActivity(i);
     }
 }

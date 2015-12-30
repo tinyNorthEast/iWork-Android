@@ -306,6 +306,18 @@ public class CommonRequest {
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
 
+    /**
+     * 删除消息
+     * @param id
+     * @param callback
+     */
+    public static void deleteMessage(int id ,ResultCallback<CommonModel> callback){
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
+        params.put(ServerParam.ID,id+"");
+        String url = createUrl("/api/v1/notice/deleteNotice.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+    }
     protected static String createUrl(String path, Map<String, String> params) {
         params.put(ServerParam.CLIENT, Constant.CLIEN);
         params.put(ServerParam.EQ_NUM, Constant.ANDROID_ID);

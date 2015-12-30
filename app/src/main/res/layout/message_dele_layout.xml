@@ -1,35 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:id="@+id/parent_framelayout" xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_framelayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <com.daimajia.swipe.SwipeLayout
         android:id="@+id/message_swipe"
-        android:layout_width="match_parent" android:layout_height="80dp">
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
         <LinearLayout
             android:id="@+id/message_item_dele_layout"
             android:layout_width="80dp"
             android:layout_height="match_parent">
+
             <ImageView
                 android:id="@+id/message_item_dele_iv"
-                android:src="@drawable/trash"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="@color/color_red"
                 android:paddingLeft="25dp"
                 android:paddingRight="25dp"
-                android:layout_height="match_parent" />
+                android:src="@drawable/trash" />
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/message_item_content_layout"
-            android:padding="10dp"
-            android:background="#ffffff"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/message_item_content_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/myself_set_profession" />
+
+            <TextView
+                android:id="@+id/message_item_content_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/message_item_content_iv"
+                android:layout_toRightOf="@+id/message_item_content_iv"
+                android:text="权限消息"
+                android:textSize="18sp" />
+
             <TextView
                 android:id="@+id/message_item_content_tv"
-                android:text="SeekBar"
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/message_item_content_iv"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/message_item_content_iv"
+                tools:text="5个未读消息" />
+
+            <LinearLayout
+                android:id="@+id/message_item_content_bt_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/message_item_content_bt_cancel"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:text="取消" />
+
+                <Button
+                    android:id="@+id/message_item_content_bt_confim"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:text="确认" />
+            </LinearLayout>
+        </RelativeLayout>
     </com.daimajia.swipe.SwipeLayout>
 </FrameLayout>
