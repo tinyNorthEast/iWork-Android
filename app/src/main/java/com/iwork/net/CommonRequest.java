@@ -10,6 +10,7 @@ import com.iwork.model.IndustryListModel;
 import com.iwork.model.InvateCodeMode;
 import com.iwork.model.LoginInfo;
 import com.iwork.model.MainList;
+import com.iwork.model.MessageCountModel;
 import com.iwork.model.MessageList;
 import com.iwork.model.MySelfModel;
 import com.iwork.model.PersonDetail;
@@ -187,7 +188,7 @@ public class CommonRequest {
      */
     public static void getMySelfData(ResultCallback<MySelfModel> callback) {
         Map<String, String> params = new HashMap<>();
-        params.put(ServerParam.TOKEN,Preferences.getInstance().getToken());
+        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
         String url = createUrl("/api/v1/user/get.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
@@ -212,9 +213,10 @@ public class CommonRequest {
      *
      * @param callback
      */
-    public static void getMessageListData(ResultCallback<MessageList> callback) {
+    public static void getMessageListData(int n_type,ResultCallback<MessageList> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
+        params.put(ServerParam.N_TYPE,n_type+"");
         String url = createUrl("/api/v1/notice/findNoticeList.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
@@ -250,7 +252,7 @@ public class CommonRequest {
             params.put(ServerParam.COMPANY, company);
         if (experience != 0)
             params.put(ServerParam.EXPERIENCE, experience + "");
-        params.put(ServerParam.TOKEN,Preferences.getInstance().getToken());
+        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
         String url = createUrl("/api/v1/user/update.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
@@ -264,7 +266,7 @@ public class CommonRequest {
     public static void saveAttention(int attention_to_id, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.ATTENTION_TO_ID, attention_to_id + "");
-        params.put(ServerParam.TOKEN,Preferences.getInstance().getToken());
+        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
         String url = createUrl("/api/v1/attention/saveAttention.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
@@ -278,7 +280,7 @@ public class CommonRequest {
     public static void cancelAttention(int objId, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.OBJID, objId + "");
-        params.put(ServerParam.TOKEN,Preferences.getInstance().getToken());
+        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
         String url = createUrl("/api/v1/attention/cancelAttention.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
@@ -290,6 +292,17 @@ public class CommonRequest {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
         String url = createUrl("/api/v1/invate/getInvates.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+    }
+
+    /**
+     * 分组未读数量
+     * @param callback
+     */
+    public static void getMessageCount(ResultCallback<MessageCountModel> callback) {
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
+        String url = createUrl("/api/v1/notice/findGroupNoticeCount.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
 

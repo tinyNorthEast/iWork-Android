@@ -35,13 +35,14 @@ public class MessageActivity extends BaseActivity {
     @Bind(R.id.message_xrecyclerView)
     XRecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
-
+    private int messageType;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
         ButterKnife.bind(this);
         messageTitlebar.setTitle("消息列表");
+        messageType =getIntent().getIntExtra(Constant.MESSAGETYPE,1);
         boolean isfromset = getIntent().getBooleanExtra(Constant.ISFROMSET, true);
         if (isfromset) {
             messageTitlebar.setBackDrawableListener(backListener);
@@ -53,7 +54,7 @@ public class MessageActivity extends BaseActivity {
     }
 
     private void getMessageDate() {
-        CommonRequest.getMessageListData(new ResultCallback<MessageList>() {
+        CommonRequest.getMessageListData(messageType,new ResultCallback<MessageList>() {
             @Override
             public void onError(Request request, Exception e) {
 

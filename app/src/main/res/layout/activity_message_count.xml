@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.iwork.ui.activity.myself.MessageCountActivity">
+
+    <com.iwork.ui.view.TitleBar
+        android:id="@+id/message_count_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/message_count_titlebar"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/message_count_comment_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <ImageView
+                android:id="@+id/message_count_comment_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/myself_set_profession" />
+
+            <TextView
+                android:id="@+id/message_count_comment_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/message_count_comment_iv"
+                android:layout_toRightOf="@+id/message_count_comment_iv"
+                android:text="评论消息"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/message_count_comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/message_count_comment_title"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/message_count_comment_iv"
+                tools:text="5个未读消息" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_line_height"
+            android:background="@color/gray" />
+
+        <RelativeLayout
+            android:id="@+id/message_count_authority_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <ImageView
+                android:id="@+id/message_count_authority_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/myself_set_profession" />
+
+            <TextView
+                android:id="@+id/message_count_authority_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/message_count_authority_iv"
+                android:layout_toRightOf="@+id/message_count_authority_iv"
+                android:text="权限消息"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/message_count_authority_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/message_count_authority_iv"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/message_count_authority_iv"
+                tools:text="5个未读消息" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_line_height"
+            android:background="@color/gray" />
+
+        <RelativeLayout
+            android:id="@+id/message_count_attention_layout"
+
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <ImageView
+                android:id="@+id/message_count_attention_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/myself_set_profession" />
+
+            <TextView
+                android:id="@+id/message_count_attention_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/message_count_attention_iv"
+                android:layout_toRightOf="@+id/message_count_attention_iv"
+                android:text="关注消息"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/message_count_attention_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/message_count_attention_title"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/message_count_attention_iv"
+                tools:text="5个未读消息" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_line_height"
+            android:background="@color/gray" />
+
+        <RelativeLayout
+            android:id="@+id/message_count_system_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <ImageView
+                android:id="@+id/message_count_system_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/myself_set_profession" />
+
+            <TextView
+                android:id="@+id/message_count_system_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/message_count_system_iv"
+                android:layout_toRightOf="@+id/message_count_system_iv"
+                android:text="系统消息"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/message_count_system_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/message_count_system_title"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/message_count_system_iv"
+                tools:text="5个未读消息" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_line_height"
+            android:background="@color/gray" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -37,6 +37,7 @@
     <string name="login_loading">正在登录</string>
     <string name="login_getCoding">正在获取验证码</string>
     <string name="no_login">您没有登录，请先登录</string>
+    <string name="message_count">您有 %d 条未读消息</string>
 
     <string-array name="avatar_menu">
         <item>拍照</item>

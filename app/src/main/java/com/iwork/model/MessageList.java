@@ -8,19 +8,22 @@ import java.util.List;
  */
 public class MessageList {
 
+
     /**
      * infoCode : 0
-     * message : 获取成功
-     * data : [{"objId":2,"pic":"","content":"不好帅","create_time":1451198727000},{"objId":1,"pic":"","content":"你好吗","create_time":1451198727000}]
+     * message : 获取通知成功！
+     * data : [{"objId":1,"user_id":100022,"content":"测试消息","create_time":1451200167000,"status":1,"n_type":1},{"objId":5,"user_id":100022,"content":"测试消息2","create_time":1451368769000,"status":1,"n_type":1}]
      */
 
     private int infoCode;
     private String message;
     /**
-     * objId : 2
-     * pic :
-     * content : 不好帅
-     * create_time : 1451198727000
+     * objId : 1
+     * user_id : 100022
+     * content : 测试消息
+     * create_time : 1451200167000
+     * status : 1
+     * n_type : 1
      */
 
     private List<MessageDataEntity> data;
@@ -51,16 +54,18 @@ public class MessageList {
 
     public static class MessageDataEntity {
         private int objId;
-        private String pic;
+        private int user_id;
         private String content;
         private long create_time;
+        private int status;
+        private int n_type;
 
         public void setObjId(int objId) {
             this.objId = objId;
         }
 
-        public void setPic(String pic) {
-            this.pic = pic;
+        public void setUser_id(int user_id) {
+            this.user_id = user_id;
         }
 
         public void setContent(String content) {
@@ -71,12 +76,20 @@ public class MessageList {
             this.create_time = create_time;
         }
 
+        public void setStatus(int status) {
+            this.status = status;
+        }
+
+        public void setN_type(int n_type) {
+            this.n_type = n_type;
+        }
+
         public int getObjId() {
             return objId;
         }
 
-        public String getPic() {
-            return pic;
+        public int getUser_id() {
+            return user_id;
         }
 
         public String getContent() {
@@ -85,6 +98,14 @@ public class MessageList {
 
         public long getCreate_time() {
             return create_time;
+        }
+
+        public int getStatus() {
+            return status;
+        }
+
+        public int getN_type() {
+            return n_type;
         }
     }
 }
