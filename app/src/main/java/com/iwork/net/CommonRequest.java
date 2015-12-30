@@ -3,6 +3,7 @@ package com.iwork.net;
 import android.preference.Preference;
 import android.text.TextUtils;
 
+import com.iwork.model.AttentionListModel;
 import com.iwork.model.CityList;
 import com.iwork.model.CommentListModel;
 import com.iwork.model.CommonModel;
@@ -197,11 +198,15 @@ public class CommonRequest {
      * @param to_user_id
      * @param callback
      */
-    public static void getCommonentListData(int to_user_id, ResultCallback<CommentListModel> callback) {
+    public static void getCommonentListData(int to_user_id, int pageNo, int pageSize, ResultCallback<CommentListModel> callback) {
         Map<String, String> params = new HashMap<>();
         String token = Preferences.getInstance().getToken();
         params.put(ServerParam.TOKEN, token);
         params.put(ServerParam.TO_USER_ID, to_user_id + "");
+        if (pageNo != 0)
+            params.put(ServerParam.PAGENO, pageNo + "");
+        if (pageSize != 0)
+            params.put(ServerParam.PAGESIZE, pageSize + "");
         String url = createUrl("/api/v1/comment/findCommentList.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
@@ -211,10 +216,10 @@ public class CommonRequest {
      *
      * @param callback
      */
-    public static void getMessageListData(int n_type,ResultCallback<MessageList> callback) {
+    public static void getMessageListData(int n_type, ResultCallback<MessageList> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
-        params.put(ServerParam.N_TYPE,n_type+"");
+        params.put(ServerParam.N_TYPE, n_type + "");
         String url = createUrl("/api/v1/notice/findNoticeList.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
@@ -295,6 +300,7 @@ public class CommonRequest {
 
     /**
      * 分组未读数量
+     *
      * @param callback
      */
     public static void getMessageCount(ResultCallback<MessageCountModel> callback) {
@@ -306,29 +312,52 @@ public class CommonRequest {
 
     /**
      * 删除消息
+     *
      * @param id
      * @param callback
      */
-    public static void deleteMessage(int id ,ResultCallback<CommonModel> callback){
+    public static void deleteMessage(int id, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
-        params.put(ServerParam.ID,id+"");
+        params.put(ServerParam.ID, id + "");
         String url = createUrl("/api/v1/notice/deleteNotice.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
 
     /**
      * 申请权限
+     *
      * @param headhunter_id
      * @param callback
      */
-    public static void getAuth(int headhunter_id,ResultCallback<CommonModel> callback){
+    public static void getAuth(int headhunter_id, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
-        params.put(ServerParam.HEADHUNTERID,headhunter_id+"");
+        params.put(ServerParam.HEADHUNTERID, headhunter_id + "");
         String url = createUrl("/api/v1/headhunter/saveHeadhunterAuth.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
+
+    /**
+     * 获取关注列表
+     *
+     * @param searchType 1 获取我的关注 2关注我的人 必填
+     * @param pageNo     第几页 不传默认是第一页 可为空
+     * @param pageSize   每页多少条 不传默认是10条 可为空
+     * @param callback
+     */
+    public static void getAttentionList(int searchType, int pageNo, int pageSize, ResultCallback<AttentionListModel> callback) {
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
+        params.put(ServerParam.SEARCHTYPE, searchType + "");
+        if (pageNo != 0)
+            params.put(ServerParam.PAGENO, pageNo + "");
+        if (pageSize != 0)
+            params.put(ServerParam.PAGESIZE, pageSize + "");
+        String url = createUrl("/api/v1/attention/find.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+    }
+
     protected static String createUrl(String path, Map<String, String> params) {
         params.put(ServerParam.CLIENT, Constant.CLIEN);
         params.put(ServerParam.EQ_NUM, Constant.ANDROID_ID);

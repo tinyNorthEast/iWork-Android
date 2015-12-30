@@ -1,6 +1,7 @@
 package com.iwork.ui.activity.common;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
@@ -14,6 +15,8 @@ import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
 import com.iwork.utils.TimeUtil;
+import com.iwork.utils.UiThreadHandler;
+import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.squareup.okhttp.Request;
 
@@ -30,7 +33,9 @@ public class CommentActivity extends BaseActivity {
     XRecyclerView commentXrecyclerview;
     private List<CommentListModel.CommentModel> comments;
     private QuickAdapter<CommentListModel.CommentModel> mAdapter;
-    private int to_user_id;
+    private int to_user_id, pageNo;
+    private int pageSize = 10;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +43,13 @@ public class CommentActivity extends BaseActivity {
         ButterKnife.bind(this);
         commentTitlebar.setTitle("评论列表");
         commentTitlebar.setBackDrawableListener(backListener);
-        to_user_id = getIntent().getIntExtra(Constant.COMMENTID,0);
+        to_user_id = getIntent().getIntExtra(Constant.COMMENTID, 0);
+        initXRecyclerView();
         getData();
     }
 
     private void getData() {
-        CommonRequest.getCommonentListData(to_user_id, new ResultCallback<CommentListModel>() {
+        CommonRequest.getCommonentListData(to_user_id, pageNo, pageSize, new ResultCallback<CommentListModel>() {
             @Override
             public void onError(Request request, Exception e) {
 
@@ -62,6 +68,44 @@ public class CommentActivity extends BaseActivity {
         });
     }
 
+    private XRecyclerView.LoadingListener loadingListener = new XRecyclerView.LoadingListener() {
+        @Override
+        public void onRefresh() {
+            pageNo=1;
+            getData();
+            UiThreadHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    commentXrecyclerview.refreshComplete();
+                }
+            }, Constant.REFESHTIME);
+        }
+
+        @Override
+        public void onLoadMore() {
+            pageNo++;
+            getData();
+            UiThreadHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    commentXrecyclerview.loadMoreComplete();
+                }
+            }, Constant.REFESHTIME);
+        }
+    };
+
+    /**
+     * 初始化列表布局
+     */
+    private void initXRecyclerView() {
+        commentXrecyclerview.setLayoutManager(new LinearLayoutManager(this));
+        commentXrecyclerview.setBackgroundColor(getResources().getColor(R.color.white));
+        commentXrecyclerview.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        commentXrecyclerview.setLaodingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        commentXrecyclerview.setLoadingMoreEnabled(true);
+        commentXrecyclerview.setLoadingListener(loadingListener);
+    }
+
     private void initAdapter() {
         mAdapter = new QuickAdapter<CommentListModel.CommentModel>(this, R.layout.commentlist_item_layout, comments) {
             @Override
@@ -72,5 +116,6 @@ public class CommentActivity extends BaseActivity {
             }
         };
         commentXrecyclerview.setAdapter(mAdapter);
+        mAdapter.notifyDataSetChanged();
     }
 }

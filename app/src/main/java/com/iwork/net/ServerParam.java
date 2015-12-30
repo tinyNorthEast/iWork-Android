@@ -30,5 +30,6 @@ public class ServerParam {
     public static final String CITY = "city";
     public static final String N_TYPE="n_type";
     public static final String ID = "id";
-    public static final String HR_MAIL = "hr_mail";
+    public static final String SEARCHTYPE = "searchType";
+    public static final String PAGESIZE="pageSize";
 }

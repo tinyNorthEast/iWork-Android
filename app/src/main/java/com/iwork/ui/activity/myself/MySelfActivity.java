@@ -14,6 +14,7 @@ import com.iwork.helper.ToastHelper;
 import com.iwork.model.MySelfModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.activity.common.AttentionActivity;
 import com.iwork.ui.activity.common.MessageActivity;
 import com.iwork.ui.view.BadgeView;
 import com.iwork.ui.view.TitleBar;
@@ -94,9 +95,14 @@ public class MySelfActivity extends BaseActivity {
         startActivity(intent);
     }
 
+    /**
+     * 进入我的关注页面
+     */
     @OnClick(R.id.myself_myattention)
     public void goTomyAttantion() {
-
+        Intent intent = new Intent(this, AttentionActivity.class);
+        intent.putExtra(Constant.SEARCHTYPE,1);
+        startActivity(intent);
     }
 
     /**
@@ -104,7 +110,9 @@ public class MySelfActivity extends BaseActivity {
      */
     @OnClick(R.id.myself_attention_me)
     public void goTomyAttantionMe() {
-
+        Intent intent = new Intent(this, AttentionActivity.class);
+        intent.putExtra(Constant.SEARCHTYPE,2);
+        startActivity(intent);
     }
 
     /**

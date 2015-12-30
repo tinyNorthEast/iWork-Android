@@ -135,27 +135,27 @@ public class SampleFragment extends Fragment {
     private XRecyclerView.LoadingListener loadingListener = new XRecyclerView.LoadingListener() {
         @Override
         public void onRefresh() {
-            mAdapter.notifyDataSetChanged();
+            getData(cityId);
             UiThreadHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    getData(cityId);
+                    mAdapter.notifyDataSetChanged();
                     recyclerView.refreshComplete();
                 }
-            }, 5000);
+            }, Constant.REFESHTIME);
         }
 
         @Override
         public void onLoadMore() {
-            mAdapter.notifyDataSetChanged();
+            pageNo++;
+            getData(cityId);
             UiThreadHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    pageNo++;
-                    getData(cityId);
+                    mAdapter.notifyDataSetChanged();
                     recyclerView.loadMoreComplete();
                 }
-            }, 5000);
+            }, Constant.REFESHTIME);
         }
     };
 
@@ -187,7 +187,7 @@ public class SampleFragment extends Fragment {
                 if (response.getInfoCode() == 0) {
                     persons.addAll(response.getData());
                     mAdapter.notifyDataSetChanged();
-                    if (CollectionUtil.isEmpty(response.getData())){
+                    if (CollectionUtil.isEmpty(response.getData())) {
                         recyclerView.loadMoreComplete();
                         recyclerView.setLoadingMoreEnabled(false);
                         ToastHelper.showShortCompleted("已经没有更多数据啦");
@@ -231,7 +231,7 @@ public class SampleFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
+     * <p>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

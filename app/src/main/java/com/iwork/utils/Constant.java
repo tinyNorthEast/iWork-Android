@@ -17,6 +17,8 @@ public class Constant {
     public static final String ISFROMSET = "isfromSet";
     public static final String MESSAGETYPE = "messagetype";
     public static final String COMMENTID="commentid";
+    public static final String SEARCHTYPE="searchType";
+    public static final int REFESHTIME =3000;
     /**
      * SDCARD文件目录
      */
