@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
 import com.impetusconsulting.iwork.R;
+import com.iwork.helper.ToastHelper;
 import com.iwork.model.CommonModel;
 import com.iwork.model.MessageList;
 import com.iwork.net.CommonRequest;
@@ -64,7 +65,7 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(final SimpleViewHolder viewHolder, final int position) {
-        MessageList.MessageDataEntity item = mDataset.get(position);
+        final MessageList.MessageDataEntity item = mDataset.get(position);
         viewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
         viewHolder.dele_ly.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,26 +92,50 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
         viewHolder.message_content_title.setText(item.getContent());
         if (item.getN_type() == 2) {
             viewHolder.button_ly.setVisibility(View.VISIBLE);
-            viewHolder.bt_confim.setOnClickListener(confimListener);
-            viewHolder.bt_cancel.setOnClickListener(cancelListener);
+            viewHolder.bt_confim.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CommonRequest.updataAuth(item.getRecord_id(), 1, new ResultCallback<CommonModel>() {
+                        @Override
+                        public void onError(Request request, Exception e) {
+
+                        }
+
+                        @Override
+                        public void onResponse(CommonModel response) {
+                            if (response.getInfoCode() == 0) {
+                                ToastHelper.showShortCompleted(response.getMessage());
+                                viewHolder.dele_ly.setVisibility(View.GONE);
+                            }
+                        }
+                    });
+                }
+            });
+            viewHolder.bt_cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CommonRequest.updataAuth(item.getRecord_id(), 1, new ResultCallback<CommonModel>() {
+                        @Override
+                        public void onError(Request request, Exception e) {
+
+                        }
+
+                        @Override
+                        public void onResponse(CommonModel response) {
+                            if (response.getInfoCode() == 0) {
+                                ToastHelper.showShortCompleted(response.getMessage());
+                                viewHolder.dele_ly.setVisibility(View.GONE);
+                            }
+                        }
+                    });
+
+                }
+            });
         } else {
             viewHolder.button_ly.setVisibility(View.GONE);
         }
         mItemManger.bindView(viewHolder.itemView, position);
     }
-
-    private View.OnClickListener confimListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-        }
-    };
-    private View.OnClickListener cancelListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-        }
-    };
 
     @Override
     public int getItemCount() {

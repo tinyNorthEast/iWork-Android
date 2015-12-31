@@ -335,9 +335,23 @@ public class CommonRequest {
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
         params.put(ServerParam.HEADHUNTERID, headhunter_id + "");
         String url = createUrl("/api/v1/headhunter/saveHeadhunterAuth.action", params);
-        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+        new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
 
+    /**
+     * 审核权限
+     * @param authId
+     * @param lt_status
+     * @param callback
+     */
+    public static void updataAuth(int authId,int lt_status,ResultCallback<CommonModel>callback){
+        Map<String, String> params = new HashMap<>();
+        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
+        params.put(ServerParam.AUTHID, authId + "");
+        params.put(ServerParam.LT_STATUS,lt_status+"");
+        String url = createUrl("/api/v1/headhunter/updateAuth.action", params);
+        new OkHttpRequest.Builder().url(url).params(params).post(callback);
+    }
     /**
      * 获取关注列表
      *

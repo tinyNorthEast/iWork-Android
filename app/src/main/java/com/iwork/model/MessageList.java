@@ -57,13 +57,22 @@ public class MessageList extends BaseModel{
         return data;
     }
 
-    public static class MessageDataEntity {
+    public static class MessageDataEntity extends BaseModel{
         private int objId;
         private int user_id;
         private String content;
         private long create_time;
         private int status;
         private int n_type;
+        private int record_id;
+
+        public int getRecord_id() {
+            return record_id;
+        }
+
+        public void setRecord_id(int record_id) {
+            this.record_id = record_id;
+        }
 
         public void setObjId(int objId) {
             this.objId = objId;
@@ -112,6 +121,47 @@ public class MessageList extends BaseModel{
         public int getN_type() {
             return n_type;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            super.writeToParcel(dest, flags);
+            dest.writeInt(this.objId);
+            dest.writeInt(this.user_id);
+            dest.writeString(this.content);
+            dest.writeLong(this.create_time);
+            dest.writeInt(this.status);
+            dest.writeInt(this.n_type);
+            dest.writeInt(this.record_id);
+        }
+
+        public MessageDataEntity() {
+        }
+
+        protected MessageDataEntity(Parcel in) {
+            super(in);
+            this.objId = in.readInt();
+            this.user_id = in.readInt();
+            this.content = in.readString();
+            this.create_time = in.readLong();
+            this.status = in.readInt();
+            this.n_type = in.readInt();
+            this.record_id = in.readInt();
+        }
+
+        public static final Creator<MessageDataEntity> CREATOR = new Creator<MessageDataEntity>() {
+            public MessageDataEntity createFromParcel(Parcel source) {
+                return new MessageDataEntity(source);
+            }
+
+            public MessageDataEntity[] newArray(int size) {
+                return new MessageDataEntity[size];
+            }
+        };
     }
 
     @Override

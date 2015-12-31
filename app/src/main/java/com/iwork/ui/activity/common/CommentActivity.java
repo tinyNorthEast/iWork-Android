@@ -20,6 +20,7 @@ import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.squareup.okhttp.Request;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -44,6 +45,7 @@ public class CommentActivity extends BaseActivity {
         commentTitlebar.setTitle("评论列表");
         commentTitlebar.setBackDrawableListener(backListener);
         to_user_id = getIntent().getIntExtra(Constant.COMMENTID, 0);
+        comments = new ArrayList<>();
         initXRecyclerView();
         getData();
     }

@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
@@ -40,8 +41,6 @@ import butterknife.ButterKnife;
 /**
  */
 public class SampleFragment extends Fragment {
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
     private static int industryid = 0;
     @Bind(R.id.recyclerView)
     XRecyclerView recyclerView;
@@ -94,15 +93,30 @@ public class SampleFragment extends Fragment {
         mAdapter = new QuickAdapter<MainList.Person>(getContext(), R.layout.recycler_item, persons) {
             @Override
             protected void convert(BaseAdapterHelper helper, MainList.Person item) {
-                if (CollectionUtil.isEmpty(item.getIndustryList())) {
-                    return;
-                }
-                helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
                 helper.getTextView(R.id.item_zh_name).setText(item.getRealName());
                 Glide.with(getContext()).load(item.getPic()).error(R.drawable.main_no_pic).placeholder(R.drawable.main_no_pic).
                         into(helper.getImageView(R.id.item_pic));
-
+                TextView ranking_flag_tv = helper.getTextView(R.id.item_flag);
+                if (item.getRanking() == 1) {
+                    ranking_flag_tv.setVisibility(View.VISIBLE);
+                    ranking_flag_tv.setText("人气顾问第一名");
+                    ranking_flag_tv.setBackgroundResource(R.drawable.main_first);
+                } else if (item.getRanking() == 2) {
+                    ranking_flag_tv.setVisibility(View.VISIBLE);
+                    ranking_flag_tv.setText("人气顾问第二名");
+                    ranking_flag_tv.setBackgroundResource(R.drawable.main_second);
+                } else if (item.getRanking() == 3) {
+                    ranking_flag_tv.setVisibility(View.VISIBLE);
+                    ranking_flag_tv.setText("人气顾问第三名");
+                    ranking_flag_tv.setBackgroundResource(R.drawable.main_thirdly);
+                } else {
+                    ranking_flag_tv.setVisibility(View.GONE);
+                }
                 showBadgeView(helper.getLayout(R.id.item_comment), item.getCommentCount() + "");
+                if (!CollectionUtil.isEmpty(item.getIndustryList())) {
+
+                    helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
+                }
             }
         };
         recyclerView.setAdapter(mAdapter);

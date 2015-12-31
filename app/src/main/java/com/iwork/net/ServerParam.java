@@ -35,4 +35,6 @@ public class ServerParam {
     public static final String C_MAIN_ID = "c_main_id";
     public static final String C_TO_USER_ID = "c_to_user_id";
     public static final String CONTENT = "content";
+    public static final String AUTHID="authId";
+    public static final String LT_STATUS = "lt_status";
 }
