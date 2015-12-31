@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.iwork.ui.activity.myself.AboutActivity">
+
+    <com.iwork.ui.view.TitleBar
+        android:id="@+id/about_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
+    <ImageView
+        android:layout_below="@id/about_titlebar"
+        android:src="@drawable/head_icon"
+        android:id="@+id/about_iv"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/about_tv_phone"
+        android:layout_below="@id/about_iv"
+        android:text="13029000109"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:autoLink="phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
