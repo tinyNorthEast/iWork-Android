@@ -1,12 +1,17 @@
 package com.iwork.model;
 
+import android.os.Parcel;
+
+import com.iwork.Base.BaseModel;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by JianTao on 15/12/29.
  * Copyright © 2015 impetusconsulting. All rights reserved
  */
-public class InvateCodeMode {
+public class InvateCodeMode extends BaseModel{
 
     /**
      * infoCode : 0
@@ -97,5 +102,39 @@ public class InvateCodeMode {
             return status;
         }
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeInt(this.infoCode);
+        dest.writeString(this.message);
+        dest.writeList(this.data);
+    }
+
+    public InvateCodeMode() {
+    }
+
+    protected InvateCodeMode(Parcel in) {
+        super(in);
+        this.infoCode = in.readInt();
+        this.message = in.readString();
+        this.data = new ArrayList<InvateCode>();
+        in.readList(this.data, List.class.getClassLoader());
+    }
+
+    public static final Creator<InvateCodeMode> CREATOR = new Creator<InvateCodeMode>() {
+        public InvateCodeMode createFromParcel(Parcel source) {
+            return new InvateCodeMode(source);
+        }
+
+        public InvateCodeMode[] newArray(int size) {
+            return new InvateCodeMode[size];
+        }
+    };
 }
 

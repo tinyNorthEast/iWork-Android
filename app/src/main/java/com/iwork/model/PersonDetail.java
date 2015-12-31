@@ -1,12 +1,17 @@
 package com.iwork.model;
 
+import android.os.Parcel;
+
+import com.iwork.Base.BaseModel;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by JianTao on 15/12/17.
  * Copyright © 2015 impetusconsulting. All rights reserved
  */
-public class PersonDetail {
+public class PersonDetail extends BaseModel{
 
 
     /**
@@ -49,7 +54,7 @@ public class PersonDetail {
         return data;
     }
 
-    public static class DataEntity {
+    public static class DataEntity extends BaseModel{
         /**
          * objId : 16
          * realName : 廖端永
@@ -109,7 +114,7 @@ public class PersonDetail {
             return commentList;
         }
 
-        public static class HeadhunterInfoEntity {
+        public static class HeadhunterInfoEntity extends BaseModel{
             private int objId;
             private String realName;
             private String phone;
@@ -363,6 +368,66 @@ public class PersonDetail {
                     return status;
                 }
             }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                super.writeToParcel(dest, flags);
+                dest.writeInt(this.objId);
+                dest.writeString(this.realName);
+                dest.writeString(this.phone);
+                dest.writeString(this.companyName);
+                dest.writeString(this.position);
+                dest.writeLong(this.workTime);
+                dest.writeString(this.phone400);
+                dest.writeString(this.pic);
+                dest.writeInt(this.ranking);
+                dest.writeInt(this.participated);
+                dest.writeInt(this.commentCount);
+                dest.writeInt(this.isAuth);
+                dest.writeList(this.industryList);
+                dest.writeList(this.functionsList);
+                dest.writeList(this.describeList);
+            }
+
+            public HeadhunterInfoEntity() {
+            }
+
+            protected HeadhunterInfoEntity(Parcel in) {
+                super(in);
+                this.objId = in.readInt();
+                this.realName = in.readString();
+                this.phone = in.readString();
+                this.companyName = in.readString();
+                this.position = in.readString();
+                this.workTime = in.readLong();
+                this.phone400 = in.readString();
+                this.pic = in.readString();
+                this.ranking = in.readInt();
+                this.participated = in.readInt();
+                this.commentCount = in.readInt();
+                this.isAuth = in.readInt();
+                this.industryList = new ArrayList<IndustryListEntity>();
+                in.readList(this.industryList, List.class.getClassLoader());
+                this.functionsList = new ArrayList<FunctionsListEntity>();
+                in.readList(this.functionsList, List.class.getClassLoader());
+                this.describeList = new ArrayList<DescribeListEntity>();
+                in.readList(this.describeList, List.class.getClassLoader());
+            }
+
+            public static final Creator<HeadhunterInfoEntity> CREATOR = new Creator<HeadhunterInfoEntity>() {
+                public HeadhunterInfoEntity createFromParcel(Parcel source) {
+                    return new HeadhunterInfoEntity(source);
+                }
+
+                public HeadhunterInfoEntity[] newArray(int size) {
+                    return new HeadhunterInfoEntity[size];
+                }
+            };
         }
 
         public static class PerformanceListEntity {
@@ -500,5 +565,73 @@ public class PersonDetail {
             }
 
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            super.writeToParcel(dest, flags);
+            dest.writeParcelable(this.headhunterInfo, 0);
+            dest.writeList(this.performanceList);
+            dest.writeList(this.commentList);
+        }
+
+        public DataEntity() {
+        }
+
+        protected DataEntity(Parcel in) {
+            super(in);
+            this.headhunterInfo = in.readParcelable(HeadhunterInfoEntity.class.getClassLoader());
+            this.performanceList = new ArrayList<PerformanceListEntity>();
+            in.readList(this.performanceList, List.class.getClassLoader());
+            this.commentList = new ArrayList<CommentListEntity>();
+            in.readList(this.commentList, List.class.getClassLoader());
+        }
+
+        public static final Creator<DataEntity> CREATOR = new Creator<DataEntity>() {
+            public DataEntity createFromParcel(Parcel source) {
+                return new DataEntity(source);
+            }
+
+            public DataEntity[] newArray(int size) {
+                return new DataEntity[size];
+            }
+        };
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeInt(this.infoCode);
+        dest.writeString(this.message);
+        dest.writeParcelable(this.data, flags);
+    }
+
+    public PersonDetail() {
+    }
+
+    protected PersonDetail(Parcel in) {
+        super(in);
+        this.infoCode = in.readInt();
+        this.message = in.readString();
+        this.data = in.readParcelable(DataEntity.class.getClassLoader());
+    }
+
+    public static final Creator<PersonDetail> CREATOR = new Creator<PersonDetail>() {
+        public PersonDetail createFromParcel(Parcel source) {
+            return new PersonDetail(source);
+        }
+
+        public PersonDetail[] newArray(int size) {
+            return new PersonDetail[size];
+        }
+    };
 }

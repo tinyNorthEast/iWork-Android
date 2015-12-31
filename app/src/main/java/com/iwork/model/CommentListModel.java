@@ -1,12 +1,17 @@
 package com.iwork.model;
 
+import android.os.Parcel;
+
+import com.iwork.Base.BaseModel;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by JianTao on 15/12/25.
  * Copyright © 2015 impetusconsulting. All rights reserved
  */
-public class CommentListModel {
+public class CommentListModel extends BaseModel {
 
     /**
      * infoCode : 0
@@ -87,4 +92,38 @@ public class CommentListModel {
             return create_time;
         }
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeInt(this.infoCode);
+        dest.writeString(this.message);
+        dest.writeList(this.data);
+    }
+
+    public CommentListModel() {
+    }
+
+    protected CommentListModel(Parcel in) {
+        super(in);
+        this.infoCode = in.readInt();
+        this.message = in.readString();
+        this.data = new ArrayList<CommentModel>();
+        in.readList(this.data, List.class.getClassLoader());
+    }
+
+    public static final Creator<CommentListModel> CREATOR = new Creator<CommentListModel>() {
+        public CommentListModel createFromParcel(Parcel source) {
+            return new CommentListModel(source);
+        }
+
+        public CommentListModel[] newArray(int size) {
+            return new CommentListModel[size];
+        }
+    };
 }

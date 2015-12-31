@@ -1,12 +1,15 @@
 package com.iwork.model;
 
+import android.os.Parcel;
+
 import com.google.gson.annotations.SerializedName;
+import com.iwork.Base.BaseModel;
 
 /**
  * Created by JianTao on 15/11/29.
  * Copyright © 2015 impetusconsulting. All rights reserved
  */
-public class LoginInfo {
+public class LoginInfo extends BaseModel{
 
     /**
      * infoCode : 0
@@ -49,7 +52,7 @@ public class LoginInfo {
         return login_data;
     }
 
-    public static class DataEntity {
+    public static class DataEntity extends BaseModel{
         private String zh_name;
         private int role_code;
         private String token;
@@ -86,5 +89,73 @@ public class LoginInfo {
         public String getToken() {
             return token;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            super.writeToParcel(dest, flags);
+            dest.writeString(this.zh_name);
+            dest.writeInt(this.role_code);
+            dest.writeString(this.token);
+            dest.writeString(this.userId);
+        }
+
+        public DataEntity() {
+        }
+
+        protected DataEntity(Parcel in) {
+            super(in);
+            this.zh_name = in.readString();
+            this.role_code = in.readInt();
+            this.token = in.readString();
+            this.userId = in.readString();
+        }
+
+        public static final Creator<DataEntity> CREATOR = new Creator<DataEntity>() {
+            public DataEntity createFromParcel(Parcel source) {
+                return new DataEntity(source);
+            }
+
+            public DataEntity[] newArray(int size) {
+                return new DataEntity[size];
+            }
+        };
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeInt(this.infoCode);
+        dest.writeString(this.message);
+        dest.writeParcelable(this.login_data, flags);
+    }
+
+    public LoginInfo() {
+    }
+
+    protected LoginInfo(Parcel in) {
+        super(in);
+        this.infoCode = in.readInt();
+        this.message = in.readString();
+        this.login_data = in.readParcelable(DataEntity.class.getClassLoader());
+    }
+
+    public static final Creator<LoginInfo> CREATOR = new Creator<LoginInfo>() {
+        public LoginInfo createFromParcel(Parcel source) {
+            return new LoginInfo(source);
+        }
+
+        public LoginInfo[] newArray(int size) {
+            return new LoginInfo[size];
+        }
+    };
 }

@@ -1,14 +1,18 @@
 package com.iwork.model;
 
-import com.google.gson.annotations.SerializedName;
+import android.os.Parcel;
 
+import com.google.gson.annotations.SerializedName;
+import com.iwork.Base.BaseModel;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by JianTao on 15/12/14.
  * Copyright © 2015 impetusconsulting. All rights reserved
  */
-public class CityList {
+public class CityList extends BaseModel{
 
     /**
      * infoCode : 0
@@ -80,4 +84,39 @@ public class CityList {
             return areaSort;
         }
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeInt(this.infoCode);
+        dest.writeString(this.message);
+        dest.writeList(this.citys);
+    }
+
+    public CityList() {
+        super();
+    }
+
+    protected CityList(Parcel in) {
+        super(in);
+        this.infoCode = in.readInt();
+        this.message = in.readString();
+        this.citys = new ArrayList<City>();
+        in.readList(this.citys, List.class.getClassLoader());
+    }
+
+    public static final Creator<CityList> CREATOR = new Creator<CityList>() {
+        public CityList createFromParcel(Parcel source) {
+            return new CityList(source);
+        }
+
+        public CityList[] newArray(int size) {
+            return new CityList[size];
+        }
+    };
 }

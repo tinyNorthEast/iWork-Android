@@ -79,6 +79,9 @@ public class BaseActivity extends AppCompatActivity {
             loadingDialog = null;
         }
     }
+    protected void isTokenValid(){
+
+    }
 
     /**
      * 标题栏返回按钮点击监听

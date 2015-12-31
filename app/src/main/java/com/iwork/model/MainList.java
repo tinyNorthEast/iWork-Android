@@ -1,12 +1,17 @@
 package com.iwork.model;
 
+import android.os.Parcel;
+
+import com.iwork.Base.BaseModel;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by JianTao on 15/12/16.
  * Copyright © 2015 impetusconsulting. All rights reserved
  */
-public class MainList {
+public class MainList extends BaseModel{
 
     /**
      * infoCode : 0
@@ -143,4 +148,38 @@ public class MainList {
             }
         }
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        super.writeToParcel(dest, flags);
+        dest.writeInt(this.infoCode);
+        dest.writeString(this.message);
+        dest.writeList(this.data);
+    }
+
+    public MainList() {
+    }
+
+    protected MainList(Parcel in) {
+        super(in);
+        this.infoCode = in.readInt();
+        this.message = in.readString();
+        this.data = new ArrayList<Person>();
+        in.readList(this.data, List.class.getClassLoader());
+    }
+
+    public static final Creator<MainList> CREATOR = new Creator<MainList>() {
+        public MainList createFromParcel(Parcel source) {
+            return new MainList(source);
+        }
+
+        public MainList[] newArray(int size) {
+            return new MainList[size];
+        }
+    };
 }
