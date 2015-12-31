@@ -1,5 +1,6 @@
 package com.iwork.ui.activity.myself;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -62,6 +63,8 @@ public class SetActivity extends BaseActivity {
 
     @OnClick(R.id.set_about)
     public void setAbout() {
+        Intent intent = new Intent(this,AboutActivity.class);
+        startActivity(intent);
     }
 
     /**
