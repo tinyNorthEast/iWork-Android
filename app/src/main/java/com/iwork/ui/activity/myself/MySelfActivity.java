@@ -15,7 +15,6 @@ import com.iwork.model.MySelfModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.activity.common.AttentionActivity;
-import com.iwork.ui.activity.common.MessageActivity;
 import com.iwork.ui.view.BadgeView;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
@@ -43,6 +42,8 @@ public class MySelfActivity extends BaseActivity {
     RelativeLayout myselfMessages;
     @Bind(R.id.myself_attention_me)
     RelativeLayout myselfAttentionMe;
+    @Bind(R.id.myself_messages_tv)
+    TextView myselfMessagesTv;
     private BadgeView badgeView;
 
 
@@ -78,8 +79,8 @@ public class MySelfActivity extends BaseActivity {
                     myselfTvName.setText(response.getData().getZh_name());
                     myselfTvRoleName.setText(response.getData().getRoleName());
                     Glide.with(MySelfActivity.this).load(response.getData().getPic()).error(R.drawable.myself_head).placeholder(R.drawable.myself_head).into(myselfIvUser);
-                    showBadgeView(myselfMessages,response.getData().getNoticeCount()+"");
-                }else {
+                    showBadgeView(myselfMessagesTv, response.getData().getNoticeCount() + "");
+                } else {
                     ToastHelper.showShortError(response.getMessage());
                 }
             }
@@ -101,7 +102,7 @@ public class MySelfActivity extends BaseActivity {
     @OnClick(R.id.myself_myattention)
     public void goTomyAttantion() {
         Intent intent = new Intent(this, AttentionActivity.class);
-        intent.putExtra(Constant.SEARCHTYPE,1);
+        intent.putExtra(Constant.SEARCHTYPE, 1);
         startActivity(intent);
     }
 
@@ -111,7 +112,7 @@ public class MySelfActivity extends BaseActivity {
     @OnClick(R.id.myself_attention_me)
     public void goTomyAttantionMe() {
         Intent intent = new Intent(this, AttentionActivity.class);
-        intent.putExtra(Constant.SEARCHTYPE,2);
+        intent.putExtra(Constant.SEARCHTYPE, 2);
         startActivity(intent);
     }
 

@@ -8,6 +8,7 @@ import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.adapter.recyclerview.BaseAdapterHelper;
 import com.iwork.adapter.recyclerview.QuickAdapter;
+import com.iwork.helper.ToastHelper;
 import com.iwork.model.AttentionListModel;
 import com.iwork.model.CommentListModel;
 import com.iwork.net.CommonRequest;
@@ -66,6 +67,10 @@ public class AttentionActivity extends BaseActivity {
             @Override
             public void onResponse(AttentionListModel response) {
                 if (response.getInfoCode() == 0) {
+                    if (CollectionUtil.isEmpty(response.getData())){
+                        ToastHelper.showShortInfo("当前没有消息");
+                        return;
+                    }
                     attentions.addAll(response.getData());
                     initAdapter();
                 }

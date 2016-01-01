@@ -40,6 +40,7 @@ public class Preferences {
     }
 
     public String getToken() {
+        KLog.d("token-->",mPref.getString("token",""));
         return mPref.getString("token", "");
     }
 

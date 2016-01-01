@@ -2,6 +2,7 @@ package com.iwork.ui.activity.common;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.TokenWatcher;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.activity.MainActivity;
 import com.iwork.ui.view.TitleBar;
+import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
 import com.iwork.utils.UiThreadHandler;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
@@ -63,6 +65,10 @@ public class MessageActivity extends BaseActivity {
             @Override
             public void onResponse(MessageList response) {
                 if (response.getInfoCode() == 0) {
+                    if (CollectionUtil.isEmpty(response.getData())){
+                        ToastHelper.showShortInfo("当前没有消息");
+                        return;
+                    }
                     initAdaper(response.getData());
                 } else {
                     ToastHelper.showShortError(response.getMessage());

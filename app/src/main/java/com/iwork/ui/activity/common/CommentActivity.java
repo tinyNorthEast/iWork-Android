@@ -8,6 +8,7 @@ import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.adapter.recyclerview.BaseAdapterHelper;
 import com.iwork.adapter.recyclerview.QuickAdapter;
+import com.iwork.helper.ToastHelper;
 import com.iwork.model.CommentListModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
@@ -63,6 +64,8 @@ public class CommentActivity extends BaseActivity {
                     if (!CollectionUtil.isEmpty(response.getData())) {
                         comments.addAll(response.getData());
                         initAdapter();
+                    }else {
+                        ToastHelper.showShortInfo("当前无评论内容");
                     }
 
                 }
