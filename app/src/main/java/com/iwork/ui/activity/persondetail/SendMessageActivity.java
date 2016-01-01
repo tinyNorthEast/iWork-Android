@@ -1,8 +1,11 @@
 package com.iwork.ui.activity.persondetail;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
@@ -27,6 +30,8 @@ public class SendMessageActivity extends BaseActivity {
     EditText sendmesEd;
     @Bind(R.id.sendmes_btn_submit)
     Button sendmesBtnSubmit;
+    @Bind(R.id.send_message_count_tv)
+    TextView sendMessageCountTv;
     private int c_main_id;
 
     @Override
@@ -37,6 +42,24 @@ public class SendMessageActivity extends BaseActivity {
         sendmesTitlebar.setTitle("给顾问留言");
         sendmesTitlebar.setBackDrawableListener(backListener);
         c_main_id = getIntent().getIntExtra(Constant.C_MAIN_ID, 0);
+        sendmesEd.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String ed_text = sendmesEd.getText().toString().trim();
+                if (!TextUtil.isEmpty(ed_text))
+                    sendMessageCountTv.setText(getResources().getString(R.string.send_message_count, 140 - ed_text.length()));
+            }
+        });
     }
 
     @OnClick(R.id.sendmes_btn_submit)

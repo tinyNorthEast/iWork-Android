@@ -14,7 +14,7 @@
     <EditText
         android:id="@+id/sendmes_ed"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="200dp"
         android:layout_below="@+id/sendmes_titlebar"
         android:layout_margin="10dp"
         android:maxLength="140"
@@ -22,6 +22,15 @@
         android:gravity="left"
         android:hint="请输入您的留言"
         android:padding="5dp" />
+    <TextView
+        android:id="@+id/send_message_count_tv"
+        android:text="当前您还能输入140个字"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_alignBottom="@+id/sendmes_ed"
+        android:layout_alignRight="@+id/sendmes_ed"
+        android:layout_alignEnd="@+id/sendmes_ed" />
 
     <Button
         android:id="@+id/sendmes_btn_submit"

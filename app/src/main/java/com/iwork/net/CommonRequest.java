@@ -388,7 +388,7 @@ public class CommonRequest {
         if (c_to_user_id != 0)
             params.put(ServerParam.C_TO_USER_ID, c_to_user_id + "");
         String url = createUrl("/api/v1/comment/saveComment.action", params);
-        new OkHttpRequest.Builder().url(url).params(params).get(callback);
+        new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
     protected static String createUrl(String path, Map<String, String> params) {
         params.put(ServerParam.CLIENT, Constant.CLIEN);

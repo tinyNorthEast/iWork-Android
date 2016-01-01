@@ -39,6 +39,7 @@
     <string name="no_login">您没有登录，请先登录</string>
     <string name="message_count">您有 %d 条未读消息</string>
     <string name="get_author_success">申请权限成功，请耐心等待</string>
+    <string name="send_message_count">当前您还能输入 %d 个字</string>
 
     <string-array name="avatar_menu">
         <item>拍照</item>
