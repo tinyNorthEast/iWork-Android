@@ -112,7 +112,8 @@ public class SampleFragment extends Fragment {
                 } else {
                     ranking_flag_tv.setVisibility(View.GONE);
                 }
-                showBadgeView(helper.getLayout(R.id.item_comment), item.getCommentCount() + "");
+                if (item.getCommentCount() != 0)
+                    showBadgeView(helper.getLayout(R.id.item_comment), item.getCommentCount() + "");
                 if (!CollectionUtil.isEmpty(item.getIndustryList())) {
 
                     helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
@@ -229,6 +230,11 @@ public class SampleFragment extends Fragment {
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
@@ -245,7 +251,7 @@ public class SampleFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
+     * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

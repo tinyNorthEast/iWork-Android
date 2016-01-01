@@ -76,9 +76,8 @@
             <RelativeLayout
                 android:id="@+id/item_comment"
                 android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_height="23dp"
                 android:layout_gravity="right"
-                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <ImageView
