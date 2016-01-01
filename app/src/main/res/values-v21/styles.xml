@@ -5,6 +5,7 @@
         <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
         <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
         <item name="android:windowAnimationStyle">@style/Animation.Activity.iWork</item>
+        <item name="colorAccent">@color/text_color_bg</item>
 
     </style>
 </resources>

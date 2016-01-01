@@ -14,6 +14,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowAnimationStyle">@style/Animation.Activity.iWork</item>
+        <item name="colorAccent">@color/text_color_bg</item>
 
     </style>
 
