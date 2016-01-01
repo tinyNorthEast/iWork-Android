@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
+import com.iwork.Base.ActivityManager;
 import com.iwork.Base.BaseActivity;
 import com.iwork.Base.BaseApplication;
 import com.iwork.helper.ToastHelper;
@@ -17,6 +18,7 @@ import com.iwork.model.InvateCodeMode;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.preferences.Preferences;
+import com.iwork.ui.activity.MainActivity;
 import com.iwork.ui.view.TitleBar;
 import com.squareup.okhttp.Request;
 
@@ -72,12 +74,14 @@ public class SetActivity extends BaseActivity {
      */
     @OnClick(R.id.set_recommon)
     public void setInvate(){
-
+        Intent intent = new Intent(this,InvateCodeActivity.class);
+        startActivity(intent);
     }
     @OnClick(R.id.myself_btn_exit)
     public void setExitAccount(){
         Preferences.getInstance().clear();
-        finish();
+//        finish();
+        ActivityManager.getInstance().removeActivites(MainActivity.class.getName());
     }
     public void setPushSwitch(){
         setPushSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

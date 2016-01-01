@@ -16,6 +16,7 @@ import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.view.TitleBar;
 import com.squareup.okhttp.Request;
 
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.Bind;
@@ -30,7 +31,7 @@ public class InvateCodeActivity extends BaseActivity {
     TextView invatecode1;
     @Bind(R.id.invatecode_2)
     TextView invatecode2;
-    private List<InvateCodeMode.InvateCode> invates;
+    private List<InvateCodeMode.InvateCode> invates = Collections.emptyList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class InvateCodeActivity extends BaseActivity {
                 if (response.getInfoCode() == 0) {
                     i = response.getData().get(0);
                     if (i.getStatus() == 1) {
-                        invatecode1.setText(i.getCode());
+                        invatecode1.setText(i.getCode()+"");
                         invatecode1.setTextColor(ResourcesHelper.getColor(R.color.color_bt_bg));
                         invatecode1.setClickable(true);
                     } else {
@@ -64,7 +65,7 @@ public class InvateCodeActivity extends BaseActivity {
                     }
                     i = response.getData().get(1);
                     if (i.getStatus() == 1) {
-                        invatecode2.setText(i.getCode());
+                        invatecode2.setText(i.getCode()+"");
                         invatecode2.setTextColor(ResourcesHelper.getColor(R.color.color_bt_bg));
                         invatecode2.setClickable(true);
                     } else {

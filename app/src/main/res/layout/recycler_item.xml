@@ -25,50 +25,60 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/item_zh_name"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="陈晓旭"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:visibility="visible" />
+                android:layout_weight="4"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/item_position"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="IT互联网"
-                android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/item_zh_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="陈晓旭"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="|"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/item_position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="IT互联网"
+                    android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/item_role"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="广告媒体"
-                android:textSize="15sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="|"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/item_role"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="广告媒体"
+                    android:textSize="15sp" />
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/item_good"
                 android:layout_width="wrap_content"
+                android:layout_marginRight="10dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_weight="1"
                 android:src="@drawable/myself_set_attention" />
 
             <RelativeLayout
                 android:id="@+id/item_comment"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginLeft="20dp"
+                android:layout_gravity="right"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <ImageView
