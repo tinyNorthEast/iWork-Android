@@ -13,6 +13,7 @@ import com.iwork.model.CommentListModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.view.TitleBar;
+import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
 import com.iwork.utils.TimeUtil;
 import com.iwork.utils.UiThreadHandler;
@@ -21,6 +22,7 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.squareup.okhttp.Request;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.Bind;
@@ -35,7 +37,7 @@ public class AttentionActivity extends BaseActivity {
     private int pageSize = 10;
     @Bind(R.id.attention_xrecyclerview)
     XRecyclerView attentionXrecyclerview;
-    private List<AttentionListModel.Attention> attentions;
+    private List<AttentionListModel.Attention> attentions = Collections.emptyList();
     private QuickAdapter<AttentionListModel.Attention> mAdapter;
 
     @Override
@@ -51,7 +53,6 @@ public class AttentionActivity extends BaseActivity {
             attentionTitlebar.setTitle("谁关注了我");
         }
         attentionTitlebar.setBackDrawableListener(backListener);
-        attentions = new ArrayList<>();
         getData();
     }
 

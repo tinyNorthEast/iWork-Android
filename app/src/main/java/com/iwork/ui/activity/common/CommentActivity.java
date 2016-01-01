@@ -21,6 +21,7 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.squareup.okhttp.Request;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.Bind;
@@ -32,7 +33,7 @@ public class CommentActivity extends BaseActivity {
     TitleBar commentTitlebar;
     @Bind(R.id.comment_xrecyclerview)
     XRecyclerView commentXrecyclerview;
-    private List<CommentListModel.CommentModel> comments;
+    private List<CommentListModel.CommentModel> comments = Collections.emptyList();
     private QuickAdapter<CommentListModel.CommentModel> mAdapter;
     private int to_user_id, pageNo;
     private int pageSize = 10;
@@ -45,7 +46,6 @@ public class CommentActivity extends BaseActivity {
         commentTitlebar.setTitle("评论列表");
         commentTitlebar.setBackDrawableListener(backListener);
         to_user_id = getIntent().getIntExtra(Constant.COMMENTID, 0);
-        comments = new ArrayList<>();
         initXRecyclerView();
         getData();
     }
