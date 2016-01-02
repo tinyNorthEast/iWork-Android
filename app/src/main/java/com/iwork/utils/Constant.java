@@ -18,7 +18,7 @@ public class Constant {
     public static final String MESSAGETYPE = "messagetype";
     public static final String COMMENTID="commentid";
     public static final String SEARCHTYPE="searchType";
-    public static final int REFESHTIME =3000;
+    public static final int REFESHTIME =2000;
     public static final String C_MAIN_ID ="c_main_id";
     /**
      * SDCARD文件目录

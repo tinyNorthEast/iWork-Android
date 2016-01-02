@@ -151,11 +151,12 @@ public class SampleFragment extends Fragment {
         @Override
         public void onRefresh() {
             getData(cityId);
-            UiThreadHandler.postDelayed(new Runnable() {
+            UiThreadHandler.postOnceDelayed(new Runnable() {
                 @Override
                 public void run() {
                     mAdapter.notifyDataSetChanged();
-                    recyclerView.refreshComplete();
+                    if (recyclerView != null)
+                        recyclerView.refreshComplete();
                 }
             }, Constant.REFESHTIME);
         }
@@ -164,11 +165,12 @@ public class SampleFragment extends Fragment {
         public void onLoadMore() {
             pageNo++;
             getData(cityId);
-            UiThreadHandler.postDelayed(new Runnable() {
+            UiThreadHandler.postOnceDelayed(new Runnable() {
                 @Override
                 public void run() {
                     mAdapter.notifyDataSetChanged();
-                    recyclerView.loadMoreComplete();
+                    if (recyclerView != null)
+                        recyclerView.loadMoreComplete();
                 }
             }, Constant.REFESHTIME);
         }
