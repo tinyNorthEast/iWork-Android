@@ -116,9 +116,9 @@ class SlidingTabStrip extends LinearLayout {
                 if (color != nextColor) {
 //                    color = blendColors(nextColor, color, mSelectionOffset);
                 }
+                ColorTrackView nextTitle = (ColorTrackView) getChildAt(mSelectedPosition + 1);
 
                 // Draw the selection partway between the tabs
-                ColorTrackView nextTitle = (ColorTrackView) getChildAt(mSelectedPosition + 1);
                 selectedTitle.setDirection(1);
                 nextTitle.setDirection(0);
                 selectedTitle.setProgress(1-mSelectionOffset);
@@ -127,6 +127,13 @@ class SlidingTabStrip extends LinearLayout {
                         (1.0f - mSelectionOffset) * left);
                 right = (int) (mSelectionOffset * nextTitle.getRight() +
                         (1.0f - mSelectionOffset) * right);
+            }else {
+                // TODO: 16/1/2  此处应该优化
+                selectedTitle.setProgress(1);
+                for (int i=0;i<getChildCount()&&i!=mSelectedPosition;i++){
+                    ColorTrackView otherTitle = (ColorTrackView) getChildAt(i);
+                    otherTitle.setProgress(0);
+                }
             }
 
             mSelectedIndicatorPaint.setColor(getResources().getColor(R.color.color_bt_bg));

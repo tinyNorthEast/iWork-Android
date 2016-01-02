@@ -165,9 +165,9 @@ public class PersonDetailActivty extends BaseActivity {
                     setPerformanceData(response.getData().getPerformanceList());
                     setCommentData(response.getData().getCommentList());
                     if (response.getData().getHeadhunterInfo().getIsAuth()==1){
-                        detailPerformanceBt.setVisibility(View.VISIBLE);
-                    }else {
                         detailPerformanceBt.setVisibility(View.GONE);
+                    }else {
+                        detailPerformanceBt.setVisibility(View.VISIBLE);
                     }
                 }
             }
@@ -317,6 +317,7 @@ public class PersonDetailActivty extends BaseActivity {
     @OnClick(R.id.detail_person_favorite_iv)
     public void setFavorite() {
         if (!LoginUtil.isLogion()) {
+            detailPersonFavorite.setChecked(false);
             ToastHelper.showShortError(getResources().getString(R.string.no_login));
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
