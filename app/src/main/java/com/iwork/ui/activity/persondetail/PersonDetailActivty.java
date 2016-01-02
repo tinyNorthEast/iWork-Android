@@ -382,7 +382,7 @@ public class PersonDetailActivty extends BaseActivity {
         if (TextUtils.isEmpty(phone)) {
             return;
         }
-        Intent CallIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phone));
+        Intent CallIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
         startActivity(CallIntent);
     }
 

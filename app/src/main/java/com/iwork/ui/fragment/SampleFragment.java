@@ -21,6 +21,7 @@ import com.iwork.model.MainList;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.preferences.Preferences;
+import com.iwork.ui.activity.common.CommentActivity;
 import com.iwork.ui.activity.persondetail.PersonDetailActivty;
 import com.iwork.ui.view.BadgeView;
 import com.iwork.utils.CollectionUtil;
@@ -114,6 +115,13 @@ public class SampleFragment extends Fragment {
                 }
                 if (item.getCommentCount() != 0)
                     showBadgeView(helper.getLayout(R.id.item_comment), item.getCommentCount() + "");
+                helper.getLayout(R.id.item_comment).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), CommentActivity.class);
+                        startActivity(intent);
+                    }
+                });
                 if (!CollectionUtil.isEmpty(item.getIndustryList())) {
 
                     helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
