@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_gray"
+    android:background="@drawable/login_bg"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context="com.iwork.ui.activity.LoginActivity">
@@ -11,8 +11,14 @@
         android:id="@+id/login_titlebar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:visibility="gone"
         android:background="?attr/colorPrimary" />
-
+<ImageView
+    android:layout_marginTop="60dp"
+    android:id="@+id/login_logo"
+    android:src="@drawable/login_logo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
     <RelativeLayout
         android:id="@+id/login_layout_input"
         android:layout_width="fill_parent"
@@ -34,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:src="@drawable/es_login_phone" />
+                android:src="@drawable/es_login_phone_select" />
 
             <EditText
                 android:id="@+id/login_ed_phone_input"

@@ -36,7 +36,7 @@ public class BaseApplication extends Application {
         OkHttpClientManager.getInstance().getOkHttpClient().setConnectTimeout(10000, TimeUnit.MILLISECONDS);
         KLog.init(BuildConfig.LOG_DEBUG);
         JPushInterface.setDebugMode(BuildConfig.JPUSH_DEBUG);
-        JPushInterface.init(this);
+        JPushInterface.init(getApplicationContext());
         ShareSDK.initSDK(this);
         SMSSDK.initSDK(this, Constant.SMSSDKKEY, Constant.SMSSDKSECRET);
     }
