@@ -330,10 +330,11 @@ public class CommonRequest {
      * @param headhunter_id
      * @param callback
      */
-    public static void getAuth(int headhunter_id, ResultCallback<CommonModel> callback) {
+    public static void getAuth(int headhunter_id,String hr_mail, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
         params.put(ServerParam.HEADHUNTERID, headhunter_id + "");
+        params.put(ServerParam.HR_MAIL,hr_mail);
         String url = createUrl("/api/v1/headhunter/saveHeadhunterAuth.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }

@@ -1,6 +1,7 @@
 package com.iwork.adapter.recyclerview;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,14 +14,20 @@ import android.widget.Toast;
 
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
+import com.daimajia.swipe.implments.SwipeItemRecyclerMangerImpl;
 import com.impetusconsulting.iwork.R;
 import com.iwork.helper.ToastHelper;
 import com.iwork.model.CommonModel;
 import com.iwork.model.MessageList;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.activity.common.CommentActivity;
+import com.iwork.ui.activity.persondetail.PersonDetailActivty;
+import com.iwork.utils.Constant;
+import com.jcodecraeer.xrecyclerview.progressindicator.indicator.BallRotateIndicator;
 import com.squareup.okhttp.Request;
 
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.OnClick;
@@ -44,13 +51,13 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
             bt_cancel = (Button) itemView.findViewById(R.id.message_item_content_bt_cancel);
             bt_confim = (Button) itemView.findViewById(R.id.message_item_content_bt_confim);
             iv_message_content_iv = (ImageView) itemView.findViewById(R.id.message_item_content_iv);
+
         }
     }
 
     private Context mContext;
-    private List<MessageList.MessageDataEntity> mDataset;
+    private List<MessageList.MessageDataEntity> mDataset = Collections.emptyList();
 
-    //protected SwipeItemRecyclerMangerImpl mItemManger = new SwipeItemRecyclerMangerImpl(this);
 
     public RecyclerViewAdapter(Context context, List<MessageList.MessageDataEntity> objects) {
         this.mContext = context;
@@ -90,12 +97,29 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
             }
         });
         viewHolder.message_content_title.setText(item.getContent());
+//        viewHolder.swipeLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                switch (item.getN_type()){
+//                    case 1:
+//                        Intent intent = new Intent(mContext, CommentActivity.class);
+//                        intent.putExtra(Constant.COMMENTID, item.getRecord_id());
+//                        mContext.startActivity(intent);
+//                        break;
+//                    case 3:
+//                        Intent intent3 = new Intent(mContext, PersonDetailActivty.class);
+//                        intent3.putExtra(Constant.OBJID, item.getRecord_id());
+//                        mContext.startActivity(intent3);
+//                        break;
+//                }
+//            }
+//        });
         if (item.getN_type() == 2) {
             viewHolder.button_ly.setVisibility(View.VISIBLE);
             viewHolder.bt_confim.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CommonRequest.updataAuth(item.getRecord_id(), 1, new ResultCallback<CommonModel>() {
+                    CommonRequest.updataAuth(item.getRecord_id(), 2, new ResultCallback<CommonModel>() {
                         @Override
                         public void onError(Request request, Exception e) {
 
@@ -114,7 +138,7 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
             viewHolder.bt_cancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CommonRequest.updataAuth(item.getRecord_id(), 1, new ResultCallback<CommonModel>() {
+                    CommonRequest.updataAuth(item.getRecord_id(), 0, new ResultCallback<CommonModel>() {
                         @Override
                         public void onError(Request request, Exception e) {
 

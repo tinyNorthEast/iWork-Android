@@ -97,7 +97,7 @@ public class PersonDetailActivty extends BaseActivity {
     private int mDySinceDirectionChange = 0;
     private boolean mIsHiding;
     private boolean mIsShowing;
-    private String phone;
+    private String phone,hr_mail;
     private int objId;
     private int headhunter_id;
 
@@ -182,7 +182,7 @@ public class PersonDetailActivty extends BaseActivity {
        detailPerformanceBt.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-                CommonRequest.getAuth(headhunter_id, new ResultCallback<CommonModel>() {
+                CommonRequest.getAuth(headhunter_id,"a_tao123@163.com", new ResultCallback<CommonModel>() {
                     @Override
                     public void onError(Request request, Exception e) {
 
@@ -361,6 +361,7 @@ public class PersonDetailActivty extends BaseActivity {
     @OnClick(R.id.detail_comment_layout)
     public void goToComment() {
         Intent intent = new Intent(this, CommentActivity.class);
+        intent.putExtra(Constant.COMMENTID,headhunter_id);
         startActivity(intent);
     }
 

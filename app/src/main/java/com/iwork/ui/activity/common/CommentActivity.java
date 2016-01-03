@@ -62,7 +62,8 @@ public class CommentActivity extends BaseActivity {
             public void onResponse(CommentListModel response) {
                 if (response.getInfoCode() == 0) {
                     if (!CollectionUtil.isEmpty(response.getData())) {
-                        comments.addAll(response.getData());
+//                        comments.addAll(response.getData());
+                        comments=response.getData();
                         initAdapter();
                     }else {
                         ToastHelper.showShortInfo("当前无评论内容");
