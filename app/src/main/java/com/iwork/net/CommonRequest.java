@@ -244,7 +244,7 @@ public class CommonRequest {
      * @param experience
      * @param callback
      */
-    public static void setUserInfo(String en_name, String mail, String company, int experience, ResultCallback<CommonModel> callback) {
+    public static void setUserInfo(String en_name, String mail, String company, int experience, String pic,ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         if (!TextUtil.isEmpty(en_name)) {
             params.put(ServerParam.EN_NAME, en_name);
@@ -255,6 +255,8 @@ public class CommonRequest {
             params.put(ServerParam.COMPANY, company);
         if (experience != 0)
             params.put(ServerParam.EXPERIENCE, experience + "");
+        if (!TextUtil.isEmpty(pic))
+            params.put(ServerParam.PIC, pic);
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
         String url = createUrl("/api/v1/user/update.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);

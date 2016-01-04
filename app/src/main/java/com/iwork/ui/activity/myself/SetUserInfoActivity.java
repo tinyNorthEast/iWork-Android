@@ -121,7 +121,7 @@ public class SetUserInfoActivity extends BaseActivity {
                 ToastHelper.showShortError("请正确填写您的邮箱");
                 return;
             }
-            CommonRequest.setUserInfo(en_name, email, company, experience, new ResultCallback<CommonModel>() {
+            CommonRequest.setUserInfo(en_name, email, company, experience, img_url, new ResultCallback<CommonModel>() {
                 @Override
                 public void onError(Request request, Exception e) {
 
