@@ -12,6 +12,7 @@ import com.iwork.helper.ToastHelper;
 import com.iwork.model.CommentListModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.view.DividerItemDecoration;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
@@ -109,6 +110,8 @@ public class CommentActivity extends BaseActivity {
         commentXrecyclerview.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         commentXrecyclerview.setLaodingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
         commentXrecyclerview.setLoadingMoreEnabled(true);
+        commentXrecyclerview.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST));
+
         commentXrecyclerview.setLoadingListener(loadingListener);
     }
 

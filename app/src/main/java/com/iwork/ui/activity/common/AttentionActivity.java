@@ -1,7 +1,9 @@
 package com.iwork.ui.activity.common;
 
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
@@ -13,6 +15,7 @@ import com.iwork.model.AttentionListModel;
 import com.iwork.model.CommentListModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.view.DividerItemDecoration;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
@@ -112,6 +115,7 @@ public class AttentionActivity extends BaseActivity {
         attentionXrecyclerview.setBackgroundColor(getResources().getColor(R.color.white));
         attentionXrecyclerview.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         attentionXrecyclerview.setLaodingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        attentionXrecyclerview.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST));
         attentionXrecyclerview.setLoadingMoreEnabled(true);
         attentionXrecyclerview.setLoadingListener(loadingListener);
     }

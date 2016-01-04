@@ -16,6 +16,7 @@ import com.iwork.model.MessageList;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.activity.MainActivity;
+import com.iwork.ui.view.DividerItemDecoration;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
@@ -38,13 +39,14 @@ public class MessageActivity extends BaseActivity {
     XRecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private int messageType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
         ButterKnife.bind(this);
         messageTitlebar.setTitle("消息列表");
-        messageType =getIntent().getIntExtra(Constant.MESSAGETYPE,1);
+        messageType = getIntent().getIntExtra(Constant.MESSAGETYPE, 1);
         boolean isfromset = getIntent().getBooleanExtra(Constant.ISFROMSET, true);
         if (isfromset) {
             messageTitlebar.setBackDrawableListener(backListener);
@@ -56,7 +58,7 @@ public class MessageActivity extends BaseActivity {
     }
 
     private void getMessageDate() {
-        CommonRequest.getMessageListData(messageType,new ResultCallback<MessageList>() {
+        CommonRequest.getMessageListData(messageType, new ResultCallback<MessageList>() {
             @Override
             public void onError(Request request, Exception e) {
 
@@ -65,7 +67,7 @@ public class MessageActivity extends BaseActivity {
             @Override
             public void onResponse(MessageList response) {
                 if (response.getInfoCode() == 0) {
-                    if (CollectionUtil.isEmpty(response.getData())){
+                    if (CollectionUtil.isEmpty(response.getData())) {
                         ToastHelper.showShortInfo("当前没有消息");
                         return;
                     }
@@ -85,6 +87,7 @@ public class MessageActivity extends BaseActivity {
         recyclerView.setBackgroundColor(getResources().getColor(R.color.white));
         recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         recyclerView.setLaodingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
         recyclerView.setLoadingMoreEnabled(true);
         recyclerView.setLoadingListener(loadingListener);
     }
