@@ -9,6 +9,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -17,15 +20,18 @@ import com.iwork.adapter.recyclerview.BaseAdapterHelper;
 import com.iwork.adapter.recyclerview.BaseQuickAdapter;
 import com.iwork.adapter.recyclerview.QuickAdapter;
 import com.iwork.helper.ToastHelper;
+import com.iwork.model.CommonModel;
 import com.iwork.model.MainList;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.preferences.Preferences;
+import com.iwork.ui.activity.LoginActivity;
 import com.iwork.ui.activity.common.CommentActivity;
 import com.iwork.ui.activity.persondetail.PersonDetailActivty;
 import com.iwork.ui.view.BadgeView;
 import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
+import com.iwork.utils.LoginUtil;
 import com.iwork.utils.UiThreadHandler;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -93,7 +99,7 @@ public class SampleFragment extends Fragment {
 
         mAdapter = new QuickAdapter<MainList.Person>(getContext(), R.layout.recycler_item, persons) {
             @Override
-            protected void convert(BaseAdapterHelper helper, MainList.Person item) {
+            protected void convert(BaseAdapterHelper helper, final MainList.Person item) {
                 helper.getTextView(R.id.item_zh_name).setText(item.getRealName());
                 Glide.with(getContext()).load(item.getPic()).error(R.drawable.main_no_pic).placeholder(R.drawable.main_no_pic).
                         into(helper.getImageView(R.id.item_pic));
@@ -115,11 +121,64 @@ public class SampleFragment extends Fragment {
                 }
                 if (item.getCommentCount() != 0)
                     showBadgeView(helper.getLayout(R.id.item_comment), item.getCommentCount() + "");
+
                 helper.getLayout(R.id.item_comment).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if (!LoginUtil.isLogion()) {
+                            ToastHelper.showShortError(getResources().getString(R.string.no_login));
+                            Intent intent = new Intent(getActivity(), LoginActivity.class);
+                            startActivity(intent);
+                            return;
+                        }
                         Intent intent = new Intent(getActivity(), CommentActivity.class);
                         startActivity(intent);
+                    }
+                });
+                final CheckBox checkBox = helper.getCheckBox(R.id.item_good);
+                checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if (!LoginUtil.isLogion()) {
+                            checkBox.setChecked(false);
+                            ToastHelper.showShortError(getResources().getString(R.string.no_login));
+                            Intent intent = new Intent(getActivity(), LoginActivity.class);
+                            startActivity(intent);
+                            return;
+                        }
+                        if (isChecked) {
+                            CommonRequest.saveAttention(item.getObjId(), new ResultCallback<CommonModel>() {
+                                @Override
+                                public void onError(Request request, Exception e) {
+                                    checkBox.setChecked(false);
+                                }
+
+                                @Override
+                                public void onResponse(CommonModel response) {
+                                    if (response.getInfoCode() == 0) {
+                                        ToastHelper.showShortCompleted("关注成功");
+                                    } else {
+                                        checkBox.setChecked(false);
+                                    }
+                                }
+                            });
+                        } else {
+                            CommonRequest.cancelAttention(item.getObjId(), new ResultCallback<CommonModel>() {
+                                @Override
+                                public void onError(Request request, Exception e) {
+                                    checkBox.setChecked(false);
+                                }
+
+                                @Override
+                                public void onResponse(CommonModel response) {
+                                    if (response.getInfoCode() == 0) {
+                                        ToastHelper.showShortCompleted("取消关注");
+                                    } else {
+                                        checkBox.setChecked(false);
+                                    }
+                                }
+                            });
+                        }
                     }
                 });
                 if (!CollectionUtil.isEmpty(item.getIndustryList())) {

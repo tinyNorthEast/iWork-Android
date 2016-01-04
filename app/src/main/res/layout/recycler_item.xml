@@ -64,14 +64,15 @@
                     android:textSize="15sp" />
             </LinearLayout>
 
-            <ImageView
+            <CheckBox
                 android:id="@+id/item_good"
                 android:layout_width="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_height="wrap_content"
+                android:button="@null"
                 android:layout_gravity="right|center_vertical"
-                android:layout_weight="1"
-                android:src="@drawable/myself_set_attention" />
+                android:checked="false"
+                android:background="@drawable/common_store_main_selecter" />
 
             <RelativeLayout
                 android:id="@+id/item_comment"

@@ -57,7 +57,7 @@
                         android:textStyle="bold"
                         tools:text="张剑涛" />
 
-                    <RadioButton
+                    <CheckBox
                         android:id="@+id/detail_person_favorite_iv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

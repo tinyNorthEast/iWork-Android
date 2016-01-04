@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewPropertyAnimator;
 import android.view.animation.Interpolator;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -86,7 +87,7 @@ public class PersonDetailActivty extends BaseActivity {
     @Bind(R.id.detail_comment_more_bt)
     Button detailCommentMoreBt;
     @Bind(R.id.detail_person_favorite_iv)
-    RadioButton detailPersonFavorite;
+    CheckBox detailPersonFavorite;
     @Bind(R.id.detail_comment_layout)
     RelativeLayout detailCommentLayout;
     @Bind(R.id.detail_performance_bt)
@@ -111,6 +112,7 @@ public class PersonDetailActivty extends BaseActivity {
         objId = getIntent().getIntExtra(Constant.OBJID, 0);
         getData();
         initBottomlayout();
+        setFavorite();
     }
 
     /**
@@ -317,40 +319,47 @@ public class PersonDetailActivty extends BaseActivity {
     /**
      * 点击收藏
      */
-    @OnClick(R.id.detail_person_favorite_iv)
     public void setFavorite() {
-        if (!LoginUtil.isLogion()) {
-            detailPersonFavorite.setChecked(false);
-            ToastHelper.showShortError(getResources().getString(R.string.no_login));
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-            return;
-        }
         detailPersonFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!LoginUtil.isLogion()) {
+                    detailPersonFavorite.setChecked(false);
+                    ToastHelper.showShortError(getResources().getString(R.string.no_login));
+                    Intent intent = new Intent(PersonDetailActivty.this, LoginActivity.class);
+                    startActivity(intent);
+                    return;
+                }
                 if (isChecked) {
                     CommonRequest.saveAttention(objId, new ResultCallback<CommonModel>() {
                         @Override
                         public void onError(Request request, Exception e) {
+                            detailPersonFavorite.setChecked(false);
                         }
 
                         @Override
                         public void onResponse(CommonModel response) {
-                            if (response.getInfoCode() == 0)
+                            if (response.getInfoCode() == 0) {
                                 ToastHelper.showShortCompleted("关注成功");
+                            } else {
+                                detailPersonFavorite.setChecked(false);
+                            }
                         }
                     });
                 } else {
                     CommonRequest.cancelAttention(objId, new ResultCallback<CommonModel>() {
                         @Override
                         public void onError(Request request, Exception e) {
+                            detailPersonFavorite.setChecked(false);
                         }
 
                         @Override
                         public void onResponse(CommonModel response) {
-                            if (response.getInfoCode() == 0)
+                            if (response.getInfoCode() == 0){
                                 ToastHelper.showShortCompleted("取消关注");
+                            }else {
+                                detailPersonFavorite.setChecked(false);
+                            }
                         }
                     });
                 }

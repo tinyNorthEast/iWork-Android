@@ -128,7 +128,7 @@ public class MySelfActivity extends BaseActivity {
 
     private void showBadgeView(View v, String text) {
         badgeView = new BadgeView(this, v);
-        badgeView.setBadgePosition(BadgeView.POSITION_CENTER);
+        badgeView.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
         badgeView.setBadgeMargin(5, 5);
         badgeView.setBadgeBackgroundColor(getResources().getColor(R.color.color_bt_bg));
         badgeView.setTextSize(8);
