@@ -64,7 +64,6 @@
         </RelativeLayout>
 
         <ImageView
-            android:id="@+id/position_iv_deliver_line"
             android:layout_width="fill_parent"
             android:layout_height="0.3dp"
             android:layout_centerInParent="true"
@@ -114,7 +113,6 @@
         </RelativeLayout>
 
         <ImageView
-            android:id="@+id/position_iv_exp_line"
             android:layout_width="fill_parent"
             android:layout_height="0.3dp"
             android:src="@color/text_color_ss_gray" />
@@ -160,6 +158,41 @@
 
         </RelativeLayout>
 
+        <ImageView
+            android:id="@+id/position_iv_exp_line"
+            android:layout_width="fill_parent"
+            android:layout_height="0.3dp"
+            android:src="@color/text_color_ss_gray" />
+
+        <RelativeLayout
+            android:id="@+id/registe_rl_user_invate"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/common_bg_normal">
+
+            <ImageView
+                android:id="@+id/registe_iv_user_invate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/es_login_password" />
+
+            <EditText
+                android:id="@+id/registe_ed_user_invate"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/registe_iv_user_invate"
+                android:background="@null"
+                android:hint="请输入邀请码"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/text_color_dark_gray"
+                android:textColorHint="@color/text_color_s_gray"
+                android:textSize="@dimen/font_size_medium" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 

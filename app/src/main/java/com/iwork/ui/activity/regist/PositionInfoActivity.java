@@ -15,7 +15,6 @@ import com.iwork.Base.BaseActivity;
 import com.iwork.Base.BaseApplication;
 import com.iwork.helper.ResourcesHelper;
 import com.iwork.helper.ToastHelper;
-import com.iwork.ui.activity.regist.PasswordActivity;
 import com.iwork.ui.view.ListPickerWindow;
 import com.iwork.ui.view.TitleBar;
 import com.socks.library.KLog;
@@ -40,7 +39,10 @@ public class PositionInfoActivity extends BaseActivity {
     RelativeLayout positionPtlayout;
     @Bind(R.id.position_titlebar)
     TitleBar titleBar;
+
     View mRootView;
+    @Bind(R.id.registe_ed_user_invate)
+    EditText registeEdUserInvate;
 
 
     @Override
@@ -52,7 +54,10 @@ public class PositionInfoActivity extends BaseActivity {
         titleBar.setTitle("职位信息");
         titleBar.setBackDrawableListener(backListener);
     }
-    /** 标题栏返回按钮点击监听 */
+
+    /**
+     * 标题栏返回按钮点击监听
+     */
     private View.OnClickListener backListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -62,12 +67,17 @@ public class PositionInfoActivity extends BaseActivity {
 
     @OnClick(R.id.position_btn_submit)
     public void onComplete() {
-        if (TextUtils.isEmpty(positionExpInput.getText())||TextUtils.isEmpty(positionEdPtInput.getText())||TextUtils.isEmpty(positionCmInput.getText())){
+        if (TextUtils.isEmpty(positionExpInput.getText().toString().trim()) ||
+                TextUtils.isEmpty(positionEdPtInput.getText().toString().trim()) ||
+                TextUtils.isEmpty(positionCmInput.getText().toString().trim())) {
             ToastHelper.showShortError("请填写完整信息");
             return;
         }
+        if (!TextUtils.isEmpty(registeEdUserInvate.getText().toString())) {
+            BaseApplication.getAppContext().getmUserInfo().invate_code = registeEdUserInvate.getText().toString().trim();
+        }
         BaseApplication.getAppContext().getmUserInfo().position = positionCmInput.getText().toString();
-        Intent intent = new Intent(this,PasswordActivity.class);
+        Intent intent = new Intent(this, PasswordActivity.class);
         startActivity(intent);
     }
 

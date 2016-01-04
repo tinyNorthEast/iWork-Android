@@ -76,7 +76,7 @@ public class PasswordActivity extends BaseActivity {
         String pw = MD5.toMD5(passwordCmInput.getText().toString());
         if (flag) {
 
-            CommonRequest.register(userInfo.phone, pw, userInfo.zh_name, userInfo.email, userInfo.experience, userInfo.position, userInfo.role_code, null, null, new ResultCallback<LoginInfo>() {
+            CommonRequest.register(userInfo.phone, pw, userInfo.zh_name, userInfo.email, userInfo.experience, userInfo.position, userInfo.role_code, userInfo.invate_code, userInfo.pic_url, new ResultCallback<LoginInfo>() {
                 @Override
                 public void onError(Request request, Exception e) {
 
