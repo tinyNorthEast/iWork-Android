@@ -79,13 +79,10 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
     @Override
     public SimpleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_dele_layout, parent, false);
-        view.setOnClickListener(new View.OnClickListener()
-        {
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                if(mListener != null)
-                {
+            public void onClick(View v) {
+                if (mListener != null) {
                     mListener.OnItemClick(v, (String) view.getTag());
                 }
             }
@@ -153,7 +150,7 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
                         public void onResponse(CommonModel response) {
                             if (response.getInfoCode() == 0) {
                                 ToastHelper.showShortCompleted(response.getMessage());
-                                viewHolder.dele_ly.setVisibility(View.GONE);
+                                viewHolder.button_ly.setVisibility(View.GONE);
                             }
                         }
                     });
@@ -172,7 +169,7 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
                         public void onResponse(CommonModel response) {
                             if (response.getInfoCode() == 0) {
                                 ToastHelper.showShortCompleted(response.getMessage());
-                                viewHolder.dele_ly.setVisibility(View.GONE);
+                                viewHolder.button_ly.setVisibility(View.GONE);
                             }
                         }
                     });
