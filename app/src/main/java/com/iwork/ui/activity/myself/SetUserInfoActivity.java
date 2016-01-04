@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -40,6 +41,10 @@ public class SetUserInfoActivity extends BaseActivity {
     EditText myselfSetmycompanyEd;
     @Bind(R.id.myself_setmyexpersence_tv)
     TextView myselfSetmyexpersenceTv;
+    @Bind(R.id.set_head_icon_iv)
+    ImageView setHeadIconIv;
+    @Bind(R.id.set_head_icon_rl)
+    RelativeLayout setHeadIcon_layout;
     private ListPickerWindow<String> mExplistPickerWindow;
     private int experience;
 
@@ -74,7 +79,7 @@ public class SetUserInfoActivity extends BaseActivity {
                     if (response.getInfoCode() == 0) {
                         ToastHelper.showShortCompleted("修改信息成功");
                         finish();
-                    }else {
+                    } else {
                         ToastHelper.showShortError(response.getMessage());
                     }
                 }
@@ -85,7 +90,7 @@ public class SetUserInfoActivity extends BaseActivity {
 
     @OnClick(R.id.myself_setmypassword)
     public void setPassword() {
-        Intent intent = new Intent(this,SetMyselfPassword.class);
+        Intent intent = new Intent(this, SetMyselfPassword.class);
         startActivity(intent);
     }
 
@@ -101,6 +106,10 @@ public class SetUserInfoActivity extends BaseActivity {
             }
         });
         mExplistPickerWindow.showDialog();
+    }
+    @OnClick(R.id.set_head_icon_rl)
+    public void setHeadIcon(){
+
     }
 
 }

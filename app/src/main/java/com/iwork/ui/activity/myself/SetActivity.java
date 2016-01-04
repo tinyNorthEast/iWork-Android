@@ -80,7 +80,6 @@ public class SetActivity extends BaseActivity {
     @OnClick(R.id.myself_btn_exit)
     public void setExitAccount(){
         Preferences.getInstance().clear();
-//        finish();
         ActivityManager.getInstance().removeActivites(MainActivity.class.getName());
     }
     public void setPushSwitch(){
