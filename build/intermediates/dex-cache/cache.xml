@@ -1,2 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/ShareSDK-Wechat-Favorite-2.6.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e9f92a42e472c1568f187abee9353a5322f67943">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-Favorite-2.6.4_e612b6adf0316343c8ee122551f0d2ae3e9331c1.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/ShareSDK-Wechat-Core-2.6.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4a7714115f69a2794e4c867627016b118709ea4c">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-Core-2.6.4_f54f2eebcc95cc55b41b0f5d2a69e4b0a2d74962.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/MobTools.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="67cac22c29e7082cb14e798049ce868cefcca83b">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/MobTools_9c8105e6ea6ffd8eee705447d403dd863429f775.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/ShareSDK-SinaWeibo-2.6.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c7c4f4dc6eedd54bff165e2057332f8188392758">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/ShareSDK-SinaWeibo-2.6.4_2a452864de251f89ae4134964bf9ad0d446588bb.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/MobLogCollector.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8f29e72948159c8058dea9a60a040f453bab1402">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/MobLogCollector_9f30d0fa5e8aa1a19191645e76ed74430e8face4.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="41171ace307d724238f99d1bf3b4266277f48d34">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/iWork-Android-sharesdk-unspecified_d2fd4e0468e549aa3bce76d78abf12446709b672.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/MobCommons.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b91db8cf38f2106f85d579397cfa709cc8bf94ad">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/MobCommons_838997bb5b736dd851edabbd754fbe9763b9c403.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/ShareSDK-Wechat-Moments-2.6.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e12c4654a1f9ef11ba9b7e843c47a1b76de5c17a">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-Moments-2.6.4_95dffe1b74d518c3aebef9818ab413cf919f3187.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/ShareSDK-Wechat-2.6.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="7676dff5e85ec4334de19674f7ebd2ba5ee0eef8">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-2.6.4_29887ac26a6ce1a8cab99fc5d31fe35ad16e268f.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/ShareSDK-Core-2.6.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0affd6c5f9c578cf38bec9364be71d2d192cff62">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/ShareSDK-Core-2.6.4_3168e54ed85bd4cd13cb5b3f1ba299e02c2ab95e.jar" />
+    </item>
+
+</items>

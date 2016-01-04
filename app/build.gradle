@@ -13,7 +13,7 @@ android {
 //
     }
     signingConfigs {
-        release { // 滴滴签名
+        release {
             storeFile file("../build_tools/iWork.jks")
             storePassword "a123456"
             keyAlias "iWork"

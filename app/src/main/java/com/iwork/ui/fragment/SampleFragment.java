@@ -157,6 +157,10 @@ public class SampleFragment extends Fragment {
                                 public void onResponse(CommonModel response) {
                                     if (response.getInfoCode() == 0) {
                                         ToastHelper.showShortCompleted("关注成功");
+                                    } else if (response.getInfoCode() == Constant.TOKENFAIL) {
+                                        Intent i = new Intent(getActivity(), LoginActivity.class);
+                                        startActivity(i);
+                                        checkBox.setChecked(false);
                                     } else {
                                         checkBox.setChecked(false);
                                     }
@@ -173,6 +177,10 @@ public class SampleFragment extends Fragment {
                                 public void onResponse(CommonModel response) {
                                     if (response.getInfoCode() == 0) {
                                         ToastHelper.showShortCompleted("取消关注");
+                                    } else if (response.getInfoCode() == Constant.TOKENFAIL) {
+                                        Intent i = new Intent(getActivity(), LoginActivity.class);
+                                        startActivity(i);
+                                        checkBox.setChecked(false);
                                     } else {
                                         checkBox.setChecked(false);
                                     }
@@ -321,7 +329,7 @@ public class SampleFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
+     * <p>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

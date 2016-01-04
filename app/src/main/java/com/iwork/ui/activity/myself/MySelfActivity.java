@@ -14,6 +14,7 @@ import com.iwork.helper.ToastHelper;
 import com.iwork.model.MySelfModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.activity.LoginActivity;
 import com.iwork.ui.activity.common.AttentionActivity;
 import com.iwork.ui.view.BadgeView;
 import com.iwork.ui.view.TitleBar;
@@ -80,7 +81,9 @@ public class MySelfActivity extends BaseActivity {
                     myselfTvRoleName.setText(response.getData().getRoleName());
                     Glide.with(MySelfActivity.this).load(response.getData().getPic()).error(R.drawable.myself_head).placeholder(R.drawable.myself_head).into(myselfIvUser);
                     showBadgeView(myselfMessagesTv, response.getData().getNoticeCount() + "");
-                } else {
+                } else if (response.getInfoCode()==30003){
+                    Intent intent = new Intent(MySelfActivity.this, LoginActivity.class);
+                    startActivity(intent);
                     ToastHelper.showShortError(response.getMessage());
                 }
             }

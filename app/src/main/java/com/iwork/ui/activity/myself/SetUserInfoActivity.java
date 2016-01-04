@@ -117,7 +117,10 @@ public class SetUserInfoActivity extends BaseActivity {
             String email = myselfSetmyemailEd.getText().toString().trim();
             String en_name = myselfSetmyenameEd.getText().toString().trim();
             String company = myselfSetmycompanyEd.getText().toString().trim();
-            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            if (TextUtil.isEmpty(email)&&TextUtil.isEmpty(en_name)&&TextUtil.isEmpty(company)&&TextUtil.isEmpty(img_url)){
+                ToastHelper.showShortError("请确认您要修改的信息");
+            }
+            if (TextUtil.isEmpty(email)&&!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 ToastHelper.showShortError("请正确填写您的邮箱");
                 return;
             }

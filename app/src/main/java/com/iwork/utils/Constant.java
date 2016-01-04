@@ -21,6 +21,7 @@ public class Constant {
     public static final int REFESHTIME =2000;
     public static final String C_MAIN_ID ="c_main_id";
     public static final String USERID = "userId";
+    public static final int TOKENFAIL = 30003;
     /**
      * SDCARD文件目录
      */
