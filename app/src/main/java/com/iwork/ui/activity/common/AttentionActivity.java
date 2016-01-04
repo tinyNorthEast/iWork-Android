@@ -71,7 +71,7 @@ public class AttentionActivity extends BaseActivity {
                         ToastHelper.showShortInfo("当前没有消息");
                         return;
                     }
-                    attentions.addAll(response.getData());
+                    attentions=response.getData();
                     initAdapter();
                 }
             }
