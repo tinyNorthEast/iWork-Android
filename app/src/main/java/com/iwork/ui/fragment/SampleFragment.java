@@ -147,7 +147,7 @@ public class SampleFragment extends Fragment {
                             return;
                         }
                         if (isChecked) {
-                            CommonRequest.saveAttention(item.getObjId(), new ResultCallback<CommonModel>() {
+                            CommonRequest.saveAttention(item.getUserId(), new ResultCallback<CommonModel>() {
                                 @Override
                                 public void onError(Request request, Exception e) {
                                     checkBox.setChecked(false);
@@ -163,7 +163,7 @@ public class SampleFragment extends Fragment {
                                 }
                             });
                         } else {
-                            CommonRequest.cancelAttention(item.getObjId(), new ResultCallback<CommonModel>() {
+                            CommonRequest.cancelAttention(item.getUserId(), new ResultCallback<CommonModel>() {
                                 @Override
                                 public void onError(Request request, Exception e) {
                                     checkBox.setChecked(false);
@@ -193,6 +193,7 @@ public class SampleFragment extends Fragment {
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(getActivity(), PersonDetailActivty.class);
                 intent.putExtra(Constant.OBJID, persons.get(position).getObjId());
+                intent.putExtra(Constant.USERID, persons.get(position).getUserId());
                 startActivity(intent);
 
             }

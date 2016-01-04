@@ -56,12 +56,22 @@ public class MainList extends BaseModel{
         return data;
     }
 
-    public static class Person {
+    public static class Person extends BaseModel{
         private int objId;
         private String realName;
         private String pic;
         private int ranking;
         private int commentCount;
+        private int userId;
+
+        public int getUserId() {
+            return userId;
+        }
+
+        public void setUserId(int userId) {
+            this.userId = userId;
+        }
+
         /**
          * objId : 2
          * createTime : 1450243459918
@@ -147,6 +157,48 @@ public class MainList extends BaseModel{
                 return industryName;
             }
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            super.writeToParcel(dest, flags);
+            dest.writeInt(this.objId);
+            dest.writeString(this.realName);
+            dest.writeString(this.pic);
+            dest.writeInt(this.ranking);
+            dest.writeInt(this.commentCount);
+            dest.writeInt(this.userId);
+            dest.writeList(this.industryList);
+        }
+
+        public Person() {
+        }
+
+        protected Person(Parcel in) {
+            super(in);
+            this.objId = in.readInt();
+            this.realName = in.readString();
+            this.pic = in.readString();
+            this.ranking = in.readInt();
+            this.commentCount = in.readInt();
+            this.userId = in.readInt();
+            this.industryList = new ArrayList<IndustryListEntity>();
+            in.readList(this.industryList, List.class.getClassLoader());
+        }
+
+        public static final Creator<Person> CREATOR = new Creator<Person>() {
+            public Person createFromParcel(Parcel source) {
+                return new Person(source);
+            }
+
+            public Person[] newArray(int size) {
+                return new Person[size];
+            }
+        };
     }
 
     @Override

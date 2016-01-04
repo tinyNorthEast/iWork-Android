@@ -15,7 +15,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -102,7 +101,7 @@ public class PersonDetailActivty extends BaseActivity {
     private String phone, hr_mail;
     private int objId;
     private int headhunter_id;
-
+    private int userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,6 +109,7 @@ public class PersonDetailActivty extends BaseActivity {
         ButterKnife.bind(this);
         initTitleBar();
         objId = getIntent().getIntExtra(Constant.OBJID, 0);
+        userId = getIntent().getIntExtra(Constant.USERID,0);
         getData();
         initBottomlayout();
         setFavorite();
@@ -331,7 +331,7 @@ public class PersonDetailActivty extends BaseActivity {
                     return;
                 }
                 if (isChecked) {
-                    CommonRequest.saveAttention(objId, new ResultCallback<CommonModel>() {
+                    CommonRequest.saveAttention(userId, new ResultCallback<CommonModel>() {
                         @Override
                         public void onError(Request request, Exception e) {
                             detailPersonFavorite.setChecked(false);
@@ -347,7 +347,7 @@ public class PersonDetailActivty extends BaseActivity {
                         }
                     });
                 } else {
-                    CommonRequest.cancelAttention(objId, new ResultCallback<CommonModel>() {
+                    CommonRequest.cancelAttention(userId, new ResultCallback<CommonModel>() {
                         @Override
                         public void onError(Request request, Exception e) {
                             detailPersonFavorite.setChecked(false);

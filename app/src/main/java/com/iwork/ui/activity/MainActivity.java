@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
 
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
@@ -41,6 +42,8 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
     @Bind(R.id.viewpager)
     ViewPager viewpager;
     private String titles[] = new String[]{"金融", "消费品", "房产"};
+    private long currentBackTime;
+    private long lastBackTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,10 +82,12 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
         slidingTabs.setViewPager(viewpager);
 //        slidingTabs.setSelectedIndicatorColors(R.color.color_bt_bg);
     }
+
     @Subscriber(tag = Constant.CITY)
-    public void setCity(String city){
+    public void setCity(String city) {
         titleBar.setCustomImageButtonLeft(city);
     }
+
     private View.OnClickListener positionListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -110,9 +115,9 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
             switch (requestCode) {
                 case Constant.REQUEST_CODE_FOR_CITY:
                     List<Fragment> sampleFragments = getSupportFragmentManager().getFragments();
-                    for (Fragment s:sampleFragments){
-                        if (s!=null&&s instanceof SampleFragment){
-                            s.onActivityResult(requestCode,resultCode,data);
+                    for (Fragment s : sampleFragments) {
+                        if (s != null && s instanceof SampleFragment) {
+                            s.onActivityResult(requestCode, resultCode, data);
                         }
                     }
                     break;
@@ -149,11 +154,21 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
     public void onFragmentInteraction(Uri uri) {
 
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            moveTaskToBack(true);
+//获取当前系统时间的毫秒数
+            currentBackTime = System.currentTimeMillis();
+            //比较上次按下返回键和当前按下返回键的时间差，如果大于2秒，则提示再按一次退出
+            if (currentBackTime - lastBackTime > 2 * 1000) {
+                Toast.makeText(this, "再按一次返回键退出", Toast.LENGTH_SHORT).show();
+                lastBackTime = currentBackTime;
+            } else { //如果两次按下的时间差小于2秒，则退出程序
+                finish();
+            }
+            return true;
         }
         return super.onKeyDown(keyCode, event);
     }
