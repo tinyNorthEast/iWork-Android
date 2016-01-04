@@ -26,6 +26,7 @@ import com.iwork.helper.ToastHelper;
 import com.iwork.model.QinNiuToken;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.preferences.Preferences;
 import com.iwork.ui.view.BottomListMenu;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.FileConfig;
@@ -85,16 +86,6 @@ public class SignUserInfoActivity extends BaseActivity {
         titleBar.setBackDrawableListener(backListener);
     }
 
-    /**
-     * 标题栏返回按钮点击监听
-     */
-    private View.OnClickListener backListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            finish();
-        }
-    };
-
     private ResultCallback<QinNiuToken> callback = new ResultCallback<QinNiuToken>() {
         @Override
         public void onError(Request request, Exception e) {
@@ -105,6 +96,7 @@ public class SignUserInfoActivity extends BaseActivity {
         public void onResponse(QinNiuToken response) {
             if (response.getInfoCode() == NetConstant.PARAM_OK) {
                 qiniuToken = response.getData();
+                Preferences.getInstance().setQiNiuToken(qiniuToken);
             }
         }
     };

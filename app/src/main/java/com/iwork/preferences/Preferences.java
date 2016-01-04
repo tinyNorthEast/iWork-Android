@@ -40,8 +40,23 @@ public class Preferences {
     }
 
     public String getToken() {
-        KLog.d("token-->",mPref.getString("token",""));
+        KLog.d("token-->", mPref.getString("token", ""));
         return mPref.getString("token", "");
+    }
+
+    /**
+     * 保存 七牛token
+     *
+     * @param token
+     */
+    public void setQiNiuToken(String token) {
+        mEditor.putString("qiniutoken", token);
+        mEditor.commit();
+    }
+
+    public String getQiNiuToken() {
+        KLog.d("token-->", mPref.getString("qiniutoken", ""));
+        return mPref.getString("qiniutoken", "");
     }
 
     /**
@@ -99,7 +114,8 @@ public class Preferences {
     public String getPhone() {
         return mPref.getString("phone", "");
     }
-     /**
+
+    /**
      * 保存邮箱
      *
      * @param mail
