@@ -32,6 +32,7 @@ import com.iwork.model.PersonDetail.DataEntity.HeadhunterInfoEntity.IndustryList
 import com.iwork.model.PersonDetail.DataEntity.PerformanceListEntity;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.preferences.Preferences;
 import com.iwork.ui.activity.LoginActivity;
 import com.iwork.ui.activity.common.CommentActivity;
 import com.iwork.ui.view.FlowLayout;
@@ -97,7 +98,7 @@ public class PersonDetailActivty extends BaseActivity {
     private int mDySinceDirectionChange = 0;
     private boolean mIsHiding;
     private boolean mIsShowing;
-    private String phone,hr_mail;
+    private String phone, hr_mail;
     private int objId;
     private int headhunter_id;
 
@@ -164,9 +165,9 @@ public class PersonDetailActivty extends BaseActivity {
                     setFunctionData(response.getData().getHeadhunterInfo().getFunctionsList());
                     setPerformanceData(response.getData().getPerformanceList());
                     setCommentData(response.getData().getCommentList());
-                    if (response.getData().getHeadhunterInfo().getIsAuth()==1){
+                    if (response.getData().getHeadhunterInfo().getIsAuth() == 1) {
                         detailPerformanceBt.setVisibility(View.GONE);
-                    }else {
+                    } else {
                         detailPerformanceBt.setVisibility(View.VISIBLE);
                     }
                 }
@@ -178,11 +179,12 @@ public class PersonDetailActivty extends BaseActivity {
      * 申请查看权限
      */
     @OnClick(R.id.detail_performance_bt)
-    public void getAuthoried(){
-       detailPerformanceBt.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-                CommonRequest.getAuth(headhunter_id,"a_tao123@163.com", new ResultCallback<CommonModel>() {
+    public void getAuthoried() {
+        final String mail = Preferences.getInstance().getmail();
+        detailPerformanceBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CommonRequest.getAuth(headhunter_id, mail, new ResultCallback<CommonModel>() {
                     @Override
                     public void onError(Request request, Exception e) {
 
@@ -190,17 +192,18 @@ public class PersonDetailActivty extends BaseActivity {
 
                     @Override
                     public void onResponse(CommonModel response) {
-                        if (response.getInfoCode()==0){
+                        if (response.getInfoCode() == 0) {
                             ToastHelper.showLongCompleteMessage(ResourcesHelper.getString(R.string.get_author_success));
                             detailPerformanceBt.setVisibility(View.GONE);
-                        }else {
+                        } else {
                             ToastHelper.showShortError(response.getMessage());
                         }
                     }
                 });
-           }
-       });
+            }
+        });
     }
+
     /**
      * 添加自我介绍数据
      *
@@ -288,7 +291,7 @@ public class PersonDetailActivty extends BaseActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(PersonDetailActivty.this, CommentActivity.class);
-                    intent.putExtra(Constant.COMMENTID,headhunter_id);
+                    intent.putExtra(Constant.COMMENTID, headhunter_id);
                     startActivity(intent);
                 }
             });
@@ -361,7 +364,7 @@ public class PersonDetailActivty extends BaseActivity {
     @OnClick(R.id.detail_comment_layout)
     public void goToComment() {
         Intent intent = new Intent(this, CommentActivity.class);
-        intent.putExtra(Constant.COMMENTID,headhunter_id);
+        intent.putExtra(Constant.COMMENTID, headhunter_id);
         startActivity(intent);
     }
 
@@ -371,7 +374,7 @@ public class PersonDetailActivty extends BaseActivity {
     @OnClick(R.id.detail_bottom_sendms_layout)
     public void sendMessage() {
         Intent intent = new Intent(this, SendMessageActivity.class);
-        intent.putExtra(Constant.C_MAIN_ID,headhunter_id);
+        intent.putExtra(Constant.C_MAIN_ID, headhunter_id);
         startActivity(intent);
     }
 

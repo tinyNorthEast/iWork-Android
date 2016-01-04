@@ -57,6 +57,15 @@ public class LoginInfo extends BaseModel{
         private int role_code;
         private String token;
         private String userId;
+        private String mail;
+
+        public String getMail() {
+            return mail;
+        }
+
+        public void setMail(String mail) {
+            this.mail = mail;
+        }
 
         public String getUserId() {
             return userId;
@@ -90,6 +99,9 @@ public class LoginInfo extends BaseModel{
             return token;
         }
 
+        public DataEntity() {
+        }
+
         @Override
         public int describeContents() {
             return 0;
@@ -102,9 +114,7 @@ public class LoginInfo extends BaseModel{
             dest.writeInt(this.role_code);
             dest.writeString(this.token);
             dest.writeString(this.userId);
-        }
-
-        public DataEntity() {
+            dest.writeString(this.mail);
         }
 
         protected DataEntity(Parcel in) {
@@ -113,6 +123,7 @@ public class LoginInfo extends BaseModel{
             this.role_code = in.readInt();
             this.token = in.readString();
             this.userId = in.readString();
+            this.mail = in.readString();
         }
 
         public static final Creator<DataEntity> CREATOR = new Creator<DataEntity>() {

@@ -99,6 +99,20 @@ public class Preferences {
     public String getPhone() {
         return mPref.getString("phone", "");
     }
+     /**
+     * 保存邮箱
+     *
+     * @param mail
+     */
+    public void setmail(String mail) {
+        mEditor.putString("mail", mail);
+        mEditor.commit();
+    }
+
+    public String getmail() {
+        return mPref.getString("mail", "");
+    }
+
 
     /**
      * 清除数据
