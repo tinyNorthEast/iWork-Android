@@ -22,6 +22,8 @@ import com.iwork.preferences.Preferences;
 import com.iwork.ui.activity.MainActivity;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.DataClearManager;
+import com.iwork.utils.UiThreadHandler;
+import com.socks.library.KLog;
 import com.squareup.okhttp.Request;
 
 import butterknife.Bind;
@@ -72,7 +74,7 @@ public class SetActivity extends BaseActivity {
 
     @OnClick(R.id.set_about)
     public void setAbout() {
-        Intent intent = new Intent(this,AboutActivity.class);
+        Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
     }
 
@@ -80,25 +82,33 @@ public class SetActivity extends BaseActivity {
      * 生成邀请码
      */
     @OnClick(R.id.set_recommon)
-    public void setInvate(){
-        Intent intent = new Intent(this,InvateCodeActivity.class);
+    public void setInvate() {
+        Intent intent = new Intent(this, InvateCodeActivity.class);
         startActivity(intent);
     }
+
     @OnClick(R.id.myself_btn_exit)
-    public void setExitAccount(){
+    public void setExitAccount() {
         Preferences.getInstance().clear();
         ActivityManager.getInstance().removeActivites(MainActivity.class.getName());
     }
-    public void setPushSwitch(){
+
+    public void setPushSwitch() {
+        setPushSwitch.setChecked(!JPushInterface.isPushStopped(BaseApplication.getAppContext()));
         setPushSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
+                if (isChecked) {
                     ToastHelper.showShortCompleted("开启推送");
                     JPushInterface.resumePush(BaseApplication.getAppContext());
-                }else {
+                } else {
                     ToastHelper.showShortCompleted("推送关闭");
-                    JPushInterface.stopPush(BaseApplication.getAppContext());
+                    UiThreadHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            JPushInterface.stopPush(BaseApplication.getAppContext());
+                        }
+                    },2000);
                 }
             }
         });
