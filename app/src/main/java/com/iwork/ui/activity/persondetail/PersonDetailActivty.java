@@ -102,6 +102,7 @@ public class PersonDetailActivty extends BaseActivity {
     private int objId;
     private int headhunter_id;
     private int userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,7 +110,7 @@ public class PersonDetailActivty extends BaseActivity {
         ButterKnife.bind(this);
         initTitleBar();
         objId = getIntent().getIntExtra(Constant.OBJID, 0);
-        userId = getIntent().getIntExtra(Constant.USERID,0);
+        userId = getIntent().getIntExtra(Constant.USERID, 0);
         getData();
         initBottomlayout();
         setFavorite();
@@ -184,25 +185,20 @@ public class PersonDetailActivty extends BaseActivity {
     @OnClick(R.id.detail_performance_bt)
     public void getAuthoried() {
         final String mail = Preferences.getInstance().getmail();
-        detailPerformanceBt.setOnClickListener(new View.OnClickListener() {
+        CommonRequest.getAuth(headhunter_id, mail, new ResultCallback<CommonModel>() {
             @Override
-            public void onClick(View v) {
-                CommonRequest.getAuth(headhunter_id, mail, new ResultCallback<CommonModel>() {
-                    @Override
-                    public void onError(Request request, Exception e) {
+            public void onError(Request request, Exception e) {
 
-                    }
+            }
 
-                    @Override
-                    public void onResponse(CommonModel response) {
-                        if (response.getInfoCode() == 0) {
-                            ToastHelper.showLongCompleteMessage(ResourcesHelper.getString(R.string.get_author_success));
-                            detailPerformanceBt.setVisibility(View.GONE);
-                        } else {
-                            ToastHelper.showShortError(response.getMessage());
-                        }
-                    }
-                });
+            @Override
+            public void onResponse(CommonModel response) {
+                if (response.getInfoCode() == 0) {
+                    ToastHelper.showLongCompleteMessage(ResourcesHelper.getString(R.string.get_author_success));
+                    detailPerformanceBt.setVisibility(View.GONE);
+                } else {
+                    ToastHelper.showShortError(response.getMessage());
+                }
             }
         });
     }
@@ -356,9 +352,9 @@ public class PersonDetailActivty extends BaseActivity {
 
                         @Override
                         public void onResponse(CommonModel response) {
-                            if (response.getInfoCode() == 0){
+                            if (response.getInfoCode() == 0) {
                                 ToastHelper.showShortCompleted("取消关注");
-                            }else {
+                            } else {
                                 detailPersonFavorite.setChecked(false);
                             }
                         }
