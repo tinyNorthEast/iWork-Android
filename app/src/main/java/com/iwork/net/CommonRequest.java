@@ -273,28 +273,30 @@ public class CommonRequest {
      *
      * @param attention_to_id 关注者id
      * @param callback
+     * @param isAttention 1关注  0取消关注
      */
-    public static void saveAttention(int attention_to_id, ResultCallback<CommonModel> callback) {
+    public static void saveAttention(int attention_to_id,int isAttention, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.ATTENTION_TO_ID, attention_to_id + "");
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
+        params.put(ServerParam.ISATTENTION,isAttention+"");
         String url = createUrl("/api/v1/attention/saveAttention.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
 
-    /**
-     * 取消关注
-     *
-     * @param objId
-     * @param callback
-     */
-    public static void cancelAttention(int objId, ResultCallback<CommonModel> callback) {
-        Map<String, String> params = new HashMap<>();
-        params.put(ServerParam.OBJID, objId + "");
-        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
-        String url = createUrl("/api/v1/attention/cancelAttention.action", params);
-        new OkHttpRequest.Builder().url(url).params(params).post(callback);
-    }
+//    /**
+//     * 取消关注
+//     *
+//     * @param objId
+//     * @param callback
+//     */
+//    public static void cancelAttention(int objId, ResultCallback<CommonModel> callback) {
+//        Map<String, String> params = new HashMap<>();
+//        params.put(ServerParam.OBJID, objId + "");
+//        params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
+//        String url = createUrl("/api/v1/attention/cancelAttention.action", params);
+//        new OkHttpRequest.Builder().url(url).params(params).post(callback);
+//    }
 
     /**
      * 获取邀请码

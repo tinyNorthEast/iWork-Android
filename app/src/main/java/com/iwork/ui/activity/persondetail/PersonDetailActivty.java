@@ -201,8 +201,10 @@ public class PersonDetailActivty extends BaseActivity {
                 if (response.getInfoCode() == 0) {
                     ToastHelper.showLongCompleteMessage(ResourcesHelper.getString(R.string.get_author_success));
                     detailPerformanceBt.setVisibility(View.GONE);
-                } else {
+                } else if (response.getInfoCode()==Constant.TOKENFAIL){
                     ToastHelper.showShortError(response.getMessage());
+                    Intent intent = new Intent(PersonDetailActivty.this,LoginActivity.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -325,46 +327,29 @@ public class PersonDetailActivty extends BaseActivity {
         detailPersonFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (!LoginUtil.isLogion()) {
-                    detailPersonFavorite.setChecked(false);
-                    ToastHelper.showShortError(getResources().getString(R.string.no_login));
-                    Intent intent = new Intent(PersonDetailActivty.this, LoginActivity.class);
-                    startActivity(intent);
-                    return;
-                }
+                int isAttention;
                 if (isChecked) {
-                    CommonRequest.saveAttention(userId, new ResultCallback<CommonModel>() {
-                        @Override
-                        public void onError(Request request, Exception e) {
-                            detailPersonFavorite.setChecked(false);
-                        }
-
-                        @Override
-                        public void onResponse(CommonModel response) {
-                            if (response.getInfoCode() == 0) {
-                                ToastHelper.showShortCompleted("关注成功");
-                            } else {
-                                detailPersonFavorite.setChecked(false);
-                            }
-                        }
-                    });
+                    isAttention = 1;
                 } else {
-                    CommonRequest.cancelAttention(userId, new ResultCallback<CommonModel>() {
-                        @Override
-                        public void onError(Request request, Exception e) {
+                    isAttention = 0;
+                }
+                CommonRequest.saveAttention(userId, isAttention,new ResultCallback<CommonModel>() {
+                    @Override
+                    public void onError(Request request, Exception e) {
+                        detailPersonFavorite.setChecked(false);
+                    }
+
+                    @Override
+                    public void onResponse(CommonModel response) {
+                        if (response.getInfoCode() == 0) {
+                            ToastHelper.showShortCompleted("关注成功");
+                        } else if (response.getInfoCode()==Constant.TOKENFAIL){
+                            Intent intent = new Intent(PersonDetailActivty.this, LoginActivity.class);
+                            startActivity(intent);
                             detailPersonFavorite.setChecked(false);
                         }
-
-                        @Override
-                        public void onResponse(CommonModel response) {
-                            if (response.getInfoCode() == 0) {
-                                ToastHelper.showShortCompleted("取消关注");
-                            } else {
-                                detailPersonFavorite.setChecked(false);
-                            }
-                        }
-                    });
-                }
+                    }
+                });
             }
         });
     }

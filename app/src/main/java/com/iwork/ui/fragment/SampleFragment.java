@@ -144,54 +144,29 @@ public class SampleFragment extends Fragment {
                 checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        if (!LoginUtil.isLogion()) {
-                            checkBox.setChecked(false);
-                            ToastHelper.showShortError(getResources().getString(R.string.no_login));
-                            Intent intent = new Intent(getActivity(), LoginActivity.class);
-                            startActivity(intent);
-                            return;
-                        }
+                        int isAttention;
                         if (isChecked) {
-                            CommonRequest.saveAttention(item.getUserId(), new ResultCallback<CommonModel>() {
-                                @Override
-                                public void onError(Request request, Exception e) {
-                                    checkBox.setChecked(false);
-                                }
-
-                                @Override
-                                public void onResponse(CommonModel response) {
-                                    if (response.getInfoCode() == 0) {
-                                        ToastHelper.showShortCompleted("关注成功");
-                                    } else if (response.getInfoCode() == Constant.TOKENFAIL) {
-                                        Intent i = new Intent(getActivity(), LoginActivity.class);
-                                        startActivity(i);
-                                        checkBox.setChecked(false);
-                                    } else {
-                                        checkBox.setChecked(false);
-                                    }
-                                }
-                            });
+                            isAttention = 1;
                         } else {
-                            CommonRequest.cancelAttention(item.getUserId(), new ResultCallback<CommonModel>() {
-                                @Override
-                                public void onError(Request request, Exception e) {
+                            isAttention = 0;
+                        }
+                        CommonRequest.saveAttention(item.getUserId(), isAttention,new ResultCallback<CommonModel>() {
+                            @Override
+                            public void onError(Request request, Exception e) {
+                                checkBox.setChecked(false);
+                            }
+
+                            @Override
+                            public void onResponse(CommonModel response) {
+                                if (response.getInfoCode() == 0) {
+                                    ToastHelper.showShortCompleted("关注成功");
+                                } else if (response.getInfoCode()==Constant.TOKENFAIL){
+                                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                                    startActivity(intent);
                                     checkBox.setChecked(false);
                                 }
-
-                                @Override
-                                public void onResponse(CommonModel response) {
-                                    if (response.getInfoCode() == 0) {
-                                        ToastHelper.showShortCompleted("取消关注");
-                                    } else if (response.getInfoCode() == Constant.TOKENFAIL) {
-                                        Intent i = new Intent(getActivity(), LoginActivity.class);
-                                        startActivity(i);
-                                        checkBox.setChecked(false);
-                                    } else {
-                                        checkBox.setChecked(false);
-                                    }
-                                }
-                            });
-                        }
+                            }
+                        });
                     }
                 });
                 if (!CollectionUtil.isEmpty(item.getIndustryList())) {
