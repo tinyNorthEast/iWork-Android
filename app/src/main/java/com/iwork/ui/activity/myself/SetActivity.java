@@ -2,6 +2,7 @@ package com.iwork.ui.activity.myself;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
@@ -20,6 +21,7 @@ import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.preferences.Preferences;
 import com.iwork.ui.activity.MainActivity;
 import com.iwork.ui.view.TitleBar;
+import com.iwork.utils.DataClearManager;
 import com.squareup.okhttp.Request;
 
 import butterknife.Bind;
@@ -52,6 +54,7 @@ public class SetActivity extends BaseActivity {
         setTitlebar.setTitle("设置");
         setTitlebar.setBackDrawableListener(backListener);
         setPushSwitch();
+        imgSize.setText(DataClearManager.getApplicationDataSize(BaseApplication.getAppContext()));
     }
 
     /**
@@ -59,8 +62,12 @@ public class SetActivity extends BaseActivity {
      */
     @OnClick(R.id.clear_img_cache)
     public void clearImgCache() {
+        DataClearManager.cleanApplicationData(BaseApplication.getAppContext());
         Glide.get(this).clearMemory();
         ToastHelper.showShortCompleted("已经清除缓存");
+//        imgSize.setText(DataClearManager.getApplicationDataSize(BaseApplication.getAppContext()));
+        imgSize.setVisibility(View.GONE);
+
     }
 
     @OnClick(R.id.set_about)
