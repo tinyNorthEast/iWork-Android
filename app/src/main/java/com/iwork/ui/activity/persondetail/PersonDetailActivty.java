@@ -347,6 +347,10 @@ public class PersonDetailActivty extends BaseActivity {
                             Intent intent = new Intent(PersonDetailActivty.this, LoginActivity.class);
                             startActivity(intent);
                             detailPersonFavorite.setChecked(false);
+                            ToastHelper.showShortError(response.getMessage());
+                        }else {
+                            ToastHelper.showShortError(response.getMessage());
+                            detailPersonFavorite.setChecked(false);
                         }
                     }
                 });

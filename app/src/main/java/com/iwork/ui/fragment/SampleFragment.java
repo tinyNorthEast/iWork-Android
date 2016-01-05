@@ -164,6 +164,10 @@ public class SampleFragment extends Fragment {
                                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                                     startActivity(intent);
                                     checkBox.setChecked(false);
+                                    ToastHelper.showShortError(response.getMessage());
+                                }else {
+                                    ToastHelper.showShortError(response.getMessage());
+                                    checkBox.setChecked(false);
                                 }
                             }
                         });
