@@ -47,6 +47,10 @@
                 android:layout_toRightOf="@+id/attention_time_img"
                 tools:text="46分钟前" />
         </RelativeLayout>
-
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_line_height"
+        android:background="@color/gray" />
 </LinearLayout>

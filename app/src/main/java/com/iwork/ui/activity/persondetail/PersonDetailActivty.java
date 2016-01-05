@@ -159,6 +159,7 @@ public class PersonDetailActivty extends BaseActivity {
                 if (response.getInfoCode() == 0) {
                     phone = response.getData().getHeadhunterInfo().getPhone();
                     headhunter_id = response.getData().getHeadhunterInfo().getObjId();
+                    userId = response.getData().getHeadhunterInfo().getUserId();
                     detailPersonRealname.setText(response.getData().getHeadhunterInfo().getRealName());
                     Glide.with(PersonDetailActivty.this).load(response.getData().getHeadhunterInfo().getPic())
                             .error(R.drawable.detail_no_pic).placeholder(R.drawable.detail_no_pic).into(detailPersonPic);

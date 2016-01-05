@@ -127,6 +127,16 @@ public class PersonDetail extends BaseModel{
             private int participated;
             private int commentCount;
             private int isAuth;
+            private int userId;
+
+            public int getUserId() {
+                return userId;
+            }
+
+            public void setUserId(int userId) {
+                this.userId = userId;
+            }
+
             /**
              * objId : 3
              * createTime : 1450922224046
@@ -369,6 +379,9 @@ public class PersonDetail extends BaseModel{
                 }
             }
 
+            public HeadhunterInfoEntity() {
+            }
+
             @Override
             public int describeContents() {
                 return 0;
@@ -389,12 +402,10 @@ public class PersonDetail extends BaseModel{
                 dest.writeInt(this.participated);
                 dest.writeInt(this.commentCount);
                 dest.writeInt(this.isAuth);
+                dest.writeInt(this.userId);
                 dest.writeList(this.industryList);
                 dest.writeList(this.functionsList);
                 dest.writeList(this.describeList);
-            }
-
-            public HeadhunterInfoEntity() {
             }
 
             protected HeadhunterInfoEntity(Parcel in) {
@@ -411,6 +422,7 @@ public class PersonDetail extends BaseModel{
                 this.participated = in.readInt();
                 this.commentCount = in.readInt();
                 this.isAuth = in.readInt();
+                this.userId = in.readInt();
                 this.industryList = new ArrayList<IndustryListEntity>();
                 in.readList(this.industryList, List.class.getClassLoader());
                 this.functionsList = new ArrayList<FunctionsListEntity>();

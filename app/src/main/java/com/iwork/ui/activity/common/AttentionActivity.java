@@ -115,7 +115,7 @@ public class AttentionActivity extends BaseActivity {
         attentionXrecyclerview.setBackgroundColor(getResources().getColor(R.color.white));
         attentionXrecyclerview.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         attentionXrecyclerview.setLaodingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
-        attentionXrecyclerview.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST));
+//        attentionXrecyclerview.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST));
         attentionXrecyclerview.setLoadingMoreEnabled(true);
         attentionXrecyclerview.setLoadingListener(loadingListener);
     }

@@ -87,7 +87,7 @@ public class MessageActivity extends BaseActivity {
         recyclerView.setBackgroundColor(getResources().getColor(R.color.white));
         recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         recyclerView.setLaodingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setLoadingMoreEnabled(true);
         recyclerView.setLoadingListener(loadingListener);
     }

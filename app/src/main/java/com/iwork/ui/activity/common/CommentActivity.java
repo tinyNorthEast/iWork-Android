@@ -64,9 +64,9 @@ public class CommentActivity extends BaseActivity {
                 if (response.getInfoCode() == 0) {
                     if (!CollectionUtil.isEmpty(response.getData())) {
 //                        comments.addAll(response.getData());
-                        comments=response.getData();
+                        comments = response.getData();
                         initAdapter();
-                    }else {
+                    } else {
                         ToastHelper.showShortInfo("当前无评论内容");
                     }
 
@@ -78,7 +78,7 @@ public class CommentActivity extends BaseActivity {
     private XRecyclerView.LoadingListener loadingListener = new XRecyclerView.LoadingListener() {
         @Override
         public void onRefresh() {
-            pageNo=1;
+            pageNo = 1;
             getData();
             UiThreadHandler.postDelayed(new Runnable() {
                 @Override
@@ -110,8 +110,7 @@ public class CommentActivity extends BaseActivity {
         commentXrecyclerview.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         commentXrecyclerview.setLaodingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
         commentXrecyclerview.setLoadingMoreEnabled(true);
-        commentXrecyclerview.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST));
-
+        commentXrecyclerview.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         commentXrecyclerview.setLoadingListener(loadingListener);
     }
 
