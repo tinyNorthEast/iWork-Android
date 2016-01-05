@@ -174,6 +174,11 @@ public class PersonDetailActivty extends BaseActivity {
                     } else {
                         detailPerformanceBt.setVisibility(View.VISIBLE);
                     }
+                    if (response.getData().getHeadhunterInfo().getIsAttention()==1){
+                        detailPersonFavorite.setChecked(true);
+                    }else {
+                        detailPersonFavorite.setChecked(false);
+                    }
                 }
             }
         });

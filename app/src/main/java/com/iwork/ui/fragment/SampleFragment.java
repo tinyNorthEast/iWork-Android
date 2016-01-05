@@ -136,6 +136,11 @@ public class SampleFragment extends Fragment {
                     }
                 });
                 final CheckBox checkBox = helper.getCheckBox(R.id.item_good);
+                if (item.getIsAttention()==1){
+                    checkBox.setChecked(true);
+                }else {
+                    checkBox.setChecked(false);
+                }
                 checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -193,6 +198,7 @@ public class SampleFragment extends Fragment {
 
                     helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
                 }
+
             }
         };
         recyclerView.setAdapter(mAdapter);

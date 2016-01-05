@@ -163,6 +163,9 @@ public class CommonRequest {
             params.put(ServerParam.INDUSTRYID, industryId + "");
         if (city != 0)
             params.put(ServerParam.CITY, city + "");
+        String token = Preferences.getInstance().getToken();
+        if (TextUtil.isEmpty(token))
+            params.put(ServerParam.TOKEN, token);
         String url = createUrl("/api/v1/headhunter/list.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
@@ -176,6 +179,9 @@ public class CommonRequest {
     public static void getDetail(int headHunterId, ResultCallback<PersonDetail> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.HEADHUNTERID, headHunterId + "");
+        String token = Preferences.getInstance().getToken();
+        if (TextUtil.isEmpty(token))
+            params.put(ServerParam.TOKEN, token);
         String url = createUrl("/api/v1/headhunter/detail.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
@@ -244,7 +250,7 @@ public class CommonRequest {
      * @param experience
      * @param callback
      */
-    public static void setUserInfo(String en_name, String mail, String company, int experience, String pic,ResultCallback<CommonModel> callback) {
+    public static void setUserInfo(String en_name, String mail, String company, int experience, String pic, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         if (!TextUtil.isEmpty(en_name)) {
             params.put(ServerParam.EN_NAME, en_name);
@@ -332,29 +338,31 @@ public class CommonRequest {
      * @param headhunter_id
      * @param callback
      */
-    public static void getAuth(int headhunter_id,String hr_mail, ResultCallback<CommonModel> callback) {
+    public static void getAuth(int headhunter_id, String hr_mail, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
         params.put(ServerParam.HEADHUNTERID, headhunter_id + "");
-        params.put(ServerParam.HR_MAIL,hr_mail);
+        params.put(ServerParam.HR_MAIL, hr_mail);
         String url = createUrl("/api/v1/headhunter/saveHeadhunterAuth.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
 
     /**
      * 审核权限
+     *
      * @param authId
      * @param lt_status
      * @param callback
      */
-    public static void updataAuth(int authId,int lt_status,ResultCallback<CommonModel>callback){
+    public static void updataAuth(int authId, int lt_status, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
         params.put(ServerParam.AUTHID, authId + "");
-        params.put(ServerParam.LT_STATUS,lt_status+"");
+        params.put(ServerParam.LT_STATUS, lt_status + "");
         String url = createUrl("/api/v1/headhunter/updateAuth.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
+
     /**
      * 获取关注列表
      *
@@ -377,12 +385,13 @@ public class CommonRequest {
 
     /**
      * 发表评论
+     *
      * @param c_main_id
      * @param c_to_user_id
      * @param content
      * @param callback
      */
-    public static void sendComment(int c_main_id,int c_to_user_id,String content,ResultCallback<CommonModel>callback){
+    public static void sendComment(int c_main_id, int c_to_user_id, String content, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
         params.put(ServerParam.CONTENT, content);
@@ -393,6 +402,7 @@ public class CommonRequest {
         String url = createUrl("/api/v1/comment/saveComment.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
+
     protected static String createUrl(String path, Map<String, String> params) {
         params.put(ServerParam.CLIENT, Constant.CLIEN);
         params.put(ServerParam.EQ_NUM, Constant.ANDROID_ID);

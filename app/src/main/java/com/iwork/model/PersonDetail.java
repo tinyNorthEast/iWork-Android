@@ -11,7 +11,7 @@ import java.util.List;
  * Created by JianTao on 15/12/17.
  * Copyright © 2015 impetusconsulting. All rights reserved
  */
-public class PersonDetail extends BaseModel{
+public class PersonDetail extends BaseModel {
 
 
     /**
@@ -54,7 +54,7 @@ public class PersonDetail extends BaseModel{
         return data;
     }
 
-    public static class DataEntity extends BaseModel{
+    public static class DataEntity extends BaseModel {
         /**
          * objId : 16
          * realName : 廖端永
@@ -114,7 +114,7 @@ public class PersonDetail extends BaseModel{
             return commentList;
         }
 
-        public static class HeadhunterInfoEntity extends BaseModel{
+        public static class HeadhunterInfoEntity extends BaseModel {
             private int objId;
             private String realName;
             private String phone;
@@ -128,6 +128,15 @@ public class PersonDetail extends BaseModel{
             private int commentCount;
             private int isAuth;
             private int userId;
+            private int isAttention;
+
+            public int getIsAttention() {
+                return isAttention;
+            }
+
+            public void setIsAttention(int isAttention) {
+                this.isAttention = isAttention;
+            }
 
             public int getUserId() {
                 return userId;
@@ -403,6 +412,7 @@ public class PersonDetail extends BaseModel{
                 dest.writeInt(this.commentCount);
                 dest.writeInt(this.isAuth);
                 dest.writeInt(this.userId);
+                dest.writeInt(this.isAttention);
                 dest.writeList(this.industryList);
                 dest.writeList(this.functionsList);
                 dest.writeList(this.describeList);
@@ -423,6 +433,7 @@ public class PersonDetail extends BaseModel{
                 this.commentCount = in.readInt();
                 this.isAuth = in.readInt();
                 this.userId = in.readInt();
+                this.isAttention = in.readInt();
                 this.industryList = new ArrayList<IndustryListEntity>();
                 in.readList(this.industryList, List.class.getClassLoader());
                 this.functionsList = new ArrayList<FunctionsListEntity>();

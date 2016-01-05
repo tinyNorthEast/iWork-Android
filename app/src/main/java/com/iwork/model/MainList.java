@@ -63,6 +63,11 @@ public class MainList extends BaseModel{
         private int ranking;
         private int commentCount;
         private int userId;
+        private int isAttention;
+
+        public int getIsAttention() {
+            return isAttention;
+        }
 
         public int getUserId() {
             return userId;
@@ -158,6 +163,9 @@ public class MainList extends BaseModel{
             }
         }
 
+        public Person() {
+        }
+
         @Override
         public int describeContents() {
             return 0;
@@ -172,10 +180,8 @@ public class MainList extends BaseModel{
             dest.writeInt(this.ranking);
             dest.writeInt(this.commentCount);
             dest.writeInt(this.userId);
+            dest.writeInt(this.isAttention);
             dest.writeList(this.industryList);
-        }
-
-        public Person() {
         }
 
         protected Person(Parcel in) {
@@ -186,6 +192,7 @@ public class MainList extends BaseModel{
             this.ranking = in.readInt();
             this.commentCount = in.readInt();
             this.userId = in.readInt();
+            this.isAttention = in.readInt();
             this.industryList = new ArrayList<IndustryListEntity>();
             in.readList(this.industryList, List.class.getClassLoader());
         }
