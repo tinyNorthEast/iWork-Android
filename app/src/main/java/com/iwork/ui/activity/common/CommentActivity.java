@@ -118,9 +118,10 @@ public class CommentActivity extends BaseActivity {
         mAdapter = new QuickAdapter<CommentListModel.CommentModel>(this, R.layout.commentlist_item_layout, comments) {
             @Override
             protected void convert(BaseAdapterHelper helper, CommentListModel.CommentModel item) {
+                helper.getTextView(R.id.comment_name_tv).setText(item.getFromName());
                 helper.getTextView(R.id.comment_content_tv).setText(item.getContent());
                 helper.getTextView(R.id.comment_time_tv).setText(TimeUtil.formateTimeMMddHHmm(item.getCreate_time()));
-                Glide.with(CommentActivity.this).load(item.getPic()).into(helper.getImageView(R.id.comment_img));
+                Glide.with(CommentActivity.this).load(item.getPic()).error(R.drawable.head_icon).placeholder(R.drawable.head_icon).into(helper.getImageView(R.id.comment_img));
             }
         };
         commentXrecyclerview.setAdapter(mAdapter);

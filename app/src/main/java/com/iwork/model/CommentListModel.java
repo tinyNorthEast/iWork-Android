@@ -54,11 +54,29 @@ public class CommentListModel extends BaseModel {
         return data;
     }
 
-    public static class CommentModel {
+    public static class CommentModel extends BaseModel{
         private int objId;
         private String pic;
         private String content;
         private long create_time;
+        private String fromName;
+        private int mainId;
+
+        public int getMainId() {
+            return mainId;
+        }
+
+        public void setMainId(int mainId) {
+            this.mainId = mainId;
+        }
+
+        public String getFromName() {
+            return fromName;
+        }
+
+        public void setFromName(String fromName) {
+            this.fromName = fromName;
+        }
 
         public void setObjId(int objId) {
             this.objId = objId;
@@ -91,6 +109,45 @@ public class CommentListModel extends BaseModel {
         public long getCreate_time() {
             return create_time;
         }
+
+        public CommentModel() {
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            super.writeToParcel(dest, flags);
+            dest.writeInt(this.objId);
+            dest.writeString(this.pic);
+            dest.writeString(this.content);
+            dest.writeLong(this.create_time);
+            dest.writeString(this.fromName);
+            dest.writeInt(this.mainId);
+        }
+
+        protected CommentModel(Parcel in) {
+            super(in);
+            this.objId = in.readInt();
+            this.pic = in.readString();
+            this.content = in.readString();
+            this.create_time = in.readLong();
+            this.fromName = in.readString();
+            this.mainId = in.readInt();
+        }
+
+        public static final Creator<CommentModel> CREATOR = new Creator<CommentModel>() {
+            public CommentModel createFromParcel(Parcel source) {
+                return new CommentModel(source);
+            }
+
+            public CommentModel[] newArray(int size) {
+                return new CommentModel[size];
+            }
+        };
     }
 
     @Override
