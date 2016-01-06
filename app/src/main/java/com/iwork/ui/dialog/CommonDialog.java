@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.impetusconsulting.iwork.R;
@@ -29,7 +30,7 @@ public class CommonDialog extends Dialog {
     private View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            dismiss();
+
             if (null == listener) {
                 return;
             }
@@ -40,7 +41,6 @@ public class CommonDialog extends Dialog {
                     } else {
                         listener.submit();
                     }
-                    dismiss();
                     break;
                 case R.id.commonDialog_btn_cancel:
                     listener.cancel();
@@ -70,7 +70,7 @@ public class CommonDialog extends Dialog {
     private Button commonDialogbtncancel;
     private View view;
     private ButtonType buttonType;
-
+    private EditText commonEdtext;
     @Override
     public void dismiss() {
         super.dismiss();
@@ -109,6 +109,7 @@ public class CommonDialog extends Dialog {
         commonDialogbtncancel.setOnClickListener(onClickListener);
         //new add by yangxiaomin 新加回退事件监听器
         this.setOnKeyListener(onKeyBackListener);
+        this.commonEdtext = (EditText) findViewById(R.id.commonDialog_ed);
 
         if (TextUtils.isEmpty(title)) {
             return;
@@ -145,6 +146,19 @@ public class CommonDialog extends Dialog {
         this.listener = listener;
     }
 
+    public String getEdtext(){
+        return commonEdtext.getText().toString().trim();
+    }
+
+    public void setEdVisable(int visable){
+        commonEdtext.setVisibility(visable);
+    }
+    public void setEdHintText(String text){
+        commonEdtext.setHint(text);
+    }
+    public void setEdText(String text){
+        commonEdtext.setText(text);
+    }
     // public void setBtnOnlyTxt(String text) {
     // if (!TextUtils.isEmpty(text)) {
     // btnSubmitTxt = text;

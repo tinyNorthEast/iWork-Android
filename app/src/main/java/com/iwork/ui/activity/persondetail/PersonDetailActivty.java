@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
@@ -35,6 +36,7 @@ import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.preferences.Preferences;
 import com.iwork.ui.activity.LoginActivity;
 import com.iwork.ui.activity.common.CommentActivity;
+import com.iwork.ui.dialog.CommonDialog;
 import com.iwork.ui.view.FlowLayout;
 import com.iwork.ui.view.ObservableScrollView;
 import com.iwork.ui.view.TagAdapter;
@@ -43,6 +45,7 @@ import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
 import com.iwork.utils.LoginUtil;
+import com.iwork.utils.TextUtil;
 import com.socks.library.KLog;
 import com.squareup.okhttp.Request;
 
@@ -112,6 +115,7 @@ public class PersonDetailActivty extends BaseActivity {
         initTitleBar();
         objId = getIntent().getIntExtra(Constant.OBJID, 0);
         userId = getIntent().getIntExtra(Constant.USERID, 0);
+        hr_mail = Preferences.getInstance().getmail();
         getData();
         initBottomlayout();
         setFavorite();
@@ -180,6 +184,12 @@ public class PersonDetailActivty extends BaseActivity {
                     }else {
                         detailPersonFavorite.setChecked(false);
                     }
+                }else if (response.getInfoCode()==Constant.TOKENFAIL){
+                    ToastHelper.showShortError(response.getMessage());
+                    Intent intent = new Intent(PersonDetailActivty.this,LoginActivity.class);
+                    startActivity(intent);
+                }else {
+                    ToastHelper.showShortError(response.getMessage());
                 }
             }
         });
@@ -190,27 +200,44 @@ public class PersonDetailActivty extends BaseActivity {
      */
     @OnClick(R.id.detail_performance_bt)
     public void getAuthoried() {
-        final String mail = Preferences.getInstance().getmail();
-        CommonRequest.getAuth(headhunter_id, mail, new ResultCallback<CommonModel>() {
+        final CommonDialog dialog = new CommonDialog(this);
+        dialog.setTitle("请确认您的邮箱");
+        dialog.show();
+        dialog.setEdVisable(View.VISIBLE);
+        dialog.setEdText(hr_mail);
+        dialog.setListener(new CommonDialog.CommonDialogListener() {
             @Override
-            public void onError(Request request, Exception e) {
-                KLog.e("getAuthoried",e.toString());
-            }
-
-            @Override
-            public void onResponse(CommonModel response) {
-                if (response.getInfoCode() == 0) {
-                    ToastHelper.showLongCompleteMessage(ResourcesHelper.getString(R.string.get_author_success));
-                    detailPerformanceBt.setVisibility(View.GONE);
-                } else if (response.getInfoCode()==Constant.TOKENFAIL){
-                    ToastHelper.showShortError(response.getMessage());
-                    Intent intent = new Intent(PersonDetailActivty.this,LoginActivity.class);
-                    startActivity(intent);
-                }else {
-                    ToastHelper.showShortError(response.getMessage());
+            public void submit() {
+                String email = dialog.getEdtext();
+                if (TextUtil.isEmpty(email)&&!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    ToastHelper.showShortError("请正确填写您的邮箱");
+                    return;
                 }
+                CommonRequest.getAuth(headhunter_id, email, new ResultCallback<CommonModel>() {
+                    @Override
+                    public void onError(Request request, Exception e) {
+                        KLog.e("getAuthoried",e.toString());
+                    }
+
+                    @Override
+                    public void onResponse(CommonModel response) {
+                        if (response.getInfoCode() == 0) {
+                            ToastHelper.showLongCompleteMessage(ResourcesHelper.getString(R.string.get_author_success));
+                            detailPerformanceBt.setVisibility(View.GONE);
+                        } else if (response.getInfoCode()==Constant.TOKENFAIL){
+                            ToastHelper.showShortError(response.getMessage());
+                            Intent intent = new Intent(PersonDetailActivty.this,LoginActivity.class);
+                            startActivity(intent);
+                        }else {
+                            ToastHelper.showShortError(response.getMessage());
+                        }
+                        dialog.dismiss();
+                    }
+                });
             }
         });
+
+
     }
 
     /**

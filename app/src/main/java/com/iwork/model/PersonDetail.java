@@ -3,8 +3,11 @@ package com.iwork.model;
 import android.os.Parcel;
 
 import com.iwork.Base.BaseModel;
+import com.iwork.utils.CollectionUtil;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -79,7 +82,7 @@ public class PersonDetail extends BaseModel {
          * list : [{"objId":10,"companyName":"xxxxx","headhunterId":16,"position":"经理","annualSalary":"11111"}]
          */
 
-        private List<PerformanceListEntity> performanceList;
+        private List<PerformanceListEntity> performanceList= Collections.emptyList();;
         /**
          * objId : 1
          * c_from_id : 1
@@ -88,7 +91,7 @@ public class PersonDetail extends BaseModel {
          * toUserName : 测试人员
          */
 
-        private List<CommentListEntity> commentList;
+        private List<CommentListEntity> commentList = Collections.emptyList();;
 
         public void setHeadhunterInfo(HeadhunterInfoEntity headhunterInfo) {
             this.headhunterInfo = headhunterInfo;
@@ -152,14 +155,14 @@ public class PersonDetail extends BaseModel {
              * industryName : 的撒旦法
              */
 
-            private List<IndustryListEntity> industryList;
+            private List<IndustryListEntity> industryList = Collections.emptyList();
             /**
              * objId : 1
              * createTime : 1450922224049
              * functionsName : 职能1
              */
 
-            private List<FunctionsListEntity> functionsList;
+            private List<FunctionsListEntity> functionsList = Collections.emptyList();
             /**
              * objId : 1
              * headhunterId : 16
@@ -167,7 +170,7 @@ public class PersonDetail extends BaseModel {
              * status : 1
              */
 
-            private List<DescribeListEntity> describeList;
+            private List<DescribeListEntity> describeList = Collections.emptyList();
 
             public void setObjId(int objId) {
                 this.objId = objId;
