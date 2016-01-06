@@ -43,6 +43,7 @@ import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
 import com.iwork.utils.LoginUtil;
+import com.socks.library.KLog;
 import com.squareup.okhttp.Request;
 
 import java.util.List;
@@ -193,7 +194,7 @@ public class PersonDetailActivty extends BaseActivity {
         CommonRequest.getAuth(headhunter_id, mail, new ResultCallback<CommonModel>() {
             @Override
             public void onError(Request request, Exception e) {
-
+                KLog.e("getAuthoried",e.toString());
             }
 
             @Override
@@ -205,6 +206,8 @@ public class PersonDetailActivty extends BaseActivity {
                     ToastHelper.showShortError(response.getMessage());
                     Intent intent = new Intent(PersonDetailActivty.this,LoginActivity.class);
                     startActivity(intent);
+                }else {
+                    ToastHelper.showShortError(response.getMessage());
                 }
             }
         });
