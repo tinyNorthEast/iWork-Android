@@ -322,7 +322,11 @@ public class RegisterActivity extends BaseActivity {
             ToastHelper.showShortError(R.string.phone_errns);
             return;
         } else {
-            CommonRequest.checkphonestatus(phone, phoneStatusCallback);
+            if (isRegiste){
+                CommonRequest.checkphonestatus(phone, phoneStatusCallback);
+            }else {
+                jumpNext();
+            }
         }
 
     }

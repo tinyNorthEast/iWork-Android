@@ -21,6 +21,7 @@ import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.okhttp.request.OkHttpRequest;
 import com.iwork.preferences.Preferences;
 import com.iwork.utils.Constant;
+import com.iwork.utils.MD5;
 import com.iwork.utils.NetConstant;
 import com.iwork.utils.TextUtil;
 import com.iwork.utils.Utils;
@@ -46,7 +47,7 @@ public class CommonRequest {
     public static void login(String phone, String password, ResultCallback<LoginInfo> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.PHONE, phone);
-        params.put(ServerParam.PASSWORD, password);
+        params.put(ServerParam.PASSWORD, MD5.toMD5(password));
         String url = createUrl("/api/v1/user/login.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
@@ -70,7 +71,7 @@ public class CommonRequest {
                                 String invate_code, String pic, ResultCallback<LoginInfo> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.PHONE, phone);
-        params.put(ServerParam.PASSWORD, password);//MD5
+        params.put(ServerParam.PASSWORD, MD5.toMD5(password));//MD5
         params.put(ServerParam.ZH_NAME, zh_name);
         params.put(ServerParam.MAIL, mail);
         params.put(ServerParam.EXPERIENCE, experience + "");
@@ -118,7 +119,7 @@ public class CommonRequest {
     public static void forgetPassword(String phone, String password, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.PHONE, phone);
-        params.put(ServerParam.PASSWORD, password);
+        params.put(ServerParam.PASSWORD, MD5.toMD5(password));
         String url = createUrl("/api/v1/user/forgetPassword.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
@@ -132,8 +133,8 @@ public class CommonRequest {
      */
     public static void updataPassword(String oldps, String password, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
-        params.put(ServerParam.OLDPASSWORD, oldps);
-        params.put(ServerParam.PASSWORD, password);
+        params.put(ServerParam.OLDPASSWORD, MD5.toMD5(oldps));
+        params.put(ServerParam.PASSWORD, MD5.toMD5(password));
         String url = createUrl("/api/v1/user/updatePassword.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
