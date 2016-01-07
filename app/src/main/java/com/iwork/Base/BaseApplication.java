@@ -27,7 +27,6 @@ public class BaseApplication extends Application {
 
     private static BaseApplication mContext;
 
-    private UserInfo mUserInfo;
     private Set<String> tagSet;
     @Override
     public void onCreate() {
@@ -39,6 +38,7 @@ public class BaseApplication extends Application {
         JPushInterface.init(getApplicationContext());
         ShareSDK.initSDK(this);
         SMSSDK.initSDK(this, Constant.SMSSDKKEY, Constant.SMSSDKSECRET);
+        userInfo = new UserInfo();
     }
 
     public static BaseApplication getAppContext() {
@@ -46,11 +46,8 @@ public class BaseApplication extends Application {
             return new BaseApplication();
         return mContext;
     }
-
+    private static UserInfo userInfo;
     public UserInfo getmUserInfo() {
-        if (mUserInfo != null)
-            return mUserInfo;
-        else
-            return new UserInfo();
+        return userInfo;
     }
 }

@@ -1,10 +1,12 @@
 package com.iwork.ui.activity.regist;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -79,7 +81,7 @@ public class PositionInfoActivity extends BaseActivity {
         }
         BaseApplication.getAppContext().getmUserInfo().position = positionCmInput.getText().toString();
         Intent intent = new Intent(this, PasswordActivity.class);
-        intent.putExtra(Constant.PASSWORD,true);
+        intent.putExtra(Constant.PASSWORD, true);
         startActivity(intent);
     }
 
@@ -88,6 +90,7 @@ public class PositionInfoActivity extends BaseActivity {
 
     @OnClick(R.id.position_layout_exp_input)
     public void setExperence() {
+        hideInputMethod();
         mExplistPickerWindow = new ListPickerWindow<String>(this, mRootView, ResourcesHelper.getStringArray(R.array.experience));
         mExplistPickerWindow.setListPickerListener(new ListPickerWindow.ListPickerListener<String>() {
             @Override
@@ -104,6 +107,7 @@ public class PositionInfoActivity extends BaseActivity {
 
     @OnClick(R.id.position_pt_rl)
     public void setPosition() {
+        hideInputMethod();
         mPtListPicker = new ListPickerWindow<String>(this, mRootView, ResourcesHelper.getStringArray(R.array.position));
         mPtListPicker.setListPickerListener(new ListPickerWindow.ListPickerListener<String>() {
             @Override
@@ -114,5 +118,21 @@ public class PositionInfoActivity extends BaseActivity {
             }
         });
         mPtListPicker.showDialog();
+    }
+
+    /**
+     * 显示输入法
+     */
+    public void showInputMethod() {
+        InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(positionCmInput, InputMethodManager.SHOW_IMPLICIT);
+    }
+
+    /**
+     * 隐藏输入法
+     */
+    public void hideInputMethod() {
+        InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(positionCmInput.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }
