@@ -261,7 +261,7 @@ public class RegisterActivity extends BaseActivity {
             startActivity(intent);
         } else {
             Intent intent = new Intent(this, PasswordActivity.class);
-            intent.putExtra("password",isRegiste);
+            intent.putExtra(Constant.PASSWORD,false);
             startActivity(intent);
         }
     }
@@ -345,6 +345,8 @@ public class RegisterActivity extends BaseActivity {
                     ToastHelper.showShortError("请填写正确的验证码");
                 }
             } else if (response.getInfoCode() == NetConstant.PARAM_ALREADY_PHONE) {
+                ToastHelper.showShortError(response.getMessage());
+            }else {
                 ToastHelper.showShortError(response.getMessage());
             }
 

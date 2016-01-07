@@ -55,7 +55,7 @@ public class PasswordActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password);
         ButterKnife.bind(this);
-        flag = getIntent().getBooleanExtra("password", false);
+        flag = getIntent().getBooleanExtra(Constant.PASSWORD, false);
         titleBar.setTitle("设置密码");
     }
 

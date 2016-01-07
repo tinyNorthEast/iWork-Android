@@ -17,6 +17,7 @@ import com.iwork.helper.ResourcesHelper;
 import com.iwork.helper.ToastHelper;
 import com.iwork.ui.view.ListPickerWindow;
 import com.iwork.ui.view.TitleBar;
+import com.iwork.utils.Constant;
 import com.socks.library.KLog;
 
 import butterknife.Bind;
@@ -78,6 +79,7 @@ public class PositionInfoActivity extends BaseActivity {
         }
         BaseApplication.getAppContext().getmUserInfo().position = positionCmInput.getText().toString();
         Intent intent = new Intent(this, PasswordActivity.class);
+        intent.putExtra(Constant.PASSWORD,true);
         startActivity(intent);
     }
 
