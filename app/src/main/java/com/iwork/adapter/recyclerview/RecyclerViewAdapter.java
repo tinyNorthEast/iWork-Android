@@ -106,6 +106,7 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
                     @Override
                     public void onResponse(CommonModel response) {
                         if (response.getInfoCode() == 0) {
+                            ToastHelper.showShortCompleted("删除消息成功");
                             mItemManger.removeShownLayouts(viewHolder.swipeLayout);
                             mDataset.remove(position);
                             notifyItemRemoved(position);
