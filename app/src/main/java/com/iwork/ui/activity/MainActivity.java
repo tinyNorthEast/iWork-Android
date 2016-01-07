@@ -22,12 +22,14 @@ import com.iwork.ui.fragment.SampleFragment;
 import com.iwork.ui.view.SlidingTabLayout;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.ui.view.ViewPagerAdapter;
+import com.iwork.ui.view.scroll.FixedSpeedScroller;
 import com.iwork.utils.Constant;
 import com.squareup.okhttp.Request;
 
 import org.simple.eventbus.EventBus;
 import org.simple.eventbus.Subscriber;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import butterknife.Bind;
@@ -77,10 +79,27 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
     private void initTabLayout(List<IndustryListModel.Industry> list) {
 
         viewpager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), list));
-//        slidingTabs.setDistributeEvenly(true);
-//        slidingTabs.setCustomTabView(R.layout.slidingtablayout_view,R.id.sliding_tabs_tv);
+//        setViewPagerScrollSpeed();
         slidingTabs.setViewPager(viewpager);
-//        slidingTabs.setSelectedIndicatorColors(R.color.color_bt_bg);
+    }
+
+    /**
+     * 设置ViewPager的滑动速度
+     */
+    private void setViewPagerScrollSpeed() {
+        try {
+            Field mScroller = null;
+            mScroller = ViewPager.class.getDeclaredField("mScroller");
+            mScroller.setAccessible(true);
+            FixedSpeedScroller scroller = new FixedSpeedScroller(viewpager.getContext());
+            mScroller.set(viewpager, scroller);
+        } catch (NoSuchFieldException e) {
+
+        } catch (IllegalArgumentException e) {
+
+        } catch (IllegalAccessException e) {
+
+        }
     }
 
     @Subscriber(tag = Constant.CITY)
