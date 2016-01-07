@@ -91,7 +91,6 @@ public class SampleFragment extends Fragment {
         persons = new ArrayList<>();
         getData(cityId);
         initXRecyclerView();
-        initAdapter(persons);
         return mRootView;
     }
 
@@ -225,7 +224,7 @@ public class SampleFragment extends Fragment {
         @Override
         public void onLoadMore() {
             pageNo++;
-            getData(cityId);
+            getDataMore(cityId);
             UiThreadHandler.postOnceDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -252,6 +251,27 @@ public class SampleFragment extends Fragment {
      */
     @Subscriber(tag = Constant.CITY)
     public void getData(int cityId) {
+
+        CommonRequest.getPersonList(pageNo, industryid, cityId, new ResultCallback<MainList>() {
+
+            @Override
+            public void onError(Request request, Exception e) {
+
+            }
+
+            @Override
+            public void onResponse(MainList response) {
+                if (response.getInfoCode() == 0) {
+                    persons=response.getData();
+                    initAdapter(persons);
+                }
+            }
+        });
+    }/**
+     * 从网络获取数据
+     */
+    @Subscriber(tag = Constant.CITY)
+    public void getDataMore(int cityId) {
 
         CommonRequest.getPersonList(pageNo, industryid, cityId, new ResultCallback<MainList>() {
 

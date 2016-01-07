@@ -20,7 +20,8 @@ public class ServerParam {
     public static final String ZH_NAME = "zh_name";
     public static final String EN_NAME = "en_name";
     public static final String PAGENO = "pageNo";
-    public static final String HEADHUNTERID = "headhunter_id";
+    public static final String HEADHUNTERID = "headhunterId";
+    public static final String HEADHUNTER_ID = "headhunter_id";
     public static final String TOKEN = "token";
     public static final String TO_USER_ID = "to_user_id";
     public static final String COMPANY = "company";
