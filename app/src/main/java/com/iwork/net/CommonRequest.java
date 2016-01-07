@@ -178,7 +178,7 @@ public class CommonRequest {
      */
     public static void getDetail(int headHunterId, ResultCallback<PersonDetail> callback) {
         Map<String, String> params = new HashMap<>();
-        params.put(ServerParam.HEADHUNTERID, headHunterId + "");
+        params.put(ServerParam.HEADHUNTER_ID, headHunterId + "");
         String token = Preferences.getInstance().getToken();
         if (TextUtil.isEmpty(token))
             params.put(ServerParam.TOKEN, token);
