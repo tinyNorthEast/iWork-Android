@@ -50,6 +50,11 @@ public class MessageCountActivity extends BaseActivity {
         ButterKnife.bind(this);
         messageCountTitlebar.setTitle("我的消息");
         messageCountTitlebar.setBackDrawableListener(backListener);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getData();
     }
 

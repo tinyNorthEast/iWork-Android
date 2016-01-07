@@ -56,6 +56,12 @@ public class MySelfActivity extends BaseActivity {
         myselfTitlebar.setTitle("个人中心");
         myselfTitlebar.setBackDrawableListener(backListener);
         myselfTitlebar.setCustomImageButtonRight(R.drawable.title_bar_set, setListener);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getMySelfData();
     }
 

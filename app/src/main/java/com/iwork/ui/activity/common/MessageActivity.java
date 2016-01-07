@@ -110,7 +110,7 @@ public class MessageActivity extends BaseActivity {
                 public void run() {
                     recyclerView.refreshComplete();
                 }
-            }, 5000);
+            }, Constant.REFESHTIME);
         }
 
         @Override
@@ -121,7 +121,7 @@ public class MessageActivity extends BaseActivity {
                 public void run() {
                     recyclerView.loadMoreComplete();
                 }
-            }, 5000);
+            }, Constant.REFESHTIME);
         }
     };
     private View.OnClickListener mBackListener = new View.OnClickListener() {
