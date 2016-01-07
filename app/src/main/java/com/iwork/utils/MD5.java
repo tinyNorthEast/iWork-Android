@@ -20,7 +20,11 @@ public class MD5 {
 
             byte[] byteArray = messageDigest.digest();
             for (int i = 0; i < byteArray.length; i++) {
-                md5StrBuff.append(String.format("%02X", byteArray[i]));
+                if (Integer.toHexString(0xFF & byteArray[i]).length() == 1) {
+                    md5StrBuff.append("0").append(Integer.toHexString(0xFF & byteArray[i]));
+                } else {
+                    md5StrBuff.append(Integer.toHexString(0xFF & byteArray[i]));
+                }
             }
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -83,9 +87,8 @@ public class MD5 {
     }
 
     /**
-     * @param fileName
-     *            包含路径的文件名
-     * */
+     * @param fileName 包含路径的文件名
+     */
     public static String toMD5ForFile(String fileName) throws Exception {
         if (TextUtil.isEmpty(fileName)) {
             return fileName;

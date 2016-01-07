@@ -35,6 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:visibility="gone"
                 android:src="@drawable/es_login_phone" />
 
             <TextView
@@ -82,6 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:visibility="gone"
                 android:src="@drawable/es_login_password" />
 
             <EditText
@@ -129,6 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:visibility="gone"
                 android:src="@drawable/es_login_password" />
 
             <TextView
@@ -175,6 +178,7 @@
                 android:id="@+id/registe_iv_user_invate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:layout_centerVertical="true"
                 android:src="@drawable/es_login_password" />
 

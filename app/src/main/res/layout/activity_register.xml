@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:src="@drawable/es_login_phone" />
+                android:src="@drawable/es_login_phone_select" />
 
             <EditText
                 android:id="@+id/registe_ed_phone_input"
