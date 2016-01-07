@@ -47,11 +47,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_toEndOf="@+id/message_item_content_iv"
                 android:layout_toRightOf="@+id/message_item_content_iv"
                 android:text="权限消息"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/message_item_content_tv"
@@ -59,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/message_item_content_iv"
                 android:layout_marginLeft="10dp"
+                android:textSize="13sp"
                 android:layout_toRightOf="@+id/message_item_content_iv"
                 tools:text="5个未读消息" />
 
@@ -73,13 +74,13 @@
                 <Button
                     android:id="@+id/message_item_content_bt_cancel"
                     android:background="@drawable/cancel_bt"
-                    android:layout_width="50dp"
+                    android:layout_width="40dp"
                     android:layout_height="30dp"
                      />
 
                 <Button
                     android:id="@+id/message_item_content_bt_confim"
-                    android:layout_width="50dp"
+                    android:layout_width="40dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/confim_bt" />
