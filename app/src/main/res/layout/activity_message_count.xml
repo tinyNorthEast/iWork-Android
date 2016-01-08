@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
-                android:src="@drawable/myself_set_profession" />
+                android:src="@drawable/message_comment" />
 
             <TextView
                 android:id="@+id/message_count_comment_title"
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
-                android:src="@drawable/myself_set_profession" />
+                android:src="@drawable/message_authority" />
 
             <TextView
                 android:id="@+id/message_count_authority_title"
@@ -87,7 +87,7 @@
                 android:id="@+id/message_count_authority_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/message_count_authority_iv"
+                android:layout_below="@+id/message_count_authority_title"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/message_count_authority_iv"
                 android:text="0个未读消息" />
@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
-                android:src="@drawable/myself_set_profession" />
+                android:src="@drawable/message_attention" />
 
             <TextView
                 android:id="@+id/message_count_attention_title"
@@ -150,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
-                android:src="@drawable/myself_set_profession" />
+                android:src="@drawable/message_system" />
 
             <TextView
                 android:id="@+id/message_count_system_title"
