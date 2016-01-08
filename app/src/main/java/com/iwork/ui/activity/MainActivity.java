@@ -3,6 +3,7 @@ package com.iwork.ui.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
@@ -40,7 +41,7 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
     @Bind(R.id.main_title_bar)
     TitleBar titleBar;
     @Bind(R.id.sliding_tabs)
-    SlidingTabLayout slidingTabs;
+    TabLayout slidingTabs;
     @Bind(R.id.viewpager)
     ViewPager viewpager;
     private String titles[] = new String[]{"金融", "消费品", "房产"};
@@ -77,10 +78,12 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
     }
 
     private void initTabLayout(List<IndustryListModel.Industry> list) {
-
-        viewpager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), list));
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), list);
+        viewpager.setAdapter(adapter);
 //        setViewPagerScrollSpeed();
-        slidingTabs.setViewPager(viewpager);
+        slidingTabs.setTabMode(TabLayout.MODE_SCROLLABLE);
+        slidingTabs.setupWithViewPager(viewpager);
+        slidingTabs.setTabsFromPagerAdapter(adapter);
     }
 
     /**
@@ -178,7 +181,7 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-//获取当前系统时间的毫秒数
+            //获取当前系统时间的毫秒数
             currentBackTime = System.currentTimeMillis();
             //比较上次按下返回键和当前按下返回键的时间差，如果大于2秒，则提示再按一次退出
             if (currentBackTime - lastBackTime > 2 * 1000) {

@@ -7,13 +7,14 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.iwork.model.IndustryListModel;
 import com.iwork.ui.fragment.SampleFragment;
 
+import java.util.Collections;
 import java.util.List;
 
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     final int PAGE_COUNT = 8;
-    private List<IndustryListModel.Industry> titles;
+    private List<IndustryListModel.Industry> titles= Collections.emptyList();
 
     public ViewPagerAdapter(FragmentManager fm, List<IndustryListModel.Industry> titles2) {
         super(fm);
