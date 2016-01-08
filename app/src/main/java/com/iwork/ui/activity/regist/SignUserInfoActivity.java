@@ -136,7 +136,7 @@ public class SignUserInfoActivity extends BaseActivity {
 
     @OnClick(R.id.regist_btn_submit_user)
     public void onNext() {
-        String zh_name = registeEdUserEname.getText().toString();
+        String zh_name = registeUserCname.getText().toString();
         if (!TextUtil.isEmpty(zh_name)) {
             BaseApplication.getAppContext().getmUserInfo().zh_name = zh_name;
         } else {
@@ -210,7 +210,7 @@ public class SignUserInfoActivity extends BaseActivity {
 
     private void updateAvatar(String absolutePath) {
         Bitmap bitmap = ImageUtil.createBitmap(absolutePath);
-        registeIvUser.setImageBitmap(bitmap);
+        registeIvUser.setImageBitmap(ImageUtil.round(bitmap,200,true));
         UploadManager uploadManager = new UploadManager();
         String key = getImageKey();
         String token = qiniuToken;
@@ -230,7 +230,7 @@ public class SignUserInfoActivity extends BaseActivity {
      * @return
      */
     private String getImageKey() {
-        return "PNG-"+ TimeUtil.formatDates(System.currentTimeMillis());
+        return "PNG_"+ TimeUtil.formatDates(System.currentTimeMillis());
     }
 
     // 打开裁剪界面

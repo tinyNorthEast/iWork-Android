@@ -90,24 +90,9 @@ public class RegisterActivity extends BaseActivity {
         titleBar.setBackDrawableListener(backListener);
     }
 
-    /**
-     * 标题栏返回按钮点击监听
-     */
-    private View.OnClickListener backListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            finish();
-        }
-    };
-
     private void setTextChangeWatch() {
         registeEdPhoneInput.addTextChangedListener(phoneWatcher);
         registeEdCodeInput.addTextChangedListener(codeWatcher);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 
     @Override
@@ -223,7 +208,11 @@ public class RegisterActivity extends BaseActivity {
             cancelLoading();
             if (result == SMSSDK.RESULT_COMPLETE) {
                 if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
-                    jumpNext();
+                    if (isRegiste) {
+                        CommonRequest.checkphonestatus(phone, phoneStatusCallback);
+                    } else {
+                        jumpNext();
+                    }
                 } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
                     ToastHelper.showShortCompleted(R.string.get_code_succ);
                     setTimeCount();
@@ -261,7 +250,7 @@ public class RegisterActivity extends BaseActivity {
             startActivity(intent);
         } else {
             Intent intent = new Intent(this, PasswordActivity.class);
-            intent.putExtra(Constant.PASSWORD,false);
+            intent.putExtra(Constant.PASSWORD, false);
             startActivity(intent);
         }
     }
@@ -269,14 +258,18 @@ public class RegisterActivity extends BaseActivity {
     @OnClick(R.id.registe_tv_get_code)
     public void getCodeOnClick() {
 
-        requestPermission();
+        getCode();
     }
 
     private void getCode() {
         phone = registeEdPhoneInput.getText().toString().trim();
         if (Utils.isPhone(phone)) {
-            showLoading(R.string.login_getCoding);
-            SMSSDK.getVerificationCode("86", phone);
+            if (isRegiste) {
+                CommonRequest.checkphonestatus(phone, phoneStatusCallback);
+            } else {
+                showLoading(R.string.login_getCoding);
+                SMSSDK.getVerificationCode("86", phone);
+            }
         } else {
             ToastHelper.showShortError(R.string.phone_errns);
         }
@@ -284,20 +277,20 @@ public class RegisterActivity extends BaseActivity {
 
     public static final int REQUEST_READ_PHONE_STATE = 123;
 
-    private void requestPermission() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            int checkREAD_PHONE_STATE = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
-            if (checkREAD_PHONE_STATE != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE,
-                        Manifest.permission.RECEIVE_SMS}, REQUEST_READ_PHONE_STATE);
-                return;
-            } else {
-                getCode();
-            }
-        } else {
-            getCode();
-        }
-    }
+//    private void requestPermission() {
+//        if (Build.VERSION.SDK_INT >= 23) {
+//            int checkREAD_PHONE_STATE = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
+//            if (checkREAD_PHONE_STATE != PackageManager.PERMISSION_GRANTED) {
+//                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE,
+//                        Manifest.permission.RECEIVE_SMS}, REQUEST_READ_PHONE_STATE);
+//                return;
+//            } else {
+//                getCode();
+//            }
+//        } else {
+//            getCode();
+//        }
+//    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -315,17 +308,20 @@ public class RegisterActivity extends BaseActivity {
     }
 
     @OnClick(R.id.registe_btn_submit)
-    public void sendCode() {
+    public void next() {
         showLoading(R.string.loading);
         phone = registeEdPhoneInput.getText().toString().trim();
         if (!Utils.isPhone(phone)) {
             ToastHelper.showShortError(R.string.phone_errns);
             return;
         } else {
-            if (isRegiste){
-                CommonRequest.checkphonestatus(phone, phoneStatusCallback);
-            }else {
+            String code = registeEdCodeInput.getText().toString().trim();
+            if (!TextUtil.isEmpty(code)) {
+//                SMSSDK.submitVerificationCode("86", phone, code);
+                cancelLoading();
                 jumpNext();
+            } else {
+                ToastHelper.showShortError("请填写正确的验证码");
             }
         }
 
@@ -341,16 +337,12 @@ public class RegisterActivity extends BaseActivity {
         public void onResponse(RequestMessage response) {
             KLog.i("---phonestatus", response.toString());
             if (response.getInfoCode() == NetConstant.PARAM_OK) {
-                String code = registeEdCodeInput.getText().toString().trim();
-                if (!TextUtil.isEmpty(code)) {
-//            SMSSDK.submitVerificationCode("86", phone, code);
-                    jumpNext();
-                } else {
-                    ToastHelper.showShortError("请填写正确的验证码");
-                }
+                showLoading(R.string.login_getCoding);
+                SMSSDK.getVerificationCode("86", phone);
+
             } else if (response.getInfoCode() == NetConstant.PARAM_ALREADY_PHONE) {
                 ToastHelper.showShortError(response.getMessage());
-            }else {
+            } else {
                 ToastHelper.showShortError(response.getMessage());
             }
 

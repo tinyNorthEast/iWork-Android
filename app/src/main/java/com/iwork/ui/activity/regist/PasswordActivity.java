@@ -57,6 +57,7 @@ public class PasswordActivity extends BaseActivity {
         ButterKnife.bind(this);
         flag = getIntent().getBooleanExtra(Constant.PASSWORD, false);
         titleBar.setTitle("设置密码");
+        titleBar.setBackDrawableListener(backListener);
     }
 
     @OnClick(R.id.password_btn_submit)
@@ -87,6 +88,7 @@ public class PasswordActivity extends BaseActivity {
                     if (response.getInfoCode() == 0) {
                         cancelLoading();
                         Preferences.getInstance().setPhone(userInfo.phone);
+                        Preferences.getInstance().setToken(response.getLogin_data().getToken());
                         ToastHelper.showShortCompleted("注册成功");
                         gotoMainActivity();
                     }
