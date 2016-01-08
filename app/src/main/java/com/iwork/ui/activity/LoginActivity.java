@@ -64,6 +64,7 @@ public class LoginActivity extends BaseActivity {
         showInputMethod();
         titleBar.setTitle("登陆");
         titleBar.setBackDrawableListener(backListener);
+        loginEdPhoneInput.setText(Preferences.getInstance().getPhone());
     }
 
     /**

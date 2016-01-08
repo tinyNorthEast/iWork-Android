@@ -74,7 +74,7 @@ public class PasswordActivity extends BaseActivity {
         }
         showLoading(R.string.loading);
         final UserInfo userInfo = BaseApplication.getAppContext().getmUserInfo();
-        String pw = MD5.toMD5(passwordCmInput.getText().toString());
+        String pw = passwordCmInput.getText().toString();
         if (flag) {
 
             CommonRequest.register(userInfo.phone, pw, userInfo.zh_name, userInfo.email, userInfo.experience, userInfo.position, userInfo.role_code, userInfo.invate_code, userInfo.pic_url, new ResultCallback<LoginInfo>() {
