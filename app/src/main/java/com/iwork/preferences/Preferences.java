@@ -141,7 +141,7 @@ public class Preferences {
     private void reset() {
         setUserId("");
         setToken("");
-        setPhone("");
+//        setPhone("");
     }
 
     public void commit() {

@@ -61,10 +61,10 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        showInputMethod();
         titleBar.setTitle("登陆");
         titleBar.setBackDrawableListener(backListener);
         loginEdPhoneInput.setText(Preferences.getInstance().getPhone());
+        loginEdPhoneInput.setFocusable(true);
     }
 
     /**
@@ -144,7 +144,6 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        hideInputMethod();
     }
 
     /**

@@ -89,9 +89,15 @@ public class SampleFragment extends Fragment {
         ButterKnife.bind(this, mRootView);
         cityId = Preferences.getInstance().getCurrentCityId();
         persons = new ArrayList<>();
-        getData(cityId);
         initXRecyclerView();
         return mRootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        pageNo=1;
+        getData(cityId);
     }
 
     private void initAdapter(final List<MainList.Person> persons) {
@@ -223,6 +229,7 @@ public class SampleFragment extends Fragment {
 
         @Override
         public void onLoadMore() {
+            pageNo++;
             getDataMore(cityId);
             UiThreadHandler.postOnceDelayed(new Runnable() {
                 @Override
@@ -282,14 +289,16 @@ public class SampleFragment extends Fragment {
             @Override
             public void onResponse(MainList response) {
                 if (response.getInfoCode() == 0) {
-                    persons.addAll(response.getData());
-                    mAdapter.notifyDataSetChanged();
-                    pageNo++;
-                    if (CollectionUtil.isEmpty(response.getData())) {
-                        recyclerView.loadMoreComplete();
-                        recyclerView.setLoadingMoreEnabled(false);
-                        ToastHelper.showShortCompleted("已经没有更多数据啦");
+                    if (!CollectionUtil.isEmpty(response.getData())) {
+                        persons.addAll(response.getData());
+                        mAdapter.notifyDataSetChanged();
                     }
+                }else if (response.getInfoCode()==Constant.NODATA){
+                    recyclerView.loadMoreComplete();
+                    recyclerView.setLoadingMoreEnabled(false);
+                    ToastHelper.showShortCompleted("已经没有更多数据啦");
+                }else {
+                    ToastHelper.showShortError(response.getMessage());
                 }
             }
         });

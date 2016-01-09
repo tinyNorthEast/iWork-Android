@@ -23,6 +23,7 @@ public class Constant {
     public static final String USERID = "userId";
     public static final int TOKENFAIL = 30003;
     public static final String PASSWORD ="password";
+    public static final int NODATA = 50000;
     /**
      * SDCARD文件目录
      */

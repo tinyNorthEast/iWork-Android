@@ -107,6 +107,7 @@ public class SignUserInfoActivity extends BaseActivity {
 
     @OnClick(R.id.registe_iv_user)
     public void setUserImage() {
+        hideInputMethod();
         if (_bottomListMenu == null) {
             _bottomListMenu = new BottomListMenu(this, parentView, getResources().getStringArray(R.array.avatar_menu));
             _bottomListMenu.setListMenuListener(new BottomListMenu.ListMenuListener() {

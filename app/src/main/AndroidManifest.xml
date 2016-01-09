@@ -46,6 +46,7 @@
             android:name="com.iwork.ui.activity.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -180,25 +181,65 @@
         <activity android:name="com.iwork.ui.activity.common.MessageActivity" />
         <activity
             android:name="com.iwork.ui.activity.LoginActivity"
-            android:label="@string/title_activity_login" />
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="stateVisible" />
         <activity
             android:name="com.iwork.ui.activity.regist.RegisterActivity"
-            android:label="注册" />
-        <activity android:name="com.iwork.ui.activity.regist.SignUserInfoActivity" />
-        <activity android:name="com.iwork.ui.activity.regist.PositionInfoActivity" />
-        <activity android:name="com.iwork.ui.activity.regist.PasswordActivity" />
-        <activity android:name="com.iwork.ui.activity.CityListActivity" />
-        <activity android:name="com.iwork.ui.activity.persondetail.PersonDetailActivty" />
-        <activity android:name="com.iwork.ui.activity.myself.SetActivity" />
-        <activity android:name="com.iwork.ui.activity.myself.MySelfActivity" />
-        <activity android:name="com.iwork.ui.activity.persondetail.SendMessageActivity" />
-        <activity android:name="com.iwork.ui.activity.myself.SetUserInfoActivity" />
-        <activity android:name="com.iwork.ui.activity.common.CommentActivity" />
-        <activity android:name="com.iwork.ui.activity.myself.SetMyselfPassword" />
-        <activity android:name="com.iwork.ui.activity.myself.MessageCountActivity" />
-        <activity android:name="com.iwork.ui.activity.common.AttentionActivity" />
-        <activity android:name="com.iwork.ui.activity.myself.InvateCodeActivity" />
-        <activity android:name="com.iwork.ui.activity.myself.AboutActivity"></activity>
+            android:label="注册"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name="com.iwork.ui.activity.regist.SignUserInfoActivity"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name="com.iwork.ui.activity.regist.PositionInfoActivity"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name="com.iwork.ui.activity.regist.PasswordActivity"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name="com.iwork.ui.activity.CityListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.iwork.ui.activity.persondetail.PersonDetailActivty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.iwork.ui.activity.myself.SetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.iwork.ui.activity.myself.MySelfActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.iwork.ui.activity.persondetail.SendMessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.iwork.ui.activity.myself.SetUserInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.iwork.ui.activity.common.CommentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.iwork.ui.activity.myself.SetMyselfPassword"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.iwork.ui.activity.myself.MessageCountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.iwork.ui.activity.common.AttentionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.iwork.ui.activity.myself.InvateCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.iwork.ui.activity.myself.AboutActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
