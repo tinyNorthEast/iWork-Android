@@ -179,16 +179,15 @@ public class PersonDetailActivty extends BaseActivity {
                     } else {
                         detailPerformanceBt.setVisibility(View.VISIBLE);
                     }
-                    if (response.getData().getHeadhunterInfo().getIsAttention()==1){
+                    if (response.getData().getHeadhunterInfo().getIsAttention() == 1) {
                         detailPersonFavorite.setChecked(true);
-                    }else {
+                    } else {
                         detailPersonFavorite.setChecked(false);
                     }
-                }else if (response.getInfoCode()==Constant.TOKENFAIL){
+                } else if (response.getInfoCode() == Constant.TOKENFAIL) {
                     ToastHelper.showShortError(response.getMessage());
-                    Intent intent = new Intent(PersonDetailActivty.this,LoginActivity.class);
-                    startActivity(intent);
-                }else {
+                    LoginUtil.goToLogin(PersonDetailActivty.this);
+                } else {
                     ToastHelper.showShortError(response.getMessage());
                 }
             }
@@ -209,14 +208,14 @@ public class PersonDetailActivty extends BaseActivity {
             @Override
             public void submit() {
                 String email = dialog.getEdtext();
-                if (TextUtil.isEmpty(email)&&!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                if (TextUtil.isEmpty(email) && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     ToastHelper.showShortError("请正确填写您的邮箱");
                     return;
                 }
                 CommonRequest.getAuth(headhunter_id, email, new ResultCallback<CommonModel>() {
                     @Override
                     public void onError(Request request, Exception e) {
-                        KLog.e("getAuthoried",e.toString());
+                        KLog.e("getAuthoried", e.toString());
                     }
 
                     @Override
@@ -224,11 +223,10 @@ public class PersonDetailActivty extends BaseActivity {
                         if (response.getInfoCode() == 0) {
                             ToastHelper.showLongCompleteMessage(ResourcesHelper.getString(R.string.get_author_success));
                             detailPerformanceBt.setVisibility(View.GONE);
-                        } else if (response.getInfoCode()==Constant.TOKENFAIL){
+                        } else if (response.getInfoCode() == Constant.TOKENFAIL) {
                             ToastHelper.showShortError(response.getMessage());
-                            Intent intent = new Intent(PersonDetailActivty.this,LoginActivity.class);
-                            startActivity(intent);
-                        }else {
+                            LoginUtil.goToLogin(PersonDetailActivty.this);
+                        } else {
                             ToastHelper.showShortError(response.getMessage());
                         }
                         dialog.dismiss();
@@ -363,7 +361,7 @@ public class PersonDetailActivty extends BaseActivity {
                 } else {
                     isAttention = 0;
                 }
-                CommonRequest.saveAttention(userId, isAttention,new ResultCallback<CommonModel>() {
+                CommonRequest.saveAttention(userId, isAttention, new ResultCallback<CommonModel>() {
                     @Override
                     public void onError(Request request, Exception e) {
                         detailPersonFavorite.setChecked(false);
@@ -373,12 +371,12 @@ public class PersonDetailActivty extends BaseActivity {
                     public void onResponse(CommonModel response) {
                         if (response.getInfoCode() == 0) {
                             ToastHelper.showShortCompleted("关注成功");
-                        } else if (response.getInfoCode()==Constant.TOKENFAIL){
+                        } else if (response.getInfoCode() == Constant.TOKENFAIL) {
                             Intent intent = new Intent(PersonDetailActivty.this, LoginActivity.class);
                             startActivity(intent);
                             detailPersonFavorite.setChecked(false);
                             ToastHelper.showShortError(response.getMessage());
-                        }else {
+                        } else {
                             ToastHelper.showShortError(response.getMessage());
                             detailPersonFavorite.setChecked(false);
                         }
@@ -403,6 +401,12 @@ public class PersonDetailActivty extends BaseActivity {
      */
     @OnClick(R.id.detail_bottom_sendms_layout)
     public void sendMessage() {
+        if (!LoginUtil.isLogin()) {
+            ToastHelper.showShortError(R.string.no_login);
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            return;
+        }
         Intent intent = new Intent(this, SendMessageActivity.class);
         intent.putExtra(Constant.C_MAIN_ID, headhunter_id);
         startActivity(intent);

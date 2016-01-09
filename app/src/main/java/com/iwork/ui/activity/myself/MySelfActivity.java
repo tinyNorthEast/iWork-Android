@@ -14,11 +14,11 @@ import com.iwork.helper.ToastHelper;
 import com.iwork.model.MySelfModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
-import com.iwork.ui.activity.LoginActivity;
 import com.iwork.ui.activity.common.AttentionActivity;
 import com.iwork.ui.view.BadgeView;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
+import com.iwork.utils.LoginUtil;
 import com.squareup.okhttp.Request;
 
 import butterknife.Bind;
@@ -87,9 +87,8 @@ public class MySelfActivity extends BaseActivity {
                     myselfTvRoleName.setText(response.getData().getRoleName());
                     Glide.with(MySelfActivity.this).load(response.getData().getPic()).error(R.drawable.myself_head).placeholder(R.drawable.myself_head).into(myselfIvUser);
                     showBadgeView(myselfMessagesTv, response.getData().getNoticeCount() + "");
-                } else if (response.getInfoCode()==30003){
-                    Intent intent = new Intent(MySelfActivity.this, LoginActivity.class);
-                    startActivity(intent);
+                } else if (response.getInfoCode()==Constant.TOKENFAIL){
+                    LoginUtil.goToLogin(MySelfActivity.this);
                     ToastHelper.showShortError(response.getMessage());
                 }
             }

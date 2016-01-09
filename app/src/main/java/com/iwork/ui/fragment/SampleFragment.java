@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -130,7 +129,7 @@ public class SampleFragment extends Fragment {
                 helper.getLayout(R.id.item_comment).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (!LoginUtil.isLogion()) {
+                        if (!LoginUtil.isLogin()) {
                             ToastHelper.showShortError(getResources().getString(R.string.no_login));
                             Intent intent = new Intent(getActivity(), LoginActivity.class);
                             startActivity(intent);
