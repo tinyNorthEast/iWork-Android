@@ -118,7 +118,6 @@ public class PersonDetailActivty extends BaseActivity {
         hr_mail = Preferences.getInstance().getmail();
         getData();
         initBottomlayout();
-        setFavorite();
     }
 
     /**
@@ -184,6 +183,7 @@ public class PersonDetailActivty extends BaseActivity {
                     } else {
                         detailPersonFavorite.setChecked(false);
                     }
+                    setFavorite();
                 } else if (response.getInfoCode() == Constant.TOKENFAIL) {
                     ToastHelper.showShortError(response.getMessage());
                     LoginUtil.goToLogin(PersonDetailActivty.this);
@@ -370,7 +370,7 @@ public class PersonDetailActivty extends BaseActivity {
                     @Override
                     public void onResponse(CommonModel response) {
                         if (response.getInfoCode() == 0) {
-                            ToastHelper.showShortCompleted("关注成功");
+                            ToastHelper.showShortCompleted(response.getMessage());
                         } else if (response.getInfoCode() == Constant.TOKENFAIL) {
                             Intent intent = new Intent(PersonDetailActivty.this, LoginActivity.class);
                             startActivity(intent);
