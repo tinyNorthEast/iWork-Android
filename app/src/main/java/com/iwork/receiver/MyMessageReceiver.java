@@ -23,22 +23,38 @@ public class MyMessageReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         // TODO: This method is called when the BroadcastReceiver is receiving
         Bundle bundle = intent.getExtras();
-        KLog.i(TAG,intent.getAction() + ", extras: " + printBundle(bundle));
-        if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())){
-            Intent intent1 =new Intent(context, MessageActivity.class);
-            intent.putExtra(Constant.ISFROMSET,false);
-            intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            context.startActivity(intent1);
+        KLog.i(TAG, intent.getAction() + ", extras: " + printBundle(bundle));
+        int n_type = 0;
+        try {
+            JSONObject json = new JSONObject(bundle.getString(JPushInterface.EXTRA_EXTRA));
+            Iterator<String> it = json.keys();
+
+            while (it.hasNext()) {
+                String myKey = it.next().toString();
+                if (myKey.equals(Constant.N_TYPE))
+                    n_type = json.optInt(myKey);
+                KLog.i(TAG,n_type);
+            }
+        } catch (JSONException e) {
+            KLog.e(TAG, "Get message extra JSON error!");
+        }
+        if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
+            Intent myIntent = new Intent(context, MessageActivity.class);
+            myIntent.putExtra(Constant.ISFROMSET, false);
+            myIntent.putExtra(Constant.MESSAGETYPE,n_type);
+            myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            context.startActivity(myIntent);
         }
     }
+
     // 打印所有的 intent extra 数据
     private static String printBundle(Bundle bundle) {
         StringBuilder sb = new StringBuilder();
         for (String key : bundle.keySet()) {
             if (key.equals(JPushInterface.EXTRA_NOTIFICATION_ID)) {
-                sb.append("\nkey:" + key + ", value:" + bundle.getInt(key));
-            }else if(key.equals(JPushInterface.EXTRA_CONNECTION_CHANGE)){
-                sb.append("\nkey:" + key + ", value:" + bundle.getBoolean(key));
+                sb.append("\nkey1:" + key + ", value:" + bundle.getInt(key));
+            } else if (key.equals(JPushInterface.EXTRA_CONNECTION_CHANGE)) {
+                sb.append("\nkey2:" + key + ", value:" + bundle.getBoolean(key));
             } else if (key.equals(JPushInterface.EXTRA_EXTRA)) {
                 if (bundle.getString(JPushInterface.EXTRA_EXTRA).isEmpty()) {
                     KLog.i(TAG, "This message has no Extra data");
@@ -47,19 +63,19 @@ public class MyMessageReceiver extends BroadcastReceiver {
 
                 try {
                     JSONObject json = new JSONObject(bundle.getString(JPushInterface.EXTRA_EXTRA));
-                    Iterator<String> it =  json.keys();
+                    Iterator<String> it = json.keys();
 
                     while (it.hasNext()) {
                         String myKey = it.next().toString();
                         sb.append("\nkey:" + key + ", value: [" +
-                                myKey + " - " +json.optString(myKey) + "]");
+                                myKey + " - " + json.optString(myKey) + "]");
                     }
                 } catch (JSONException e) {
                     KLog.e(TAG, "Get message extra JSON error!");
                 }
 
             } else {
-                sb.append("\nkey:" + key + ", value:" + bundle.getString(key));
+                sb.append("\nkey3:" + key + ", value:" + bundle.getString(key));
             }
         }
         return sb.toString();

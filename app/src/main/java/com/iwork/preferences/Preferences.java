@@ -140,7 +140,7 @@ public class Preferences {
     }
 
     public int getrole_code() {
-        return mPref.getInt("role_code", 101);
+        return mPref.getInt("role_code", 0);
     }
 
 

@@ -46,6 +46,7 @@ import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
 import com.iwork.utils.LoginUtil;
 import com.iwork.utils.TextUtil;
+import com.iwork.utils.UiThreadHandler;
 import com.socks.library.KLog;
 import com.squareup.okhttp.Request;
 
@@ -173,10 +174,11 @@ public class PersonDetailActivty extends BaseActivity {
                     setFunctionData(response.getData().getHeadhunterInfo().getFunctionsList());
                     setPerformanceData(response.getData().getPerformanceList());
                     setCommentData(response.getData().getCommentList());
-                    if (response.getData().getHeadhunterInfo().getIsAuth() == 1) {
-                        detailPerformanceBt.setVisibility(View.GONE);
-                    } else {
+                    int role_code=Preferences.getInstance().getrole_code();
+                    if (LoginUtil.isLogin()&&role_code==101&&response.getData().getHeadhunterInfo().getIsAuth() ==0){
                         detailPerformanceBt.setVisibility(View.VISIBLE);
+                    }else {
+                        detailPerformanceBt.setVisibility(View.GONE);
                     }
                     if (response.getData().getHeadhunterInfo().getIsAttention() == 1) {
                         detailPersonFavorite.setChecked(true);

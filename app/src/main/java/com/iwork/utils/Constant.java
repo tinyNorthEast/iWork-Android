@@ -24,6 +24,7 @@ public class Constant {
     public static final int TOKENFAIL = 30003;
     public static final String PASSWORD ="password";
     public static final int NODATA = 50000;
+    public static final String N_TYPE = "n_type";
     /**
      * SDCARD文件目录
      */
