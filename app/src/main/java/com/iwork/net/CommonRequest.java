@@ -66,7 +66,7 @@ public class CommonRequest {
      * @param pic         头像
      * @param callback    回调
      */
-    public static void register(String phone, String password, String zh_name,String en_name, String mail,String company,
+    public static void register(String phone, String password, String zh_name, String en_name, String mail, String company,
                                 int experience, String position, int role_code,
                                 String invate_code, String pic, ResultCallback<LoginInfo> callback) {
         Map<String, String> params = new HashMap<>();
@@ -227,10 +227,12 @@ public class CommonRequest {
      *
      * @param callback
      */
-    public static void getMessageListData(int n_type, ResultCallback<MessageList> callback) {
+    public static void getMessageListData(int n_type, int pageNo, ResultCallback<MessageList> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
         params.put(ServerParam.N_TYPE, n_type + "");
+        if (pageNo != 0)
+            params.put(ServerParam.PAGENO, pageNo + "");
         String url = createUrl("/api/v1/notice/findNoticeList.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
     }
@@ -278,13 +280,13 @@ public class CommonRequest {
      *
      * @param attention_to_id 关注者id
      * @param callback
-     * @param isAttention 1关注  0取消关注
+     * @param isAttention     1关注  0取消关注
      */
-    public static void saveAttention(int attention_to_id,int isAttention, ResultCallback<CommonModel> callback) {
+    public static void saveAttention(int attention_to_id, int isAttention, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.ATTENTION_TO_ID, attention_to_id + "");
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
-        params.put(ServerParam.ISATTENTION,isAttention+"");
+        params.put(ServerParam.ISATTENTION, isAttention + "");
         String url = createUrl("/api/v1/attention/saveAttention.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);
     }
@@ -361,11 +363,11 @@ public class CommonRequest {
      * @param lt_status
      * @param callback
      */
-    public static void updataAuth(int objid,int authId, int lt_status, ResultCallback<CommonModel> callback) {
+    public static void updataAuth(int objid, int authId, int lt_status, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
         params.put(ServerParam.AUTHID, authId + "");
-        params.put(ServerParam.OBJID,objid+"");
+        params.put(ServerParam.OBJID, objid + "");
         params.put(ServerParam.LT_STATUS, lt_status + "");
         String url = createUrl("/api/v1/headhunter/updateAuth.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);

@@ -26,6 +26,7 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.squareup.okhttp.Request;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.Bind;
@@ -39,6 +40,7 @@ public class MessageActivity extends BaseActivity {
     XRecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private int messageType;
+    private List<MessageList.MessageDataEntity> messageLists = Collections.emptyList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +60,7 @@ public class MessageActivity extends BaseActivity {
     }
 
     private void getMessageDate() {
-        CommonRequest.getMessageListData(messageType, new ResultCallback<MessageList>() {
+        CommonRequest.getMessageListData(messageType,pageNo, new ResultCallback<MessageList>() {
             @Override
             public void onError(Request request, Exception e) {
 
@@ -67,12 +69,11 @@ public class MessageActivity extends BaseActivity {
             @Override
             public void onResponse(MessageList response) {
                 if (response.getInfoCode() == 0) {
-                    if (CollectionUtil.isEmpty(response.getData())) {
-                        ToastHelper.showShortInfo("当前没有消息");
-                        return;
+                    if (!CollectionUtil.isEmpty(response.getData())) {
+                        messageLists=response.getData();
+                        initAdaper(messageLists);
                     }
-                    initAdaper(response.getData());
-                } else {
+                } else if (response.getInfoCode()==Constant.NODATA){
                     ToastHelper.showShortError(response.getMessage());
                 }
             }
@@ -80,7 +81,7 @@ public class MessageActivity extends BaseActivity {
     }
 
     private void getMessageMoreDate() {
-        CommonRequest.getMessageListData(messageType, new ResultCallback<MessageList>() {
+        CommonRequest.getMessageListData(messageType,pageNo, new ResultCallback<MessageList>() {
             @Override
             public void onError(Request request, Exception e) {
 
@@ -89,12 +90,11 @@ public class MessageActivity extends BaseActivity {
             @Override
             public void onResponse(MessageList response) {
                 if (response.getInfoCode() == 0) {
-                    if (CollectionUtil.isEmpty(response.getData())) {
-                        ToastHelper.showShortInfo("当前没有消息");
-                        return;
+                    if (!CollectionUtil.isEmpty(response.getData())) {
+                        messageLists.addAll(response.getData());
                     }
-                    initAdaper(response.getData());
-                } else {
+                } else if (response.getInfoCode()==Constant.NODATA){
+                    recyclerView.setLoadingMoreEnabled(false);
                     ToastHelper.showShortError(response.getMessage());
                 }
             }
@@ -140,6 +140,7 @@ public class MessageActivity extends BaseActivity {
         @Override
         public void onLoadMore() {
             pageNo++;
+            getMessageMoreDate();
             mAdapter.notifyDataSetChanged();
             UiThreadHandler.postDelayed(new Runnable() {
                 @Override

@@ -39,6 +39,7 @@ import com.squareup.okhttp.Request;
 import org.simple.eventbus.Subscriber;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.Bind;
@@ -52,7 +53,7 @@ public class SampleFragment extends Fragment {
     XRecyclerView recyclerView;
     private int pageNo = 1;
     private int cityId;
-    private List<MainList.Person> persons;
+    private List<MainList.Person> persons= Collections.emptyList();
     QuickAdapter<MainList.Person> mAdapter;
     private OnFragmentInteractionListener mListener;
     private BadgeView badgeView;
@@ -87,7 +88,7 @@ public class SampleFragment extends Fragment {
         mRootView = inflater.inflate(R.layout.fragment_sample, container, false);
         ButterKnife.bind(this, mRootView);
         cityId = Preferences.getInstance().getCurrentCityId();
-        persons = new ArrayList<>();
+//        persons = new ArrayList<>();
         initXRecyclerView();
         return mRootView;
     }
