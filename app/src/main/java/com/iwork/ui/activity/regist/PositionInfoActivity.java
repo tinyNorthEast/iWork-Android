@@ -118,9 +118,9 @@ public class PositionInfoActivity extends BaseActivity {
                 positionEdPtInput.setText(object);
                 BaseApplication.getAppContext().getmUserInfo().role_code = position + 100;
                 if (position==0){
-                    user_invate_layout.setVisibility(View.GONE);
-                }else {
                     user_invate_layout.setVisibility(View.VISIBLE);
+                }else {
+                    user_invate_layout.setVisibility(View.GONE);
                 }
                 KLog.i("---pt", position);
             }
