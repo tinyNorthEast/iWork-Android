@@ -46,7 +46,8 @@ public class PositionInfoActivity extends BaseActivity {
     View mRootView;
     @Bind(R.id.registe_ed_user_invate)
     EditText registeEdUserInvate;
-
+    @Bind(R.id.registe_rl_user_invate)
+    RelativeLayout user_invate_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +117,11 @@ public class PositionInfoActivity extends BaseActivity {
             public void onItemSelected(int position, String object) {
                 positionEdPtInput.setText(object);
                 BaseApplication.getAppContext().getmUserInfo().role_code = position + 100;
+                if (position==0){
+                    user_invate_layout.setVisibility(View.GONE);
+                }else {
+                    user_invate_layout.setVisibility(View.VISIBLE);
+                }
                 KLog.i("---pt", position);
             }
         });

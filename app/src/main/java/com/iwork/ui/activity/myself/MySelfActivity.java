@@ -14,6 +14,7 @@ import com.iwork.helper.ToastHelper;
 import com.iwork.model.MySelfModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.preferences.Preferences;
 import com.iwork.ui.activity.common.AttentionActivity;
 import com.iwork.ui.view.BadgeView;
 import com.iwork.ui.view.TitleBar;
@@ -56,7 +57,9 @@ public class MySelfActivity extends BaseActivity {
         myselfTitlebar.setTitle("个人中心");
         myselfTitlebar.setBackDrawableListener(backListener);
         myselfTitlebar.setCustomImageButtonRight(R.drawable.title_bar_set, setListener);
-
+        int role_code = Preferences.getInstance().getrole_code();
+        if (role_code==100)
+            myselfMyattention.setVisibility(View.GONE);
     }
 
     @Override

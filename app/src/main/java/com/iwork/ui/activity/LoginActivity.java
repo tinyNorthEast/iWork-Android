@@ -95,6 +95,7 @@ public class LoginActivity extends BaseActivity {
                 Preferences.getInstance().setToken(response.getLogin_data().getToken());
                 Preferences.getInstance().setZhName(response.getLogin_data().getZh_name());
                 Preferences.getInstance().setUserId(response.getLogin_data().getUserId());
+                Preferences.getInstance().setrole_code(response.getLogin_data().getRole_code());
                 Preferences.getInstance().setPhone(phone);
                 Preferences.getInstance().setmail(response.getLogin_data().getMail());
                 JPushInterface.setAlias(getApplicationContext(), response.getLogin_data().getUserId(), null);

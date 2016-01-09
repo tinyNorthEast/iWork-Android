@@ -129,6 +129,20 @@ public class Preferences {
         return mPref.getString("mail", "");
     }
 
+    /**
+     * 保存role_code
+     *
+     * @param role_code
+     */
+    public void setrole_code(int role_code) {
+        mEditor.putInt("role_code", role_code);
+        mEditor.commit();
+    }
+
+    public int getrole_code() {
+        return mPref.getInt("role_code", 101);
+    }
+
 
     /**
      * 清除数据
