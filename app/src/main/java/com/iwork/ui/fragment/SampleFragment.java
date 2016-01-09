@@ -223,7 +223,6 @@ public class SampleFragment extends Fragment {
 
         @Override
         public void onLoadMore() {
-            pageNo++;
             getDataMore(cityId);
             UiThreadHandler.postOnceDelayed(new Runnable() {
                 @Override
@@ -285,6 +284,7 @@ public class SampleFragment extends Fragment {
                 if (response.getInfoCode() == 0) {
                     persons.addAll(response.getData());
                     mAdapter.notifyDataSetChanged();
+                    pageNo++;
                     if (CollectionUtil.isEmpty(response.getData())) {
                         recyclerView.loadMoreComplete();
                         recyclerView.setLoadingMoreEnabled(false);
