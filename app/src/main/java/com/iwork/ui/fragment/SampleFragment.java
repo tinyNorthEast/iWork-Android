@@ -28,6 +28,7 @@ import com.iwork.ui.activity.LoginActivity;
 import com.iwork.ui.activity.common.CommentActivity;
 import com.iwork.ui.activity.persondetail.PersonDetailActivty;
 import com.iwork.ui.view.BadgeView;
+import com.iwork.ui.view.DividerItemDecoration;
 import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
 import com.iwork.utils.LoginUtil;
@@ -211,6 +212,7 @@ public class SampleFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setBackgroundColor(getResources().getColor(R.color.white));
         recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),LinearLayoutManager.VERTICAL));
         recyclerView.setLaodingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
         recyclerView.setLoadingMoreEnabled(true);
         recyclerView.setLoadingListener(loadingListener);

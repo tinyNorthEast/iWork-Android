@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:iwork="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.iwork.ui.view.ColorTrackView
+    <TextView
+        tools:text ="ceshi"
         android:id="@+id/sliding_tabs_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        iwork:text="互联网"
-        iwork:text_change_color="@color/white"
-        iwork:text_origin_color="@color/text_color_bg"
-        iwork:text_size="@dimen/font_size_m_large" />
+        android:textColor="@drawable/slidingtablayout_select"
+         />
 </LinearLayout>
