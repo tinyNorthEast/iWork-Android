@@ -361,10 +361,11 @@ public class CommonRequest {
      * @param lt_status
      * @param callback
      */
-    public static void updataAuth(int authId, int lt_status, ResultCallback<CommonModel> callback) {
+    public static void updataAuth(int objid,int authId, int lt_status, ResultCallback<CommonModel> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.TOKEN, Preferences.getInstance().getToken());
         params.put(ServerParam.AUTHID, authId + "");
+        params.put(ServerParam.OBJID,objid+"");
         params.put(ServerParam.LT_STATUS, lt_status + "");
         String url = createUrl("/api/v1/headhunter/updateAuth.action", params);
         new OkHttpRequest.Builder().url(url).params(params).post(callback);

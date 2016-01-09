@@ -137,11 +137,15 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
             }
         });
         if (item.getN_type() == 2) {
-            viewHolder.button_ly.setVisibility(View.VISIBLE);
+            if (item.getStatus()==1){
+                viewHolder.button_ly.setVisibility(View.VISIBLE);
+            }else if (item.getStatus()==2){
+                viewHolder.button_ly.setVisibility(View.GONE);
+            }
             viewHolder.bt_confim.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CommonRequest.updataAuth(item.getRecord_id(), 2, new ResultCallback<CommonModel>() {
+                    CommonRequest.updataAuth(item.getObjId(),item.getRecord_id(), 2, new ResultCallback<CommonModel>() {
                         @Override
                         public void onError(Request request, Exception e) {
 
@@ -160,7 +164,7 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
             viewHolder.bt_cancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CommonRequest.updataAuth(item.getRecord_id(), 0, new ResultCallback<CommonModel>() {
+                    CommonRequest.updataAuth(item.getObjId(),item.getRecord_id(), 0, new ResultCallback<CommonModel>() {
                         @Override
                         public void onError(Request request, Exception e) {
 

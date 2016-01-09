@@ -79,6 +79,28 @@ public class MessageActivity extends BaseActivity {
         });
     }
 
+    private void getMessageMoreDate() {
+        CommonRequest.getMessageListData(messageType, new ResultCallback<MessageList>() {
+            @Override
+            public void onError(Request request, Exception e) {
+
+            }
+
+            @Override
+            public void onResponse(MessageList response) {
+                if (response.getInfoCode() == 0) {
+                    if (CollectionUtil.isEmpty(response.getData())) {
+                        ToastHelper.showShortInfo("当前没有消息");
+                        return;
+                    }
+                    initAdaper(response.getData());
+                } else {
+                    ToastHelper.showShortError(response.getMessage());
+                }
+            }
+        });
+    }
+
     /**
      * 初始化列表布局
      */
@@ -98,12 +120,14 @@ public class MessageActivity extends BaseActivity {
         recyclerView.setAdapter(mAdapter);
     }
 
+    private int pageNo = 1;
     /**
      * 上拉刷新 下拉加载 监听
      */
     private XRecyclerView.LoadingListener loadingListener = new XRecyclerView.LoadingListener() {
         @Override
         public void onRefresh() {
+            getMessageDate();
             mAdapter.notifyDataSetChanged();
             UiThreadHandler.postDelayed(new Runnable() {
                 @Override
@@ -115,6 +139,7 @@ public class MessageActivity extends BaseActivity {
 
         @Override
         public void onLoadMore() {
+            pageNo++;
             mAdapter.notifyDataSetChanged();
             UiThreadHandler.postDelayed(new Runnable() {
                 @Override
