@@ -80,7 +80,6 @@ public class RegisterActivity extends BaseActivity {
         SMSSDK.initSDK(this, Constant.SMSSDKKEY, Constant.SMSSDKSECRET);
         SMSSDK.registerEventHandler(eventHandler);
         SMSSDK.getSupportedCountries();
-        showInputMethod();
         isRegiste = getIntent().getBooleanExtra("isRegiste", false);
         if (isRegiste) {
             titleBar.setTitle("注册");
@@ -88,6 +87,7 @@ public class RegisterActivity extends BaseActivity {
             titleBar.setTitle("忘记密码");
         }
         titleBar.setBackDrawableListener(backListener);
+        showInputMethod();
     }
 
     private void setTextChangeWatch() {

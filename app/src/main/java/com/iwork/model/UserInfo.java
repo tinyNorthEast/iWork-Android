@@ -14,5 +14,5 @@ public class UserInfo {
     public int role_code;
     public String invate_code;
     public String pic_url;
-
+    public String company;
 }

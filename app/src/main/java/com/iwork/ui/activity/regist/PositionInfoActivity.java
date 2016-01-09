@@ -56,6 +56,7 @@ public class PositionInfoActivity extends BaseActivity {
         ButterKnife.bind(this);
         titleBar.setTitle("职位信息");
         titleBar.setBackDrawableListener(backListener);
+        showInputMethod();
     }
 
     /**
@@ -79,7 +80,8 @@ public class PositionInfoActivity extends BaseActivity {
         if (!TextUtils.isEmpty(registeEdUserInvate.getText().toString())) {
             BaseApplication.getAppContext().getmUserInfo().invate_code = registeEdUserInvate.getText().toString().trim();
         }
-        BaseApplication.getAppContext().getmUserInfo().position = positionCmInput.getText().toString();
+        BaseApplication.getAppContext().getmUserInfo().position = positionCmInput.getText().toString().trim();
+        BaseApplication.getAppContext().getmUserInfo().company = positionCmInput.getText().toString().trim();
         Intent intent = new Intent(this, PasswordActivity.class);
         intent.putExtra(Constant.PASSWORD, true);
         startActivity(intent);

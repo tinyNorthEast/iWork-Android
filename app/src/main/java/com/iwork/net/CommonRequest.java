@@ -66,13 +66,17 @@ public class CommonRequest {
      * @param pic         头像
      * @param callback    回调
      */
-    public static void register(String phone, String password, String zh_name, String mail,
+    public static void register(String phone, String password, String zh_name,String en_name, String mail,String company,
                                 int experience, String position, int role_code,
                                 String invate_code, String pic, ResultCallback<LoginInfo> callback) {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.PHONE, phone);
         params.put(ServerParam.PASSWORD, MD5.toMD5(password));//MD5
         params.put(ServerParam.ZH_NAME, zh_name);
+        if (!TextUtil.isEmpty(en_name)) {
+            params.put(ServerParam.EN_NAME, en_name);
+        }
+        params.put(ServerParam.COMPANY, company);
         params.put(ServerParam.MAIL, mail);
         params.put(ServerParam.EXPERIENCE, experience + "");
         params.put(ServerParam.POSITION, position);
