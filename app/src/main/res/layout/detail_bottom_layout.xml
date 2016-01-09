@@ -18,7 +18,7 @@
             android:id="@+id/detail_bottom_sendms_layout"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/light_gray"
+            android:background="#4c4c4c"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -30,7 +30,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="8dp"
                 android:text="给顾问留言"
                 android:textColor="@color/text_color_white"
                 android:textSize="17sp" />
@@ -45,7 +45,7 @@
             android:id="@+id/detail_bottom_call_layout"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/light_gray"
+            android:background="#4c4c4c"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -57,7 +57,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="8dp"
                 android:text="联系顾问"
                 android:textColor="@color/text_color_white"
                 android:textSize="17sp" />

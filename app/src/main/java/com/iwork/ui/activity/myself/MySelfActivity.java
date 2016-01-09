@@ -17,6 +17,7 @@ import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.preferences.Preferences;
 import com.iwork.ui.activity.common.AttentionActivity;
 import com.iwork.ui.view.BadgeView;
+import com.iwork.ui.view.CircleTransform;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
 import com.iwork.utils.LoginUtil;
@@ -91,7 +92,7 @@ public class MySelfActivity extends BaseActivity {
                 if (response.getInfoCode() == 0) {
                     myselfTvName.setText(response.getData().getZh_name());
                     myselfTvRoleName.setText(response.getData().getRoleName());
-                    Glide.with(MySelfActivity.this).load(response.getData().getPic()).error(R.drawable.myself_head).placeholder(R.drawable.myself_head).into(myselfIvUser);
+                    Glide.with(MySelfActivity.this).load(response.getData().getPic()).transform(new CircleTransform(MySelfActivity.this)).error(R.drawable.myself_head).placeholder(R.drawable.myself_head).into(myselfIvUser);
                     showBadgeView(myselfMessagesTv, response.getData().getNoticeCount() + "");
                 } else if (response.getInfoCode()==Constant.TOKENFAIL){
                     LoginUtil.goToLogin(MySelfActivity.this);
