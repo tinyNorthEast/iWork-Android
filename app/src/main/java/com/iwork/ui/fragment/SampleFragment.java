@@ -47,7 +47,7 @@ import butterknife.ButterKnife;
 /**
  */
 public class SampleFragment extends Fragment {
-    private static int industryid = 0;
+    private int industryid = 0;
     @Bind(R.id.recyclerView)
     XRecyclerView recyclerView;
     private int pageNo = 1;
@@ -95,7 +95,7 @@ public class SampleFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        pageNo=1;
+        pageNo = 1;
         getData(cityId);
     }
 
@@ -140,9 +140,9 @@ public class SampleFragment extends Fragment {
                     }
                 });
                 final CheckBox checkBox = helper.getCheckBox(R.id.item_good);
-                if (item.getIsAttention()==1){
+                if (item.getIsAttention() == 1) {
                     checkBox.setChecked(true);
-                }else {
+                } else {
                     checkBox.setChecked(false);
                 }
                 checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -154,7 +154,7 @@ public class SampleFragment extends Fragment {
                         } else {
                             isAttention = 0;
                         }
-                        CommonRequest.saveAttention(item.getUserId(), isAttention,new ResultCallback<CommonModel>() {
+                        CommonRequest.saveAttention(item.getUserId(), isAttention, new ResultCallback<CommonModel>() {
                             @Override
                             public void onError(Request request, Exception e) {
                                 checkBox.setChecked(false);
@@ -164,12 +164,12 @@ public class SampleFragment extends Fragment {
                             public void onResponse(CommonModel response) {
                                 if (response.getInfoCode() == 0) {
                                     ToastHelper.showShortCompleted("关注成功");
-                                } else if (response.getInfoCode()==Constant.TOKENFAIL){
+                                } else if (response.getInfoCode() == Constant.TOKENFAIL) {
                                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                                     startActivity(intent);
                                     checkBox.setChecked(false);
                                     ToastHelper.showShortError(response.getMessage());
-                                }else {
+                                } else {
                                     ToastHelper.showShortError(response.getMessage());
                                     checkBox.setChecked(false);
                                 }
@@ -178,12 +178,12 @@ public class SampleFragment extends Fragment {
                     }
                 });
                 if (!CollectionUtil.isEmpty(item.getIndustryList())) {
-                    int size =item.getIndustryList().size();
-                    if (size>1){
+                    int size = item.getIndustryList().size();
+                    if (size > 1) {
                         helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
                         helper.getImageView(R.id.item_decollate).setVisibility(View.VISIBLE);
                         helper.getTextView(R.id.item_role).setText(item.getIndustryList().get(1).getIndustryName());
-                    }else {
+                    } else {
                         helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
                     }
                 }
@@ -273,12 +273,16 @@ public class SampleFragment extends Fragment {
             @Override
             public void onResponse(MainList response) {
                 if (response.getInfoCode() == 0) {
-                    persons=response.getData();
+                    persons = response.getData();
                     initAdapter(persons);
+                }else if (response.getInfoCode()==Constant.NODATA){
+//                    ToastHelper.showShortError(response.getMessage());
                 }
             }
         });
-    }/**
+    }
+
+    /**
      * 从网络获取数据
      */
     @Subscriber(tag = Constant.CITY)
@@ -298,11 +302,11 @@ public class SampleFragment extends Fragment {
                         persons.addAll(response.getData());
                         mAdapter.notifyDataSetChanged();
                     }
-                }else if (response.getInfoCode()==Constant.NODATA){
+                } else if (response.getInfoCode() == Constant.NODATA) {
                     recyclerView.loadMoreComplete();
                     recyclerView.setLoadingMoreEnabled(false);
                     ToastHelper.showShortCompleted("已经没有更多数据啦");
-                }else {
+                } else {
                     ToastHelper.showShortError(response.getMessage());
                 }
             }
@@ -348,7 +352,7 @@ public class SampleFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
+     * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

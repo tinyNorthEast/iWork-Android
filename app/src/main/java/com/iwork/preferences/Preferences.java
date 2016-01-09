@@ -98,7 +98,7 @@ public class Preferences {
     }
 
     public int getCurrentCityId() {
-        return mPref.getInt("cityId", 10001);
+        return mPref.getInt("cityId", 1000);
     }
 
     /**

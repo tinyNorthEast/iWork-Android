@@ -85,8 +85,8 @@ public class CityListActivity extends BaseActivity {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             ToastHelper.showShortCompleted("城市：" + response.getCitys().get(position).getAreaName());
                             int cityid= response.getCitys().get(position).getAreaCode();
-                            EventBus.getDefault().postSticky(cityid, Constant.CITY);
-                            EventBus.getDefault().post(response.getCitys().get(position).getAreaName(),Constant.CITY);
+//                            EventBus.getDefault().postSticky(cityid, Constant.CITY);
+//                            EventBus.getDefault().post(response.getCitys().get(position).getAreaName(),Constant.CITY);
                             Preferences.getInstance().setCurrentCityId(cityid);
                             finish();
                         }
