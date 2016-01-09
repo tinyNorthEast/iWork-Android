@@ -163,7 +163,7 @@ public class SampleFragment extends Fragment {
                             @Override
                             public void onResponse(CommonModel response) {
                                 if (response.getInfoCode() == 0) {
-                                    ToastHelper.showShortCompleted("关注成功");
+                                    ToastHelper.showShortCompleted(response.getMessage());
                                 } else if (response.getInfoCode() == Constant.TOKENFAIL) {
                                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                                     startActivity(intent);

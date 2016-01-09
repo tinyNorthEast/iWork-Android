@@ -169,7 +169,7 @@ public class CommonRequest {
         if (city != 0)
             params.put(ServerParam.CITY, city + "");
         String token = Preferences.getInstance().getToken();
-        if (TextUtil.isEmpty(token))
+        if (!TextUtil.isEmpty(token))
             params.put(ServerParam.TOKEN, token);
         String url = createUrl("/api/v1/headhunter/list.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
@@ -185,7 +185,7 @@ public class CommonRequest {
         Map<String, String> params = new HashMap<>();
         params.put(ServerParam.HEADHUNTER_ID, headHunterId + "");
         String token = Preferences.getInstance().getToken();
-        if (TextUtil.isEmpty(token))
+        if (!TextUtil.isEmpty(token))
             params.put(ServerParam.TOKEN, token);
         String url = createUrl("/api/v1/headhunter/detail.action", params);
         new OkHttpRequest.Builder().url(url).params(params).get(callback);
