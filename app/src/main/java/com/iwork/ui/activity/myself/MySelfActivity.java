@@ -59,7 +59,7 @@ public class MySelfActivity extends BaseActivity {
         myselfTitlebar.setBackDrawableListener(backListener);
         myselfTitlebar.setCustomImageButtonRight(R.drawable.title_bar_set, setListener);
         int role_code = Preferences.getInstance().getrole_code();
-        if (role_code==100){
+        if (role_code==Constant.HEADHUNTERID){
             myselfMyattention.setVisibility(View.VISIBLE);
         }else {
             myselfMyattention.setVisibility(View.GONE);

@@ -15,11 +15,13 @@ import com.iwork.helper.ToastHelper;
 import com.iwork.model.CommentListModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.preferences.Preferences;
 import com.iwork.ui.activity.persondetail.SendMessageActivity;
 import com.iwork.ui.view.DividerItemDecoration;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
+import com.iwork.utils.LoginUtil;
 import com.iwork.utils.TimeUtil;
 import com.iwork.utils.UiThreadHandler;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
@@ -131,11 +133,14 @@ public class CommentActivity extends BaseActivity {
         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Intent intent = new Intent(CommentActivity.this, SendMessageActivity.class);
-                intent.putExtra(Constant.C_MAIN_ID,comments.get(position).getMainId());
-                intent.putExtra(Constant.USERID,comments.get(position).getC_from_id());
-                intent.putExtra(Constant.COMMENTTITLE,"回复留言");
-                startActivity(intent);
+                int role_code = Preferences.getInstance().getrole_code();
+                if (LoginUtil.isLogin() && role_code == Constant.HEADHUNTERID) {
+                    Intent intent = new Intent(CommentActivity.this, SendMessageActivity.class);
+                    intent.putExtra(Constant.C_MAIN_ID, comments.get(position).getMainId());
+                    intent.putExtra(Constant.USERID, comments.get(position).getC_from_id());
+                    intent.putExtra(Constant.COMMENTTITLE, "回复留言");
+                    startActivity(intent);
+                }
             }
         });
         commentXrecyclerview.setAdapter(mAdapter);

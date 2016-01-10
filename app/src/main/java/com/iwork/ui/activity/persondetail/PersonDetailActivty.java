@@ -177,7 +177,7 @@ public class PersonDetailActivty extends BaseActivity {
                     setPerformanceData(response.getData().getPerformanceList());
                     setCommentData(response.getData().getCommentList());
                     int role_code=Preferences.getInstance().getrole_code();
-                    if (LoginUtil.isLogin()&&role_code==101&&response.getData().getHeadhunterInfo().getIsAuth() ==0){
+                    if (LoginUtil.isLogin()&&role_code==Constant.COMMPANYHRID&&response.getData().getHeadhunterInfo().getIsAuth() ==0){
                         detailPerformanceBt.setVisibility(View.VISIBLE);
                     }else {
                         detailPerformanceBt.setVisibility(View.GONE);

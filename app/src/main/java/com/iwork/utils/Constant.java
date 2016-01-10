@@ -26,6 +26,10 @@ public class Constant {
     public static final String PASSWORD = "password";
     public static final int NODATA = 50000;
     public static final String N_TYPE = "n_type";
+
+    public static final int HEADHUNTERID = 100;
+    public static final int COMMPANYHRID = 101;
+    public static final int CANDIDATEID = 102;
     /**
      * SDCARD文件目录
      */
