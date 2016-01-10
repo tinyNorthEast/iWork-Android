@@ -241,7 +241,7 @@ public class SetUserInfoActivity extends BaseActivity {
      * @return
      */
     private String getImageKey() {
-        return "PNG-" + TimeUtil.formatDates(System.currentTimeMillis());
+        return "PNG_" + TimeUtil.formatDates(System.currentTimeMillis());
     }
 
     // 打开裁剪界面

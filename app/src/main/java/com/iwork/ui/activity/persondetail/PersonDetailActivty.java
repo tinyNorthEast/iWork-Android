@@ -411,6 +411,7 @@ public class PersonDetailActivty extends BaseActivity {
         }
         Intent intent = new Intent(this, SendMessageActivity.class);
         intent.putExtra(Constant.C_MAIN_ID, headhunter_id);
+        intent.putExtra(Constant.USERID,userId);
         startActivity(intent);
     }
 

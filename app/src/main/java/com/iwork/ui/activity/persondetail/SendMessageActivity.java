@@ -32,7 +32,7 @@ public class SendMessageActivity extends BaseActivity {
     Button sendmesBtnSubmit;
     @Bind(R.id.send_message_count_tv)
     TextView sendMessageCountTv;
-    private int c_main_id;
+    private int c_main_id, c_to_user_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,7 @@ public class SendMessageActivity extends BaseActivity {
         sendmesTitlebar.setTitle("给顾问留言");
         sendmesTitlebar.setBackDrawableListener(backListener);
         c_main_id = getIntent().getIntExtra(Constant.C_MAIN_ID, 0);
+        c_to_user_id = getIntent().getIntExtra(Constant.USERID, 0);
         sendmesEd.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -69,7 +70,7 @@ public class SendMessageActivity extends BaseActivity {
             ToastHelper.showShortError("请输入您的评论");
             return;
         }
-        CommonRequest.sendComment(c_main_id, 0, content, new ResultCallback<CommonModel>() {
+        CommonRequest.sendComment(c_main_id, c_to_user_id, content, new ResultCallback<CommonModel>() {
             @Override
             public void onError(Request request, Exception e) {
 
@@ -77,9 +78,12 @@ public class SendMessageActivity extends BaseActivity {
 
             @Override
             public void onResponse(CommonModel response) {
-                if (response.getInfoCode() == 0)
+                if (response.getInfoCode() == 0){
                     ToastHelper.showShortInfo("发表评论成功");
-                finish();
+                    finish();
+                }else {
+                    ToastHelper.showShortError(response.getMessage());
+                }
             }
         });
     }
