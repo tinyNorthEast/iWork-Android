@@ -60,14 +60,23 @@ public class CommentListModel extends BaseModel {
         private String content;
         private long create_time;
         private String fromName;
-        private int mainId;
+        private int c_main_id;
+        private int c_from_id;
+
+        public int getC_from_id() {
+            return c_from_id;
+        }
+
+        public void setC_from_id(int c_from_id) {
+            this.c_from_id = c_from_id;
+        }
 
         public int getMainId() {
-            return mainId;
+            return c_main_id;
         }
 
         public void setMainId(int mainId) {
-            this.mainId = mainId;
+            this.c_main_id = mainId;
         }
 
         public String getFromName() {
@@ -126,7 +135,8 @@ public class CommentListModel extends BaseModel {
             dest.writeString(this.content);
             dest.writeLong(this.create_time);
             dest.writeString(this.fromName);
-            dest.writeInt(this.mainId);
+            dest.writeInt(this.c_main_id);
+            dest.writeInt(this.c_from_id);
         }
 
         protected CommentModel(Parcel in) {
@@ -136,7 +146,8 @@ public class CommentListModel extends BaseModel {
             this.content = in.readString();
             this.create_time = in.readLong();
             this.fromName = in.readString();
-            this.mainId = in.readInt();
+            this.c_main_id = in.readInt();
+            this.c_from_id = in.readInt();
         }
 
         public static final Creator<CommentModel> CREATOR = new Creator<CommentModel>() {

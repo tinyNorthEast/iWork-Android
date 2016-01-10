@@ -11,27 +11,25 @@ public class Constant {
     public static final String SMSSDKSECRET = "b38c35b3c785b7f1d74f182cee07146d";
     public static final String OBJID = "objId";
     public static final String CLIEN = "1";
-    public static final String INDUSTRYID="industryid";
+    public static final String INDUSTRYID = "industryid";
     public static final String CITY = "cityid";
     public static final int REQUEST_CODE_FOR_CITY = 1006;
     public static final String ISFROMSET = "isfromSet";
     public static final String MESSAGETYPE = "messagetype";
-    public static final String COMMENTID="commentid";
-    public static final String SEARCHTYPE="searchType";
-    public static final int REFESHTIME =2000;
-    public static final String C_MAIN_ID ="c_main_id";
+    public static final String COMMENTID = "commentid";
+    public static final String COMMENTTITLE = "commenttitle";
+    public static final String SEARCHTYPE = "searchType";
+    public static final int REFESHTIME = 2000;
+    public static final String C_MAIN_ID = "c_main_id";
     public static final String USERID = "userId";
     public static final int TOKENFAIL = 30003;
-    public static final String PASSWORD ="password";
+    public static final String PASSWORD = "password";
     public static final int NODATA = 50000;
     public static final String N_TYPE = "n_type";
     /**
      * SDCARD文件目录
      */
     public static final String SDCARD_FILE_DIR = "iWork";
-
-
-
 
 
     public static final String SDCARD_LOCATE_DIR = "iworklocate";

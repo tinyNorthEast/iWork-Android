@@ -39,10 +39,16 @@ public class SendMessageActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_message);
         ButterKnife.bind(this);
-        sendmesTitlebar.setTitle("给顾问留言");
-        sendmesTitlebar.setBackDrawableListener(backListener);
         c_main_id = getIntent().getIntExtra(Constant.C_MAIN_ID, 0);
         c_to_user_id = getIntent().getIntExtra(Constant.USERID, 0);
+        String title = getIntent().getStringExtra(Constant.COMMENTTITLE);
+        if (!TextUtil.isEmpty(title)){
+            sendmesTitlebar.setTitle(title);
+        }else {
+            sendmesTitlebar.setTitle("给顾问留言");
+        }
+
+        sendmesTitlebar.setBackDrawableListener(backListener);
         sendmesEd.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

@@ -138,6 +138,7 @@ public class SampleFragment extends Fragment {
                             return;
                         }
                         Intent intent = new Intent(getActivity(), CommentActivity.class);
+                        intent.putExtra(Constant.COMMENTID,item.getUserId());
                         startActivity(intent);
                     }
                 });

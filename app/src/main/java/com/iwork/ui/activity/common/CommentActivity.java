@@ -1,17 +1,21 @@
 package com.iwork.ui.activity.common;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.adapter.recyclerview.BaseAdapterHelper;
+import com.iwork.adapter.recyclerview.BaseQuickAdapter;
 import com.iwork.adapter.recyclerview.QuickAdapter;
 import com.iwork.helper.ToastHelper;
 import com.iwork.model.CommentListModel;
 import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
+import com.iwork.ui.activity.persondetail.SendMessageActivity;
 import com.iwork.ui.view.DividerItemDecoration;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.CollectionUtil;
@@ -124,6 +128,16 @@ public class CommentActivity extends BaseActivity {
                 Glide.with(CommentActivity.this).load(item.getPic()).error(R.drawable.head_icon).placeholder(R.drawable.head_icon).into(helper.getImageView(R.id.comment_img));
             }
         };
+        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent intent = new Intent(CommentActivity.this, SendMessageActivity.class);
+                intent.putExtra(Constant.C_MAIN_ID,comments.get(position).getMainId());
+                intent.putExtra(Constant.USERID,comments.get(position).getC_from_id());
+                intent.putExtra(Constant.COMMENTTITLE,"回复留言");
+                startActivity(intent);
+            }
+        });
         commentXrecyclerview.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
     }
