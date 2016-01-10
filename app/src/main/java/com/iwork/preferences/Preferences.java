@@ -142,6 +142,19 @@ public class Preferences {
     public int getrole_code() {
         return mPref.getInt("role_code", 0);
     }
+ /**
+     * 保存头像Url
+     *
+     * @param url
+     */
+    public void setUserHeadUrl(String url) {
+        mEditor.putString("user_headurl", url);
+        mEditor.commit();
+    }
+
+    public String getUserHeadUrl() {
+        return mPref.getString("user_headurl", "");
+    }
 
 
     /**

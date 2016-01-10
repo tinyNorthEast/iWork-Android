@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.impetusconsulting.iwork.R;
 import com.iwork.Base.BaseActivity;
 import com.iwork.helper.ResourcesHelper;
@@ -26,6 +27,7 @@ import com.iwork.net.CommonRequest;
 import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.preferences.Preferences;
 import com.iwork.ui.view.BottomListMenu;
+import com.iwork.ui.view.CircleTransform;
 import com.iwork.ui.view.ListPickerWindow;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.FileConfig;
@@ -90,6 +92,10 @@ public class SetUserInfoActivity extends BaseActivity {
         mAvatarOriginFile = FileConfig.getPhotoOutputFile();
         if (TextUtil.isEmpty(Preferences.getInstance().getQiNiuToken()))
             CommonRequest.getQiniuToken(callback);
+        if (!TextUtil.isEmpty(Preferences.getInstance().getUserHeadUrl())){
+            Glide.with(this).load(Preferences.getInstance().getUserHeadUrl()).transform(new CircleTransform(this)).error(R.drawable.head_icon).placeholder(R.drawable.head_icon).into(setHeadIconIv);
+
+        }
     }
 
     private ResultCallback<QinNiuToken> callback = new ResultCallback<QinNiuToken>() {
@@ -117,10 +123,10 @@ public class SetUserInfoActivity extends BaseActivity {
             String email = myselfSetmyemailEd.getText().toString().trim();
             String en_name = myselfSetmyenameEd.getText().toString().trim();
             String company = myselfSetmycompanyEd.getText().toString().trim();
-            if (TextUtil.isEmpty(email)&&TextUtil.isEmpty(en_name)&&TextUtil.isEmpty(company)&&TextUtil.isEmpty(img_url)){
+            if (TextUtil.isEmpty(email) && TextUtil.isEmpty(en_name) && TextUtil.isEmpty(company) && TextUtil.isEmpty(img_url)) {
                 ToastHelper.showShortError("请确认您要修改的信息");
             }
-            if (TextUtil.isEmpty(email)&&!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            if (!TextUtil.isEmpty(email) && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 ToastHelper.showShortError("请正确填写您的邮箱");
                 return;
             }
@@ -223,7 +229,7 @@ public class SetUserInfoActivity extends BaseActivity {
 
     private void updateAvatar(String absolutePath) {
         Bitmap bitmap = ImageUtil.createBitmap(absolutePath);
-        setHeadIconIv.setImageBitmap(bitmap);
+        setHeadIconIv.setImageBitmap(ImageUtil.round(bitmap,200,true));
         UploadManager uploadManager = new UploadManager();
         String key = getImageKey();
         String token = qiniuToken;

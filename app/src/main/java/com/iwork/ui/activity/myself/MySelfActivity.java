@@ -93,6 +93,7 @@ public class MySelfActivity extends BaseActivity {
                     myselfTvName.setText(response.getData().getZh_name());
                     myselfTvRoleName.setText(response.getData().getRoleName());
                     Glide.with(MySelfActivity.this).load(response.getData().getPic()).transform(new CircleTransform(MySelfActivity.this)).error(R.drawable.myself_head).placeholder(R.drawable.myself_head).into(myselfIvUser);
+                    Preferences.getInstance().setUserHeadUrl(response.getData().getPic());
                     showBadgeView(myselfMessagesTv, response.getData().getNoticeCount() + "");
                 } else if (response.getInfoCode()==Constant.TOKENFAIL){
                     LoginUtil.goToLogin(MySelfActivity.this);
