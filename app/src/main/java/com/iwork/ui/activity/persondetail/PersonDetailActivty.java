@@ -37,6 +37,7 @@ import com.iwork.preferences.Preferences;
 import com.iwork.ui.activity.LoginActivity;
 import com.iwork.ui.activity.common.CommentActivity;
 import com.iwork.ui.dialog.CommonDialog;
+import com.iwork.ui.view.CircleTransform;
 import com.iwork.ui.view.FlowLayout;
 import com.iwork.ui.view.ObservableScrollView;
 import com.iwork.ui.view.TagAdapter;
@@ -46,6 +47,7 @@ import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
 import com.iwork.utils.LoginUtil;
 import com.iwork.utils.TextUtil;
+import com.iwork.utils.TimeUtil;
 import com.iwork.utils.UiThreadHandler;
 import com.socks.library.KLog;
 import com.squareup.okhttp.Request;
@@ -341,9 +343,9 @@ public class PersonDetailActivty extends BaseActivity {
             TextView tv_name = (TextView) linearLayout.findViewById(R.id.comment_name_tv);
             tv_name.setText(commentListEntity.getFromName());
             TextView tv_time = (TextView) linearLayout.findViewById(R.id.comment_time_tv);
-            tv_time.setText(commentListEntity.getCreate_time());
+            tv_time.setText(TimeUtil.formatDateInSimple2(commentListEntity.getCreate_time()));
             ImageView imageView = (ImageView) linearLayout.findViewById(R.id.comment_img);
-
+            Glide.with(this).load(commentListEntity.getPic()).transform(new CircleTransform(this)).error(R.drawable.myself_head).placeholder(R.drawable.myself_head).into(imageView);
             TextView tv_content = (TextView) linearLayout.findViewById(R.id.comment_content_tv);
             tv_content.setText(commentListEntity.getContent());
             detailCommentValLayout.addView(linearLayout);

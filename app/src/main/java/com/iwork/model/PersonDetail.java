@@ -533,19 +533,28 @@ public class PersonDetail extends BaseModel {
             }
         }
 
-        public static class CommentListEntity {
+        public static class CommentListEntity extends BaseModel{
             private int objId;
             private int c_from_id;
             private int c_to_user_id;
             private String content;
             private String fromName;
-            private String create_time;
+            private long create_time;
+            private String pic;
 
-            public String getCreate_time() {
+            public String getPic() {
+                return pic;
+            }
+
+            public void setPic(String pic) {
+                this.pic = pic;
+            }
+
+            public long getCreate_time() {
                 return create_time;
             }
 
-            public void setCreate_time(String create_time) {
+            public void setCreate_time(long create_time) {
                 this.create_time = create_time;
             }
 
@@ -590,6 +599,46 @@ public class PersonDetail extends BaseModel {
                 return content;
             }
 
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                super.writeToParcel(dest, flags);
+                dest.writeInt(this.objId);
+                dest.writeInt(this.c_from_id);
+                dest.writeInt(this.c_to_user_id);
+                dest.writeString(this.content);
+                dest.writeString(this.fromName);
+                dest.writeLong(this.create_time);
+                dest.writeString(this.pic);
+            }
+
+            public CommentListEntity() {
+            }
+
+            protected CommentListEntity(Parcel in) {
+                super(in);
+                this.objId = in.readInt();
+                this.c_from_id = in.readInt();
+                this.c_to_user_id = in.readInt();
+                this.content = in.readString();
+                this.fromName = in.readString();
+                this.create_time = in.readLong();
+                this.pic = in.readString();
+            }
+
+            public static final Creator<CommentListEntity> CREATOR = new Creator<CommentListEntity>() {
+                public CommentListEntity createFromParcel(Parcel source) {
+                    return new CommentListEntity(source);
+                }
+
+                public CommentListEntity[] newArray(int size) {
+                    return new CommentListEntity[size];
+                }
+            };
         }
 
         @Override

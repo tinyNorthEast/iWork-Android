@@ -33,6 +33,14 @@ public class TimeUtil {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(date);
     }
+    /**
+     * 将千毫秒格式化为yyyy/MM/dd格式
+     */
+    public static String formatDateInSimple2(long millis) {
+        Date date = new Date(millis);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        return sdf.format(date);
+    }
 
     /**
      * 将千毫秒格式化为yyyy-MM-dd 周E 格式
