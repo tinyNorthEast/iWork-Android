@@ -230,9 +230,7 @@ public class SetUserInfoActivity extends BaseActivity {
         uploadManager.put(absolutePath, key, token, new UpCompletionHandler() {
             @Override
             public void complete(String key, ResponseInfo info, JSONObject response) {
-                KLog.i("---qiniures", response.toString());
                 img_url = NetConstant.BASE_QINIU_URL + key;
-
             }
         }, null);
     }
