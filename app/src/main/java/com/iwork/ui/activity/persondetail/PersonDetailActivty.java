@@ -187,6 +187,20 @@ public class PersonDetailActivty extends BaseActivity {
                     } else {
                         detailPersonFavorite.setChecked(false);
                     }
+                    int size = response.getData().getHeadhunterInfo().getCommentCount();
+                    if (size > 2) {
+                        detailCommentMoreBt.setVisibility(View.VISIBLE);
+                        detailCommentMoreBt.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(PersonDetailActivty.this, CommentActivity.class);
+                                intent.putExtra(Constant.COMMENTID, headhunter_id);
+                                startActivity(intent);
+                            }
+                        });
+                    } else {
+                        detailCommentMoreBt.setVisibility(View.GONE);
+                    }
                     setFavorite();
                 } else if (response.getInfoCode() == Constant.TOKENFAIL) {
                     ToastHelper.showShortError(response.getMessage());
@@ -322,22 +336,9 @@ public class PersonDetailActivty extends BaseActivity {
      * @param list
      */
     private void setCommentData(List<CommentListEntity> list) {
-        int size = list.size();
-        if (size > 2) {
-            detailCommentMoreBt.setVisibility(View.VISIBLE);
-            detailCommentMoreBt.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(PersonDetailActivty.this, CommentActivity.class);
-                    intent.putExtra(Constant.COMMENTID, headhunter_id);
-                    startActivity(intent);
-                }
-            });
-        } else {
-            detailCommentMoreBt.setVisibility(View.GONE);
-        }
+
         CommentListEntity commentListEntity;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < list.size(); i++) {
             commentListEntity = list.get(i);
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.commentlist_item_layout, null);
             TextView tv_name = (TextView) linearLayout.findViewById(R.id.comment_name_tv);
