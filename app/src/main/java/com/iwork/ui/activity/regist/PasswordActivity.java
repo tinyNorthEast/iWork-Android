@@ -80,17 +80,19 @@ public class PasswordActivity extends BaseActivity {
             CommonRequest.register(userInfo.phone, pw, userInfo.zh_name, userInfo.en_name, userInfo.email, userInfo.company, userInfo.experience, userInfo.position, userInfo.role_code, userInfo.invate_code, userInfo.pic_url, new ResultCallback<LoginInfo>() {
                 @Override
                 public void onError(Request request, Exception e) {
-
+                    cancelLoading();
                 }
 
                 @Override
                 public void onResponse(LoginInfo response) {
+                    cancelLoading();
                     if (response.getInfoCode() == 0) {
-                        cancelLoading();
                         Preferences.getInstance().setPhone(userInfo.phone);
                         Preferences.getInstance().setToken(response.getLogin_data().getToken());
                         ToastHelper.showShortCompleted("注册成功");
                         gotoMainActivity();
+                    } else {
+                        ToastHelper.showShortError(response.getMessage());
                     }
                 }
             });
@@ -98,15 +100,18 @@ public class PasswordActivity extends BaseActivity {
             CommonRequest.forgetPassword(userInfo.phone, pw, new ResultCallback<CommonModel>() {
                 @Override
                 public void onError(Request request, Exception e) {
-
+                    cancelLoading();
                 }
 
                 @Override
                 public void onResponse(CommonModel response) {
+                    cancelLoading();
                     if (response.getInfoCode() == 0) {
-
                         ToastHelper.showShortCompleted("修改密码成功");
                         gotoMainActivity();
+                    } else {
+                        ToastHelper.showShortError(response.getMessage());
+
                     }
                 }
             });

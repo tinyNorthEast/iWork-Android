@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="8dp"
     card_view:cardCornerRadius="4dp">
 
     <LinearLayout
@@ -37,8 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="陈晓旭"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
+                    android:textSize="16sp"
                     android:visibility="visible" />
 
                 <TextView

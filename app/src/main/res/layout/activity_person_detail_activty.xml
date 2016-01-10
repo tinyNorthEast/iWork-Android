@@ -41,19 +41,23 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/detail_change" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/detail_change">
+                    >
 
                     <TextView
                         android:id="@+id/detail_person_realname"
                         style="@style/TextView"
                         android:layout_centerVertical="true"
-                        android:layout_marginBottom="8dp"
                         android:layout_marginLeft="20dp"
-                        android:textColor="@color/text_color_bg"
-                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
                         android:textStyle="bold"
                         tools:text="张剑涛" />
 
@@ -62,10 +66,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:button="@null"
                         android:layout_marginRight="20dp"
                         android:layout_toLeftOf="@+id/detail_comment_layout"
-                        android:background="@drawable/common_store_selecter" />
+                        android:background="@drawable/common_store_selecter"
+                        android:button="@null" />
 
                     <RelativeLayout
                         android:id="@+id/detail_comment_layout"
@@ -215,6 +219,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="8dp"
                     android:orientation="vertical" />
+
                 <Button
                     android:id="@+id/detail_performance_bt"
                     android:layout_width="match_parent"

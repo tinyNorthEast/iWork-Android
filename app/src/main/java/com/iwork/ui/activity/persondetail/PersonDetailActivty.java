@@ -167,7 +167,7 @@ public class PersonDetailActivty extends BaseActivity {
                     headhunter_id = response.getData().getHeadhunterInfo().getObjId();
                     userId = response.getData().getHeadhunterInfo().getUserId();
                     detailPersonRealname.setText(response.getData().getHeadhunterInfo().getRealName());
-                    Glide.with(PersonDetailActivty.this).load(response.getData().getHeadhunterInfo().getPic())
+                    Glide.with(PersonDetailActivty.this).load(response.getData().getHeadhunterInfo().getPic()).fitCenter()
                             .error(R.drawable.detail_no_pic).placeholder(R.drawable.detail_no_pic).into(detailPersonPic);
                     setDescribeData(response.getData().getHeadhunterInfo().getDescribeList());
                     setIndustryData(response.getData().getHeadhunterInfo().getIndustryList());
