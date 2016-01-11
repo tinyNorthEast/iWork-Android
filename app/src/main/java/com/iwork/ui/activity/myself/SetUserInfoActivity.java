@@ -90,8 +90,11 @@ public class SetUserInfoActivity extends BaseActivity {
         setuserTitlebar.setBackDrawableListener(backListener);
         setuserTitlebar.setRightTextView("保存", R.color.white, saveListener);
         mAvatarOriginFile = FileConfig.getPhotoOutputFile();
-        if (TextUtil.isEmpty(Preferences.getInstance().getQiNiuToken()))
+        if (TextUtil.isEmpty(Preferences.getInstance().getQiNiuToken())){
             CommonRequest.getQiniuToken(callback);
+        }else {
+            qiniuToken = Preferences.getInstance().getQiNiuToken();
+        }
         if (!TextUtil.isEmpty(Preferences.getInstance().getUserHeadUrl())){
             Glide.with(this).load(Preferences.getInstance().getUserHeadUrl()).transform(new CircleTransform(this)).error(R.drawable.head_icon).placeholder(R.drawable.head_icon).into(setHeadIconIv);
 
