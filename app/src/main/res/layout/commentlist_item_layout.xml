@@ -67,4 +67,10 @@
             android:textSize="13sp"
             tools:text="顾问中的专家哦，给的建议很中肯很专业" />
     </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_height="@dimen/layout_line_height"
+        android:background="@color/gray" />
 </LinearLayout>
