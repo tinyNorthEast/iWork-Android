@@ -260,7 +260,6 @@
                     android:id="@+id/detail_comment_val_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="50dp"
                     android:layout_marginTop="8dp"
                     android:orientation="vertical" />
 
@@ -268,7 +267,10 @@
                     android:id="@+id/detail_comment_more_bt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="50dp"
                     android:background="@drawable/fb_content_bg"
                     android:orientation="vertical"
                     android:text="查看全部评论"
