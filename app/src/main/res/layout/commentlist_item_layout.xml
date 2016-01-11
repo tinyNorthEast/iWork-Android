@@ -31,6 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
+                android:textColor="@color/text_color_dark_gray"
                 tools:text="张剑涛" />
 
             <LinearLayout
@@ -63,6 +64,7 @@
             android:layout_below="@+id/comment_name_layout"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="5dp"
+            android:textSize="13sp"
             tools:text="顾问中的专家哦，给的建议很中肯很专业" />
     </RelativeLayout>
 </LinearLayout>
