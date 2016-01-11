@@ -102,14 +102,14 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:text="自我介绍"
-                    android:textColor="@color/text_color_gray"
-                    android:textSize="17sp" />
+                    android:textColor="@color/text_color_dark_gray"
+                    android:textSize="@dimen/detail_text_size" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/detail_septal_line_margin_top"
                     android:src="@drawable/detail_septal_line" />
 
                 <LinearLayout
@@ -136,14 +136,14 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:text="擅长行业"
-                    android:textColor="@color/text_color_gray"
-                    android:textSize="17sp" />
+                    android:textColor="@color/text_color_dark_gray"
+                    android:textSize="@dimen/detail_text_size" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/detail_septal_line_margin_top"
                     android:src="@drawable/detail_septal_line" />
 
                 <com.iwork.ui.view.TagFlowLayout
@@ -168,14 +168,14 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:text="擅长职能"
-                    android:textColor="@color/text_color_gray"
-                    android:textSize="17sp" />
+                    android:textColor="@color/text_color_dark_gray"
+                    android:textSize="@dimen/detail_text_size" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/detail_septal_line_margin_top"
                     android:src="@drawable/detail_septal_line" />
 
                 <LinearLayout
@@ -202,14 +202,14 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:text="个人业绩"
-                    android:textColor="@color/text_color_gray"
-                    android:textSize="17sp" />
+                    android:textColor="@color/text_color_dark_gray"
+                    android:textSize="@dimen/detail_text_size" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/detail_septal_line_margin_top"
                     android:src="@drawable/detail_septal_line" />
 
                 <LinearLayout
@@ -217,7 +217,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="vertical" />
 
                 <Button
@@ -247,13 +247,13 @@
                     android:layout_marginTop="10dp"
                     android:text="评论"
                     android:textColor="@color/text_color_gray"
-                    android:textSize="17sp" />
+                    android:textSize="@dimen/detail_text_size" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/detail_septal_line_margin_top"
                     android:src="@drawable/detail_septal_line" />
 
                 <LinearLayout
