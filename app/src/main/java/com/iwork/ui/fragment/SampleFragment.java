@@ -184,7 +184,7 @@ public class SampleFragment extends Fragment {
                     int size = item.getIndustryList().size();
                     if (size > 1) {
                         helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
-                        helper.getImageView(R.id.item_decollate).setVisibility(View.VISIBLE);
+                        helper.getTextView(R.id.item_decollate).setVisibility(View.VISIBLE);
                         helper.getTextView(R.id.item_role).setText(item.getIndustryList().get(1).getIndustryName());
                     } else {
                         helper.getTextView(R.id.item_position).setText(item.getIndustryList().get(0).getIndustryName());
