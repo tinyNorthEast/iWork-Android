@@ -38,6 +38,7 @@ public class SetMyselfPassword extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_myself_password);
         ButterKnife.bind(this);
+        setmyselfPasswordTitlebar.setTitle("设置密码");
         setmyselfPasswordTitlebar.setBackDrawableListener(backListener);
     }
 
