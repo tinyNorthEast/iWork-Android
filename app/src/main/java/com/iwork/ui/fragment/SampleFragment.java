@@ -284,7 +284,7 @@ public class SampleFragment extends Fragment {
                     persons = response.getData();
                     initAdapter(persons);
                 } else if (response.getInfoCode() == Constant.NODATA) {
-                    main_nodata_img.setVisibility(View.VISIBLE);
+                    showNoDataView();
                 }
             }
         });
@@ -319,7 +319,6 @@ public class SampleFragment extends Fragment {
                 if (response.getInfoCode() == 0) {
                     if (!CollectionUtil.isEmpty(response.getData())) {
                         hideNoDataView();
-                        main_nodata_img.setVisibility(View.GONE);
                         persons.addAll(response.getData());
                         mAdapter.notifyDataSetChanged();
                     }
