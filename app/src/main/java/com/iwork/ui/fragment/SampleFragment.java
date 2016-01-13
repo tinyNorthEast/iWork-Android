@@ -54,7 +54,7 @@ public class SampleFragment extends Fragment {
     @Bind(R.id.recyclerView)
     XRecyclerView recyclerView;
     @Bind(R.id.main_nodata_img)
-    private ImageView main_nodata_img;
+    ImageView main_nodata_img;
     private int pageNo = 1;
     private int cityId;
     private List<MainList.Person> persons = Collections.emptyList();
@@ -284,7 +284,6 @@ public class SampleFragment extends Fragment {
                     persons = response.getData();
                     initAdapter(persons);
                 } else if (response.getInfoCode() == Constant.NODATA) {
-                    ToastHelper.showShortError(response.getMessage());
                     main_nodata_img.setVisibility(View.VISIBLE);
                 }
             }
