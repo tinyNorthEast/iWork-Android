@@ -11,6 +11,13 @@
         android:layout_height="match_parent"
         android:clipToPadding="false" />
 
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/main_nodata_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:src="@drawable/main_nodata_bg" />
     <!-- TODO: Update blank fragment layout -->
 
 </FrameLayout>

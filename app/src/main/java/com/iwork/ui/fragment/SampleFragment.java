@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -52,9 +53,11 @@ public class SampleFragment extends Fragment {
     private int industryid = 0;
     @Bind(R.id.recyclerView)
     XRecyclerView recyclerView;
+    @Bind(R.id.main_nodata_img)
+    private ImageView main_nodata_img;
     private int pageNo = 1;
     private int cityId;
-    private List<MainList.Person> persons= Collections.emptyList();
+    private List<MainList.Person> persons = Collections.emptyList();
     QuickAdapter<MainList.Person> mAdapter;
     private OnFragmentInteractionListener mListener;
     private BadgeView badgeView;
@@ -138,7 +141,7 @@ public class SampleFragment extends Fragment {
                             return;
                         }
                         Intent intent = new Intent(getActivity(), CommentActivity.class);
-                        intent.putExtra(Constant.COMMENTID,item.getUserId());
+                        intent.putExtra(Constant.COMMENTID, item.getUserId());
                         startActivity(intent);
                     }
                 });
@@ -213,7 +216,7 @@ public class SampleFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setBackgroundColor(getResources().getColor(R.color.white));
         recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),LinearLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         recyclerView.setLaodingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
         recyclerView.setLoadingMoreEnabled(true);
         recyclerView.setLoadingListener(loadingListener);
@@ -277,13 +280,26 @@ public class SampleFragment extends Fragment {
             @Override
             public void onResponse(MainList response) {
                 if (response.getInfoCode() == 0) {
+                    main_nodata_img.setVisibility(View.GONE);
                     persons = response.getData();
                     initAdapter(persons);
-                }else if (response.getInfoCode()==Constant.NODATA){
-//                    ToastHelper.showShortError(response.getMessage());
+                } else if (response.getInfoCode() == Constant.NODATA) {
+                    ToastHelper.showShortError(response.getMessage());
+                    main_nodata_img.setVisibility(View.VISIBLE);
                 }
             }
         });
+    }
+
+    private void showNoDataView() {
+        if (main_nodata_img.getVisibility() != View.VISIBLE)
+            main_nodata_img.setVisibility(View.VISIBLE);
+    }
+
+    private void hideNoDataView() {
+        if (main_nodata_img.getVisibility() == View.VISIBLE) {
+            main_nodata_img.setVisibility(View.GONE);
+        }
     }
 
     /**
@@ -303,6 +319,8 @@ public class SampleFragment extends Fragment {
             public void onResponse(MainList response) {
                 if (response.getInfoCode() == 0) {
                     if (!CollectionUtil.isEmpty(response.getData())) {
+                        hideNoDataView();
+                        main_nodata_img.setVisibility(View.GONE);
                         persons.addAll(response.getData());
                         mAdapter.notifyDataSetChanged();
                     }
