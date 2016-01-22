@@ -178,7 +178,7 @@
                     android:layout_marginTop="@dimen/detail_septal_line_margin_top"
                     android:src="@drawable/detail_septal_line" />
 
-                <LinearLayout
+                <com.iwork.ui.view.TagFlowLayout
                     android:id="@+id/detail_function_val_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

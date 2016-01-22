@@ -77,7 +77,7 @@ public class PersonDetailActivty extends BaseActivity {
 
     TextView myself_tv;
     @Bind(R.id.detail_function_val_layout)
-    LinearLayout detailFunctionValLayout;
+    TagFlowLayout detailFunctionValLayout;
     @Bind(R.id.detail_bottom_layout)
     LinearLayout detailBottomLayout;
     @Bind(R.id.detail_scrollview)
@@ -321,12 +321,22 @@ public class PersonDetailActivty extends BaseActivity {
      * @param list
      */
     private void setFunctionData(List<FunctionsListEntity> list) {
-        for (int i = 0; i < list.size(); i++) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.detail_function_addview, null);
-            TextView textView = (TextView) linearLayout.findViewById(R.id.detail_function_addview_tv);
-            textView.setText(list.get(i).getFunctionsName());
-            detailFunctionValLayout.addView(linearLayout);
-        }
+//        for (int i = 0; i < list.size(); i++) {
+//            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.detail_function_addview, null);
+//            TextView textView = (TextView) linearLayout.findViewById(R.id.detail_function_addview_tv);
+//            textView.setText(list.get(i).getFunctionsName());
+//            detailFunctionValLayout.addView(linearLayout);
+//        }
+        final LayoutInflater mInflater = LayoutInflater.from(this);
+        detailFunctionValLayout.setAdapter(new TagAdapter<FunctionsListEntity>(list){
+
+            @Override
+            public View getView(FlowLayout parent, int position, FunctionsListEntity functionsListEntity) {
+                TextView t = (TextView) mInflater.inflate(R.layout.profession_tag_tv, detailProfessionTaglayout, false);
+                t.setText(functionsListEntity.getFunctionsName());
+                return t;
+            }
+        });
 
     }
 
