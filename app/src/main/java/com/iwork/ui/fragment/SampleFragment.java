@@ -38,6 +38,7 @@ import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.squareup.okhttp.Request;
 
+import org.simple.eventbus.EventBus;
 import org.simple.eventbus.Subscriber;
 
 import java.util.ArrayList;
@@ -92,16 +93,16 @@ public class SampleFragment extends Fragment {
         mRootView = inflater.inflate(R.layout.fragment_sample, container, false);
         ButterKnife.bind(this, mRootView);
         cityId = Preferences.getInstance().getCurrentCityId();
-//        persons = new ArrayList<>();
+        EventBus.getDefault().register(this);
         initXRecyclerView();
+        pageNo = 1;
+        getData(cityId);
         return mRootView;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        pageNo = 1;
-        getData(cityId);
     }
 
     private void initAdapter(final List<MainList.Person> persons) {
@@ -365,6 +366,7 @@ public class SampleFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
+        EventBus.getDefault().unregister(this);
     }
 
     /**
@@ -372,7 +374,7 @@ public class SampleFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
+     * <p>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
