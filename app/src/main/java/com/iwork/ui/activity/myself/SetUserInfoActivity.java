@@ -104,7 +104,7 @@ public class SetUserInfoActivity extends BaseActivity {
         if (!TextUtil.isEmpty(Preferences.getInstance().getEnName())){
             myselfSetmyenameEd.setHint(Preferences.getInstance().getEnName());
         }
-        mExplistPickerWindow.setSelectedItem(Preferences.getInstance().getExperience());
+        myselfSetmyexpersenceTv.setText(getResources().getStringArray(R.array.experience)[Preferences.getInstance().getExperience()]);
     }
 
     private ResultCallback<QinNiuToken> callback = new ResultCallback<QinNiuToken>() {
