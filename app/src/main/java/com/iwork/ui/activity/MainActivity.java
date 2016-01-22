@@ -44,7 +44,6 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
     TabLayout slidingTabs;
     @Bind(R.id.viewpager)
     ViewPager viewpager;
-    private String titles[] = new String[]{"金融", "消费品", "房产"};
     private long currentBackTime;
     private long lastBackTime;
 
