@@ -97,8 +97,14 @@ public class SetUserInfoActivity extends BaseActivity {
         }
         if (!TextUtil.isEmpty(Preferences.getInstance().getUserHeadUrl())){
             Glide.with(this).load(Preferences.getInstance().getUserHeadUrl()).transform(new CircleTransform(this)).error(R.drawable.head_icon).placeholder(R.drawable.head_icon).into(setHeadIconIv);
-
         }
+        if (!TextUtil.isEmpty(Preferences.getInstance().getmail())){
+            myselfSetmyemailEd.setHint(Preferences.getInstance().getmail());
+        }
+        if (!TextUtil.isEmpty(Preferences.getInstance().getEnName())){
+            myselfSetmyenameEd.setHint(Preferences.getInstance().getEnName());
+        }
+        mExplistPickerWindow.setSelectedItem(Preferences.getInstance().getExperience());
     }
 
     private ResultCallback<QinNiuToken> callback = new ResultCallback<QinNiuToken>() {

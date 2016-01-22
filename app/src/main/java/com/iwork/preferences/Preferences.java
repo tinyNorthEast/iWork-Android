@@ -74,6 +74,20 @@ public class Preferences {
     }
 
     /**
+     * 保存 中文名
+     *
+     * @param enName
+     */
+    public void setEnName(String enName) {
+        mEditor.putString("en_name", enName);
+        mEditor.commit();
+    }
+
+    public String getEnName() {
+        return mPref.getString("en_name", "");
+    }
+
+    /**
      * 保存UserId
      *
      * @param userId
@@ -127,6 +141,20 @@ public class Preferences {
 
     public String getmail() {
         return mPref.getString("mail", "");
+    }
+
+    /**
+     * 保存工作年限
+     *
+     * @param experience
+     */
+    public void setExperience(int experience) {
+        mEditor.putInt("experience", experience);
+        mEditor.commit();
+    }
+
+    public int getExperience() {
+        return mPref.getInt("experience",1);
     }
 
     /**
