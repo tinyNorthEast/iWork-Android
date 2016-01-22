@@ -101,6 +101,14 @@ public class MessageActivity extends BaseActivity {
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode==RESULT_OK){
+            loadingListener.onRefresh();
+        }
+    }
+
     /**
      * 初始化列表布局
      */

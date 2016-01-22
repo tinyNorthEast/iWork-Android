@@ -90,6 +90,7 @@ public class BaseActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             finish();
+            setResult(RESULT_OK);
         }
     };
 }
