@@ -56,7 +56,7 @@ public class LoginInfo extends BaseModel{
         private String zh_name;
         private int role_code;
         private String token;
-        private String userId;
+        private int userId;
         private String mail;
 
         public String getMail() {
@@ -67,11 +67,11 @@ public class LoginInfo extends BaseModel{
             this.mail = mail;
         }
 
-        public String getUserId() {
+        public int getUserId() {
             return userId;
         }
 
-        public void setUserId(String userId) {
+        public void setUserId(int userId) {
             this.userId = userId;
         }
 
@@ -113,7 +113,7 @@ public class LoginInfo extends BaseModel{
             dest.writeString(this.zh_name);
             dest.writeInt(this.role_code);
             dest.writeString(this.token);
-            dest.writeString(this.userId);
+            dest.writeInt(this.userId);
             dest.writeString(this.mail);
         }
 
@@ -122,7 +122,7 @@ public class LoginInfo extends BaseModel{
             this.zh_name = in.readString();
             this.role_code = in.readInt();
             this.token = in.readString();
-            this.userId = in.readString();
+            this.userId = in.readInt();
             this.mail = in.readString();
         }
 

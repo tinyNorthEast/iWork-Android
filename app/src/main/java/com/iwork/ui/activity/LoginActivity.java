@@ -98,7 +98,7 @@ public class LoginActivity extends BaseActivity {
                 Preferences.getInstance().setrole_code(response.getLogin_data().getRole_code());
                 Preferences.getInstance().setPhone(phone);
                 Preferences.getInstance().setmail(response.getLogin_data().getMail());
-                JPushInterface.setAlias(getApplicationContext(), response.getLogin_data().getUserId(), null);
+                JPushInterface.setAlias(getApplicationContext(), response.getLogin_data().getUserId()+"", null);
                 finish();
             } else {
                 ToastHelper.showShortError(response.getMessage());

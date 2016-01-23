@@ -92,13 +92,13 @@ public class Preferences {
      *
      * @param userId
      */
-    public void setUserId(String userId) {
-        mEditor.putString("userId", userId);
+    public void setUserId(int userId) {
+        mEditor.putInt("userId",userId);
         mEditor.commit();
     }
 
-    public String getUserId() {
-        return mPref.getString("userId", "");
+    public int getUserId() {
+        return mPref.getInt("userId",0);
     }
 
     /**
@@ -194,7 +194,7 @@ public class Preferences {
     }
 
     private void reset() {
-        setUserId("");
+        setUserId(0);
         setToken("");
 //        setPhone("");
     }

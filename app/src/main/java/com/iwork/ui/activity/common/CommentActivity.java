@@ -136,6 +136,10 @@ public class CommentActivity extends BaseActivity {
             public void onItemClick(View view, int position) {
                 int role_code = Preferences.getInstance().getrole_code();
                 if (LoginUtil.isLogin() && role_code == Constant.HEADHUNTERID) {
+                    int myUserId = Preferences.getInstance().getUserId();
+                    if (myUserId != 0 && comments.get(position).getC_from_id() == myUserId) {
+                        return;
+                    }
                     Intent intent = new Intent(CommentActivity.this, SendMessageActivity.class);
                     intent.putExtra(Constant.C_MAIN_ID, comments.get(position).getMainId());
                     intent.putExtra(Constant.USERID, comments.get(position).getC_from_id());
