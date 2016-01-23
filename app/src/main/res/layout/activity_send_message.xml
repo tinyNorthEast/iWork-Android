@@ -14,7 +14,7 @@
     <EditText
         android:id="@+id/sendmes_ed"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="170dp"
         android:layout_below="@+id/sendmes_titlebar"
         android:layout_margin="10dp"
         android:maxLength="140"
