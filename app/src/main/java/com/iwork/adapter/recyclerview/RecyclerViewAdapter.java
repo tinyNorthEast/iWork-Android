@@ -125,7 +125,7 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
                 switch (item.getN_type()) {
                     case 1:
                         Intent intent = new Intent(mContext, CommentActivity.class);
-                        intent.putExtra(Constant.COMMENTID, item.getRecord_id());
+                        intent.putExtra(Constant.COMMENTID, item.getUser_id());
                         mContext.startActivity(intent);
                         break;
                     case 3:

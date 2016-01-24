@@ -39,4 +39,5 @@ public class ServerParam {
     public static final String LT_STATUS = "lt_status";
     public static final String HR_MAIL = "hr_mail";
     public static final String ISATTENTION = "isAttention";
+    public static final String TO_MAIN_ID="to_main_id";
 }
