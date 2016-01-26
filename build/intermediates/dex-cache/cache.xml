@@ -1,2 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/com.jakewharton.rxbinding/rxbinding/0.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="023a79c3bbea624387e820cb2b4d5c6ba774903c">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/com.jakewharton.rxbinding-rxbinding-0.3.0_37a16009623189cc73f057f78f22abc34a4e40a4.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1_2bfd3c4d0ac9e0c3084fc1e24f24d5d218cda447.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1_c29a8ea01cd355c617ba7abd438877b618460227.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/ShareSDK-Core-2.6.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0affd6c5f9c578cf38bec9364be71d2d192cff62">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/ShareSDK-Core-2.6.4_3168e54ed85bd4cd13cb5b3f1ba299e02c2ab95e.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/okio-1.6.0_6a029cf6b1369550d1b534f1915dc7cc9dc74a28.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/ShareSDK-Wechat-Core-2.6.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4a7714115f69a2794e4c867627016b118709ea4c">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-Core-2.6.4_f54f2eebcc95cc55b41b0f5d2a69e4b0a2d74962.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/com.github.zhaokaiqiang.klog/library/1.1.0/jars/libs/dom4j-2.0.0-RC1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ee91d678d65c6ba6cc78a55abe79e14bfa6304c1">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/dom4j-2.0.0-RC1_d5e036820e67444cf64baabea9d245413246a0c1.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava-math/1.0.0/5efd0e3928c33c74bbc05d7425e3a4652b8fc0dc/rxjava-math-1.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5efd0e3928c33c74bbc05d7425e3a4652b8fc0dc">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/rxjava-math-1.0.0_d0a0f47591d8989f52d6a4d29f3632be060fbe49.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/MobCommons.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b91db8cf38f2106f85d579397cfa709cc8bf94ad">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/MobCommons_838997bb5b736dd851edabbd754fbe9763b9c403.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.5.0/4de2b4ed3445c37ec1720a7d214712e845a24636/okhttp-2.5.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/okhttp-2.5.0_b5cd399631c2d228be32b5a10846a3421318a106.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/MobLogCollector.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8f29e72948159c8058dea9a60a040f453bab1402">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/MobLogCollector_9f30d0fa5e8aa1a19191645e76ed74430e8face4.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/io.reactivex/rxandroid/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="aa81bfe8c5cc88c2472ca936ae71f0c3dd1766df">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/io.reactivex-rxandroid-1.0.1_e913e1793cdff85dfa3d9a48888fd4b36cd41902.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-23.1.1_bd554e472a64f9aa91047ea359d6871d9ad07467.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/org.simple/androideventbus/1.0.5/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9cdd2cfbfa0ba11ad3ddad621083a35e8ae51e74">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/org.simple-androideventbus-1.0.5_67aa2ad59f1d5eb741955bcb3045976a315a068b.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.1.1_9ae4b49c1d7937c22010ba17c490c3287d286a1d.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/7.0.1/d5d13ea991eab0252e3710e5df3d6a9d4b21d461/butterknife-7.0.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/butterknife-7.0.1_35a766e02e17b7a4d46c22c0b4b2a2b6d5f41bfb.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/libs/SMSSDK-1.3.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f017dae82a981ecb67c88a9799f7968904abc616">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/SMSSDK-1.3.1_236d0db975b649f827e60c94b2678543d83b8a07.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/ShareSDK-Wechat-2.6.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="7676dff5e85ec4334de19674f7ebd2ba5ee0eef8">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-2.6.4_29887ac26a6ce1a8cab99fc5d31fe35ad16e268f.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.1.1_b5830a687d812f919d5e6e9e180655e9b0724262.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/httpclient-4.3.6_c65158ef57d8a93d263c296225bac18413ad630c.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/com.github.zhaokaiqiang.klog/library/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="688ca00e40b06596910af28212e1c70573e31f4e">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/com.github.zhaokaiqiang.klog-library-1.1.0_58e9d4895a8aed0df2fc4185ded9e8a0db91a7bb.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/ShareSDK-Wechat-Favorite-2.6.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e9f92a42e472c1568f187abee9353a5322f67943">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-Favorite-2.6.4_e612b6adf0316343c8ee122551f0d2ae3e9331c1.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/com.android.support-design-23.1.1_344bc3887cf0ba9028eeab90879c2b2a4b0d7879.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/386a4339ffe52d5d63e80f9bed8d2b1d1a418249/android-async-http-1.4.9.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.9_1d56a70f63f1a79be4590c6a9c3df39672f3b995.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.16/bdc5ca010675cd9385bdd3a28cf53ee88164424f/rxjava-1.0.16.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="bdc5ca010675cd9385bdd3a28cf53ee88164424f">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/rxjava-1.0.16_eef17573eaeff216ac2ad99f7eb8d142b6dbb107.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/MobTools.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="67cac22c29e7082cb14e798049ce868cefcca83b">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/MobTools_9c8105e6ea6ffd8eee705447d403dd863429f775.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="41171ace307d724238f99d1bf3b4266277f48d34">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/iWork-Android-sharesdk-unspecified_d2fd4e0468e549aa3bce76d78abf12446709b672.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.5.2/ecf534dba3a8446ce84cbb797d314763be212a68/glide-3.5.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ecf534dba3a8446ce84cbb797d314763be212a68">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/glide-3.5.2_02a6eaaef9af40d1ebd3b547711fac5d08e6c71b.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/ShareSDK-Wechat-Moments-2.6.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e12c4654a1f9ef11ba9b7e843c47a1b76de5c17a">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-Moments-2.6.4_95dffe1b74d518c3aebef9818ab413cf919f3187.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/com.jcodecraeer/xrecyclerview/1.2.5/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f4f730590c1c23de954a93b2306804f4cd9fa3cc">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/com.jcodecraeer-xrecyclerview-1.2.5_99252c364c17f63dadac1667bba4347dfba870a7.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/.gradle/caches/modules-2/files-2.1/com.qiniu/qiniu-android-sdk/7.0.10/bd7270bc81fd5e5642a38a9cee0ae7d402c323ad/qiniu-android-sdk-7.0.10.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="bd7270bc81fd5e5642a38a9cee0ae7d402c323ad">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/qiniu-android-sdk-7.0.10_f4550111c1ea1541a043faf0e0ebd34606b8b050.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/com.daimajia.swipelayout/library/1.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e84b30031d4bab89a2b5c45af4eb9213828524dd">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/com.daimajia.swipelayout-library-1.2.0_d70b51dfd51973b1244abb8b4b933c1d737e6fa3.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.1.1_1bfcc8ea29546cbc56c267aab669a7f523ec8f54.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.4/695b63d702f505b9b916e02272e3b6381bade7f/gson-2.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/gson-2.4_8a1d96ad5e880355723dc9456ed7519b33a0d885.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/libs/jpush-android-2.0.5.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f2c821a0d13219a2e70490085c390bab03fb5953">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/jpush-android-2.0.5_e2518c516b0578f5936f3ae22cac0318c353fff8.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/.gradle/caches/modules-2/files-2.1/com.qiniu/happy-dns/0.2.5/c0ee8266504682a0e500d95d849a5af94a718df1/happy-dns-0.2.5.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c0ee8266504682a0e500d95d849a5af94a718df1">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/happy-dns-0.2.5_6df49e405d0b70d4997f5e5bb0067ed8183073c7.jar" />
+    </item>
+    <item
+        jar="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/exploded-aar/iWork-Android/sharesdk/unspecified/jars/libs/ShareSDK-SinaWeibo-2.6.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c7c4f4dc6eedd54bff165e2057332f8188392758">
+        <dex dex="/Users/Adele/androidWP/iWork-Android/app/build/intermediates/pre-dexed/debug/ShareSDK-SinaWeibo-2.6.4_2a452864de251f89ae4134964bf9ad0d446588bb.jar" />
+    </item>
+
+</items>
