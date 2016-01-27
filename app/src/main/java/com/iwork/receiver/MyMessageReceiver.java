@@ -17,7 +17,7 @@ import java.util.Iterator;
 import cn.jpush.android.api.JPushInterface;
 
 public class MyMessageReceiver extends BroadcastReceiver {
-    private static final String TAG ="MyMessageReceiver";
+    private static final String TAG = "MyMessageReceiver";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -26,22 +26,26 @@ public class MyMessageReceiver extends BroadcastReceiver {
         KLog.i(TAG, intent.getAction() + ", extras: " + printBundle(bundle));
         int n_type = 0;
         try {
-            JSONObject json = new JSONObject(bundle.getString(JPushInterface.EXTRA_EXTRA));
-            Iterator<String> it = json.keys();
+            if (bundle != null) {
 
-            while (it.hasNext()) {
-                String myKey = it.next().toString();
-                if (myKey.equals(Constant.N_TYPE))
-                    n_type = json.optInt(myKey);
-                KLog.i(TAG,n_type);
+                JSONObject json = new JSONObject(bundle.getString(JPushInterface.EXTRA_EXTRA,""));
+                Iterator<String> it = json.keys();
+
+                while (it.hasNext()) {
+                    String myKey = it.next().toString();
+                    if (myKey.equals(Constant.N_TYPE)) {
+                        n_type = json.optInt(myKey);
+                    }
+                    KLog.i(TAG, n_type);
+                }
             }
         } catch (Exception e) {
-            KLog.e(TAG, "Get message extra JSON error!");
+            KLog.e(TAG, e.toString());
         }
         if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
             Intent myIntent = new Intent(context, MessageActivity.class);
             myIntent.putExtra(Constant.ISFROMSET, false);
-            myIntent.putExtra(Constant.MESSAGETYPE,n_type);
+            myIntent.putExtra(Constant.MESSAGETYPE, n_type);
             myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(myIntent);
         }
