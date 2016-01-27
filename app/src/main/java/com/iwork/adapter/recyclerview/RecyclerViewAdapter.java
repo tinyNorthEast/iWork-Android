@@ -125,7 +125,7 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
                         break;
                     case 3:
                         Intent intent3 = new Intent(mContext, PersonDetailActivty.class);
-                        intent3.putExtra(Constant.OBJID, item.getUser_id());
+                        intent3.putExtra(Constant.OBJID, item.getRecord_id());
                         mContext.startActivity(intent3);
                         break;
                 }
