@@ -1,21 +1,18 @@
 package com.iwork.Base;
 
 import android.app.Application;
+import android.content.Context;
 
+import com.impetusconsulting.iwork.BuildConfig;
 import com.iwork.model.UserInfo;
 import com.iwork.okhttp.OkHttpClientManager;
 import com.iwork.utils.Constant;
-import com.iwork.utils.Utils;
 import com.socks.library.KLog;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import cn.jpush.android.api.JPushInterface;
-
-import com.impetusconsulting.iwork.BuildConfig;
-
 import cn.sharesdk.framework.ShareSDK;
 import cn.smssdk.SMSSDK;
 
@@ -25,13 +22,13 @@ import cn.smssdk.SMSSDK;
  */
 public class BaseApplication extends Application {
 
-    private static BaseApplication mContext;
+    private static Context mContext;
 
     private Set<String> tagSet;
     @Override
     public void onCreate() {
         super.onCreate();
-        mContext = this;
+        mContext = getApplicationContext();
         OkHttpClientManager.getInstance().getOkHttpClient().setConnectTimeout(10000, TimeUnit.MILLISECONDS);
         KLog.init(BuildConfig.LOG_DEBUG);
         JPushInterface.setDebugMode(BuildConfig.JPUSH_DEBUG);
@@ -41,9 +38,7 @@ public class BaseApplication extends Application {
         userInfo = new UserInfo();
     }
 
-    public static BaseApplication getAppContext() {
-        if (mContext == null)
-            return new BaseApplication();
+    public static Context getAppContext() {
         return mContext;
     }
     private static UserInfo userInfo;

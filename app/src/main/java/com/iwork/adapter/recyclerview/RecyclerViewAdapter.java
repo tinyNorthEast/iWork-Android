@@ -11,11 +11,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
-import com.daimajia.swipe.implments.SwipeItemRecyclerMangerImpl;
 import com.impetusconsulting.iwork.R;
 import com.iwork.helper.ToastHelper;
 import com.iwork.model.CommonModel;
@@ -25,13 +23,10 @@ import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.ui.activity.common.CommentActivity;
 import com.iwork.ui.activity.persondetail.PersonDetailActivty;
 import com.iwork.utils.Constant;
-import com.jcodecraeer.xrecyclerview.progressindicator.indicator.BallRotateIndicator;
 import com.squareup.okhttp.Request;
 
 import java.util.Collections;
 import java.util.List;
-
-import butterknife.OnClick;
 
 public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapter.SimpleViewHolder> {
     private OnItemClickListener mListener;
@@ -130,7 +125,7 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
                         break;
                     case 3:
                         Intent intent3 = new Intent(mContext, PersonDetailActivty.class);
-                        intent3.putExtra(Constant.USERID, item.getUser_id());
+                        intent3.putExtra(Constant.OBJID, item.getUser_id());
                         mContext.startActivity(intent3);
                         break;
                 }
