@@ -79,10 +79,10 @@ public class PositionInfoActivity extends BaseActivity {
             return;
         }
         if (!TextUtils.isEmpty(registeEdUserInvate.getText().toString())) {
-            BaseApplication.getAppContext().getmUserInfo().invate_code = registeEdUserInvate.getText().toString().trim();
+            BaseApplication.getmUserInfo().invate_code = registeEdUserInvate.getText().toString().trim();
         }
-        BaseApplication.getAppContext().getmUserInfo().position = positionCmInput.getText().toString().trim();
-        BaseApplication.getAppContext().getmUserInfo().company = positionCmInput.getText().toString().trim();
+        BaseApplication.getmUserInfo().position = positionCmInput.getText().toString().trim();
+        BaseApplication.getmUserInfo().company = positionCmInput.getText().toString().trim();
         Intent intent = new Intent(this, PasswordActivity.class);
         intent.putExtra(Constant.PASSWORD, true);
         startActivity(intent);
@@ -99,7 +99,7 @@ public class PositionInfoActivity extends BaseActivity {
             @Override
             public void onItemSelected(int position, String object) {
                 positionExpInput.setText(object);
-                BaseApplication.getAppContext().getmUserInfo().experience = position;
+                BaseApplication.getmUserInfo().experience = position;
                 KLog.i("---exp", position);
             }
         });
@@ -116,7 +116,7 @@ public class PositionInfoActivity extends BaseActivity {
             @Override
             public void onItemSelected(int position, String object) {
                 positionEdPtInput.setText(object);
-                BaseApplication.getAppContext().getmUserInfo().role_code = position + 100;
+                BaseApplication.getmUserInfo().role_code = position + 100;
                 if (position==0){
                     user_invate_layout.setVisibility(View.VISIBLE);
                 }else {

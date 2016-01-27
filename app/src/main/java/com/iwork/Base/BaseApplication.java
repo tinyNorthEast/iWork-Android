@@ -42,7 +42,7 @@ public class BaseApplication extends Application {
         return mContext;
     }
     private static UserInfo userInfo;
-    public UserInfo getmUserInfo() {
+    public static UserInfo getmUserInfo() {
         return userInfo;
     }
 }

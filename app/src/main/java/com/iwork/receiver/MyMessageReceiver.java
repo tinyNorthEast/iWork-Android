@@ -17,7 +17,7 @@ import java.util.Iterator;
 import cn.jpush.android.api.JPushInterface;
 
 public class MyMessageReceiver extends BroadcastReceiver {
-    private static final String TAG = MyMessageReceiver.class.getName();
+    private static final String TAG ="MyMessageReceiver";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -35,7 +35,7 @@ public class MyMessageReceiver extends BroadcastReceiver {
                     n_type = json.optInt(myKey);
                 KLog.i(TAG,n_type);
             }
-        } catch (JSONException e) {
+        } catch (Exception e) {
             KLog.e(TAG, "Get message extra JSON error!");
         }
         if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {

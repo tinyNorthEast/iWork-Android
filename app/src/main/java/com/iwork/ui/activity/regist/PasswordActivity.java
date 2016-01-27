@@ -20,17 +20,11 @@ import com.iwork.preferences.Preferences;
 import com.iwork.ui.activity.MainActivity;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.Constant;
-import com.iwork.utils.MD5;
-import com.jakewharton.rxbinding.widget.RxTextView;
 import com.squareup.okhttp.Request;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import rx.Observable;
-import rx.Observer;
-import rx.Subscription;
-import rx.functions.Func2;
 
 public class PasswordActivity extends BaseActivity {
 
@@ -73,7 +67,7 @@ public class PasswordActivity extends BaseActivity {
             return;
         }
         showLoading(R.string.loading);
-        final UserInfo userInfo = BaseApplication.getAppContext().getmUserInfo();
+        final UserInfo userInfo = BaseApplication.getmUserInfo();
         String pw = passwordCmInput.getText().toString();
         if (flag) {
 

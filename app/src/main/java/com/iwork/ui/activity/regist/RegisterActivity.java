@@ -1,20 +1,15 @@
 package com.iwork.ui.activity.regist;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -244,7 +239,7 @@ public class RegisterActivity extends BaseActivity {
     });
 
     public void jumpNext() {
-        BaseApplication.getAppContext().getmUserInfo().phone = phone;
+        BaseApplication.getmUserInfo().phone = phone;
         if (isRegiste) {
             Intent intent = new Intent(this, SignUserInfoActivity.class);
             startActivity(intent);
