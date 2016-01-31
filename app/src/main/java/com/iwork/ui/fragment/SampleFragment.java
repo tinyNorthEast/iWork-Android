@@ -41,7 +41,6 @@ import com.squareup.okhttp.Request;
 import org.simple.eventbus.EventBus;
 import org.simple.eventbus.Subscriber;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -164,7 +163,7 @@ public class SampleFragment extends Fragment {
                         CommonRequest.saveAttention(item.getUserId(), isAttention, new ResultCallback<CommonModel>() {
                             @Override
                             public void onError(Request request, Exception e) {
-                                checkBox.setChecked(false);
+                                setCheckBoxStatus(checkBox, item.getIsAttention());
                             }
 
                             @Override
@@ -174,11 +173,11 @@ public class SampleFragment extends Fragment {
                                 } else if (response.getInfoCode() == Constant.TOKENFAIL) {
                                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                                     startActivity(intent);
-                                    checkBox.setChecked(false);
+                                    setCheckBoxStatus(checkBox, item.getIsAttention());
                                     ToastHelper.showShortError(response.getMessage());
                                 } else {
                                     ToastHelper.showShortError(response.getMessage());
-                                    checkBox.setChecked(false);
+                                    setCheckBoxStatus(checkBox, item.getIsAttention());
                                 }
                             }
                         });
@@ -208,6 +207,14 @@ public class SampleFragment extends Fragment {
 
             }
         });
+    }
+
+    private void setCheckBoxStatus(CheckBox checkBox, int attention) {
+        if (attention == 1) {
+            checkBox.setBackgroundResource(R.drawable.common_store_select);
+        } else {
+            checkBox.setBackgroundResource(R.drawable.myself_set_attention);
+        }
     }
 
     /**
@@ -374,7 +381,7 @@ public class SampleFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
+     * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

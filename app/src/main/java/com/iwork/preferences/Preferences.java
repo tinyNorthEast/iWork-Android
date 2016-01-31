@@ -93,12 +93,12 @@ public class Preferences {
      * @param userId
      */
     public void setUserId(int userId) {
-        mEditor.putInt("userId",userId);
+        mEditor.putInt("userId", userId);
         mEditor.commit();
     }
 
     public int getUserId() {
-        return mPref.getInt("userId",0);
+        return mPref.getInt("userId", 0);
     }
 
     /**
@@ -154,7 +154,7 @@ public class Preferences {
     }
 
     public int getExperience() {
-        return mPref.getInt("experience",1);
+        return mPref.getInt("experience", 1);
     }
 
     /**
@@ -170,7 +170,8 @@ public class Preferences {
     public int getrole_code() {
         return mPref.getInt("role_code", 0);
     }
- /**
+
+    /**
      * 保存头像Url
      *
      * @param url
@@ -184,6 +185,17 @@ public class Preferences {
         return mPref.getString("user_headurl", "");
     }
 
+    /**
+     * 保存城市列表数据
+     * @param cityListModel
+     */
+    public void setCityListModel(String cityListModel) {
+        mEditor.putString("citylist_model", cityListModel);
+        mEditor.commit();
+    }
+    public String getCityListModel(){
+        return mPref.getString("citylist_model","");
+    }
 
     /**
      * 清除数据

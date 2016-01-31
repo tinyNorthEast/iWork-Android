@@ -48,7 +48,6 @@ import com.iwork.utils.Constant;
 import com.iwork.utils.LoginUtil;
 import com.iwork.utils.TextUtil;
 import com.iwork.utils.TimeUtil;
-import com.iwork.utils.UiThreadHandler;
 import com.socks.library.KLog;
 import com.squareup.okhttp.Request;
 
@@ -176,10 +175,10 @@ public class PersonDetailActivty extends BaseActivity {
                     setFunctionData(response.getData().getHeadhunterInfo().getFunctionsList());
                     setPerformanceData(response.getData().getPerformanceList());
                     setCommentData(response.getData().getCommentList());
-                    int role_code=Preferences.getInstance().getrole_code();
-                    if (LoginUtil.isLogin()&&role_code==Constant.COMMPANYHRID&&response.getData().getHeadhunterInfo().getIsAuth() ==0){
+                    int role_code = Preferences.getInstance().getrole_code();
+                    if (LoginUtil.isLogin() && role_code == Constant.COMMPANYHRID && response.getData().getHeadhunterInfo().getIsAuth() == 0) {
                         detailPerformanceBt.setVisibility(View.VISIBLE);
-                    }else {
+                    } else {
                         detailPerformanceBt.setVisibility(View.GONE);
                     }
                     if (response.getData().getHeadhunterInfo().getIsAttention() == 1) {
@@ -201,7 +200,7 @@ public class PersonDetailActivty extends BaseActivity {
                     } else {
                         detailCommentMoreBt.setVisibility(View.GONE);
                     }
-                    setFavorite();
+                    setFavorite(response.getData().getHeadhunterInfo().getIsAttention());
                 } else if (response.getInfoCode() == Constant.TOKENFAIL) {
                     ToastHelper.showShortError(response.getMessage());
                     LoginUtil.goToLogin(PersonDetailActivty.this);
@@ -328,7 +327,7 @@ public class PersonDetailActivty extends BaseActivity {
 //            detailFunctionValLayout.addView(linearLayout);
 //        }
         final LayoutInflater mInflater = LayoutInflater.from(this);
-        detailFunctionValLayout.setAdapter(new TagAdapter<FunctionsListEntity>(list){
+        detailFunctionValLayout.setAdapter(new TagAdapter<FunctionsListEntity>(list) {
 
             @Override
             public View getView(FlowLayout parent, int position, FunctionsListEntity functionsListEntity) {
@@ -366,7 +365,7 @@ public class PersonDetailActivty extends BaseActivity {
     /**
      * 点击收藏
      */
-    public void setFavorite() {
+    public void setFavorite(final int favorite) {
         detailPersonFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -379,7 +378,8 @@ public class PersonDetailActivty extends BaseActivity {
                 CommonRequest.saveAttention(userId, isAttention, new ResultCallback<CommonModel>() {
                     @Override
                     public void onError(Request request, Exception e) {
-                        detailPersonFavorite.setChecked(false);
+//                        detailPersonFavorite.setChecked(false);
+                        setCheckBoxStatus(detailPersonFavorite,favorite);
                     }
 
                     @Override
@@ -389,11 +389,11 @@ public class PersonDetailActivty extends BaseActivity {
                         } else if (response.getInfoCode() == Constant.TOKENFAIL) {
                             Intent intent = new Intent(PersonDetailActivty.this, LoginActivity.class);
                             startActivity(intent);
-                            detailPersonFavorite.setChecked(false);
+                            setCheckBoxStatus(detailPersonFavorite,favorite);
                             ToastHelper.showShortError(response.getMessage());
                         } else {
                             ToastHelper.showShortError(response.getMessage());
-                            detailPersonFavorite.setChecked(false);
+                            setCheckBoxStatus(detailPersonFavorite,favorite);
                         }
                     }
                 });
@@ -424,8 +424,8 @@ public class PersonDetailActivty extends BaseActivity {
         }
         Intent intent = new Intent(this, SendMessageActivity.class);
         intent.putExtra(Constant.C_MAIN_ID, headhunter_id);
-        intent.putExtra(Constant.USERID,userId);
-        intent.putExtra(Constant.COMMENTTITLE,"给顾问留言");
+        intent.putExtra(Constant.USERID, userId);
+        intent.putExtra(Constant.COMMENTTITLE, "给顾问留言");
         startActivity(intent);
     }
 
@@ -506,6 +506,14 @@ public class PersonDetailActivty extends BaseActivity {
         });
 
         animator.start();
+    }
+
+    private void setCheckBoxStatus(CheckBox checkBox, int attention) {
+        if (attention == 1) {
+            checkBox.setBackgroundResource(R.drawable.common_store_select);
+        } else {
+            checkBox.setBackgroundResource(R.drawable.myself_set_attention);
+        }
     }
 
     private static final Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
