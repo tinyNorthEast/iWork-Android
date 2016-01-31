@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
+        android:ellipsize="middle"
         android:textSize="15sp"
         tools:text="中 *** 公司" />
 
@@ -19,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="130dp"
+        android:ellipsize="middle"
         android:textSize="15sp"
         tools:text="海外项目技术总管" />
 
@@ -28,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
+        android:ellipsize="middle"
         android:textSize="15sp"
         tools:text="80万/年薪" />
 </RelativeLayout>
