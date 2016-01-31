@@ -743,6 +743,7 @@ public class Utils {
         }
         return host;
     }
+
     /**
      * byte(字节)根据长度转成kb(千字节)和mb(兆字节)
      *
@@ -760,5 +761,13 @@ public class Utils {
         returnValue = filesize.divide(kilobyte, 2, BigDecimal.ROUND_UP)
                 .floatValue();
         return (returnValue + "KB");
+    }
+
+    public static boolean JudgeNetIsConnectEd(Context context) {
+        ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+        if (networkInfo == null)
+            return false;
+        return networkInfo.isConnected();
     }
 }

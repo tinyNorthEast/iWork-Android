@@ -164,7 +164,7 @@ public class PersonDetailActivty extends BaseActivity {
             @Override
             public void onResponse(PersonDetail response) {
                 if (response.getInfoCode() == 0) {
-                    phone = response.getData().getHeadhunterInfo().getPhone();
+                    phone = response.getData().getHeadhunterInfo().getPhone400();
                     headhunter_id = response.getData().getHeadhunterInfo().getUserId();
                     userId = response.getData().getHeadhunterInfo().getUserId();
                     detailPersonRealname.setText(response.getData().getHeadhunterInfo().getRealName());

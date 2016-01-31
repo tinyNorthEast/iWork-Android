@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.impetusconsulting.iwork.R;
+import com.iwork.Base.AppService;
 import com.iwork.Base.BaseActivity;
 import com.iwork.helper.ToastHelper;
 import com.iwork.model.CityList;
@@ -16,6 +17,8 @@ import com.iwork.preferences.Preferences;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
+import com.iwork.utils.TextUtil;
+import com.iwork.utils.Utils;
 import com.squareup.okhttp.Request;
 
 import org.simple.eventbus.EventBus;
@@ -63,39 +66,68 @@ public class CityListActivity extends BaseActivity {
      */
     public void getCityList() {
         cityList = new ArrayList<>();
-        CommonRequest.getCityList(new ResultCallback<CityList>() {
-            @Override
-            public void onError(Request request, Exception e) {
+        if (Utils.JudgeNetIsConnectEd(this)) {
 
-            }
+            CommonRequest.getCityList(new ResultCallback<CityList>() {
+                @Override
+                public void onError(Request request, Exception e) {
 
-            @Override
-            public void onResponse(final CityList response) {
-                if (response.getInfoCode() == 0) {
-                    cityStrings = new ArrayList<>();
-                    if (!CollectionUtil.isEmpty(response.getCitys())) {
-                        for (CityList.City c : response.getCitys()) {
-                            cityStrings.add(c.getAreaName());
-                        }
-                    }
-                    arrayAdapter = new ArrayAdapter<String>(CityListActivity.this, android.R.layout.simple_list_item_1, cityStrings);
-                    cityListView.setAdapter(arrayAdapter);
-                    cityListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            ToastHelper.showShortCompleted("城市：" + response.getCitys().get(position).getAreaName());
-                            int cityid= response.getCitys().get(position).getAreaCode();
-                            EventBus.getDefault().post(cityid, Constant.CITY);
-                            EventBus.getDefault().post(response.getCitys().get(position).getAreaName(),Constant.CITY);
-                            Preferences.getInstance().setCurrentCityId(cityid);
-                            finish();
-                        }
-                    });
-                } else {
-                    ToastHelper.showShortError(response.getMessage());
                 }
+
+                @Override
+                public void onResponse(final CityList response) {
+                    if (response.getInfoCode() == 0) {
+                        cityStrings = new ArrayList<>();
+                        if (!CollectionUtil.isEmpty(response.getCitys())) {
+                            for (CityList.City c : response.getCitys()) {
+                                cityStrings.add(c.getAreaName());
+                            }
+                        }
+                        arrayAdapter = new ArrayAdapter<String>(CityListActivity.this, android.R.layout.simple_list_item_1, cityStrings);
+                        cityListView.setAdapter(arrayAdapter);
+                        cityListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                ToastHelper.showShortCompleted("城市：" + response.getCitys().get(position).getAreaName());
+                                int cityid = response.getCitys().get(position).getAreaCode();
+                                EventBus.getDefault().post(cityid, Constant.CITY);
+                                EventBus.getDefault().post(response.getCitys().get(position).getAreaName(), Constant.CITY);
+                                Preferences.getInstance().setCurrentCityId(cityid);
+                                finish();
+                            }
+                        });
+                        String citylists = AppService.getsGson().toJson(response);
+                        Preferences.getInstance().setCityListModel(citylists);
+                    } else {
+                        ToastHelper.showShortError(response.getMessage());
+                    }
+                }
+            });
+        } else {
+            String citys = Preferences.getInstance().getCityListModel();
+            if (!TextUtil.isEmpty(citys)) {
+                cityStrings = new ArrayList<>();
+                final CityList response = AppService.getsGson().fromJson(citys, CityList.class);
+                if (!CollectionUtil.isEmpty(response.getCitys())) {
+                    for (CityList.City c : response.getCitys()) {
+                        cityStrings.add(c.getAreaName());
+                    }
+                }
+                arrayAdapter = new ArrayAdapter<String>(CityListActivity.this, android.R.layout.simple_list_item_1, cityStrings);
+                cityListView.setAdapter(arrayAdapter);
+                cityListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        ToastHelper.showShortCompleted("城市：" + response.getCitys().get(position).getAreaName());
+                        int cityid = response.getCitys().get(position).getAreaCode();
+                        EventBus.getDefault().post(cityid, Constant.CITY);
+                        EventBus.getDefault().post(response.getCitys().get(position).getAreaName(), Constant.CITY);
+                        Preferences.getInstance().setCurrentCityId(cityid);
+                        finish();
+                    }
+                });
             }
-        });
+        }
     }
 
     @Override

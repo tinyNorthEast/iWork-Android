@@ -25,10 +25,12 @@ public class BaseApplication extends Application {
     private static Context mContext;
 
     private Set<String> tagSet;
+
     @Override
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
+        AppService.getInstance().initService();
         OkHttpClientManager.getInstance().getOkHttpClient().setConnectTimeout(10000, TimeUnit.MILLISECONDS);
         JPushInterface.init(getApplicationContext());
         JPushInterface.setDebugMode(BuildConfig.JPUSH_DEBUG);
