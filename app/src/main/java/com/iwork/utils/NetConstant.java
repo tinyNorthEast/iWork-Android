@@ -8,7 +8,7 @@ public class NetConstant {
     /**
      * 基础地址
      */
-    public static final String BASE_URL = "http://123.56.125.133:8082/headhunting_api/";
+    public static final String BASE_URL = "http://123.56.125.133:8082/headhunting_api";
     /**
      * 七牛存储url前缀
      */

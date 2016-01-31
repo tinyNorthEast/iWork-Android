@@ -187,14 +187,25 @@ public class Preferences {
 
     /**
      * 保存城市列表数据
+     *
      * @param cityListModel
      */
     public void setCityListModel(String cityListModel) {
         mEditor.putString("citylist_model", cityListModel);
         mEditor.commit();
     }
-    public String getCityListModel(){
-        return mPref.getString("citylist_model","");
+
+    public String getCityListModel() {
+        return mPref.getString("citylist_model", "");
+    }
+
+    public void setIndustryListModel(String industryListModel) {
+        mEditor.putString("industryList", industryListModel);
+        mEditor.commit();
+    }
+
+    public String getIndustryListModel() {
+        return mPref.getString("industryList", "");
     }
 
     /**

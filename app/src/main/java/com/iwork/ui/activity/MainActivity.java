@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.impetusconsulting.iwork.R;
+import com.iwork.Base.AppService;
 import com.iwork.Base.BaseActivity;
 import com.iwork.model.IndustryListModel;
 import com.iwork.net.CommonRequest;
@@ -20,11 +21,12 @@ import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.preferences.Preferences;
 import com.iwork.ui.activity.myself.MySelfActivity;
 import com.iwork.ui.fragment.SampleFragment;
-import com.iwork.ui.view.SlidingTabLayout;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.ui.view.ViewPagerAdapter;
 import com.iwork.ui.view.scroll.FixedSpeedScroller;
 import com.iwork.utils.Constant;
+import com.iwork.utils.TextUtil;
+import com.iwork.utils.Utils;
 import com.squareup.okhttp.Request;
 
 import org.simple.eventbus.EventBus;
@@ -61,25 +63,37 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
     }
 
     private void getIndustryData() {
-        CommonRequest.getIndustryList(new ResultCallback<IndustryListModel>() {
-            @Override
-            public void onError(Request request, Exception e) {
+        if (Utils.JudgeNetIsConnectEd(this)) {
 
-            }
+            CommonRequest.getIndustryList(new ResultCallback<IndustryListModel>() {
+                @Override
+                public void onError(Request request, Exception e) {
 
-            @Override
-            public void onResponse(IndustryListModel response) {
-                if (response.getInfoCode() == 0) {
-                    initTabLayout(response.getData());
                 }
+
+                @Override
+                public void onResponse(IndustryListModel response) {
+                    if (response.getInfoCode() == 0) {
+                        initTabLayout(response.getData());
+                        String industrys = AppService.getsGson().toJson(response);
+                        Preferences.getInstance().setIndustryListModel(industrys);
+                    }
+                }
+            });
+        } else {
+            String industry = Preferences.getInstance().getIndustryListModel();
+            if (!TextUtil.isEmpty(industry)) {
+                IndustryListModel industryListModel = AppService.getsGson().fromJson(industry, IndustryListModel.class);
+                initTabLayout(industryListModel.getData());
             }
-        });
+        }
     }
+
 
     private void initTabLayout(List<IndustryListModel.Industry> list) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), list);
         viewpager.setAdapter(adapter);
-//        setViewPagerScrollSpeed();
+        setViewPagerScrollSpeed();
         slidingTabs.setTabMode(TabLayout.MODE_SCROLLABLE);
         slidingTabs.setupWithViewPager(viewpager);
         slidingTabs.setTabsFromPagerAdapter(adapter);
