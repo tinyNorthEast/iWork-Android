@@ -1,5 +1,6 @@
 package com.iwork.ui.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -137,12 +138,12 @@ public class SampleFragment extends Fragment {
                         if (!LoginUtil.isLogin()) {
                             ToastHelper.showShortError(getResources().getString(R.string.no_login));
                             Intent intent = new Intent(getActivity(), LoginActivity.class);
-                            startActivity(intent);
+                            startActivityForResult(intent,0);
                             return;
                         }
                         Intent intent = new Intent(getActivity(), CommentActivity.class);
                         intent.putExtra(Constant.COMMENTID, item.getUserId());
-                        startActivity(intent);
+                        startActivityForResult(intent,0);
                     }
                 });
                 final CheckBox checkBox = helper.getCheckBox(R.id.item_good);
@@ -203,7 +204,7 @@ public class SampleFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), PersonDetailActivty.class);
                 intent.putExtra(Constant.OBJID, persons.get(position).getObjId());
                 intent.putExtra(Constant.USERID, persons.get(position).getUserId());
-                startActivity(intent);
+                startActivityForResult(intent,0);
 
             }
         });
@@ -344,7 +345,12 @@ public class SampleFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        if (resultCode == Activity.RESULT_OK) {
+            if (cityId == 0) {
+                cityId = Preferences.getInstance().getCurrentCityId();
+            }
+            getData(cityId);
+        }
     }
 
     @Override
@@ -381,7 +387,7 @@ public class SampleFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
+     * <p>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

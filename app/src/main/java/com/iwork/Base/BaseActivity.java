@@ -3,7 +3,6 @@ package com.iwork.Base;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -89,8 +88,8 @@ public class BaseActivity extends AppCompatActivity {
     protected View.OnClickListener backListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            finish();
             setResult(RESULT_OK);
+            finish();
         }
     };
 }
