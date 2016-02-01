@@ -51,6 +51,8 @@ import com.iwork.utils.TimeUtil;
 import com.socks.library.KLog;
 import com.squareup.okhttp.Request;
 
+import org.simple.eventbus.EventBus;
+
 import java.util.List;
 
 import butterknife.Bind;
@@ -120,6 +122,7 @@ public class PersonDetailActivty extends BaseActivity {
         hr_mail = Preferences.getInstance().getmail();
         getData();
         initBottomlayout();
+        EventBus.getDefault().register(this);
     }
 
     /**
@@ -369,7 +372,7 @@ public class PersonDetailActivty extends BaseActivity {
         detailPersonFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                int isAttention;
+                final int isAttention;
                 if (isChecked) {
                     isAttention = 1;
                 } else {
@@ -386,6 +389,7 @@ public class PersonDetailActivty extends BaseActivity {
                     public void onResponse(CommonModel response) {
                         if (response.getInfoCode() == 0) {
                             ToastHelper.showShortCompleted(response.getMessage());
+                            EventBus.getDefault().post(isAttention,Constant.ATTENTION_STATE);
                         } else if (response.getInfoCode() == Constant.TOKENFAIL) {
                             Intent intent = new Intent(PersonDetailActivty.this, LoginActivity.class);
                             startActivity(intent);
@@ -508,6 +512,12 @@ public class PersonDetailActivty extends BaseActivity {
         animator.start();
     }
 
+    /**
+     * 设置关注图标的状态
+     * @param checkBox
+     * @param attention
+     */
+
     private void setCheckBoxStatus(CheckBox checkBox, int attention) {
         if (attention == 1) {
             checkBox.setBackgroundResource(R.drawable.common_store_select);
@@ -559,5 +569,11 @@ public class PersonDetailActivty extends BaseActivity {
         });
 
         animator.start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }
