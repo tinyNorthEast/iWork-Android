@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,8 @@ public class SampleFragment extends Fragment {
     QuickAdapter<MainList.Person> mAdapter;
     private OnFragmentInteractionListener mListener;
     private BadgeView badgeView;
+    private SparseBooleanArray checkStatus = new SparseBooleanArray();
+    private boolean lockstatus = false;
 
     public SampleFragment() {
         // Required empty public constructor
@@ -138,12 +141,12 @@ public class SampleFragment extends Fragment {
                         if (!LoginUtil.isLogin()) {
                             ToastHelper.showShortError(getResources().getString(R.string.no_login));
                             Intent intent = new Intent(getActivity(), LoginActivity.class);
-                            startActivityForResult(intent,0);
+                            startActivityForResult(intent, 0);
                             return;
                         }
                         Intent intent = new Intent(getActivity(), CommentActivity.class);
                         intent.putExtra(Constant.COMMENTID, item.getUserId());
-                        startActivityForResult(intent,0);
+                        startActivityForResult(intent, 0);
                     }
                 });
                 final CheckBox checkBox = helper.getCheckBox(R.id.item_good);
@@ -152,9 +155,15 @@ public class SampleFragment extends Fragment {
                 } else {
                     checkBox.setChecked(false);
                 }
+                final int postion = helper.getLayoutPosition();
+                checkBox.setTag(postion);
                 checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    public void onCheckedChanged(final CompoundButton buttonView, final boolean isChecked) {
+                        if (lockstatus) {
+                            return;
+                        }
+                        lockstatus = true;
                         int isAttention;
                         if (isChecked) {
                             isAttention = 1;
@@ -171,17 +180,25 @@ public class SampleFragment extends Fragment {
                             public void onResponse(CommonModel response) {
                                 if (response.getInfoCode() == 0) {
                                     ToastHelper.showShortCompleted(response.getMessage());
+//                                    buttonView.setChecked(isChecked);
+                                    checkStatus.put((int) buttonView.getTag(), true);
+                                    lockstatus = false;
                                 } else if (response.getInfoCode() == Constant.TOKENFAIL) {
                                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                                     startActivity(intent);
-                                    setCheckBoxStatus(checkBox, item.getIsAttention());
+                                    checkStatus.delete((int) buttonView.getTag());
+//                                    buttonView.setChecked(!isChecked);
                                     ToastHelper.showShortError(response.getMessage());
+                                    lockstatus = false;
                                 } else {
                                     ToastHelper.showShortError(response.getMessage());
-                                    setCheckBoxStatus(checkBox, item.getIsAttention());
+                                    checkStatus.delete((int) buttonView.getTag());
+//                                    buttonView.setChecked(!isChecked);
+                                    lockstatus = false;
                                 }
                             }
                         });
+                        checkBox.setChecked(checkStatus.get(postion, false));
                     }
                 });
                 if (!CollectionUtil.isEmpty(item.getIndustryList())) {
@@ -204,10 +221,11 @@ public class SampleFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), PersonDetailActivty.class);
                 intent.putExtra(Constant.OBJID, persons.get(position).getObjId());
                 intent.putExtra(Constant.USERID, persons.get(position).getUserId());
-                startActivityForResult(intent,0);
+                startActivityForResult(intent, 0);
 
             }
         });
+        recyclerView.setSaveEnabled(true);
     }
 
     private void setCheckBoxStatus(CheckBox checkBox, int attention) {

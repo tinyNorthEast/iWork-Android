@@ -208,6 +208,22 @@ public class Preferences {
         return mPref.getString("industryList", "");
     }
 
+    public void setSplashHasShow(){
+        mEditor.putBoolean("splashhasshow",true);
+        mEditor.commit();
+    }
+    public boolean getSplashHasShow(){
+        return  mPref.getBoolean("splashhasshow",false);
+    }
+
+    public void setSplashButtonShow() {
+        mEditor.putBoolean("splashbuttonhasshow", true);
+        mEditor.commit();
+    }
+
+    public boolean getSplashButtonShow() {
+        return mPref.getBoolean("splashbuttonhasshow", false);
+    }
     /**
      * 清除数据
      */
