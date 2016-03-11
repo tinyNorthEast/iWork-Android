@@ -369,6 +369,9 @@ public class PersonDetailActivty extends BaseActivity {
      * 点击收藏
      */
     public void setFavorite(final int favorite) {
+        if (userId ==Preferences.getInstance().getUserId()){
+            return;
+        }
         detailPersonFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

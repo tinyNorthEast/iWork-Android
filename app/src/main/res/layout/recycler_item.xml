@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    xmlns:tools="http://schemas.android.com/tools"
     card_view:cardCornerRadius="4dp">
 
     <LinearLayout
@@ -21,73 +21,97 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
             android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/head_icon" />
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:orientation="horizontal">
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/item_zh_name"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="陈晓旭"
-                    android:textSize="16sp"
-                    android:visibility="visible" />
+                    android:layout_weight="4"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/item_zh_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:visibility="visible"
+                        tools:text="陈晓旭" />
+
+                    <TextView
+                        android:id="@+id/item_position"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:textSize="15sp"
+                        tools:text="IT互联网" />
+
+                    <TextView
+                        android:id="@+id/item_decollate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="|"
+                        android:textSize="16sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/item_role"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="15sp"
+                        tools:text="广告媒体" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/item_position"
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    tools:text="IT互联网"
-                    android:textSize="15sp" />
+                    tools:text="一对一服务，真诚，守信，视您的口碑为生命" />
 
-                <TextView
-                    android:id="@+id/item_decollate"
+                <LinearLayout
+                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="|"
-                    android:visibility="gone"
-                    android:textSize="16sp" />
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/item_role"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    tools:text="广告媒体"
-                    android:textSize="15sp" />
+                    <CheckBox
+                        android:id="@+id/item_good"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/common_store_main_selecter"
+                        android:button="@null"
+                        android:checked="false" />
+
+                    <RelativeLayout
+                        android:id="@+id/item_comment"
+                        android:layout_width="25dp"
+                        android:layout_height="23dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_gravity="right"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:src="@drawable/common_comment" />
+                    </RelativeLayout>
+                </LinearLayout>
             </LinearLayout>
-
-            <CheckBox
-                android:id="@+id/item_good"
-                android:layout_width="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_height="wrap_content"
-                android:button="@null"
-                android:layout_gravity="right|center_vertical"
-                android:checked="false"
-                android:background="@drawable/common_store_main_selecter" />
-
-            <RelativeLayout
-                android:id="@+id/item_comment"
-                android:layout_width="25dp"
-                android:layout_height="23dp"
-                android:layout_gravity="right"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:src="@drawable/common_comment" />
-            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 
@@ -98,9 +122,9 @@
         android:layout_marginTop="50dp"
         android:background="@drawable/main_first"
         android:gravity="center"
-        tools:text="人气顾问第一名"
         android:textColor="@color/white"
         android:textSize="13sp"
-        android:visibility="visible" />
+        android:visibility="visible"
+        tools:text="人气顾问第一名" />
 
 </FrameLayout>
