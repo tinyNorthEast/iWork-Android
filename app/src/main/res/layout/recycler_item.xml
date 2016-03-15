@@ -24,8 +24,9 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/item_small_pic"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:src="@drawable/head_icon" />
 
             <LinearLayout
@@ -76,6 +77,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/item_signature"
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

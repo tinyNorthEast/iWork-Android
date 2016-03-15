@@ -31,6 +31,7 @@ import com.iwork.ui.activity.LoginActivity;
 import com.iwork.ui.activity.common.CommentActivity;
 import com.iwork.ui.activity.persondetail.PersonDetailActivty;
 import com.iwork.ui.view.BadgeView;
+import com.iwork.ui.view.CircleTransform;
 import com.iwork.ui.view.DividerItemDecoration;
 import com.iwork.utils.CollectionUtil;
 import com.iwork.utils.Constant;
@@ -116,6 +117,10 @@ public class SampleFragment extends Fragment {
                 helper.getTextView(R.id.item_zh_name).setText(item.getRealName());
                 Glide.with(getContext()).load(item.getPic()).error(R.drawable.main_no_pic).placeholder(R.drawable.main_no_pic).
                         into(helper.getImageView(R.id.item_pic));
+                Glide.with(getContext()).load(item.getSmallPic()).transform(new CircleTransform(getContext())).
+                        error(R.drawable.myself_head).placeholder(R.drawable.myself_head).into(helper.getImageView(R.id.item_small_pic));
+
+                helper.getTextView(R.id.item_signature).setText(item.getSignature());
                 TextView ranking_flag_tv = helper.getTextView(R.id.item_flag);
                 if (item.getRanking() == 1) {
                     ranking_flag_tv.setVisibility(View.VISIBLE);
@@ -405,7 +410,7 @@ public class SampleFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
+     * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

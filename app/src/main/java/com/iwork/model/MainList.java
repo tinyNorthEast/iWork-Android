@@ -60,10 +60,20 @@ public class MainList extends BaseModel{
         private int objId;
         private String realName;
         private String pic;
+        private String smallPic;
         private int ranking;
         private int commentCount;
         private int userId;
         private int isAttention;
+        private String signature;
+
+        public String getSignature() {
+            return signature;
+        }
+
+        public void setSignature(String signature) {
+            this.signature = signature;
+        }
 
         public int getIsAttention() {
             return isAttention;
@@ -107,6 +117,14 @@ public class MainList extends BaseModel{
 
         public void setIndustryList(List<IndustryListEntity> industryList) {
             this.industryList = industryList;
+        }
+
+        public String getSmallPic() {
+            return smallPic;
+        }
+
+        public void setSmallPic(String smallPic) {
+            this.smallPic = smallPic;
         }
 
         public int getObjId() {
