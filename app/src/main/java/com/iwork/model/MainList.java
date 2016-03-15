@@ -66,6 +66,15 @@ public class MainList extends BaseModel{
         private int userId;
         private int isAttention;
         private String signature;
+        private int attentionCount;
+
+        public int getAttentionCount() {
+            return attentionCount;
+        }
+
+        public void setAttentionCount(int attentionCount) {
+            this.attentionCount = attentionCount;
+        }
 
         public String getSignature() {
             return signature;

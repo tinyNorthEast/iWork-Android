@@ -40,7 +40,8 @@
     <string name="message_count">您有 %d 条未读消息</string>
     <string name="get_author_success">申请权限成功，请耐心等待</string>
     <string name="send_message_count">当前您还能输入 %d 个字</string>
-
+    <string name="item_good_count">%s人点赞</string>
+    <string name="item_comment_count">%s人评论</string>
     <string-array name="avatar_menu">
         <item>拍照</item>
         <item>从手机相册选择</item>

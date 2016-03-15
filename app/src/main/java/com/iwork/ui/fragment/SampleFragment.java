@@ -138,8 +138,9 @@ public class SampleFragment extends Fragment {
                     ranking_flag_tv.setVisibility(View.GONE);
                 }
                 if (item.getCommentCount() != 0)
-                    showBadgeView(helper.getLayout(R.id.item_comment), item.getCommentCount() + "");
-
+//                    showBadgeView(helper.getLayout(R.id.item_comment), item.getCommentCount() + "");
+                    helper.getTextView(R.id.item_comment_count_tv).setText(String.format(getResources().getString(R.string.item_comment_count), item.getCommentCount()));
+                helper.getTextView(R.id.item_goog_count_tv).setText(String.format(getResources().getString(R.string.item_good_count), item.getAttentionCount()));
                 helper.getLayout(R.id.item_comment).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -410,7 +411,7 @@ public class SampleFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
+     * <p>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
