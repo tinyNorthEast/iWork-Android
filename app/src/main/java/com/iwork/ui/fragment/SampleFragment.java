@@ -249,7 +249,7 @@ public class SampleFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setBackgroundColor(getResources().getColor(R.color.white));
         recyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
+//        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         recyclerView.setLaodingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
         recyclerView.setLoadingMoreEnabled(true);
         recyclerView.setLoadingListener(loadingListener);

@@ -42,6 +42,8 @@
     <string name="send_message_count">当前您还能输入 %d 个字</string>
     <string name="item_good_count">%s人点赞</string>
     <string name="item_comment_count">%s人评论</string>
+    <string name="invate_code_content">欢迎您加入猎赞，并感谢您对猎赞的信任与支持。现阶段猎赞仅支持邀请注册，我们为您准备了2个邀请码，您可以发给您值得信赖的猎头朋友，我们诚挚的欢迎您朋友的加入。
+您的邀请码如下，每个邀请码仅可使用一次。每个邀请码如经有效使用，您将获得星巴克中杯咖啡饮料券一张或￥50元的账户余额，账户余额将可在猎赞即将推出的多项增值服务中直接使用。(此部分须跟Rita沟通确认) /n 您的邀请码</string>
     <string-array name="avatar_menu">
         <item>拍照</item>
         <item>从手机相册选择</item>

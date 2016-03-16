@@ -15,11 +15,12 @@
         android:id="@+id/invatecode_des"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
+        android:padding="10dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/invatecode_titlebar"
         android:layout_centerHorizontal="true"
-        android:text="邀请码的说明"
-        android:textSize="23sp" />
+        android:text="@string/invate_code_content"
+        android:textSize="15sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
