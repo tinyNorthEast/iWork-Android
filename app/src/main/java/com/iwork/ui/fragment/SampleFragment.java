@@ -121,22 +121,22 @@ public class SampleFragment extends Fragment {
                         error(R.drawable.myself_head).placeholder(R.drawable.myself_head).into(helper.getImageView(R.id.item_small_pic));
 
                 helper.getTextView(R.id.item_signature).setText(item.getSignature());
-                TextView ranking_flag_tv = helper.getTextView(R.id.item_flag);
-                if (item.getRanking() == 1) {
-                    ranking_flag_tv.setVisibility(View.VISIBLE);
-                    ranking_flag_tv.setText("人气顾问第一名");
-                    ranking_flag_tv.setBackgroundResource(R.drawable.main_first);
-                } else if (item.getRanking() == 2) {
-                    ranking_flag_tv.setVisibility(View.VISIBLE);
-                    ranking_flag_tv.setText("人气顾问第二名");
-                    ranking_flag_tv.setBackgroundResource(R.drawable.main_second);
-                } else if (item.getRanking() == 3) {
-                    ranking_flag_tv.setVisibility(View.VISIBLE);
-                    ranking_flag_tv.setText("人气顾问第三名");
-                    ranking_flag_tv.setBackgroundResource(R.drawable.main_thirdly);
-                } else {
-                    ranking_flag_tv.setVisibility(View.GONE);
-                }
+//                TextView ranking_flag_tv = helper.getTextView(R.id.item_flag);
+//                if (item.getRanking() == 1) {
+//                    ranking_flag_tv.setVisibility(View.VISIBLE);
+//                    ranking_flag_tv.setText("人气顾问第一名");
+//                    ranking_flag_tv.setBackgroundResource(R.drawable.main_first);
+//                } else if (item.getRanking() == 2) {
+//                    ranking_flag_tv.setVisibility(View.VISIBLE);
+//                    ranking_flag_tv.setText("人气顾问第二名");
+//                    ranking_flag_tv.setBackgroundResource(R.drawable.main_second);
+//                } else if (item.getRanking() == 3) {
+//                    ranking_flag_tv.setVisibility(View.VISIBLE);
+//                    ranking_flag_tv.setText("人气顾问第三名");
+//                    ranking_flag_tv.setBackgroundResource(R.drawable.main_thirdly);
+//                } else {
+//                    ranking_flag_tv.setVisibility(View.GONE);
+//                }
                 if (item.getCommentCount() != 0)
 //                    showBadgeView(helper.getLayout(R.id.item_comment), item.getCommentCount() + "");
                     helper.getTextView(R.id.item_comment_count_tv).setText(String.format(getResources().getString(R.string.item_comment_count), item.getCommentCount()));

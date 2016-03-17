@@ -133,16 +133,16 @@
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/item_flag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/main_first"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="13sp"
-        android:visibility="visible"
-        tools:text="人气顾问第一名" />
+    <!--<TextView-->
+        <!--android:id="@+id/item_flag"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="50dp"-->
+        <!--android:background="@drawable/main_first"-->
+        <!--android:gravity="center"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="13sp"-->
+        <!--android:visibility="visible"-->
+        <!--tools:text="人气顾问第一名" />-->
 
 </FrameLayout>
