@@ -21,6 +21,7 @@ import com.iwork.okhttp.callback.ResultCallback;
 import com.iwork.preferences.Preferences;
 import com.iwork.ui.activity.myself.MySelfActivity;
 import com.iwork.ui.fragment.SampleFragment;
+import com.iwork.ui.view.MyViewPager;
 import com.iwork.ui.view.TitleBar;
 import com.iwork.ui.view.ViewPagerAdapter;
 import com.iwork.ui.view.scroll.FixedSpeedScroller;
@@ -45,7 +46,7 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
     @Bind(R.id.sliding_tabs)
     TabLayout slidingTabs;
     @Bind(R.id.viewpager)
-    ViewPager viewpager;
+    MyViewPager viewpager;
     private long currentBackTime;
     private long lastBackTime;
 
@@ -93,6 +94,7 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
     private void initTabLayout(List<IndustryListModel.Industry> list) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), list);
         viewpager.setAdapter(adapter);
+        viewpager.setNoScroll(true);
         setViewPagerScrollSpeed();
         slidingTabs.setTabMode(TabLayout.MODE_SCROLLABLE);
         slidingTabs.setupWithViewPager(viewpager);

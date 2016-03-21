@@ -27,7 +27,7 @@
                 android:id="@+id/item_small_pic"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:src="@drawable/head_icon" />
+                android:src="@drawable/item_head" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -109,17 +109,17 @@
 
                     <RelativeLayout
                         android:id="@+id/item_comment"
-                        android:layout_width="25dp"
-                        android:layout_height="23dp"
-                        android:layout_gravity="right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_marginLeft="15dp"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:src="@drawable/common_comment" />
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/item_comment" />
                     </RelativeLayout>
 
                     <TextView
