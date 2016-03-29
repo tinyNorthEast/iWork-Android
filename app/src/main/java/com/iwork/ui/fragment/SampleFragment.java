@@ -115,7 +115,7 @@ public class SampleFragment extends Fragment {
             @Override
             protected void convert(BaseAdapterHelper helper, final MainList.Person item) {
                 helper.getTextView(R.id.item_zh_name).setText(item.getRealName());
-                Glide.with(getContext()).load(item.getPic()).error(R.drawable.main_no_pic).placeholder(R.drawable.main_no_pic).
+                Glide.with(getContext()).load(item.getPic()).error(R.drawable.main_no_pic).placeholder(R.drawable.main_no_pic).fitCenter().centerCrop().
                         into(helper.getImageView(R.id.item_pic));
                 Glide.with(getContext()).load(item.getSmallPic()).transform(new CircleTransform(getContext())).
                         error(R.drawable.myself_head).placeholder(R.drawable.myself_head).into(helper.getImageView(R.id.item_small_pic));

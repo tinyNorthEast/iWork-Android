@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_marginBottom="5dp"
-    card_view:cardCornerRadius="4dp">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,7 +38,6 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4"
                     android:orientation="horizontal">
 
                     <TextView
@@ -55,7 +53,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         tools:text="IT互联网" />
 
                     <TextView
@@ -64,7 +62,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:text="|"
-                        android:textSize="16sp"
+                        android:textSize="13sp"
                         android:visibility="gone" />
 
                     <TextView
@@ -72,7 +70,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         tools:text="广告媒体" />
                 </LinearLayout>
 
@@ -131,18 +129,11 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+        <View
+            android:layout_width="wrap_content"
+            android:background="@color/gray"
+            android:layout_height="2px"/>
     </LinearLayout>
 
-    <!--<TextView-->
-        <!--android:id="@+id/item_flag"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="50dp"-->
-        <!--android:background="@drawable/main_first"-->
-        <!--android:gravity="center"-->
-        <!--android:textColor="@color/white"-->
-        <!--android:textSize="13sp"-->
-        <!--android:visibility="visible"-->
-        <!--tools:text="人气顾问第一名" />-->
 
 </FrameLayout>
