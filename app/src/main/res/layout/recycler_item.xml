@@ -89,11 +89,11 @@
 
                     <CheckBox
                         android:id="@+id/item_good"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
                         android:layout_gravity="right|center_vertical"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/common_store_main_selecter"
+                        android:background="@drawable/myself_set_attention"
                         android:button="@null"
                         android:checked="false" />
 
@@ -111,6 +111,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="15dp"
+                        android:layout_marginRight="10dp"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -131,7 +132,7 @@
         </LinearLayout>
         <View
             android:layout_width="wrap_content"
-            android:background="@color/gray"
+            android:background="#ececec"
             android:layout_height="2px"/>
     </LinearLayout>
 
