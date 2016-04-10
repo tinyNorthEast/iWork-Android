@@ -97,6 +97,7 @@ public class MySelfActivity extends BaseActivity {
                     Preferences.getInstance().setmail(response.getData().getMail());
                     Preferences.getInstance().setEnName(response.getData().getEn_name());
                     Preferences.getInstance().setExperience(response.getData().getExperience());
+                    Preferences.getInstance().setMyselfSignature(response.getData().getSignature());
                     showBadgeView(myselfMessagesTv, response.getData().getNoticeCount() + "");
                 } else if (response.getInfoCode()==Constant.TOKENFAIL){
                     LoginUtil.goToLogin(MySelfActivity.this);

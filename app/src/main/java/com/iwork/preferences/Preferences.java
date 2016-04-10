@@ -224,6 +224,14 @@ public class Preferences {
     public boolean getSplashButtonShow() {
         return mPref.getBoolean("splashbuttonhasshow", false);
     }
+
+    public void setMyselfSignature(String signature){
+        mEditor.putString("mysignature",signature);
+        mEditor.commit();
+    }
+    public String getMyselfSignature(){
+        return mPref.getString("mysignature","");
+    }
     /**
      * 清除数据
      */

@@ -42,8 +42,8 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:layout_width="wrap_content"
                 android:id="@+id/set_head_icon_iv"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -183,6 +183,38 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:hint="请输入您要更改的公司名称"
+                android:src="@drawable/common_right_arrow"
+                android:textColor="@color/text_color_dark_gray"
+                android:textColorHint="@color/text_color_s_gray" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_line_height"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:id="@+id/myself_setmysignature"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/myself_layout_height"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="个人签名"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/myself_setmysignature_ed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:hint="本人很懒，没有签名"
                 android:src="@drawable/common_right_arrow"
                 android:textColor="@color/text_color_dark_gray"
                 android:textColorHint="@color/text_color_s_gray" />

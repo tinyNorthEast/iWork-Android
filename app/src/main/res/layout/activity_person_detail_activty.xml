@@ -48,8 +48,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_alignParentBottom="true"
-                    >
+                    android:layout_alignParentBottom="true">
 
                     <TextView
                         android:id="@+id/detail_person_realname"
@@ -266,26 +265,21 @@
                     android:id="@+id/detail_comment_more_bt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="50dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="50dp"
                     android:background="@drawable/fb_content_bg"
                     android:orientation="vertical"
                     android:text="查看全部评论"
                     android:textColor="@color/text_color_bg"
                     android:visibility="visible" />
-
             </LinearLayout>
-
         </LinearLayout>
     </com.iwork.ui.view.ObservableScrollView>
 
     <include
         layout="@layout/detail_bottom_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_below="@+id/detail_scrollview" />
-
+        android:layout_height="wrap_content" />
 </RelativeLayout>

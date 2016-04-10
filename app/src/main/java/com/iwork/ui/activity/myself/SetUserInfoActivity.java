@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -71,6 +72,10 @@ public class SetUserInfoActivity extends BaseActivity {
     ImageView setHeadIconIv;
     @Bind(R.id.set_head_icon_rl)
     RelativeLayout setHeadIcon_layout;
+    @Bind(R.id.myself_setmysignature_ed)
+    EditText myselfSetmysignatureEd;
+    @Bind(R.id.myself_setmysignature)
+    LinearLayout myselfSetmysignature;
 
     private ListPickerWindow<String> mExplistPickerWindow;
     private int experience;
@@ -90,19 +95,22 @@ public class SetUserInfoActivity extends BaseActivity {
         setuserTitlebar.setBackDrawableListener(backListener);
         setuserTitlebar.setRightTextView("保存", R.color.white, saveListener);
         mAvatarOriginFile = FileConfig.getPhotoOutputFile();
-        if (TextUtil.isEmpty(Preferences.getInstance().getQiNiuToken())){
+        if (TextUtil.isEmpty(Preferences.getInstance().getQiNiuToken())) {
             CommonRequest.getQiniuToken(callback);
-        }else {
+        } else {
             qiniuToken = Preferences.getInstance().getQiNiuToken();
         }
-        if (!TextUtil.isEmpty(Preferences.getInstance().getUserHeadUrl())){
+        if (!TextUtil.isEmpty(Preferences.getInstance().getUserHeadUrl())) {
             Glide.with(this).load(Preferences.getInstance().getUserHeadUrl()).transform(new CircleTransform(this)).error(R.drawable.head_icon).placeholder(R.drawable.head_icon).into(setHeadIconIv);
         }
-        if (!TextUtil.isEmpty(Preferences.getInstance().getmail())){
+        if (!TextUtil.isEmpty(Preferences.getInstance().getmail())) {
             myselfSetmyemailEd.setHint(Preferences.getInstance().getmail());
         }
-        if (!TextUtil.isEmpty(Preferences.getInstance().getEnName())){
+        if (!TextUtil.isEmpty(Preferences.getInstance().getEnName())) {
             myselfSetmyenameEd.setHint(Preferences.getInstance().getEnName());
+        }
+        if (!TextUtil.isEmpty(Preferences.getInstance().getMyselfSignature())){
+            myselfSetmysignatureEd.setHint(Preferences.getInstance().getMyselfSignature());
         }
         myselfSetmyexpersenceTv.setText(getResources().getStringArray(R.array.experience)[Preferences.getInstance().getExperience()]);
     }
@@ -132,6 +140,7 @@ public class SetUserInfoActivity extends BaseActivity {
             String email = myselfSetmyemailEd.getText().toString().trim();
             String en_name = myselfSetmyenameEd.getText().toString().trim();
             String company = myselfSetmycompanyEd.getText().toString().trim();
+            String signature = myselfSetmysignatureEd.getText().toString().trim();
             if (TextUtil.isEmpty(email) && TextUtil.isEmpty(en_name) && TextUtil.isEmpty(company) && TextUtil.isEmpty(img_url)) {
                 ToastHelper.showShortError("请确认您要修改的信息");
             }
@@ -139,7 +148,7 @@ public class SetUserInfoActivity extends BaseActivity {
                 ToastHelper.showShortError("请正确填写您的邮箱");
                 return;
             }
-            CommonRequest.setUserInfo(en_name, email, company, experience, img_url, new ResultCallback<CommonModel>() {
+            CommonRequest.setUserInfo(en_name, email, company, experience, img_url,signature, new ResultCallback<CommonModel>() {
                 @Override
                 public void onError(Request request, Exception e) {
 
@@ -238,7 +247,7 @@ public class SetUserInfoActivity extends BaseActivity {
 
     private void updateAvatar(String absolutePath) {
         Bitmap bitmap = ImageUtil.createBitmap(absolutePath);
-        setHeadIconIv.setImageBitmap(ImageUtil.round(bitmap,200,true));
+        setHeadIconIv.setImageBitmap(ImageUtil.round(bitmap, 200, true));
         UploadManager uploadManager = new UploadManager();
         String key = getImageKey();
         String token = qiniuToken;

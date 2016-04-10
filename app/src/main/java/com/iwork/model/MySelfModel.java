@@ -8,7 +8,7 @@ import com.iwork.Base.BaseModel;
  * Created by JianTao on 15/12/24.
  * Copyright © 2015 impetusconsulting. All rights reserved
  */
-public class MySelfModel extends BaseModel{
+public class MySelfModel extends BaseModel {
 
 
     /**
@@ -55,7 +55,7 @@ public class MySelfModel extends BaseModel{
         return data;
     }
 
-    public static class DataEntity extends BaseModel{
+    public static class DataEntity extends BaseModel {
         private String zh_name;
         private String mail;
         private String en_name;
@@ -63,6 +63,15 @@ public class MySelfModel extends BaseModel{
         private String roleName;
         private String pic;
         private int noticeCount;
+        private String signature;
+
+        public String getSignature() {
+            return signature;
+        }
+
+        public void setSignature(String signature) {
+            this.signature = signature;
+        }
 
         public void setZh_name(String zh_name) {
             this.zh_name = zh_name;
