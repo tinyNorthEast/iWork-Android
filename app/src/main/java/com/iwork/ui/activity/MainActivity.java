@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity implements SampleFragment.OnFragm
         titleBar.hideBackDrawable();
         titleBar.setMeDrawableListener(loginListener);
         titleBar.setCustomImageButtonLeft(R.drawable.common_icon_transfer_down, "北京", positionListener);
-        titleBar.showCenterImg();
+        titleBar.hideCenterImg();
         getIndustryData();
         EventBus.getDefault().register(this);
     }
