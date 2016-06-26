@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: "cn.jiajixin.nuwa"
+
 
 android {
     compileSdkVersion 23
@@ -68,4 +70,5 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.2.0'
     compile "com.daimajia.swipelayout:library:1.2.0@aar"
     compile 'org.simple:androideventbus:1.0.5'
+    compile 'cn.jiajixin.nuwa:nuwa:1.0.0'
 }

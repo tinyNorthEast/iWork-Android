@@ -2,6 +2,7 @@ package com.iwork.Base;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import com.impetusconsulting.iwork.BuildConfig;
 import com.iwork.model.UserInfo;
@@ -12,6 +13,7 @@ import com.socks.library.KLog;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import cn.jiajixin.nuwa.Nuwa;
 import cn.jpush.android.api.JPushInterface;
 import cn.sharesdk.framework.ShareSDK;
 import cn.smssdk.SMSSDK;
@@ -46,5 +48,13 @@ public class BaseApplication extends Application {
     private static UserInfo userInfo;
     public static UserInfo getmUserInfo() {
         return userInfo;
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        Nuwa.init(this);
+        Nuwa.loadPatch(this, "/sdcard/patch.jar");
+        Log.d("ylm", getFilesDir().getAbsolutePath());
     }
 }
